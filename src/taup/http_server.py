@@ -1,5 +1,6 @@
 
 from threading  import Thread, Event
+from pathlib import Path
 import shutil
 import subprocess
 import time
@@ -19,6 +20,8 @@ class TauPServer:
             self.taup_path=shutil.which("taup")
         else:
             self.taup_path=taup_path
+        if self.taup_path is None or not Path(self.taup_path).exists():
+            raise Exception(f"Cannot find executable for {self.taup_path}, not on PATH?")
         self._taup = None
         self._stop_event = None
 
@@ -70,7 +73,7 @@ class TauPServer:
 
     def queryJson(self, params):
         if self._taup is None:
-            raise Error("TauP is None???")
+            raise Exception("TauP is None???")
         r = requests.get(f'http://localhost:{self.port}/time', params=params, timeout=3)
         jsonTimes = r.json()
         return jsonTimes
