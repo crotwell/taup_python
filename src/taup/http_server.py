@@ -48,7 +48,7 @@ class TauPServer:
         def copyStdOut(out, stop_event):
             try:
                 while not stop_event.is_set():
-                    line = out.readline().decode("utf-8")
+                    line = out.readline().decode("utf-8").strip()
                     print(f"TauP: {line}", file=sys.stderr)
             except Exception as err:
                 print('exception, quitting copy to stdou')
@@ -71,9 +71,17 @@ class TauPServer:
             self._stop_event.set()
             self._stop_event = None
 
-    def queryJson(self, params):
+    def queryTime(self, params):
+        return self.queryJson(params, "time")
+
+    def queryJson(self, params, tool="time"):
         if self._taup is None:
             raise Exception("TauP is None???")
-        r = requests.get(f'http://localhost:{self.port}/time', params=params, timeout=3)
+        if hasattr(params, "create_params"):
+            params = params.create_params()
+        taup_url = f'http://localhost:{self.port}/{tool}'
+        print(f"Query: {taup_url}")
+        print(f"Params: {params}")
+        r = requests.get(taup_url, params=params, timeout=3)
         jsonTimes = r.json()
         return jsonTimes
