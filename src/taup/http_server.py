@@ -71,6 +71,10 @@ class TauPServer:
         # close down the web server
         if self._taup is not None:
             self._taup.terminate()
+            try:
+                self._taup.wait(3)
+            except:
+                self._taup.kill()
             self._taup=None
         if self._stop_event is not None:
             self._stop_event.set()
