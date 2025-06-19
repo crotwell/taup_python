@@ -27,345 +27,490 @@ class WavefrontQuery:
 
 
   def get_mod(self):
+    """
+    returns current value of model as a String
+    """
     return self._model
 
   def mod(self, val):
     """
-    String
-    
+    Sets the model parameter, of type String    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
     Also known as --model in command line.
+
+    :param val: value to set model to
     """
     self._model = val
     return self
 
   def get_model(self):
+    """
+    returns current value of model as a String
+    """
     return self._model
 
   def model(self, val):
     """
-    String
-    
+    Sets the model parameter, of type String    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+
+    :param val: value to set model to
     """
     self._model = val
     return self
 
   def get_stadepth(self):
+    """
+    returns current value of receiverdepth as a List
+    """
     return self._receiverdepth
 
   def stadepth(self, val):
     """
-    List of Double
-
+    Sets the receiverdepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So 
+    x.stadepth( value )
+    and 
+    .xstadepth( [ value ] )
+    are equivalent. 
     
     the receiver depth in km for stations not at the surface
     Also known as --receiverdepth in command line.
+
+    :param val: value to set receiverdepth to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{stadepth} must be a list, not {val}")
+      val = [ val ]
     self._receiverdepth = val
     return self
 
   def get_receiverdepth(self):
+    """
+    returns current value of receiverdepth as a List
+    """
     return self._receiverdepth
 
   def receiverdepth(self, val):
     """
-    List of Double
-
+    Sets the receiverdepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So 
+    x.receiverdepth( value )
+    and 
+    .xreceiverdepth( [ value ] )
+    are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
+    :param val: value to set receiverdepth to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{receiverdepth} must be a list, not {val}")
+      val = [ val ]
     self._receiverdepth = val
     return self
 
   def get_scat(self):
+    """
+    returns current value of scatter as a List
+    """
     return self._scatter
 
   def scat(self, val):
     """
-    List of Double
-
+    Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scatter in command line.
+
+    :param val: value to set scatter to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{scat} must be a list, not {val}")
+      raise Exception(f"scat() requires a list, not {val}")
     self._scatter = val
     return self
 
   def get_scatter(self):
+    """
+    returns current value of scatter as a List
+    """
     return self._scatter
 
   def scatter(self, val):
     """
-    List of Double
-
+    Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+
+    :param val: value to set scatter to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{scatter} must be a list, not {val}")
+      raise Exception(f"scatter() requires a list, not {val}")
     self._scatter = val
     return self
 
   def get_h(self):
+    """
+    returns current value of sourcedepth as a List
+    """
     return self._sourcedepth
 
   def h(self, val):
     """
-    List of Double
-
+    Sets the sourcedepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So 
+    x.h( value )
+    and 
+    .xh( [ value ] )
+    are equivalent. 
     
     source depth in km
     Also known as --sourcedepth in command line.
+
+    :param val: value to set sourcedepth to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{h} must be a list, not {val}")
+      val = [ val ]
     self._sourcedepth = val
     return self
 
   def get_sourcedepth(self):
+    """
+    returns current value of sourcedepth as a List
+    """
     return self._sourcedepth
 
   def sourcedepth(self, val):
     """
-    List of Double
-
+    Sets the sourcedepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So 
+    x.sourcedepth( value )
+    and 
+    .xsourcedepth( [ value ] )
+    are equivalent. 
     
     source depth in km
+
+    :param val: value to set sourcedepth to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{sourcedepth} must be a list, not {val}")
+      val = [ val ]
     self._sourcedepth = val
     return self
 
   def get_evdepth(self):
+    """
+    returns current value of sourcedepth as a List
+    """
     return self._sourcedepth
 
   def evdepth(self, val):
     """
-    List of Double
-
+    Sets the sourcedepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So 
+    x.evdepth( value )
+    and 
+    .xevdepth( [ value ] )
+    are equivalent. 
     
     source depth in km
     Also known as --sourcedepth in command line.
+
+    :param val: value to set sourcedepth to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{evdepth} must be a list, not {val}")
+      val = [ val ]
     self._sourcedepth = val
     return self
 
   def get_p(self):
+    """
+    returns current value of phase as a List
+    """
     return self._phase
 
   def p(self, val):
     """
-    List of String
-
+    Sets the phase parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So 
+    x.p( value )
+    and 
+    .xp( [ value ] )
+    are equivalent. 
     
     seismic phase names
     Also known as --phase in command line.
+
+    :param val: value to set phase to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{p} must be a list, not {val}")
+      val = [ val ]
     self._phase = val
     return self
 
   def get_phase(self):
+    """
+    returns current value of phase as a List
+    """
     return self._phase
 
   def phase(self, val):
     """
-    List of String
-
+    Sets the phase parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So 
+    x.phase( value )
+    and 
+    .xphase( [ value ] )
+    are equivalent. 
     
     seismic phase names
+
+    :param val: value to set phase to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{phase} must be a list, not {val}")
+      val = [ val ]
     self._phase = val
     return self
 
   def get_ph(self):
+    """
+    returns current value of phase as a List
+    """
     return self._phase
 
   def ph(self, val):
     """
-    List of String
-
+    Sets the phase parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So 
+    x.ph( value )
+    and 
+    .xph( [ value ] )
+    are equivalent. 
     
     seismic phase names
     Also known as --phase in command line.
+
+    :param val: value to set phase to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{ph} must be a list, not {val}")
+      val = [ val ]
     self._phase = val
     return self
 
   def get_phasefile(self):
+    """
+    returns current value of phasefile as a List
+    """
     return self._phasefile
 
   def phasefile(self, val):
     """
-    List of String
-
+    Sets the phasefile parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So 
+    x.phasefile( value )
+    and 
+    .xphasefile( [ value ] )
+    are equivalent. 
     
     read list of phase names from file
+
+    :param val: value to set phasefile to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{phasefile} must be a list, not {val}")
+      val = [ val ]
     self._phasefile = val
     return self
 
   def get_color(self):
+    """
+    returns current value of color as a edu.sc.seis.TauP.cmdline.args.ColorType
+    """
     return self._color
 
   def color(self, val):
     """
-    edu.sc.seis.TauP.cmdline.args.ColorType
-    
+    Sets the color parameter, of type edu.sc.seis.TauP.cmdline.args.ColorType    
     style of coloring for paths and wavefronts, one of: auto, wavetype, phase, none
+
+    :param val: value to set color to
     """
     self._color = val
     return self
 
   def get_legend(self):
+    """
+    returns current value of legend as a Boolean
+    """
     return self._legend
 
   def legend(self, val):
     """
-    Boolean
-    
+    Sets the legend parameter, of type Boolean    
     create a legend
+
+    :param val: value to set legend to
     """
     self._legend = val
     return self
 
   def get_onlynameddiscon(self):
+    """
+    returns current value of onlynameddiscon as a Boolean
+    """
     return self._onlynameddiscon
 
   def onlynameddiscon(self, val):
     """
-    Boolean
-    
+    Sets the onlynameddiscon parameter, of type Boolean    
     only draw circles on the plot for named discontinuities like moho, cmb, iocb but not 410
+
+    :param val: value to set onlynameddiscon to
     """
     self._onlynameddiscon = val
     return self
 
   def get_yaxis(self):
+    """
+    returns current value of yaxis as a edu.sc.seis.TauP.DepthAxisType
+    """
     return self._yaxis
 
   def yaxis(self, val):
     """
-    edu.sc.seis.TauP.DepthAxisType
-    
+    Sets the yaxis parameter, of type edu.sc.seis.TauP.DepthAxisType    
     y axis type, the depth/radius axis, one of depth, radius
     No effect for SVG output.
+
+    :param val: value to set yaxis to
     """
     self._yaxis = val
     return self
 
   def get_xaxis(self):
+    """
+    returns current value of xaxis as a edu.sc.seis.TauP.DistanceAxisType
+    """
     return self._xaxis
 
   def xaxis(self, val):
     """
-    edu.sc.seis.TauP.DistanceAxisType
-    
+    Sets the xaxis parameter, of type edu.sc.seis.TauP.DistanceAxisType    
     x axis type, the depth/radius axis, one of degree, radian, kilometer
     No effect for SVG output.
+
+    :param val: value to set xaxis to
     """
     self._xaxis = val
     return self
 
   def get_degminmax(self):
+    """
+    returns current value of degminmax as a [D
+    """
     return self._degminmax
 
   def degminmax(self, val):
     """
-    [D
-    
+    Sets the degminmax parameter, of type [D    
     min and max distance in degrees for plotting
+
+    :param val: value to set degminmax to
     """
     self._degminmax = val
     return self
 
   def get_depthminmax(self):
+    """
+    returns current value of depthminmax as a [D
+    """
     return self._depthminmax
 
   def depthminmax(self, val):
     """
-    [D
-    
+    Sets the depthminmax parameter, of type [D    
     min and max depth, km,  for plotting
+
+    :param val: value to set depthminmax to
     """
     self._depthminmax = val
     return self
 
   def get_mapwidth(self):
+    """
+    returns current value of mapwidth as a Float
+    """
     return self._mapwidth
 
   def mapwidth(self, val):
     """
-    Float
-    
+    Sets the mapwidth parameter, of type Float    
     plot width in units from --mapwidthunit.
+
+    :param val: value to set mapwidth to
     """
     self._mapwidth = val
     return self
 
   def get_mapwidthunit(self):
+    """
+    returns current value of mapwidthunit as a String
+    """
     return self._mapwidthunit
 
   def mapwidthunit(self, val):
     """
-    String
-    
+    Sets the mapwidthunit parameter, of type String    
     plot width unit, i for inch, c for cm or p for px.
+
+    :param val: value to set mapwidthunit to
     """
     self._mapwidthunit = val
     return self
 
   def get_timestep(self):
+    """
+    returns current value of timestep as a Float
+    """
     return self._timestep
 
   def timestep(self, val):
     """
-    Float
-    
+    Sets the timestep parameter, of type Float    
     steps in time (seconds) for output, default is 100
+
+    :param val: value to set timestep to
     """
     self._timestep = val
     return self
 
   def get_timefiles(self):
+    """
+    returns current value of timefiles as a Boolean
+    """
     return self._timefiles
 
   def timefiles(self, val):
     """
-    Boolean
-    
+    Sets the timefiles parameter, of type Boolean    
     outputs each time into a separate file within the gmt script.
+
+    :param val: value to set timefiles to
     """
     self._timefiles = val
     return self
 
   def get_negdist(self):
+    """
+    returns current value of negdist as a Boolean
+    """
     return self._negdist
 
   def negdist(self, val):
     """
-    Boolean
-    
+    Sets the negdist parameter, of type Boolean    
     outputs negative distance as well so wavefronts are in both halves.
+
+    :param val: value to set negdist to
     """
     self._negdist = val
     return self

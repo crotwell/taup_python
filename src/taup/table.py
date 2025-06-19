@@ -17,201 +17,287 @@ class TableQuery:
 
 
   def get_text(self):
+    """
+    returns current value of generic as a Boolean
+    """
     return self._generic
 
   def text(self, val):
     """
-    Boolean
-    
+    Sets the generic parameter, of type Boolean    
     outputs as Text
     Also known as --generic in command line.
+
+    :param val: value to set generic to
     """
     self._generic = val
     return self
 
   def get_generic(self):
+    """
+    returns current value of generic as a Boolean
+    """
     return self._generic
 
   def generic(self, val):
     """
-    Boolean
-    
+    Sets the generic parameter, of type Boolean    
     outputs as Text
+
+    :param val: value to set generic to
     """
     self._generic = val
     return self
 
   def get_locsat(self):
+    """
+    returns current value of locsat as a Boolean
+    """
     return self._locsat
 
   def locsat(self, val):
     """
-    Boolean
-    
+    Sets the locsat parameter, of type Boolean    
     outputs as Locsat
+
+    :param val: value to set locsat to
     """
     self._locsat = val
     return self
 
   def get_mod(self):
+    """
+    returns current value of model as a String
+    """
     return self._model
 
   def mod(self, val):
     """
-    String
-    
+    Sets the model parameter, of type String    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
     Also known as --model in command line.
+
+    :param val: value to set model to
     """
     self._model = val
     return self
 
   def get_model(self):
+    """
+    returns current value of model as a String
+    """
     return self._model
 
   def model(self, val):
     """
-    String
-    
+    Sets the model parameter, of type String    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+
+    :param val: value to set model to
     """
     self._model = val
     return self
 
   def get_stadepth(self):
+    """
+    returns current value of receiverdepth as a List
+    """
     return self._receiverdepth
 
   def stadepth(self, val):
     """
-    List of Double
-
+    Sets the receiverdepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So 
+    x.stadepth( value )
+    and 
+    .xstadepth( [ value ] )
+    are equivalent. 
     
     the receiver depth in km for stations not at the surface
     Also known as --receiverdepth in command line.
+
+    :param val: value to set receiverdepth to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{stadepth} must be a list, not {val}")
+      val = [ val ]
     self._receiverdepth = val
     return self
 
   def get_receiverdepth(self):
+    """
+    returns current value of receiverdepth as a List
+    """
     return self._receiverdepth
 
   def receiverdepth(self, val):
     """
-    List of Double
-
+    Sets the receiverdepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So 
+    x.receiverdepth( value )
+    and 
+    .xreceiverdepth( [ value ] )
+    are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
+    :param val: value to set receiverdepth to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{receiverdepth} must be a list, not {val}")
+      val = [ val ]
     self._receiverdepth = val
     return self
 
   def get_scat(self):
+    """
+    returns current value of scatter as a List
+    """
     return self._scatter
 
   def scat(self, val):
     """
-    List of Double
-
+    Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scatter in command line.
+
+    :param val: value to set scatter to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{scat} must be a list, not {val}")
+      raise Exception(f"scat() requires a list, not {val}")
     self._scatter = val
     return self
 
   def get_scatter(self):
+    """
+    returns current value of scatter as a List
+    """
     return self._scatter
 
   def scatter(self, val):
     """
-    List of Double
-
+    Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+
+    :param val: value to set scatter to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{scatter} must be a list, not {val}")
+      raise Exception(f"scatter() requires a list, not {val}")
     self._scatter = val
     return self
 
   def get_p(self):
+    """
+    returns current value of phase as a List
+    """
     return self._phase
 
   def p(self, val):
     """
-    List of String
-
+    Sets the phase parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So 
+    x.p( value )
+    and 
+    .xp( [ value ] )
+    are equivalent. 
     
     seismic phase names
     Also known as --phase in command line.
+
+    :param val: value to set phase to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{p} must be a list, not {val}")
+      val = [ val ]
     self._phase = val
     return self
 
   def get_phase(self):
+    """
+    returns current value of phase as a List
+    """
     return self._phase
 
   def phase(self, val):
     """
-    List of String
-
+    Sets the phase parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So 
+    x.phase( value )
+    and 
+    .xphase( [ value ] )
+    are equivalent. 
     
     seismic phase names
+
+    :param val: value to set phase to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{phase} must be a list, not {val}")
+      val = [ val ]
     self._phase = val
     return self
 
   def get_ph(self):
+    """
+    returns current value of phase as a List
+    """
     return self._phase
 
   def ph(self, val):
     """
-    List of String
-
+    Sets the phase parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So 
+    x.ph( value )
+    and 
+    .xph( [ value ] )
+    are equivalent. 
     
     seismic phase names
     Also known as --phase in command line.
+
+    :param val: value to set phase to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{ph} must be a list, not {val}")
+      val = [ val ]
     self._phase = val
     return self
 
   def get_phasefile(self):
+    """
+    returns current value of phasefile as a List
+    """
     return self._phasefile
 
   def phasefile(self, val):
     """
-    List of String
-
+    Sets the phasefile parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So 
+    x.phasefile( value )
+    and 
+    .xphasefile( [ value ] )
+    are equivalent. 
     
     read list of phase names from file
+
+    :param val: value to set phasefile to
     """
     if not hasattr(val, "__getitem__"):
-      raise Exception(f"{phasefile} must be a list, not {val}")
+      val = [ val ]
     self._phasefile = val
     return self
 
   def get_header(self):
+    """
+    returns current value of header as a String
+    """
     return self._header
 
   def header(self, val):
     """
-    String
-    
+    Sets the header parameter, of type String    
     reads depth and distance spacing data from a LOCSAT style file.
+
+    :param val: value to set header to
     """
     self._header = val
     return self
