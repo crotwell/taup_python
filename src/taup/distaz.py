@@ -23,221 +23,206 @@ class DistazQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
-  @property
-  def station(self):
+  def get_station(self):
+    return self._station
+
+  def station(self, val):
     """
     List
     
     station latitude and longitude. Creates a distance if event is also given.
     Also known as --sta and --station in command line.
     """
-    return self._station
-
-  @station.setter
-  def station(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{station} must be a list, not {val}")
     self._station = val
+    return self
 
-  @property
-  def event(self):
+  def get_event(self):
+    return self._event
+
+  def event(self, val):
     """
     List
     
     event latitude and longitude.  Creates a distance if station is also given.
     Also known as --evt and --event in command line.
     """
-    return self._event
-
-  @event.setter
-  def event(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{event} must be a list, not {val}")
     self._event = val
+    return self
 
-  @property
-  def az(self):
+  def get_az(self):
+    return self._az
+
+  def az(self, val):
     """
     Double
     
     azimuth in degrees, source to receiver
     """
-    return self._az
-
-  @az.setter
-  def az(self, val):
     self._az = val
+    return self
 
-  @property
-  def baz(self):
+  def get_baz(self):
+    return self._baz
+
+  def baz(self, val):
     """
     Double
     
     backazimuth in degrees, receiver to source
     """
-    return self._baz
-
-  @baz.setter
-  def baz(self, val):
     self._baz = val
+    return self
 
-  @property
-  def eid(self):
+  def get_eid(self):
+    return self._eid
+
+  def eid(self, val):
     """
     List
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
     """
-    return self._eid
-
-  @eid.setter
-  def eid(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{eid} must be a list, not {val}")
     self._eid = val
+    return self
 
-  @property
-  def sid(self):
+  def get_sid(self):
+    return self._sid
+
+  def sid(self, val):
     """
     List
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
     """
-    return self._sid
-
-  @sid.setter
-  def sid(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{sid} must be a list, not {val}")
     self._sid = val
+    return self
 
-  @property
-  def quakeml(self):
+  def get_quakeml(self):
+    return self._quakeml
+
+  def quakeml(self, val):
     """
     String
     
     QuakeML file to load for earthquake origins to use
     Also known as --qml and --quakeml in command line.
     """
-    return self._quakeml
-
-  @quakeml.setter
-  def quakeml(self, val):
     self._quakeml = val
+    return self
 
-  @property
-  def staxml(self):
+  def get_staxml(self):
+    return self._staxml
+
+  def staxml(self, val):
     """
     String
     
     StationXML file to extract station latitudes and longitudes from
     """
-    return self._staxml
-
-  @staxml.setter
-  def staxml(self, val):
     self._staxml = val
+    return self
 
-  @property
-  def geodetic(self):
+  def get_geodetic(self):
+    return self._geodetic
+
+  def geodetic(self, val):
     """
     Boolean
     
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
     """
-    return self._geodetic
-
-  @geodetic.setter
-  def geodetic(self, val):
     self._geodetic = val
+    return self
 
-  @property
-  def geodeticflattening(self):
+  def get_geodeticflattening(self):
+    return self._geodeticflattening
+
+  def geodeticflattening(self, val):
     """
     Double
     
     Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
     """
-    return self._geodeticflattening
-
-  @geodeticflattening.setter
-  def geodeticflattening(self, val):
     self._geodeticflattening = val
+    return self
 
-  @property
-  def degree(self):
+  def get_degree(self):
+    return self._degree
+
+  def degree(self, val):
     """
     List
     
     distance in degrees
     Also known as --deg and --degree in command line.
     """
-    return self._degree
-
-  @degree.setter
-  def degree(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{degree} must be a list, not {val}")
     self._degree = val
+    return self
 
-  @property
-  def degreerange(self):
+  def get_degreerange(self):
+    return self._degreerange
+
+  def degreerange(self, val):
     """
     List
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
     """
-    return self._degreerange
-
-  @degreerange.setter
-  def degreerange(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{degreerange} must be a list, not {val}")
     self._degreerange = val
+    return self
 
-  @property
-  def kilometer(self):
+  def get_kilometer(self):
+    return self._kilometer
+
+  def kilometer(self, val):
     """
     List
     
     distance in kilometers along surface.
     Also known as --km and --kilometer in command line.
     """
-    return self._kilometer
-
-  @kilometer.setter
-  def kilometer(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{kilometer} must be a list, not {val}")
     self._kilometer = val
+    return self
 
-  @property
-  def kilometerrange(self):
+  def get_kilometerrange(self):
+    return self._kilometerrange
+
+  def kilometerrange(self, val):
     """
     List
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
     """
-    return self._kilometerrange
-
-  @kilometerrange.setter
-  def kilometerrange(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{kilometerrange} must be a list, not {val}")
     self._kilometerrange = val
+    return self
 
-  @property
-  def radius(self):
+  def get_radius(self):
+    return self._radius
+
+  def radius(self, val):
     """
     Double
     
     radius of earth in km, used when distance given in km
     """
-    return self._radius
-
-  @radius.setter
-  def radius(self, val):
     self._radius = val
+    return self
 
 
   def create_params(self):

@@ -6,12 +6,12 @@ class CurveQuery:
     self._receiverdepth=[]
     self._scatter=[]
     self._sourcedepth=[]
-    self._phasefile=[]
     self._phase=[]
+    self._phasefile=[]
     self._attenuationfreq=None
     self._numattenuationfreq=None
-    self._mw=None
     self._strikediprake=[]
+    self._mw=None
     self._az=None
     self._mapwidth=None
     self._mapwidthunit=None
@@ -34,8 +34,10 @@ class CurveQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
-  @property
-  def model(self):
+  def get_model(self):
+    return self._model
+
+  def model(self, val):
     """
     String
     
@@ -43,354 +45,326 @@ class CurveQuery:
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
     Also known as --mod and --model in command line.
     """
-    return self._model
-
-  @model.setter
-  def model(self, val):
     self._model = val
+    return self
 
-  @property
-  def receiverdepth(self):
+  def get_receiverdepth(self):
+    return self._receiverdepth
+
+  def receiverdepth(self, val):
     """
     List
     
     the receiver depth in km for stations not at the surface
     Also known as --stadepth and --receiverdepth in command line.
     """
-    return self._receiverdepth
-
-  @receiverdepth.setter
-  def receiverdepth(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{receiverdepth} must be a list, not {val}")
     self._receiverdepth = val
+    return self
 
-  @property
-  def scatter(self):
+  def get_scatter(self):
+    return self._scatter
+
+  def scatter(self, val):
     """
     List
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scat and --scatter in command line.
     """
-    return self._scatter
-
-  @scatter.setter
-  def scatter(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{scatter} must be a list, not {val}")
     self._scatter = val
+    return self
 
-  @property
-  def sourcedepth(self):
+  def get_sourcedepth(self):
+    return self._sourcedepth
+
+  def sourcedepth(self, val):
     """
     List
     
     source depth in km
     Also known as -h and --sourcedepth in command line.
     """
-    return self._sourcedepth
-
-  @sourcedepth.setter
-  def sourcedepth(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{sourcedepth} must be a list, not {val}")
     self._sourcedepth = val
+    return self
 
-  @property
-  def phasefile(self):
-    """
-    List
-    
-    read list of phase names from file
-    """
-    return self._phasefile
+  def get_phase(self):
+    return self._phase
 
-  @phasefile.setter
-  def phasefile(self, val):
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"{phasefile} must be a list, not {val}")
-    self._phasefile = val
-
-  @property
-  def phase(self):
+  def phase(self, val):
     """
     List
     
     seismic phase names
     Also known as -p and --phase in command line.
     """
-    return self._phase
-
-  @phase.setter
-  def phase(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{phase} must be a list, not {val}")
     self._phase = val
+    return self
 
-  @property
-  def attenuationfreq(self):
+  def get_phasefile(self):
+    return self._phasefile
+
+  def phasefile(self, val):
+    """
+    List
+    
+    read list of phase names from file
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{phasefile} must be a list, not {val}")
+    self._phasefile = val
+    return self
+
+  def get_attenuationfreq(self):
+    return self._attenuationfreq
+
+  def attenuationfreq(self, val):
     """
     Float
     
     attenuation frequency for amplitude calculations, default is 1.0
     """
-    return self._attenuationfreq
-
-  @attenuationfreq.setter
-  def attenuationfreq(self, val):
     self._attenuationfreq = val
+    return self
 
-  @property
-  def numattenuationfreq(self):
+  def get_numattenuationfreq(self):
+    return self._numattenuationfreq
+
+  def numattenuationfreq(self, val):
     """
     Integer
     
      number attenuation frequencies for amplitude calculations, default is 64
     """
-    return self._numattenuationfreq
-
-  @numattenuationfreq.setter
-  def numattenuationfreq(self, val):
     self._numattenuationfreq = val
+    return self
 
-  @property
-  def mw(self):
-    """
-    Float
-    
-    scale amplitude by source moment magnitude, default is 4.0
-    """
-    return self._mw
+  def get_strikediprake(self):
+    return self._strikediprake
 
-  @mw.setter
-  def mw(self, val):
-    self._mw = val
-
-  @property
-  def strikediprake(self):
+  def strikediprake(self, val):
     """
     List
     
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
     """
-    return self._strikediprake
-
-  @strikediprake.setter
-  def strikediprake(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{strikediprake} must be a list, not {val}")
     self._strikediprake = val
+    return self
 
-  @property
-  def az(self):
+  def get_mw(self):
+    return self._mw
+
+  def mw(self, val):
+    """
+    Float
+    
+    scale amplitude by source moment magnitude, default is 4.0
+    """
+    self._mw = val
+    return self
+
+  def get_az(self):
+    return self._az
+
+  def az(self, val):
     """
     Double
     
     azimuth in degrees, for amp calculations
     """
-    return self._az
-
-  @az.setter
-  def az(self, val):
     self._az = val
+    return self
 
-  @property
-  def mapwidth(self):
+  def get_mapwidth(self):
+    return self._mapwidth
+
+  def mapwidth(self, val):
     """
     Float
     
     plot width in units from --mapwidthunit.
     """
-    return self._mapwidth
-
-  @mapwidth.setter
-  def mapwidth(self, val):
     self._mapwidth = val
+    return self
 
-  @property
-  def mapwidthunit(self):
+  def get_mapwidthunit(self):
+    return self._mapwidthunit
+
+  def mapwidthunit(self, val):
     """
     String
     
     plot width unit, i for inch, c for cm or p for px.
     """
-    return self._mapwidthunit
-
-  @mapwidthunit.setter
-  def mapwidthunit(self, val):
     self._mapwidthunit = val
+    return self
 
-  @property
-  def color(self):
+  def get_color(self):
+    return self._color
+
+  def color(self, val):
     """
     edu.sc.seis.TauP.cmdline.args.ColorType
     
     style of coloring for paths and wavefronts, one of: auto, wavetype, phase, none
     """
-    return self._color
-
-  @color.setter
-  def color(self, val):
     self._color = val
+    return self
 
-  @property
-  def legend(self):
+  def get_legend(self):
+    return self._legend
+
+  def legend(self, val):
     """
     Boolean
     
     create a legend
     """
-    return self._legend
-
-  @legend.setter
-  def legend(self, val):
     self._legend = val
+    return self
 
-  @property
-  def xaxis(self):
+  def get_xaxis(self):
+    return self._xaxis
+
+  def xaxis(self, val):
     """
     edu.sc.seis.TauP.AxisType
     
     X axis data type, default is degree180, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
     Also known as -x and --xaxis in command line.
     """
-    return self._xaxis
-
-  @xaxis.setter
-  def xaxis(self, val):
     self._xaxis = val
+    return self
 
-  @property
-  def yaxis(self):
+  def get_yaxis(self):
+    return self._yaxis
+
+  def yaxis(self, val):
     """
     edu.sc.seis.TauP.AxisType
     
     Y axis data type, default is time, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
     Also known as -y and --yaxis in command line.
     """
-    return self._yaxis
-
-  @yaxis.setter
-  def yaxis(self, val):
     self._yaxis = val
+    return self
 
-  @property
-  def xminmax(self):
+  def get_xminmax(self):
+    return self._xminmax
+
+  def xminmax(self, val):
     """
     [D
     
     min and max x axis for plotting
     """
-    return self._xminmax
-
-  @xminmax.setter
-  def xminmax(self, val):
     self._xminmax = val
+    return self
 
-  @property
-  def yminmax(self):
+  def get_yminmax(self):
+    return self._yminmax
+
+  def yminmax(self, val):
     """
     [D
     
     min and max y axis for plotting
     """
-    return self._yminmax
-
-  @yminmax.setter
-  def yminmax(self, val):
     self._yminmax = val
+    return self
 
-  @property
-  def xabs(self):
+  def get_xabs(self):
+    return self._xabs
+
+  def xabs(self, val):
     """
     Boolean
     
     X axis is absolute value
     """
-    return self._xabs
-
-  @xabs.setter
-  def xabs(self, val):
     self._xabs = val
+    return self
 
-  @property
-  def yabs(self):
+  def get_yabs(self):
+    return self._yabs
+
+  def yabs(self, val):
     """
     Boolean
     
     Y axis is absolute value
     """
-    return self._yabs
-
-  @yabs.setter
-  def yabs(self, val):
     self._yabs = val
+    return self
 
-  @property
-  def xlog(self):
+  def get_xlog(self):
+    return self._xlog
+
+  def xlog(self, val):
     """
     Boolean
     
     X axis is log
     """
-    return self._xlog
-
-  @xlog.setter
-  def xlog(self, val):
     self._xlog = val
+    return self
 
-  @property
-  def ylog(self):
+  def get_ylog(self):
+    return self._ylog
+
+  def ylog(self, val):
     """
     Boolean
     
     Y axis is log
     """
-    return self._ylog
-
-  @ylog.setter
-  def ylog(self, val):
     self._ylog = val
+    return self
 
-  @property
-  def rel(self):
+  def get_rel(self):
+    return self._rel
+
+  def rel(self, val):
     """
     String
     
     plot relative to the given phase, no effect unless distance/time
     """
-    return self._rel
-
-  @rel.setter
-  def rel(self, val):
     self._rel = val
+    return self
 
-  @property
-  def reddeg(self):
+  def get_reddeg(self):
+    return self._reddeg
+
+  def reddeg(self, val):
     """
     Double
     
     outputs curves with a reducing velocity (deg/sec), no effect if axis is not distance-like/time
     """
-    return self._reddeg
-
-  @reddeg.setter
-  def reddeg(self, val):
     self._reddeg = val
+    return self
 
-  @property
-  def redkm(self):
+  def get_redkm(self):
+    return self._redkm
+
+  def redkm(self, val):
     """
     Double
     
     outputs curves with a reducing velocity (km/sec), no effect if axis is not distance-like/time
     """
-    return self._redkm
-
-  @redkm.setter
-  def redkm(self, val):
     self._redkm = val
+    return self
 
 
   def create_params(self):
@@ -408,18 +382,18 @@ class CurveQuery:
       params["scatter"] = self._scatter
     if len(self._sourcedepth) > 0:
       params["sourcedepth"] = self._sourcedepth
-    if len(self._phasefile) > 0:
-      params["phasefile"] = self._phasefile
     if len(self._phase) > 0:
       params["phase"] = self._phase
+    if len(self._phasefile) > 0:
+      params["phasefile"] = self._phasefile
     if self._attenuationfreq is not None:
       params["attenuationfreq"] = self._attenuationfreq
     if self._numattenuationfreq is not None:
       params["numattenuationfreq"] = self._numattenuationfreq
-    if self._mw is not None:
-      params["mw"] = self._mw
     if len(self._strikediprake) > 0:
       params["strikediprake"] = self._strikediprake
+    if self._mw is not None:
+      params["mw"] = self._mw
     if self._az is not None:
       params["az"] = self._az
     if self._mapwidth is not None:

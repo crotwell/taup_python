@@ -2,12 +2,12 @@ class VelmergeQuery:
   def __init__(self):
     self.toolname= "velmerge"
 
+    self._model=None
     self._nd=None
     self._tvel=None
-    self._model=None
+    self._modmerge=None
     self._ndmerge=None
     self._tvelmerge=None
-    self._modmerge=None
     self._smoothtop=None
     self._smoothbot=None
     self._elev=None
@@ -17,123 +17,114 @@ class VelmergeQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
-  @property
-  def nd(self):
-    """
-    String
-    
-    "named discontinuities" velocity file
-    """
-    return self._nd
+  def get_model(self):
+    return self._model
 
-  @nd.setter
-  def nd(self, val):
-    self._nd = val
-
-  @property
-  def tvel(self):
-    """
-    String
-    
-    ".tvel" velocity file, ala ttimes
-    """
-    return self._tvel
-
-  @tvel.setter
-  def tvel(self, val):
-    self._tvel = val
-
-  @property
-  def model(self):
+  def model(self, val):
     """
     String
     
     use velocity model "modelname" for calculations, format is guessed.
     Also known as --mod and --model in command line.
     """
-    return self._model
-
-  @model.setter
-  def model(self, val):
     self._model = val
+    return self
 
-  @property
-  def ndmerge(self):
+  def get_nd(self):
+    return self._nd
+
+  def nd(self, val):
     """
     String
     
-    "named discontinuities" velocity file to merge
+    "named discontinuities" velocity file
     """
-    return self._ndmerge
+    self._nd = val
+    return self
 
-  @ndmerge.setter
-  def ndmerge(self, val):
-    self._ndmerge = val
+  def get_tvel(self):
+    return self._tvel
 
-  @property
-  def tvelmerge(self):
+  def tvel(self, val):
     """
     String
     
-    ".tvel" velocity file to merge, ala ttimes
+    ".tvel" velocity file, ala ttimes
     """
-    return self._tvelmerge
+    self._tvel = val
+    return self
 
-  @tvelmerge.setter
-  def tvelmerge(self, val):
-    self._tvelmerge = val
+  def get_modmerge(self):
+    return self._modmerge
 
-  @property
-  def modmerge(self):
+  def modmerge(self, val):
     """
     String
     
     velocity file to merge, format is guessed
     """
-    return self._modmerge
-
-  @modmerge.setter
-  def modmerge(self, val):
     self._modmerge = val
+    return self
 
-  @property
-  def smoothtop(self):
+  def get_ndmerge(self):
+    return self._ndmerge
+
+  def ndmerge(self, val):
+    """
+    String
+    
+    "named discontinuities" velocity file to merge
+    """
+    self._ndmerge = val
+    return self
+
+  def get_tvelmerge(self):
+    return self._tvelmerge
+
+  def tvelmerge(self, val):
+    """
+    String
+    
+    ".tvel" velocity file to merge, ala ttimes
+    """
+    self._tvelmerge = val
+    return self
+
+  def get_smoothtop(self):
+    return self._smoothtop
+
+  def smoothtop(self, val):
     """
     Boolean
     
     smooth merge at top
     """
-    return self._smoothtop
-
-  @smoothtop.setter
-  def smoothtop(self, val):
     self._smoothtop = val
+    return self
 
-  @property
-  def smoothbot(self):
+  def get_smoothbot(self):
+    return self._smoothbot
+
+  def smoothbot(self, val):
     """
     Boolean
     
     smooth merge at bottom
     """
-    return self._smoothbot
-
-  @smoothbot.setter
-  def smoothbot(self, val):
     self._smoothbot = val
+    return self
 
-  @property
-  def elev(self):
+  def get_elev(self):
+    return self._elev
+
+  def elev(self, val):
     """
     Float
     
     increase topmost layer by elevation (meters)
     """
-    return self._elev
-
-  @elev.setter
-  def elev(self, val):
     self._elev = val
+    return self
 
 
   def create_params(self):
@@ -143,18 +134,18 @@ class VelmergeQuery:
     params = {
       "format": "json",
     }
+    if self._model is not None:
+      params["model"] = self._model
     if self._nd is not None:
       params["nd"] = self._nd
     if self._tvel is not None:
       params["tvel"] = self._tvel
-    if self._model is not None:
-      params["model"] = self._model
+    if self._modmerge is not None:
+      params["modmerge"] = self._modmerge
     if self._ndmerge is not None:
       params["ndmerge"] = self._ndmerge
     if self._tvelmerge is not None:
       params["tvelmerge"] = self._tvelmerge
-    if self._modmerge is not None:
-      params["modmerge"] = self._modmerge
     if self._smoothtop is not None:
       params["smoothtop"] = self._smoothtop
     if self._smoothbot is not None:

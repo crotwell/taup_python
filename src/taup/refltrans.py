@@ -9,8 +9,10 @@ class RefltransQuery:
     self._receiverdepth=[]
     self._scatter=[]
     self._sourcedepth=[]
-    self._depth=None
-    self._angles=None
+    self._x=None
+    self._y=[]
+    self._xminmax=None
+    self._yminmax=None
     self._layer=None
     self._down=None
     self._up=None
@@ -22,57 +24,54 @@ class RefltransQuery:
     self._abs=None
     self._anglestep=None
     self._rpstep=None
-    self._x=None
-    self._y=[]
-    self._xminmax=None
-    self._yminmax=None
+    self._depth=None
+    self._angles=None
 
   def calc(self, taupServer):
     params = self.create_params()
     return taupServer.queryJson(params, self.toolname)
 
 
-  @property
-  def mapwidth(self):
+  def get_mapwidth(self):
+    return self._mapwidth
+
+  def mapwidth(self, val):
     """
     Float
     
     plot width in units from --mapwidthunit.
     """
-    return self._mapwidth
-
-  @mapwidth.setter
-  def mapwidth(self, val):
     self._mapwidth = val
+    return self
 
-  @property
-  def mapwidthunit(self):
+  def get_mapwidthunit(self):
+    return self._mapwidthunit
+
+  def mapwidthunit(self, val):
     """
     String
     
     plot width unit, i for inch, c for cm or p for px.
     """
-    return self._mapwidthunit
-
-  @mapwidthunit.setter
-  def mapwidthunit(self, val):
     self._mapwidthunit = val
+    return self
 
-  @property
-  def legend(self):
+  def get_legend(self):
+    return self._legend
+
+  def legend(self, val):
     """
     Boolean
     
     create a legend
     """
-    return self._legend
-
-  @legend.setter
-  def legend(self, val):
     self._legend = val
+    return self
 
-  @property
-  def model(self):
+  def get_model(self):
+    return self._model
+
+  def model(self, val):
     """
     String
     
@@ -80,282 +79,259 @@ class RefltransQuery:
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
     Also known as --mod and --model in command line.
     """
-    return self._model
-
-  @model.setter
-  def model(self, val):
     self._model = val
+    return self
 
-  @property
-  def receiverdepth(self):
+  def get_receiverdepth(self):
+    return self._receiverdepth
+
+  def receiverdepth(self, val):
     """
     List
     
     the receiver depth in km for stations not at the surface
     Also known as --stadepth and --receiverdepth in command line.
     """
-    return self._receiverdepth
-
-  @receiverdepth.setter
-  def receiverdepth(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{receiverdepth} must be a list, not {val}")
     self._receiverdepth = val
+    return self
 
-  @property
-  def scatter(self):
+  def get_scatter(self):
+    return self._scatter
+
+  def scatter(self, val):
     """
     List
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scat and --scatter in command line.
     """
-    return self._scatter
-
-  @scatter.setter
-  def scatter(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{scatter} must be a list, not {val}")
     self._scatter = val
+    return self
 
-  @property
-  def sourcedepth(self):
+  def get_sourcedepth(self):
+    return self._sourcedepth
+
+  def sourcedepth(self, val):
     """
     List
     
     source depth in km
     Also known as -h and --sourcedepth in command line.
     """
-    return self._sourcedepth
-
-  @sourcedepth.setter
-  def sourcedepth(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{sourcedepth} must be a list, not {val}")
     self._sourcedepth = val
+    return self
 
-  @property
-  def depth(self):
-    """
-    String
-    
-    Depth in model to get boundary parameters, may be number or name like moho.
-    """
-    return self._depth
+  def get_x(self):
+    return self._x
 
-  @depth.setter
-  def depth(self, val):
-    self._depth = val
-
-  @property
-  def angles(self):
-    """
-    Boolean
-    
-    all angle coefficients, like TpAngle
-    """
-    return self._angles
-
-  @angles.setter
-  def angles(self, val):
-    self._angles = val
-
-  @property
-  def layer(self):
-    """
-    [D
-    
-    inbound and transmitted layer parameters, vp, vs, rho, vp, vs, rho
-    """
-    return self._layer
-
-  @layer.setter
-  def layer(self, val):
-    self._layer = val
-
-  @property
-  def down(self):
-    """
-    Boolean
-    
-    incident is downgoing
-    """
-    return self._down
-
-  @down.setter
-  def down(self, val):
-    self._down = val
-
-  @property
-  def up(self):
-    """
-    Boolean
-    
-    incident is upgoing, reverses the sense of the boundary
-    """
-    return self._up
-
-  @up.setter
-  def up(self, val):
-    self._up = val
-
-  @property
-  def pwave(self):
-    """
-    Boolean
-    
-    incident P wave
-    """
-    return self._pwave
-
-  @pwave.setter
-  def pwave(self, val):
-    self._pwave = val
-
-  @property
-  def swave(self):
-    """
-    Boolean
-    
-    incident S wave
-    """
-    return self._swave
-
-  @swave.setter
-  def swave(self, val):
-    self._swave = val
-
-  @property
-  def shwave(self):
-    """
-    Boolean
-    
-    incident SH wave
-    """
-    return self._shwave
-
-  @shwave.setter
-  def shwave(self, val):
-    self._shwave = val
-
-  @property
-  def energyflux(self):
-    """
-    Boolean
-    
-    all energy flux coefficients, like TppEnergy
-    """
-    return self._energyflux
-
-  @energyflux.setter
-  def energyflux(self, val):
-    self._energyflux = val
-
-  @property
-  def fsrf(self):
-    """
-    Boolean
-    
-    all free surface receiver functions, like FreeRecFuncPz
-    """
-    return self._fsrf
-
-  @fsrf.setter
-  def fsrf(self, val):
-    self._fsrf = val
-
-  @property
-  def abs(self):
-    """
-    Boolean
-    
-    absolute value of amplitude factor
-    """
-    return self._abs
-
-  @abs.setter
-  def abs(self, val):
-    self._abs = val
-
-  @property
-  def anglestep(self):
-    """
-    Double
-    
-    step in degrees when x is degrees
-    """
-    return self._anglestep
-
-  @anglestep.setter
-  def anglestep(self, val):
-    self._anglestep = val
-
-  @property
-  def rpstep(self):
-    """
-    Double
-    
-    step in ray param when x is ray param
-    """
-    return self._rpstep
-
-  @rpstep.setter
-  def rpstep(self, val):
-    self._rpstep = val
-
-  @property
-  def x(self):
+  def x(self, val):
     """
     edu.sc.seis.TauP.cmdline.TauP_ReflTransPlot$DegRayParam
     
     X axis data type, one of degree, rayparam, default is degree
     """
-    return self._x
-
-  @x.setter
-  def x(self, val):
     self._x = val
+    return self
 
-  @property
-  def y(self):
+  def get_y(self):
+    return self._y
+
+  def y(self, val):
     """
     List
     
     Y axis data type, one or more of Rpp, Rps, Rsp, Rss, Tpp, Tps, Tsp, Tss, Rshsh, Tshsh, RppEnergy, TppEnergy, RpsEnergy, TpsEnergy, RspEnergy, TspEnergy, RssEnergy, TssEnergy, RshshEnergy, TshshEnergy, RpAngle, RsAngle, TpAngle, TsAngle, FreeRecFuncPr, FreeRecFuncSvr, FreeRecFuncPz, FreeRecFuncSvz, FreeRecFuncSh, default is all displacement coef.
     """
-    return self._y
-
-  @y.setter
-  def y(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{y} must be a list, not {val}")
     self._y = val
+    return self
 
-  @property
-  def xminmax(self):
+  def get_xminmax(self):
+    return self._xminmax
+
+  def xminmax(self, val):
     """
     [D
     
     min and max x axis for plotting
     """
-    return self._xminmax
-
-  @xminmax.setter
-  def xminmax(self, val):
     self._xminmax = val
+    return self
 
-  @property
-  def yminmax(self):
+  def get_yminmax(self):
+    return self._yminmax
+
+  def yminmax(self, val):
     """
     [D
     
     min and max y axis for plotting
     """
-    return self._yminmax
-
-  @yminmax.setter
-  def yminmax(self, val):
     self._yminmax = val
+    return self
+
+  def get_layer(self):
+    return self._layer
+
+  def layer(self, val):
+    """
+    [D
+    
+    inbound and transmitted layer parameters, vp, vs, rho, vp, vs, rho
+    """
+    self._layer = val
+    return self
+
+  def get_down(self):
+    return self._down
+
+  def down(self, val):
+    """
+    Boolean
+    
+    incident is downgoing
+    """
+    self._down = val
+    return self
+
+  def get_up(self):
+    return self._up
+
+  def up(self, val):
+    """
+    Boolean
+    
+    incident is upgoing, reverses the sense of the boundary
+    """
+    self._up = val
+    return self
+
+  def get_pwave(self):
+    return self._pwave
+
+  def pwave(self, val):
+    """
+    Boolean
+    
+    incident P wave
+    """
+    self._pwave = val
+    return self
+
+  def get_swave(self):
+    return self._swave
+
+  def swave(self, val):
+    """
+    Boolean
+    
+    incident S wave
+    """
+    self._swave = val
+    return self
+
+  def get_shwave(self):
+    return self._shwave
+
+  def shwave(self, val):
+    """
+    Boolean
+    
+    incident SH wave
+    """
+    self._shwave = val
+    return self
+
+  def get_energyflux(self):
+    return self._energyflux
+
+  def energyflux(self, val):
+    """
+    Boolean
+    
+    all energy flux coefficients, like TppEnergy
+    """
+    self._energyflux = val
+    return self
+
+  def get_fsrf(self):
+    return self._fsrf
+
+  def fsrf(self, val):
+    """
+    Boolean
+    
+    all free surface receiver functions, like FreeRecFuncPz
+    """
+    self._fsrf = val
+    return self
+
+  def get_abs(self):
+    return self._abs
+
+  def abs(self, val):
+    """
+    Boolean
+    
+    absolute value of amplitude factor
+    """
+    self._abs = val
+    return self
+
+  def get_anglestep(self):
+    return self._anglestep
+
+  def anglestep(self, val):
+    """
+    Double
+    
+    step in degrees when x is degrees
+    """
+    self._anglestep = val
+    return self
+
+  def get_rpstep(self):
+    return self._rpstep
+
+  def rpstep(self, val):
+    """
+    Double
+    
+    step in ray param when x is ray param
+    """
+    self._rpstep = val
+    return self
+
+  def get_depth(self):
+    return self._depth
+
+  def depth(self, val):
+    """
+    String
+    
+    Depth in model to get boundary parameters, may be number or name like moho.
+    """
+    self._depth = val
+    return self
+
+  def get_angles(self):
+    return self._angles
+
+  def angles(self, val):
+    """
+    Boolean
+    
+    all angle coefficients, like TpAngle
+    """
+    self._angles = val
+    return self
 
 
   def create_params(self):
@@ -379,10 +355,14 @@ class RefltransQuery:
       params["scatter"] = self._scatter
     if len(self._sourcedepth) > 0:
       params["sourcedepth"] = self._sourcedepth
-    if self._depth is not None:
-      params["depth"] = self._depth
-    if self._angles is not None:
-      params["angles"] = self._angles
+    if self._x is not None:
+      params["x"] = self._x
+    if len(self._y) > 0:
+      params["y"] = self._y
+    if self._xminmax is not None:
+      params["xminmax"] = self._xminmax
+    if self._yminmax is not None:
+      params["yminmax"] = self._yminmax
     if self._layer is not None:
       params["layer"] = self._layer
     if self._down is not None:
@@ -405,13 +385,9 @@ class RefltransQuery:
       params["anglestep"] = self._anglestep
     if self._rpstep is not None:
       params["rpstep"] = self._rpstep
-    if self._x is not None:
-      params["x"] = self._x
-    if len(self._y) > 0:
-      params["y"] = self._y
-    if self._xminmax is not None:
-      params["xminmax"] = self._xminmax
-    if self._yminmax is not None:
-      params["yminmax"] = self._yminmax
+    if self._depth is not None:
+      params["depth"] = self._depth
+    if self._angles is not None:
+      params["angles"] = self._angles
     return params
 

@@ -8,16 +8,16 @@ with taup.TauPServer("../TauP/build/install/TauP/bin/taup") as timeserver:
 
     timeParams = taup.TimeQuery()
     # params that will stay the same
-    timeParams.phase = ["P", "S"]
-    timeParams.model = 'ak135'
-    timeParams.geodetic = True
+    timeParams.phase(["P", "S"])
+    timeParams.model('ak135')
+    timeParams.geodetic(True)
 
     # params that will vary
     for event in eventLatLons:
-        timeParams.event = event
-        timeParams.evdepth = [100]
+        timeParams.event(event)
+        timeParams.sourcedepth([100])
         for sta in staLatLons:
-            timeParams.station = sta
+            timeParams.station(sta)
 
             jsonTimes = timeParams.calc(timeserver)
             if len(jsonTimes["arrivals"]) == 0:

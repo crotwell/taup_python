@@ -7,8 +7,8 @@ class TableQuery:
     self._model=None
     self._receiverdepth=[]
     self._scatter=[]
-    self._phasefile=[]
     self._phase=[]
+    self._phasefile=[]
     self._header=None
 
   def calc(self, taupServer):
@@ -16,35 +16,35 @@ class TableQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
-  @property
-  def generic(self):
+  def get_generic(self):
+    return self._generic
+
+  def generic(self, val):
     """
     Boolean
     
     outputs as Text
     Also known as --text and --generic in command line.
     """
-    return self._generic
-
-  @generic.setter
-  def generic(self, val):
     self._generic = val
+    return self
 
-  @property
-  def locsat(self):
+  def get_locsat(self):
+    return self._locsat
+
+  def locsat(self, val):
     """
     Boolean
     
     outputs as Locsat
     """
-    return self._locsat
-
-  @locsat.setter
-  def locsat(self, val):
     self._locsat = val
+    return self
 
-  @property
-  def model(self):
+  def get_model(self):
+    return self._model
+
+  def model(self, val):
     """
     String
     
@@ -52,87 +52,79 @@ class TableQuery:
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
     Also known as --mod and --model in command line.
     """
-    return self._model
-
-  @model.setter
-  def model(self, val):
     self._model = val
+    return self
 
-  @property
-  def receiverdepth(self):
+  def get_receiverdepth(self):
+    return self._receiverdepth
+
+  def receiverdepth(self, val):
     """
     List
     
     the receiver depth in km for stations not at the surface
     Also known as --stadepth and --receiverdepth in command line.
     """
-    return self._receiverdepth
-
-  @receiverdepth.setter
-  def receiverdepth(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{receiverdepth} must be a list, not {val}")
     self._receiverdepth = val
+    return self
 
-  @property
-  def scatter(self):
+  def get_scatter(self):
+    return self._scatter
+
+  def scatter(self, val):
     """
     List
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scat and --scatter in command line.
     """
-    return self._scatter
-
-  @scatter.setter
-  def scatter(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{scatter} must be a list, not {val}")
     self._scatter = val
+    return self
 
-  @property
-  def phasefile(self):
-    """
-    List
-    
-    read list of phase names from file
-    """
-    return self._phasefile
+  def get_phase(self):
+    return self._phase
 
-  @phasefile.setter
-  def phasefile(self, val):
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"{phasefile} must be a list, not {val}")
-    self._phasefile = val
-
-  @property
-  def phase(self):
+  def phase(self, val):
     """
     List
     
     seismic phase names
     Also known as -p and --phase in command line.
     """
-    return self._phase
-
-  @phase.setter
-  def phase(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{phase} must be a list, not {val}")
     self._phase = val
+    return self
 
-  @property
-  def header(self):
+  def get_phasefile(self):
+    return self._phasefile
+
+  def phasefile(self, val):
+    """
+    List
+    
+    read list of phase names from file
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{phasefile} must be a list, not {val}")
+    self._phasefile = val
+    return self
+
+  def get_header(self):
+    return self._header
+
+  def header(self, val):
     """
     String
     
     reads depth and distance spacing data from a LOCSAT style file.
     """
-    return self._header
-
-  @header.setter
-  def header(self, val):
     self._header = val
+    return self
 
 
   def create_params(self):
@@ -152,10 +144,10 @@ class TableQuery:
       params["receiverdepth"] = self._receiverdepth
     if len(self._scatter) > 0:
       params["scatter"] = self._scatter
-    if len(self._phasefile) > 0:
-      params["phasefile"] = self._phasefile
     if len(self._phase) > 0:
       params["phase"] = self._phase
+    if len(self._phasefile) > 0:
+      params["phasefile"] = self._phasefile
     if self._header is not None:
       params["header"] = self._header
     return params

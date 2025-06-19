@@ -6,8 +6,8 @@ class WavefrontQuery:
     self._receiverdepth=[]
     self._scatter=[]
     self._sourcedepth=[]
-    self._phasefile=[]
     self._phase=[]
+    self._phasefile=[]
     self._color=None
     self._legend=None
     self._onlynameddiscon=None
@@ -26,8 +26,10 @@ class WavefrontQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
-  @property
-  def model(self):
+  def get_model(self):
+    return self._model
+
+  def model(self, val):
     """
     String
     
@@ -35,248 +37,228 @@ class WavefrontQuery:
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
     Also known as --mod and --model in command line.
     """
-    return self._model
-
-  @model.setter
-  def model(self, val):
     self._model = val
+    return self
 
-  @property
-  def receiverdepth(self):
+  def get_receiverdepth(self):
+    return self._receiverdepth
+
+  def receiverdepth(self, val):
     """
     List
     
     the receiver depth in km for stations not at the surface
     Also known as --stadepth and --receiverdepth in command line.
     """
-    return self._receiverdepth
-
-  @receiverdepth.setter
-  def receiverdepth(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{receiverdepth} must be a list, not {val}")
     self._receiverdepth = val
+    return self
 
-  @property
-  def scatter(self):
+  def get_scatter(self):
+    return self._scatter
+
+  def scatter(self, val):
     """
     List
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scat and --scatter in command line.
     """
-    return self._scatter
-
-  @scatter.setter
-  def scatter(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{scatter} must be a list, not {val}")
     self._scatter = val
+    return self
 
-  @property
-  def sourcedepth(self):
+  def get_sourcedepth(self):
+    return self._sourcedepth
+
+  def sourcedepth(self, val):
     """
     List
     
     source depth in km
     Also known as -h and --sourcedepth in command line.
     """
-    return self._sourcedepth
-
-  @sourcedepth.setter
-  def sourcedepth(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{sourcedepth} must be a list, not {val}")
     self._sourcedepth = val
+    return self
 
-  @property
-  def phasefile(self):
-    """
-    List
-    
-    read list of phase names from file
-    """
-    return self._phasefile
+  def get_phase(self):
+    return self._phase
 
-  @phasefile.setter
-  def phasefile(self, val):
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"{phasefile} must be a list, not {val}")
-    self._phasefile = val
-
-  @property
-  def phase(self):
+  def phase(self, val):
     """
     List
     
     seismic phase names
     Also known as -p and --phase in command line.
     """
-    return self._phase
-
-  @phase.setter
-  def phase(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{phase} must be a list, not {val}")
     self._phase = val
+    return self
 
-  @property
-  def color(self):
+  def get_phasefile(self):
+    return self._phasefile
+
+  def phasefile(self, val):
+    """
+    List
+    
+    read list of phase names from file
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{phasefile} must be a list, not {val}")
+    self._phasefile = val
+    return self
+
+  def get_color(self):
+    return self._color
+
+  def color(self, val):
     """
     edu.sc.seis.TauP.cmdline.args.ColorType
     
     style of coloring for paths and wavefronts, one of: auto, wavetype, phase, none
     """
-    return self._color
-
-  @color.setter
-  def color(self, val):
     self._color = val
+    return self
 
-  @property
-  def legend(self):
+  def get_legend(self):
+    return self._legend
+
+  def legend(self, val):
     """
     Boolean
     
     create a legend
     """
-    return self._legend
-
-  @legend.setter
-  def legend(self, val):
     self._legend = val
+    return self
 
-  @property
-  def onlynameddiscon(self):
+  def get_onlynameddiscon(self):
+    return self._onlynameddiscon
+
+  def onlynameddiscon(self, val):
     """
     Boolean
     
     only draw circles on the plot for named discontinuities like moho, cmb, iocb but not 410
     """
-    return self._onlynameddiscon
-
-  @onlynameddiscon.setter
-  def onlynameddiscon(self, val):
     self._onlynameddiscon = val
+    return self
 
-  @property
-  def yaxis(self):
+  def get_yaxis(self):
+    return self._yaxis
+
+  def yaxis(self, val):
     """
     edu.sc.seis.TauP.DepthAxisType
     
     y axis type, the depth/radius axis, one of depth, radius
     No effect for SVG output.
     """
-    return self._yaxis
-
-  @yaxis.setter
-  def yaxis(self, val):
     self._yaxis = val
+    return self
 
-  @property
-  def xaxis(self):
+  def get_xaxis(self):
+    return self._xaxis
+
+  def xaxis(self, val):
     """
     edu.sc.seis.TauP.DistanceAxisType
     
     x axis type, the depth/radius axis, one of degree, radian, kilometer
     No effect for SVG output.
     """
-    return self._xaxis
-
-  @xaxis.setter
-  def xaxis(self, val):
     self._xaxis = val
+    return self
 
-  @property
-  def degminmax(self):
+  def get_degminmax(self):
+    return self._degminmax
+
+  def degminmax(self, val):
     """
     [D
     
     min and max distance in degrees for plotting
     """
-    return self._degminmax
-
-  @degminmax.setter
-  def degminmax(self, val):
     self._degminmax = val
+    return self
 
-  @property
-  def depthminmax(self):
+  def get_depthminmax(self):
+    return self._depthminmax
+
+  def depthminmax(self, val):
     """
     [D
     
     min and max depth, km,  for plotting
     """
-    return self._depthminmax
-
-  @depthminmax.setter
-  def depthminmax(self, val):
     self._depthminmax = val
+    return self
 
-  @property
-  def mapwidth(self):
+  def get_mapwidth(self):
+    return self._mapwidth
+
+  def mapwidth(self, val):
     """
     Float
     
     plot width in units from --mapwidthunit.
     """
-    return self._mapwidth
-
-  @mapwidth.setter
-  def mapwidth(self, val):
     self._mapwidth = val
+    return self
 
-  @property
-  def mapwidthunit(self):
+  def get_mapwidthunit(self):
+    return self._mapwidthunit
+
+  def mapwidthunit(self, val):
     """
     String
     
     plot width unit, i for inch, c for cm or p for px.
     """
-    return self._mapwidthunit
-
-  @mapwidthunit.setter
-  def mapwidthunit(self, val):
     self._mapwidthunit = val
+    return self
 
-  @property
-  def timestep(self):
+  def get_timestep(self):
+    return self._timestep
+
+  def timestep(self, val):
     """
     Float
     
     steps in time (seconds) for output, default is 100
     """
-    return self._timestep
-
-  @timestep.setter
-  def timestep(self, val):
     self._timestep = val
+    return self
 
-  @property
-  def timefiles(self):
+  def get_timefiles(self):
+    return self._timefiles
+
+  def timefiles(self, val):
     """
     Boolean
     
     outputs each time into a separate file within the gmt script.
     """
-    return self._timefiles
-
-  @timefiles.setter
-  def timefiles(self, val):
     self._timefiles = val
+    return self
 
-  @property
-  def negdist(self):
+  def get_negdist(self):
+    return self._negdist
+
+  def negdist(self, val):
     """
     Boolean
     
     outputs negative distance as well so wavefronts are in both halves.
     """
-    return self._negdist
-
-  @negdist.setter
-  def negdist(self, val):
     self._negdist = val
+    return self
 
 
   def create_params(self):
@@ -294,10 +276,10 @@ class WavefrontQuery:
       params["scatter"] = self._scatter
     if len(self._sourcedepth) > 0:
       params["sourcedepth"] = self._sourcedepth
-    if len(self._phasefile) > 0:
-      params["phasefile"] = self._phasefile
     if len(self._phase) > 0:
       params["phase"] = self._phase
+    if len(self._phasefile) > 0:
+      params["phasefile"] = self._phasefile
     if self._color is not None:
       params["color"] = self._color
     if self._legend is not None:

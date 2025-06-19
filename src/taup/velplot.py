@@ -2,9 +2,9 @@ class VelplotQuery:
   def __init__(self):
     self.toolname= "velplot"
 
+    self._model=[]
     self._nd=[]
     self._tvel=[]
-    self._model=[]
     self._nameddiscon=None
     self._mapwidth=None
     self._mapwidthunit=None
@@ -19,106 +19,101 @@ class VelplotQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
-  @property
-  def nd(self):
-    """
-    List
-    
-    "named discontinuities" velocity file
-    """
-    return self._nd
+  def get_model(self):
+    return self._model
 
-  @nd.setter
-  def nd(self, val):
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"{nd} must be a list, not {val}")
-    self._nd = val
-
-  @property
-  def tvel(self):
-    """
-    List
-    
-    ".tvel" velocity file, ala ttimes
-    """
-    return self._tvel
-
-  @tvel.setter
-  def tvel(self, val):
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"{tvel} must be a list, not {val}")
-    self._tvel = val
-
-  @property
-  def model(self):
+  def model(self, val):
     """
     List
     
     use velocity model "modelname" for calculations, format is guessed.
     Also known as --mod and --model in command line.
     """
-    return self._model
-
-  @model.setter
-  def model(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{model} must be a list, not {val}")
     self._model = val
+    return self
 
-  @property
-  def nameddiscon(self):
+  def get_nd(self):
+    return self._nd
+
+  def nd(self, val):
+    """
+    List
+    
+    "named discontinuities" velocity file
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{nd} must be a list, not {val}")
+    self._nd = val
+    return self
+
+  def get_tvel(self):
+    return self._tvel
+
+  def tvel(self, val):
+    """
+    List
+    
+    ".tvel" velocity file, ala ttimes
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{tvel} must be a list, not {val}")
+    self._tvel = val
+    return self
+
+  def get_nameddiscon(self):
+    return self._nameddiscon
+
+  def nameddiscon(self, val):
     """
     Boolean
     
     outputs as .nd named discontinuity model file
     """
-    return self._nameddiscon
-
-  @nameddiscon.setter
-  def nameddiscon(self, val):
     self._nameddiscon = val
+    return self
 
-  @property
-  def mapwidth(self):
+  def get_mapwidth(self):
+    return self._mapwidth
+
+  def mapwidth(self, val):
     """
     Float
     
     plot width in units from --mapwidthunit.
     """
-    return self._mapwidth
-
-  @mapwidth.setter
-  def mapwidth(self, val):
     self._mapwidth = val
+    return self
 
-  @property
-  def mapwidthunit(self):
+  def get_mapwidthunit(self):
+    return self._mapwidthunit
+
+  def mapwidthunit(self, val):
     """
     String
     
     plot width unit, i for inch, c for cm or p for px.
     """
-    return self._mapwidthunit
-
-  @mapwidthunit.setter
-  def mapwidthunit(self, val):
     self._mapwidthunit = val
+    return self
 
-  @property
-  def legend(self):
+  def get_legend(self):
+    return self._legend
+
+  def legend(self, val):
     """
     Boolean
     
     create a legend
     """
-    return self._legend
-
-  @legend.setter
-  def legend(self, val):
     self._legend = val
+    return self
 
-  @property
-  def xaxis(self):
+  def get_xaxis(self):
+    return self._xaxis
+
+  def xaxis(self, val):
     """
     edu.sc.seis.TauP.ModelAxisType
     
@@ -126,14 +121,13 @@ class VelplotQuery:
     Default is velocity.
     Also known as -x and --xaxis in command line.
     """
-    return self._xaxis
-
-  @xaxis.setter
-  def xaxis(self, val):
     self._xaxis = val
+    return self
 
-  @property
-  def yaxis(self):
+  def get_yaxis(self):
+    return self._yaxis
+
+  def yaxis(self, val):
     """
     edu.sc.seis.TauP.ModelAxisType
     
@@ -141,37 +135,32 @@ class VelplotQuery:
     Default is depth.
     Also known as -y and --yaxis in command line.
     """
-    return self._yaxis
-
-  @yaxis.setter
-  def yaxis(self, val):
     self._yaxis = val
+    return self
 
-  @property
-  def xminmax(self):
+  def get_xminmax(self):
+    return self._xminmax
+
+  def xminmax(self, val):
     """
     [D
     
     min and max x axis for plotting
     """
-    return self._xminmax
-
-  @xminmax.setter
-  def xminmax(self, val):
     self._xminmax = val
+    return self
 
-  @property
-  def yminmax(self):
+  def get_yminmax(self):
+    return self._yminmax
+
+  def yminmax(self, val):
     """
     [D
     
     min and max y axis for plotting
     """
-    return self._yminmax
-
-  @yminmax.setter
-  def yminmax(self, val):
     self._yminmax = val
+    return self
 
 
   def create_params(self):
@@ -181,12 +170,12 @@ class VelplotQuery:
     params = {
       "format": "json",
     }
+    if len(self._model) > 0:
+      params["model"] = self._model
     if len(self._nd) > 0:
       params["nd"] = self._nd
     if len(self._tvel) > 0:
       params["tvel"] = self._tvel
-    if len(self._model) > 0:
-      params["model"] = self._model
     if self._nameddiscon is not None:
       params["nameddiscon"] = self._nameddiscon
     if self._mapwidth is not None:

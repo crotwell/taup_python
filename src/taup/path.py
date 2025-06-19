@@ -6,8 +6,8 @@ class PathQuery:
     self._receiverdepth=[]
     self._scatter=[]
     self._sourcedepth=[]
-    self._phasefile=[]
     self._phase=[]
+    self._phasefile=[]
     self._degree=[]
     self._degreerange=[]
     self._kilometer=[]
@@ -53,8 +53,10 @@ class PathQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
-  @property
-  def model(self):
+  def get_model(self):
+    return self._model
+
+  def model(self, val):
     """
     String
     
@@ -62,644 +64,597 @@ class PathQuery:
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
     Also known as --mod and --model in command line.
     """
-    return self._model
-
-  @model.setter
-  def model(self, val):
     self._model = val
+    return self
 
-  @property
-  def receiverdepth(self):
+  def get_receiverdepth(self):
+    return self._receiverdepth
+
+  def receiverdepth(self, val):
     """
     List
     
     the receiver depth in km for stations not at the surface
     Also known as --stadepth and --receiverdepth in command line.
     """
-    return self._receiverdepth
-
-  @receiverdepth.setter
-  def receiverdepth(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{receiverdepth} must be a list, not {val}")
     self._receiverdepth = val
+    return self
 
-  @property
-  def scatter(self):
+  def get_scatter(self):
+    return self._scatter
+
+  def scatter(self, val):
     """
     List
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scat and --scatter in command line.
     """
-    return self._scatter
-
-  @scatter.setter
-  def scatter(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{scatter} must be a list, not {val}")
     self._scatter = val
+    return self
 
-  @property
-  def sourcedepth(self):
+  def get_sourcedepth(self):
+    return self._sourcedepth
+
+  def sourcedepth(self, val):
     """
     List
     
     source depth in km
     Also known as -h and --sourcedepth in command line.
     """
-    return self._sourcedepth
-
-  @sourcedepth.setter
-  def sourcedepth(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{sourcedepth} must be a list, not {val}")
     self._sourcedepth = val
+    return self
 
-  @property
-  def phasefile(self):
-    """
-    List
-    
-    read list of phase names from file
-    """
-    return self._phasefile
+  def get_phase(self):
+    return self._phase
 
-  @phasefile.setter
-  def phasefile(self, val):
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"{phasefile} must be a list, not {val}")
-    self._phasefile = val
-
-  @property
-  def phase(self):
+  def phase(self, val):
     """
     List
     
     seismic phase names
     Also known as -p and --phase in command line.
     """
-    return self._phase
-
-  @phase.setter
-  def phase(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{phase} must be a list, not {val}")
     self._phase = val
+    return self
 
-  @property
-  def degree(self):
+  def get_phasefile(self):
+    return self._phasefile
+
+  def phasefile(self, val):
+    """
+    List
+    
+    read list of phase names from file
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{phasefile} must be a list, not {val}")
+    self._phasefile = val
+    return self
+
+  def get_degree(self):
+    return self._degree
+
+  def degree(self, val):
     """
     List
     
     distance in degrees
     Also known as --deg and --degree in command line.
     """
-    return self._degree
-
-  @degree.setter
-  def degree(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{degree} must be a list, not {val}")
     self._degree = val
+    return self
 
-  @property
-  def degreerange(self):
+  def get_degreerange(self):
+    return self._degreerange
+
+  def degreerange(self, val):
     """
     List
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
     """
-    return self._degreerange
-
-  @degreerange.setter
-  def degreerange(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{degreerange} must be a list, not {val}")
     self._degreerange = val
+    return self
 
-  @property
-  def kilometer(self):
+  def get_kilometer(self):
+    return self._kilometer
+
+  def kilometer(self, val):
     """
     List
     
     distance in kilometers along surface.
     Also known as --km and --kilometer in command line.
     """
-    return self._kilometer
-
-  @kilometer.setter
-  def kilometer(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{kilometer} must be a list, not {val}")
     self._kilometer = val
+    return self
 
-  @property
-  def kilometerrange(self):
+  def get_kilometerrange(self):
+    return self._kilometerrange
+
+  def kilometerrange(self, val):
     """
     List
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
     """
-    return self._kilometerrange
-
-  @kilometerrange.setter
-  def kilometerrange(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{kilometerrange} must be a list, not {val}")
     self._kilometerrange = val
+    return self
 
-  @property
-  def exactdegree(self):
+  def get_exactdegree(self):
+    return self._exactdegree
+
+  def exactdegree(self, val):
     """
     List
     
     exact distance traveled in degrees, not 360-d
     """
-    return self._exactdegree
-
-  @exactdegree.setter
-  def exactdegree(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{exactdegree} must be a list, not {val}")
     self._exactdegree = val
+    return self
 
-  @property
-  def exactdegreerange(self):
+  def get_exactdegreerange(self):
+    return self._exactdegreerange
+
+  def exactdegreerange(self, val):
     """
     List
     
     regular distance range in exact degrees, not 360-deg, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
     """
-    return self._exactdegreerange
-
-  @exactdegreerange.setter
-  def exactdegreerange(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{exactdegreerange} must be a list, not {val}")
     self._exactdegreerange = val
+    return self
 
-  @property
-  def exactkilometer(self):
+  def get_exactkilometer(self):
+    return self._exactkilometer
+
+  def exactkilometer(self, val):
     """
     List
     
     exact distance traveled in kilometers, not 360-k
     """
-    return self._exactkilometer
-
-  @exactkilometer.setter
-  def exactkilometer(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{exactkilometer} must be a list, not {val}")
     self._exactkilometer = val
+    return self
 
-  @property
-  def exactkilometerrange(self):
+  def get_exactkilometerrange(self):
+    return self._exactkilometerrange
+
+  def exactkilometerrange(self, val):
     """
     List
     
     regular distance range in kilometers, not 360-k, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
     """
-    return self._exactkilometerrange
-
-  @exactkilometerrange.setter
-  def exactkilometerrange(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{exactkilometerrange} must be a list, not {val}")
     self._exactkilometerrange = val
+    return self
 
-  @property
-  def takeoff(self):
+  def get_takeoff(self):
+    return self._takeoff
+
+  def takeoff(self, val):
     """
     List
     
     takeoff angle in degrees from the source, zero is down, 90 horizontal, 180 is up.
     """
-    return self._takeoff
-
-  @takeoff.setter
-  def takeoff(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{takeoff} must be a list, not {val}")
     self._takeoff = val
+    return self
 
-  @property
-  def takeoffrange(self):
+  def get_takeoffrange(self):
+    return self._takeoffrange
+
+  def takeoffrange(self, val):
     """
     List
     
     regular range in takeoff angle in degrees, one of step; min,max or min,max,step. Default min is 0 and step is 10.
     """
-    return self._takeoffrange
-
-  @takeoffrange.setter
-  def takeoffrange(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{takeoffrange} must be a list, not {val}")
     self._takeoffrange = val
+    return self
 
-  @property
-  def incident(self):
+  def get_incident(self):
+    return self._incident
+
+  def incident(self, val):
     """
     List
     
     incident angle in degrees at the receiver, zero is down, 90 horizontal, 180 is up.
     """
-    return self._incident
-
-  @incident.setter
-  def incident(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{incident} must be a list, not {val}")
     self._incident = val
+    return self
 
-  @property
-  def incidentrange(self):
+  def get_incidentrange(self):
+    return self._incidentrange
+
+  def incidentrange(self, val):
     """
     List
     
     regular range in incident angle in degrees, one of step; min max or min max step. Default min is 0 and step is 10.
     """
-    return self._incidentrange
-
-  @incidentrange.setter
-  def incidentrange(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{incidentrange} must be a list, not {val}")
     self._incidentrange = val
+    return self
 
-  @property
-  def rayparamrad(self):
+  def get_rayparamrad(self):
+    return self._rayparamrad
+
+  def rayparamrad(self, val):
     """
     List
     
     ray parameter from the source in s/rad, up or down is determined by the phase
     """
-    return self._rayparamrad
-
-  @rayparamrad.setter
-  def rayparamrad(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{rayparamrad} must be a list, not {val}")
     self._rayparamrad = val
+    return self
 
-  @property
-  def rayparamdeg(self):
+  def get_rayparamdeg(self):
+    return self._rayparamdeg
+
+  def rayparamdeg(self, val):
     """
     List
     
     ray parameter from the source in s/deg, up or down is determined by the phase
     """
-    return self._rayparamdeg
-
-  @rayparamdeg.setter
-  def rayparamdeg(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{rayparamdeg} must be a list, not {val}")
     self._rayparamdeg = val
+    return self
 
-  @property
-  def rayparamkm(self):
+  def get_rayparamkm(self):
+    return self._rayparamkm
+
+  def rayparamkm(self, val):
     """
     List
     
     ray parameter from the source in s/km, up or down is determined by the phase
     """
-    return self._rayparamkm
-
-  @rayparamkm.setter
-  def rayparamkm(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{rayparamkm} must be a list, not {val}")
     self._rayparamkm = val
+    return self
 
-  @property
-  def rayparamidx(self):
+  def get_rayparamidx(self):
+    return self._rayparamidx
+
+  def rayparamidx(self, val):
     """
     List
     
     ray parameter from the source as index into model sampling, up or down is determined by the phase
     """
-    return self._rayparamidx
-
-  @rayparamidx.setter
-  def rayparamidx(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{rayparamidx} must be a list, not {val}")
     self._rayparamidx = val
+    return self
 
-  @property
-  def allindex(self):
+  def get_allindex(self):
+    return self._allindex
+
+  def allindex(self, val):
     """
     Boolean
     
     all arrivals at sampling of model
     """
-    return self._allindex
-
-  @allindex.setter
-  def allindex(self, val):
     self._allindex = val
+    return self
 
-  @property
-  def station(self):
+  def get_station(self):
+    return self._station
+
+  def station(self, val):
     """
     List
     
     station latitude and longitude. Creates a distance if event is also given.
     Also known as --sta and --station in command line.
     """
-    return self._station
-
-  @station.setter
-  def station(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{station} must be a list, not {val}")
     self._station = val
+    return self
 
-  @property
-  def event(self):
+  def get_event(self):
+    return self._event
+
+  def event(self, val):
     """
     List
     
     event latitude and longitude.  Creates a distance if station is also given.
     Also known as --evt and --event in command line.
     """
-    return self._event
-
-  @event.setter
-  def event(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{event} must be a list, not {val}")
     self._event = val
+    return self
 
-  @property
-  def az(self):
+  def get_az(self):
+    return self._az
+
+  def az(self, val):
     """
     Double
     
     azimuth in degrees, source to receiver
     """
-    return self._az
-
-  @az.setter
-  def az(self, val):
     self._az = val
+    return self
 
-  @property
-  def baz(self):
+  def get_baz(self):
+    return self._baz
+
+  def baz(self, val):
     """
     Double
     
     backazimuth in degrees, receiver to source
     """
-    return self._baz
-
-  @baz.setter
-  def baz(self, val):
     self._baz = val
+    return self
 
-  @property
-  def geodetic(self):
+  def get_geodetic(self):
+    return self._geodetic
+
+  def geodetic(self, val):
     """
     Boolean
     
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
     """
-    return self._geodetic
-
-  @geodetic.setter
-  def geodetic(self, val):
     self._geodetic = val
+    return self
 
-  @property
-  def geodeticflattening(self):
+  def get_geodeticflattening(self):
+    return self._geodeticflattening
+
+  def geodeticflattening(self, val):
     """
     Double
     
     Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
     """
-    return self._geodeticflattening
-
-  @geodeticflattening.setter
-  def geodeticflattening(self, val):
     self._geodeticflattening = val
+    return self
 
-  @property
-  def eid(self):
+  def get_eid(self):
+    return self._eid
+
+  def eid(self, val):
     """
     List
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
     """
-    return self._eid
-
-  @eid.setter
-  def eid(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{eid} must be a list, not {val}")
     self._eid = val
+    return self
 
-  @property
-  def sid(self):
+  def get_sid(self):
+    return self._sid
+
+  def sid(self, val):
     """
     List
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
     """
-    return self._sid
-
-  @sid.setter
-  def sid(self, val):
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{sid} must be a list, not {val}")
     self._sid = val
+    return self
 
-  @property
-  def quakeml(self):
+  def get_quakeml(self):
+    return self._quakeml
+
+  def quakeml(self, val):
     """
     String
     
     QuakeML file to load for earthquake origins to use
     Also known as --qml and --quakeml in command line.
     """
-    return self._quakeml
-
-  @quakeml.setter
-  def quakeml(self, val):
     self._quakeml = val
+    return self
 
-  @property
-  def staxml(self):
+  def get_staxml(self):
+    return self._staxml
+
+  def staxml(self, val):
     """
     String
     
     StationXML file to extract station latitudes and longitudes from
     """
-    return self._staxml
-
-  @staxml.setter
-  def staxml(self, val):
     self._staxml = val
+    return self
 
-  @property
-  def color(self):
+  def get_color(self):
+    return self._color
+
+  def color(self, val):
     """
     edu.sc.seis.TauP.cmdline.args.ColorType
     
     style of coloring for paths and wavefronts, one of: auto, wavetype, phase, none
     """
-    return self._color
-
-  @color.setter
-  def color(self, val):
     self._color = val
+    return self
 
-  @property
-  def legend(self):
+  def get_legend(self):
+    return self._legend
+
+  def legend(self, val):
     """
     Boolean
     
     create a legend
     """
-    return self._legend
-
-  @legend.setter
-  def legend(self, val):
     self._legend = val
+    return self
 
-  @property
-  def label(self):
+  def get_label(self):
+    return self._label
+
+  def label(self, val):
     """
     Boolean
     
     label with phase name
     """
-    return self._label
-
-  @label.setter
-  def label(self, val):
     self._label = val
+    return self
 
-  @property
-  def yaxis(self):
+  def get_yaxis(self):
+    return self._yaxis
+
+  def yaxis(self, val):
     """
     edu.sc.seis.TauP.DepthAxisType
     
     y axis type, the depth/radius axis, one of depth, radius
     No effect for SVG output.
     """
-    return self._yaxis
-
-  @yaxis.setter
-  def yaxis(self, val):
     self._yaxis = val
+    return self
 
-  @property
-  def xaxis(self):
+  def get_xaxis(self):
+    return self._xaxis
+
+  def xaxis(self, val):
     """
     edu.sc.seis.TauP.DistanceAxisType
     
     x axis type, the depth/radius axis, one of degree, radian, kilometer
     No effect for SVG output.
     """
-    return self._xaxis
-
-  @xaxis.setter
-  def xaxis(self, val):
     self._xaxis = val
+    return self
 
-  @property
-  def degminmax(self):
+  def get_degminmax(self):
+    return self._degminmax
+
+  def degminmax(self, val):
     """
     [D
     
     min and max distance in degrees for plotting
     """
-    return self._degminmax
-
-  @degminmax.setter
-  def degminmax(self, val):
     self._degminmax = val
+    return self
 
-  @property
-  def depthminmax(self):
+  def get_depthminmax(self):
+    return self._depthminmax
+
+  def depthminmax(self, val):
     """
     [D
     
     min and max depth, km,  for plotting
     """
-    return self._depthminmax
-
-  @depthminmax.setter
-  def depthminmax(self, val):
     self._depthminmax = val
+    return self
 
-  @property
-  def onlynameddiscon(self):
+  def get_onlynameddiscon(self):
+    return self._onlynameddiscon
+
+  def onlynameddiscon(self, val):
     """
     Boolean
     
     only draw circles on the plot for named discontinuities like moho, cmb, iocb
     """
-    return self._onlynameddiscon
-
-  @onlynameddiscon.setter
-  def onlynameddiscon(self, val):
     self._onlynameddiscon = val
+    return self
 
-  @property
-  def mapwidth(self):
+  def get_mapwidth(self):
+    return self._mapwidth
+
+  def mapwidth(self, val):
     """
     Float
     
     plot width in units from --mapwidthunit.
     """
-    return self._mapwidth
-
-  @mapwidth.setter
-  def mapwidth(self, val):
     self._mapwidth = val
+    return self
 
-  @property
-  def mapwidthunit(self):
+  def get_mapwidthunit(self):
+    return self._mapwidthunit
+
+  def mapwidthunit(self, val):
     """
     String
     
     plot width unit, i for inch, c for cm or p for px.
     """
-    return self._mapwidthunit
-
-  @mapwidthunit.setter
-  def mapwidthunit(self, val):
     self._mapwidthunit = val
+    return self
 
-  @property
-  def withtime(self):
+  def get_withtime(self):
+    return self._withtime
+
+  def withtime(self, val):
     """
     Boolean
     
     include time for each path point, no effect for SVG.
     """
-    return self._withtime
-
-  @withtime.setter
-  def withtime(self, val):
     self._withtime = val
+    return self
 
-  @property
-  def maxpathinc(self):
+  def get_maxpathinc(self):
+    return self._maxpathinc
+
+  def maxpathinc(self, val):
     """
     Double
     
     Maximum distance increment in degrees between path points, avoid visible segmentation in plots
     """
-    return self._maxpathinc
-
-  @maxpathinc.setter
-  def maxpathinc(self, val):
     self._maxpathinc = val
+    return self
 
 
   def create_params(self):
@@ -717,10 +672,10 @@ class PathQuery:
       params["scatter"] = self._scatter
     if len(self._sourcedepth) > 0:
       params["sourcedepth"] = self._sourcedepth
-    if len(self._phasefile) > 0:
-      params["phasefile"] = self._phasefile
     if len(self._phase) > 0:
       params["phase"] = self._phase
+    if len(self._phasefile) > 0:
+      params["phasefile"] = self._phasefile
     if len(self._degree) > 0:
       params["degree"] = self._degree
     if len(self._degreerange) > 0:
