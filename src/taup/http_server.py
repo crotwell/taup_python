@@ -36,22 +36,27 @@ class TauPServer:
         # we should see a line with the url like
         # http://localhost:7409
         # once the server has had a chance to be fully started up
-        for i in range(3):
+        startupOk = False
+        startLines = []
+        for i in range(4):
             line = self._taup.stdout.readline().decode("utf-8")
-            print(line)
+            #print(line)
             line = line.strip()
+            startLines.append(line)
             if line.startswith("http"):
-                print("startup ok")
-                # set
+                startupOk = True
+        if not startupOk:
+            raise Exception("Unable to startup taup web:"+("\n".join(startLines)))
 
         # thread just to pull taup stdout and print it to our output
         def copyStdOut(out, stop_event):
             try:
                 while not stop_event.is_set():
                     line = out.readline().decode("utf-8").strip()
-                    print(f"TauP: {line}", file=sys.stderr)
+                    if len(line) > 0:
+                        print(f"TauP: {line}", file=sys.stderr)
             except Exception as err:
-                print('exception, quitting copy to stdou')
+                print('exception, quitting copy to stderr')
                 print(err)
                 return
         self._stop_event=Event()
