@@ -4,7 +4,7 @@ import requests
 eventLatLons = [ [35, -50], [-29, 45]]
 staLatLons = [ [34, -80], [35, -81]]
 
-with taup.TauPServer("../TauP/build/install/TauP/bin/taup") as timeserver:
+with taup.TauPServer() as timeserver:
 
     timeParams = taup.TimeQuery()
     # params that will stay the same
