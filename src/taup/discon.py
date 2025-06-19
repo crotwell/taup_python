@@ -11,6 +11,22 @@ class DisconQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
+  def get_mod(self):
+    return self._model
+
+  def mod(self, val):
+    """
+    List of String
+
+    
+    use velocity model "modelname" for calculations, format is guessed.
+    Also known as --model in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{mod} must be a list, not {val}")
+    self._model = val
+    return self
+
   def get_model(self):
     return self._model
 
@@ -20,7 +36,6 @@ class DisconQuery:
 
     
     use velocity model "modelname" for calculations, format is guessed.
-    Also known as --mod and --model in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{model} must be a list, not {val}")

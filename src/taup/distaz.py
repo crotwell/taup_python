@@ -23,6 +23,22 @@ class DistazQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
+  def get_sta(self):
+    return self._station
+
+  def sta(self, val):
+    """
+    List of Double
+
+    
+    station latitude and longitude. Creates a distance if event is also given.
+    Also known as --station in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{sta} must be a list, not {val}")
+    self._station = val
+    return self
+
   def get_station(self):
     return self._station
 
@@ -32,11 +48,26 @@ class DistazQuery:
 
     
     station latitude and longitude. Creates a distance if event is also given.
-    Also known as --sta and --station in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{station} must be a list, not {val}")
     self._station = val
+    return self
+
+  def get_evt(self):
+    return self._event
+
+  def evt(self, val):
+    """
+    List of Double
+
+    
+    event latitude and longitude.  Creates a distance if station is also given.
+    Also known as --event in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{evt} must be a list, not {val}")
+    self._event = val
     return self
 
   def get_event(self):
@@ -48,7 +79,6 @@ class DistazQuery:
 
     
     event latitude and longitude.  Creates a distance if station is also given.
-    Also known as --evt and --event in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{event} must be a list, not {val}")
@@ -109,6 +139,19 @@ class DistazQuery:
     self._sid = val
     return self
 
+  def get_qml(self):
+    return self._quakeml
+
+  def qml(self, val):
+    """
+    String
+    
+    QuakeML file to load for earthquake origins to use
+    Also known as --quakeml in command line.
+    """
+    self._quakeml = val
+    return self
+
   def get_quakeml(self):
     return self._quakeml
 
@@ -117,7 +160,6 @@ class DistazQuery:
     String
     
     QuakeML file to load for earthquake origins to use
-    Also known as --qml and --quakeml in command line.
     """
     self._quakeml = val
     return self
@@ -158,6 +200,22 @@ class DistazQuery:
     self._geodeticflattening = val
     return self
 
+  def get_deg(self):
+    return self._degree
+
+  def deg(self, val):
+    """
+    List of Double
+
+    
+    distance in degrees
+    Also known as --degree in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{deg} must be a list, not {val}")
+    self._degree = val
+    return self
+
   def get_degree(self):
     return self._degree
 
@@ -167,7 +225,6 @@ class DistazQuery:
 
     
     distance in degrees
-    Also known as --deg and --degree in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{degree} must be a list, not {val}")
@@ -189,6 +246,22 @@ class DistazQuery:
     self._degreerange = val
     return self
 
+  def get_km(self):
+    return self._kilometer
+
+  def km(self, val):
+    """
+    List of Double
+
+    
+    distance in kilometers along surface.
+    Also known as --kilometer in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{km} must be a list, not {val}")
+    self._kilometer = val
+    return self
+
   def get_kilometer(self):
     return self._kilometer
 
@@ -198,7 +271,6 @@ class DistazQuery:
 
     
     distance in kilometers along surface.
-    Also known as --km and --kilometer in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{kilometer} must be a list, not {val}")

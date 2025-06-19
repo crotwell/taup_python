@@ -50,6 +50,20 @@ class TimeQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
+  def get_mod(self):
+    return self._model
+
+  def mod(self, val):
+    """
+    String
+    
+    use velocity model "modelName" for calculations. 
+    Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+    Also known as --model in command line.
+    """
+    self._model = val
+    return self
+
   def get_model(self):
     return self._model
 
@@ -59,9 +73,24 @@ class TimeQuery:
     
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
-    Also known as --mod and --model in command line.
     """
     self._model = val
+    return self
+
+  def get_stadepth(self):
+    return self._receiverdepth
+
+  def stadepth(self, val):
+    """
+    List of Double
+
+    
+    the receiver depth in km for stations not at the surface
+    Also known as --receiverdepth in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{stadepth} must be a list, not {val}")
+    self._receiverdepth = val
     return self
 
   def get_receiverdepth(self):
@@ -73,11 +102,26 @@ class TimeQuery:
 
     
     the receiver depth in km for stations not at the surface
-    Also known as --stadepth and --receiverdepth in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{receiverdepth} must be a list, not {val}")
     self._receiverdepth = val
+    return self
+
+  def get_scat(self):
+    return self._scatter
+
+  def scat(self, val):
+    """
+    List of Double
+
+    
+    scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+    Also known as --scatter in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{scat} must be a list, not {val}")
+    self._scatter = val
     return self
 
   def get_scatter(self):
@@ -89,11 +133,26 @@ class TimeQuery:
 
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
-    Also known as --scat and --scatter in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{scatter} must be a list, not {val}")
     self._scatter = val
+    return self
+
+  def get_h(self):
+    return self._sourcedepth
+
+  def h(self, val):
+    """
+    List of Double
+
+    
+    source depth in km
+    Also known as --sourcedepth in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{h} must be a list, not {val}")
+    self._sourcedepth = val
     return self
 
   def get_sourcedepth(self):
@@ -105,11 +164,42 @@ class TimeQuery:
 
     
     source depth in km
-    Also known as -h and --sourcedepth in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{sourcedepth} must be a list, not {val}")
     self._sourcedepth = val
+    return self
+
+  def get_evdepth(self):
+    return self._sourcedepth
+
+  def evdepth(self, val):
+    """
+    List of Double
+
+    
+    source depth in km
+    Also known as --sourcedepth in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{evdepth} must be a list, not {val}")
+    self._sourcedepth = val
+    return self
+
+  def get_p(self):
+    return self._phase
+
+  def p(self, val):
+    """
+    List of String
+
+    
+    seismic phase names
+    Also known as --phase in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{p} must be a list, not {val}")
+    self._phase = val
     return self
 
   def get_phase(self):
@@ -121,10 +211,25 @@ class TimeQuery:
 
     
     seismic phase names
-    Also known as -p and --phase in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{phase} must be a list, not {val}")
+    self._phase = val
+    return self
+
+  def get_ph(self):
+    return self._phase
+
+  def ph(self, val):
+    """
+    List of String
+
+    
+    seismic phase names
+    Also known as --phase in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{ph} must be a list, not {val}")
     self._phase = val
     return self
 
@@ -143,6 +248,22 @@ class TimeQuery:
     self._phasefile = val
     return self
 
+  def get_deg(self):
+    return self._degree
+
+  def deg(self, val):
+    """
+    List of Double
+
+    
+    distance in degrees
+    Also known as --degree in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{deg} must be a list, not {val}")
+    self._degree = val
+    return self
+
   def get_degree(self):
     return self._degree
 
@@ -152,7 +273,6 @@ class TimeQuery:
 
     
     distance in degrees
-    Also known as --deg and --degree in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{degree} must be a list, not {val}")
@@ -174,6 +294,22 @@ class TimeQuery:
     self._degreerange = val
     return self
 
+  def get_km(self):
+    return self._kilometer
+
+  def km(self, val):
+    """
+    List of Double
+
+    
+    distance in kilometers along surface.
+    Also known as --kilometer in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{km} must be a list, not {val}")
+    self._kilometer = val
+    return self
+
   def get_kilometer(self):
     return self._kilometer
 
@@ -183,7 +319,6 @@ class TimeQuery:
 
     
     distance in kilometers along surface.
-    Also known as --km and --kilometer in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{kilometer} must be a list, not {val}")
@@ -397,6 +532,22 @@ class TimeQuery:
     self._allindex = val
     return self
 
+  def get_sta(self):
+    return self._station
+
+  def sta(self, val):
+    """
+    List of Double
+
+    
+    station latitude and longitude. Creates a distance if event is also given.
+    Also known as --station in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{sta} must be a list, not {val}")
+    self._station = val
+    return self
+
   def get_station(self):
     return self._station
 
@@ -406,11 +557,26 @@ class TimeQuery:
 
     
     station latitude and longitude. Creates a distance if event is also given.
-    Also known as --sta and --station in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{station} must be a list, not {val}")
     self._station = val
+    return self
+
+  def get_evt(self):
+    return self._event
+
+  def evt(self, val):
+    """
+    List of Double
+
+    
+    event latitude and longitude.  Creates a distance if station is also given.
+    Also known as --event in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{evt} must be a list, not {val}")
+    self._event = val
     return self
 
   def get_event(self):
@@ -422,7 +588,6 @@ class TimeQuery:
 
     
     event latitude and longitude.  Creates a distance if station is also given.
-    Also known as --evt and --event in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{event} must be a list, not {val}")
@@ -507,6 +672,19 @@ class TimeQuery:
     self._sid = val
     return self
 
+  def get_qml(self):
+    return self._quakeml
+
+  def qml(self, val):
+    """
+    String
+    
+    QuakeML file to load for earthquake origins to use
+    Also known as --quakeml in command line.
+    """
+    self._quakeml = val
+    return self
+
   def get_quakeml(self):
     return self._quakeml
 
@@ -515,7 +693,6 @@ class TimeQuery:
     String
     
     QuakeML file to load for earthquake origins to use
-    Also known as --qml and --quakeml in command line.
     """
     self._quakeml = val
     return self
@@ -532,6 +709,19 @@ class TimeQuery:
     self._staxml = val
     return self
 
+  def get_rayp(self):
+    return self._onlyrayp
+
+  def rayp(self, val):
+    """
+    Boolean
+    
+    only output the ray parameter
+    Also known as --onlyrayp in command line.
+    """
+    self._onlyrayp = val
+    return self
+
   def get_onlyrayp(self):
     return self._onlyrayp
 
@@ -540,9 +730,21 @@ class TimeQuery:
     Boolean
     
     only output the ray parameter
-    Also known as --rayp and --onlyrayp in command line.
     """
     self._onlyrayp = val
+    return self
+
+  def get_time(self):
+    return self._onlytime
+
+  def time(self, val):
+    """
+    Boolean
+    
+    only output travel time
+    Also known as --onlytime in command line.
+    """
+    self._onlytime = val
     return self
 
   def get_onlytime(self):
@@ -553,9 +755,21 @@ class TimeQuery:
     Boolean
     
     only output travel time
-    Also known as --time and --onlytime in command line.
     """
     self._onlytime = val
+    return self
+
+  def get_first(self):
+    return self._onlyfirst
+
+  def first(self, val):
+    """
+    Boolean
+    
+    only output the first arrival for each phase, no triplications
+    Also known as --onlyfirst in command line.
+    """
+    self._onlyfirst = val
     return self
 
   def get_onlyfirst(self):
@@ -566,7 +780,6 @@ class TimeQuery:
     Boolean
     
     only output the first arrival for each phase, no triplications
-    Also known as --first and --onlyfirst in command line.
     """
     self._onlyfirst = val
     return self

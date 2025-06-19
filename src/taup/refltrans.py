@@ -11,6 +11,10 @@ class RefltransQuery:
     self._sourcedepth=[]
     self._depth=None
     self._angles=None
+    self._x=None
+    self._y=[]
+    self._xminmax=None
+    self._yminmax=None
     self._layer=None
     self._down=None
     self._up=None
@@ -22,10 +26,6 @@ class RefltransQuery:
     self._abs=None
     self._anglestep=None
     self._rpstep=None
-    self._x=None
-    self._y=[]
-    self._xminmax=None
-    self._yminmax=None
 
   def calc(self, taupServer):
     params = self.create_params()
@@ -68,6 +68,20 @@ class RefltransQuery:
     self._legend = val
     return self
 
+  def get_mod(self):
+    return self._model
+
+  def mod(self, val):
+    """
+    String
+    
+    use velocity model "modelName" for calculations. 
+    Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+    Also known as --model in command line.
+    """
+    self._model = val
+    return self
+
   def get_model(self):
     return self._model
 
@@ -77,9 +91,24 @@ class RefltransQuery:
     
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
-    Also known as --mod and --model in command line.
     """
     self._model = val
+    return self
+
+  def get_stadepth(self):
+    return self._receiverdepth
+
+  def stadepth(self, val):
+    """
+    List of Double
+
+    
+    the receiver depth in km for stations not at the surface
+    Also known as --receiverdepth in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{stadepth} must be a list, not {val}")
+    self._receiverdepth = val
     return self
 
   def get_receiverdepth(self):
@@ -91,11 +120,26 @@ class RefltransQuery:
 
     
     the receiver depth in km for stations not at the surface
-    Also known as --stadepth and --receiverdepth in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{receiverdepth} must be a list, not {val}")
     self._receiverdepth = val
+    return self
+
+  def get_scat(self):
+    return self._scatter
+
+  def scat(self, val):
+    """
+    List of Double
+
+    
+    scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+    Also known as --scatter in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{scat} must be a list, not {val}")
+    self._scatter = val
     return self
 
   def get_scatter(self):
@@ -107,11 +151,26 @@ class RefltransQuery:
 
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
-    Also known as --scat and --scatter in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{scatter} must be a list, not {val}")
     self._scatter = val
+    return self
+
+  def get_h(self):
+    return self._sourcedepth
+
+  def h(self, val):
+    """
+    List of Double
+
+    
+    source depth in km
+    Also known as --sourcedepth in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{h} must be a list, not {val}")
+    self._sourcedepth = val
     return self
 
   def get_sourcedepth(self):
@@ -123,10 +182,25 @@ class RefltransQuery:
 
     
     source depth in km
-    Also known as -h and --sourcedepth in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{sourcedepth} must be a list, not {val}")
+    self._sourcedepth = val
+    return self
+
+  def get_evdepth(self):
+    return self._sourcedepth
+
+  def evdepth(self, val):
+    """
+    List of Double
+
+    
+    source depth in km
+    Also known as --sourcedepth in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{evdepth} must be a list, not {val}")
     self._sourcedepth = val
     return self
 
@@ -152,6 +226,57 @@ class RefltransQuery:
     all angle coefficients, like TpAngle
     """
     self._angles = val
+    return self
+
+  def get_x(self):
+    return self._x
+
+  def x(self, val):
+    """
+    edu.sc.seis.TauP.cmdline.TauP_ReflTransPlot$DegRayParam
+    
+    X axis data type, one of degree, rayparam, default is degree
+    """
+    self._x = val
+    return self
+
+  def get_y(self):
+    return self._y
+
+  def y(self, val):
+    """
+    List of edu.sc.seis.TauP.ReflTransAxisType
+
+    
+    Y axis data type, one or more of Rpp, Rps, Rsp, Rss, Tpp, Tps, Tsp, Tss, Rshsh, Tshsh, RppEnergy, TppEnergy, RpsEnergy, TpsEnergy, RspEnergy, TspEnergy, RssEnergy, TssEnergy, RshshEnergy, TshshEnergy, RpAngle, RsAngle, TpAngle, TsAngle, FreeRecFuncPr, FreeRecFuncSvr, FreeRecFuncPz, FreeRecFuncSvz, FreeRecFuncSh, default is all displacement coef.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{y} must be a list, not {val}")
+    self._y = val
+    return self
+
+  def get_xminmax(self):
+    return self._xminmax
+
+  def xminmax(self, val):
+    """
+    [D
+    
+    min and max x axis for plotting
+    """
+    self._xminmax = val
+    return self
+
+  def get_yminmax(self):
+    return self._yminmax
+
+  def yminmax(self, val):
+    """
+    [D
+    
+    min and max y axis for plotting
+    """
+    self._yminmax = val
     return self
 
   def get_layer(self):
@@ -286,57 +411,6 @@ class RefltransQuery:
     self._rpstep = val
     return self
 
-  def get_x(self):
-    return self._x
-
-  def x(self, val):
-    """
-    edu.sc.seis.TauP.cmdline.TauP_ReflTransPlot$DegRayParam
-    
-    X axis data type, one of degree, rayparam, default is degree
-    """
-    self._x = val
-    return self
-
-  def get_y(self):
-    return self._y
-
-  def y(self, val):
-    """
-    List of edu.sc.seis.TauP.ReflTransAxisType
-
-    
-    Y axis data type, one or more of Rpp, Rps, Rsp, Rss, Tpp, Tps, Tsp, Tss, Rshsh, Tshsh, RppEnergy, TppEnergy, RpsEnergy, TpsEnergy, RspEnergy, TspEnergy, RssEnergy, TssEnergy, RshshEnergy, TshshEnergy, RpAngle, RsAngle, TpAngle, TsAngle, FreeRecFuncPr, FreeRecFuncSvr, FreeRecFuncPz, FreeRecFuncSvz, FreeRecFuncSh, default is all displacement coef.
-    """
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"{y} must be a list, not {val}")
-    self._y = val
-    return self
-
-  def get_xminmax(self):
-    return self._xminmax
-
-  def xminmax(self, val):
-    """
-    [D
-    
-    min and max x axis for plotting
-    """
-    self._xminmax = val
-    return self
-
-  def get_yminmax(self):
-    return self._yminmax
-
-  def yminmax(self, val):
-    """
-    [D
-    
-    min and max y axis for plotting
-    """
-    self._yminmax = val
-    return self
-
 
   def create_params(self):
     """
@@ -363,6 +437,14 @@ class RefltransQuery:
       params["depth"] = self._depth
     if self._angles is not None:
       params["angles"] = self._angles
+    if self._x is not None:
+      params["x"] = self._x
+    if len(self._y) > 0:
+      params["y"] = self._y
+    if self._xminmax is not None:
+      params["xminmax"] = self._xminmax
+    if self._yminmax is not None:
+      params["yminmax"] = self._yminmax
     if self._layer is not None:
       params["layer"] = self._layer
     if self._down is not None:
@@ -385,13 +467,5 @@ class RefltransQuery:
       params["anglestep"] = self._anglestep
     if self._rpstep is not None:
       params["rpstep"] = self._rpstep
-    if self._x is not None:
-      params["x"] = self._x
-    if len(self._y) > 0:
-      params["y"] = self._y
-    if self._xminmax is not None:
-      params["xminmax"] = self._xminmax
-    if self._yminmax is not None:
-      params["yminmax"] = self._yminmax
     return params
 

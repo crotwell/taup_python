@@ -19,6 +19,22 @@ class VelplotQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
+  def get_mod(self):
+    return self._model
+
+  def mod(self, val):
+    """
+    List of String
+
+    
+    use velocity model "modelname" for calculations, format is guessed.
+    Also known as --model in command line.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{mod} must be a list, not {val}")
+    self._model = val
+    return self
+
   def get_model(self):
     return self._model
 
@@ -28,7 +44,6 @@ class VelplotQuery:
 
     
     use velocity model "modelname" for calculations, format is guessed.
-    Also known as --mod and --model in command line.
     """
     if not hasattr(val, "__getitem__"):
       raise Exception(f"{model} must be a list, not {val}")
@@ -113,6 +128,20 @@ class VelplotQuery:
     self._legend = val
     return self
 
+  def get_x(self):
+    return self._xaxis
+
+  def x(self, val):
+    """
+    edu.sc.seis.TauP.ModelAxisType
+    
+    X axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
+    Default is velocity.
+    Also known as --xaxis in command line.
+    """
+    self._xaxis = val
+    return self
+
   def get_xaxis(self):
     return self._xaxis
 
@@ -122,9 +151,22 @@ class VelplotQuery:
     
     X axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is velocity.
-    Also known as -x and --xaxis in command line.
     """
     self._xaxis = val
+    return self
+
+  def get_y(self):
+    return self._yaxis
+
+  def y(self, val):
+    """
+    edu.sc.seis.TauP.ModelAxisType
+    
+    Y axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
+    Default is depth.
+    Also known as --yaxis in command line.
+    """
+    self._yaxis = val
     return self
 
   def get_yaxis(self):
@@ -136,7 +178,6 @@ class VelplotQuery:
     
     Y axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is depth.
-    Also known as -y and --yaxis in command line.
     """
     self._yaxis = val
     return self

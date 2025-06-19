@@ -17,6 +17,19 @@ class VelmergeQuery:
     return taupServer.queryJson(params, self.toolname)
 
 
+  def get_mod(self):
+    return self._model
+
+  def mod(self, val):
+    """
+    String
+    
+    use velocity model "modelname" for calculations, format is guessed.
+    Also known as --model in command line.
+    """
+    self._model = val
+    return self
+
   def get_model(self):
     return self._model
 
@@ -25,7 +38,6 @@ class VelmergeQuery:
     String
     
     use velocity model "modelname" for calculations, format is guessed.
-    Also known as --mod and --model in command line.
     """
     self._model = val
     return self
