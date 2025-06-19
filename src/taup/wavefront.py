@@ -45,7 +45,8 @@ class WavefrontQuery:
 
   def receiverdepth(self, val):
     """
-    List
+    List of Double
+
     
     the receiver depth in km for stations not at the surface
     Also known as --stadepth and --receiverdepth in command line.
@@ -60,7 +61,8 @@ class WavefrontQuery:
 
   def scatter(self, val):
     """
-    List
+    List of Double
+
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scat and --scatter in command line.
@@ -75,7 +77,8 @@ class WavefrontQuery:
 
   def sourcedepth(self, val):
     """
-    List
+    List of Double
+
     
     source depth in km
     Also known as -h and --sourcedepth in command line.
@@ -90,7 +93,8 @@ class WavefrontQuery:
 
   def phase(self, val):
     """
-    List
+    List of String
+
     
     seismic phase names
     Also known as -p and --phase in command line.
@@ -105,7 +109,8 @@ class WavefrontQuery:
 
   def phasefile(self, val):
     """
-    List
+    List of String
+
     
     read list of phase names from file
     """

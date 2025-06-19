@@ -9,10 +9,8 @@ class RefltransQuery:
     self._receiverdepth=[]
     self._scatter=[]
     self._sourcedepth=[]
-    self._x=None
-    self._y=[]
-    self._xminmax=None
-    self._yminmax=None
+    self._depth=None
+    self._angles=None
     self._layer=None
     self._down=None
     self._up=None
@@ -24,8 +22,10 @@ class RefltransQuery:
     self._abs=None
     self._anglestep=None
     self._rpstep=None
-    self._depth=None
-    self._angles=None
+    self._x=None
+    self._y=[]
+    self._xminmax=None
+    self._yminmax=None
 
   def calc(self, taupServer):
     params = self.create_params()
@@ -87,7 +87,8 @@ class RefltransQuery:
 
   def receiverdepth(self, val):
     """
-    List
+    List of Double
+
     
     the receiver depth in km for stations not at the surface
     Also known as --stadepth and --receiverdepth in command line.
@@ -102,7 +103,8 @@ class RefltransQuery:
 
   def scatter(self, val):
     """
-    List
+    List of Double
+
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scat and --scatter in command line.
@@ -117,7 +119,8 @@ class RefltransQuery:
 
   def sourcedepth(self, val):
     """
-    List
+    List of Double
+
     
     source depth in km
     Also known as -h and --sourcedepth in command line.
@@ -127,54 +130,28 @@ class RefltransQuery:
     self._sourcedepth = val
     return self
 
-  def get_x(self):
-    return self._x
+  def get_depth(self):
+    return self._depth
 
-  def x(self, val):
+  def depth(self, val):
     """
-    edu.sc.seis.TauP.cmdline.TauP_ReflTransPlot$DegRayParam
+    String
     
-    X axis data type, one of degree, rayparam, default is degree
+    Depth in model to get boundary parameters, may be number or name like moho.
     """
-    self._x = val
+    self._depth = val
     return self
 
-  def get_y(self):
-    return self._y
+  def get_angles(self):
+    return self._angles
 
-  def y(self, val):
+  def angles(self, val):
     """
-    List
+    Boolean
     
-    Y axis data type, one or more of Rpp, Rps, Rsp, Rss, Tpp, Tps, Tsp, Tss, Rshsh, Tshsh, RppEnergy, TppEnergy, RpsEnergy, TpsEnergy, RspEnergy, TspEnergy, RssEnergy, TssEnergy, RshshEnergy, TshshEnergy, RpAngle, RsAngle, TpAngle, TsAngle, FreeRecFuncPr, FreeRecFuncSvr, FreeRecFuncPz, FreeRecFuncSvz, FreeRecFuncSh, default is all displacement coef.
+    all angle coefficients, like TpAngle
     """
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"{y} must be a list, not {val}")
-    self._y = val
-    return self
-
-  def get_xminmax(self):
-    return self._xminmax
-
-  def xminmax(self, val):
-    """
-    [D
-    
-    min and max x axis for plotting
-    """
-    self._xminmax = val
-    return self
-
-  def get_yminmax(self):
-    return self._yminmax
-
-  def yminmax(self, val):
-    """
-    [D
-    
-    min and max y axis for plotting
-    """
-    self._yminmax = val
+    self._angles = val
     return self
 
   def get_layer(self):
@@ -309,28 +286,55 @@ class RefltransQuery:
     self._rpstep = val
     return self
 
-  def get_depth(self):
-    return self._depth
+  def get_x(self):
+    return self._x
 
-  def depth(self, val):
+  def x(self, val):
     """
-    String
+    edu.sc.seis.TauP.cmdline.TauP_ReflTransPlot$DegRayParam
     
-    Depth in model to get boundary parameters, may be number or name like moho.
+    X axis data type, one of degree, rayparam, default is degree
     """
-    self._depth = val
+    self._x = val
     return self
 
-  def get_angles(self):
-    return self._angles
+  def get_y(self):
+    return self._y
 
-  def angles(self, val):
+  def y(self, val):
     """
-    Boolean
+    List of edu.sc.seis.TauP.ReflTransAxisType
+
     
-    all angle coefficients, like TpAngle
+    Y axis data type, one or more of Rpp, Rps, Rsp, Rss, Tpp, Tps, Tsp, Tss, Rshsh, Tshsh, RppEnergy, TppEnergy, RpsEnergy, TpsEnergy, RspEnergy, TspEnergy, RssEnergy, TssEnergy, RshshEnergy, TshshEnergy, RpAngle, RsAngle, TpAngle, TsAngle, FreeRecFuncPr, FreeRecFuncSvr, FreeRecFuncPz, FreeRecFuncSvz, FreeRecFuncSh, default is all displacement coef.
     """
-    self._angles = val
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{y} must be a list, not {val}")
+    self._y = val
+    return self
+
+  def get_xminmax(self):
+    return self._xminmax
+
+  def xminmax(self, val):
+    """
+    [D
+    
+    min and max x axis for plotting
+    """
+    self._xminmax = val
+    return self
+
+  def get_yminmax(self):
+    return self._yminmax
+
+  def yminmax(self, val):
+    """
+    [D
+    
+    min and max y axis for plotting
+    """
+    self._yminmax = val
     return self
 
 
@@ -355,14 +359,10 @@ class RefltransQuery:
       params["scatter"] = self._scatter
     if len(self._sourcedepth) > 0:
       params["sourcedepth"] = self._sourcedepth
-    if self._x is not None:
-      params["x"] = self._x
-    if len(self._y) > 0:
-      params["y"] = self._y
-    if self._xminmax is not None:
-      params["xminmax"] = self._xminmax
-    if self._yminmax is not None:
-      params["yminmax"] = self._yminmax
+    if self._depth is not None:
+      params["depth"] = self._depth
+    if self._angles is not None:
+      params["angles"] = self._angles
     if self._layer is not None:
       params["layer"] = self._layer
     if self._down is not None:
@@ -385,9 +385,13 @@ class RefltransQuery:
       params["anglestep"] = self._anglestep
     if self._rpstep is not None:
       params["rpstep"] = self._rpstep
-    if self._depth is not None:
-      params["depth"] = self._depth
-    if self._angles is not None:
-      params["angles"] = self._angles
+    if self._x is not None:
+      params["x"] = self._x
+    if len(self._y) > 0:
+      params["y"] = self._y
+    if self._xminmax is not None:
+      params["xminmax"] = self._xminmax
+    if self._yminmax is not None:
+      params["yminmax"] = self._yminmax
     return params
 

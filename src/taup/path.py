@@ -72,7 +72,8 @@ class PathQuery:
 
   def receiverdepth(self, val):
     """
-    List
+    List of Double
+
     
     the receiver depth in km for stations not at the surface
     Also known as --stadepth and --receiverdepth in command line.
@@ -87,7 +88,8 @@ class PathQuery:
 
   def scatter(self, val):
     """
-    List
+    List of Double
+
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scat and --scatter in command line.
@@ -102,7 +104,8 @@ class PathQuery:
 
   def sourcedepth(self, val):
     """
-    List
+    List of Double
+
     
     source depth in km
     Also known as -h and --sourcedepth in command line.
@@ -117,7 +120,8 @@ class PathQuery:
 
   def phase(self, val):
     """
-    List
+    List of String
+
     
     seismic phase names
     Also known as -p and --phase in command line.
@@ -132,7 +136,8 @@ class PathQuery:
 
   def phasefile(self, val):
     """
-    List
+    List of String
+
     
     read list of phase names from file
     """
@@ -146,7 +151,8 @@ class PathQuery:
 
   def degree(self, val):
     """
-    List
+    List of Double
+
     
     distance in degrees
     Also known as --deg and --degree in command line.
@@ -161,7 +167,8 @@ class PathQuery:
 
   def degreerange(self, val):
     """
-    List
+    List of Double
+
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
     """
@@ -175,7 +182,8 @@ class PathQuery:
 
   def kilometer(self, val):
     """
-    List
+    List of Double
+
     
     distance in kilometers along surface.
     Also known as --km and --kilometer in command line.
@@ -190,7 +198,8 @@ class PathQuery:
 
   def kilometerrange(self, val):
     """
-    List
+    List of Double
+
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
     """
@@ -204,7 +213,8 @@ class PathQuery:
 
   def exactdegree(self, val):
     """
-    List
+    List of Double
+
     
     exact distance traveled in degrees, not 360-d
     """
@@ -218,7 +228,8 @@ class PathQuery:
 
   def exactdegreerange(self, val):
     """
-    List
+    List of Double
+
     
     regular distance range in exact degrees, not 360-deg, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
     """
@@ -232,7 +243,8 @@ class PathQuery:
 
   def exactkilometer(self, val):
     """
-    List
+    List of Double
+
     
     exact distance traveled in kilometers, not 360-k
     """
@@ -246,7 +258,8 @@ class PathQuery:
 
   def exactkilometerrange(self, val):
     """
-    List
+    List of Double
+
     
     regular distance range in kilometers, not 360-k, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
     """
@@ -260,7 +273,8 @@ class PathQuery:
 
   def takeoff(self, val):
     """
-    List
+    List of Double
+
     
     takeoff angle in degrees from the source, zero is down, 90 horizontal, 180 is up.
     """
@@ -274,7 +288,8 @@ class PathQuery:
 
   def takeoffrange(self, val):
     """
-    List
+    List of Double
+
     
     regular range in takeoff angle in degrees, one of step; min,max or min,max,step. Default min is 0 and step is 10.
     """
@@ -288,7 +303,8 @@ class PathQuery:
 
   def incident(self, val):
     """
-    List
+    List of Double
+
     
     incident angle in degrees at the receiver, zero is down, 90 horizontal, 180 is up.
     """
@@ -302,7 +318,8 @@ class PathQuery:
 
   def incidentrange(self, val):
     """
-    List
+    List of Double
+
     
     regular range in incident angle in degrees, one of step; min max or min max step. Default min is 0 and step is 10.
     """
@@ -316,7 +333,8 @@ class PathQuery:
 
   def rayparamrad(self, val):
     """
-    List
+    List of Double
+
     
     ray parameter from the source in s/rad, up or down is determined by the phase
     """
@@ -330,7 +348,8 @@ class PathQuery:
 
   def rayparamdeg(self, val):
     """
-    List
+    List of Double
+
     
     ray parameter from the source in s/deg, up or down is determined by the phase
     """
@@ -344,7 +363,8 @@ class PathQuery:
 
   def rayparamkm(self, val):
     """
-    List
+    List of Double
+
     
     ray parameter from the source in s/km, up or down is determined by the phase
     """
@@ -358,7 +378,8 @@ class PathQuery:
 
   def rayparamidx(self, val):
     """
-    List
+    List of java.lang.Integer
+
     
     ray parameter from the source as index into model sampling, up or down is determined by the phase
     """
@@ -384,7 +405,8 @@ class PathQuery:
 
   def station(self, val):
     """
-    List
+    List of Double
+
     
     station latitude and longitude. Creates a distance if event is also given.
     Also known as --sta and --station in command line.
@@ -399,7 +421,8 @@ class PathQuery:
 
   def event(self, val):
     """
-    List
+    List of Double
+
     
     event latitude and longitude.  Creates a distance if station is also given.
     Also known as --evt and --event in command line.
@@ -462,7 +485,8 @@ class PathQuery:
 
   def eid(self, val):
     """
-    List
+    List of String
+
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
     """
@@ -476,7 +500,8 @@ class PathQuery:
 
   def sid(self, val):
     """
-    List
+    List of String
+
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
     """

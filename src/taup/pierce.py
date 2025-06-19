@@ -40,8 +40,8 @@ class PierceQuery:
     self._onlyfirst=None
     self._attenuationfreq=None
     self._numattenuationfreq=None
-    self._strikediprake=[]
     self._mw=None
+    self._strikediprake=[]
     self._amp=None
     self._rel=[]
     self._turn=None
@@ -74,7 +74,8 @@ class PierceQuery:
 
   def receiverdepth(self, val):
     """
-    List
+    List of Double
+
     
     the receiver depth in km for stations not at the surface
     Also known as --stadepth and --receiverdepth in command line.
@@ -89,7 +90,8 @@ class PierceQuery:
 
   def scatter(self, val):
     """
-    List
+    List of Double
+
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scat and --scatter in command line.
@@ -104,7 +106,8 @@ class PierceQuery:
 
   def sourcedepth(self, val):
     """
-    List
+    List of Double
+
     
     source depth in km
     Also known as -h and --sourcedepth in command line.
@@ -119,7 +122,8 @@ class PierceQuery:
 
   def phase(self, val):
     """
-    List
+    List of String
+
     
     seismic phase names
     Also known as -p and --phase in command line.
@@ -134,7 +138,8 @@ class PierceQuery:
 
   def phasefile(self, val):
     """
-    List
+    List of String
+
     
     read list of phase names from file
     """
@@ -148,7 +153,8 @@ class PierceQuery:
 
   def degree(self, val):
     """
-    List
+    List of Double
+
     
     distance in degrees
     Also known as --deg and --degree in command line.
@@ -163,7 +169,8 @@ class PierceQuery:
 
   def degreerange(self, val):
     """
-    List
+    List of Double
+
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
     """
@@ -177,7 +184,8 @@ class PierceQuery:
 
   def kilometer(self, val):
     """
-    List
+    List of Double
+
     
     distance in kilometers along surface.
     Also known as --km and --kilometer in command line.
@@ -192,7 +200,8 @@ class PierceQuery:
 
   def kilometerrange(self, val):
     """
-    List
+    List of Double
+
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
     """
@@ -206,7 +215,8 @@ class PierceQuery:
 
   def exactdegree(self, val):
     """
-    List
+    List of Double
+
     
     exact distance traveled in degrees, not 360-d
     """
@@ -220,7 +230,8 @@ class PierceQuery:
 
   def exactdegreerange(self, val):
     """
-    List
+    List of Double
+
     
     regular distance range in exact degrees, not 360-deg, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
     """
@@ -234,7 +245,8 @@ class PierceQuery:
 
   def exactkilometer(self, val):
     """
-    List
+    List of Double
+
     
     exact distance traveled in kilometers, not 360-k
     """
@@ -248,7 +260,8 @@ class PierceQuery:
 
   def exactkilometerrange(self, val):
     """
-    List
+    List of Double
+
     
     regular distance range in kilometers, not 360-k, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
     """
@@ -262,7 +275,8 @@ class PierceQuery:
 
   def takeoff(self, val):
     """
-    List
+    List of Double
+
     
     takeoff angle in degrees from the source, zero is down, 90 horizontal, 180 is up.
     """
@@ -276,7 +290,8 @@ class PierceQuery:
 
   def takeoffrange(self, val):
     """
-    List
+    List of Double
+
     
     regular range in takeoff angle in degrees, one of step; min,max or min,max,step. Default min is 0 and step is 10.
     """
@@ -290,7 +305,8 @@ class PierceQuery:
 
   def incident(self, val):
     """
-    List
+    List of Double
+
     
     incident angle in degrees at the receiver, zero is down, 90 horizontal, 180 is up.
     """
@@ -304,7 +320,8 @@ class PierceQuery:
 
   def incidentrange(self, val):
     """
-    List
+    List of Double
+
     
     regular range in incident angle in degrees, one of step; min max or min max step. Default min is 0 and step is 10.
     """
@@ -318,7 +335,8 @@ class PierceQuery:
 
   def rayparamrad(self, val):
     """
-    List
+    List of Double
+
     
     ray parameter from the source in s/rad, up or down is determined by the phase
     """
@@ -332,7 +350,8 @@ class PierceQuery:
 
   def rayparamdeg(self, val):
     """
-    List
+    List of Double
+
     
     ray parameter from the source in s/deg, up or down is determined by the phase
     """
@@ -346,7 +365,8 @@ class PierceQuery:
 
   def rayparamkm(self, val):
     """
-    List
+    List of Double
+
     
     ray parameter from the source in s/km, up or down is determined by the phase
     """
@@ -360,7 +380,8 @@ class PierceQuery:
 
   def rayparamidx(self, val):
     """
-    List
+    List of java.lang.Integer
+
     
     ray parameter from the source as index into model sampling, up or down is determined by the phase
     """
@@ -386,7 +407,8 @@ class PierceQuery:
 
   def station(self, val):
     """
-    List
+    List of Double
+
     
     station latitude and longitude. Creates a distance if event is also given.
     Also known as --sta and --station in command line.
@@ -401,7 +423,8 @@ class PierceQuery:
 
   def event(self, val):
     """
-    List
+    List of Double
+
     
     event latitude and longitude.  Creates a distance if station is also given.
     Also known as --evt and --event in command line.
@@ -464,7 +487,8 @@ class PierceQuery:
 
   def eid(self, val):
     """
-    List
+    List of String
+
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
     """
@@ -478,7 +502,8 @@ class PierceQuery:
 
   def sid(self, val):
     """
-    List
+    List of String
+
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
     """
@@ -575,20 +600,6 @@ class PierceQuery:
     self._numattenuationfreq = val
     return self
 
-  def get_strikediprake(self):
-    return self._strikediprake
-
-  def strikediprake(self, val):
-    """
-    List
-    
-    fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
-    """
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"{strikediprake} must be a list, not {val}")
-    self._strikediprake = val
-    return self
-
   def get_mw(self):
     return self._mw
 
@@ -599,6 +610,21 @@ class PierceQuery:
     scale amplitude by source moment magnitude, default is 4.0
     """
     self._mw = val
+    return self
+
+  def get_strikediprake(self):
+    return self._strikediprake
+
+  def strikediprake(self, val):
+    """
+    List of Float
+
+    
+    fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{strikediprake} must be a list, not {val}")
+    self._strikediprake = val
     return self
 
   def get_amp(self):
@@ -618,7 +644,8 @@ class PierceQuery:
 
   def rel(self, val):
     """
-    List
+    List of String
+
     
     times relative to the first of the given phases
     """
@@ -680,7 +707,8 @@ class PierceQuery:
 
   def pierce(self, val):
     """
-    List
+    List of Double
+
     
     additional depth for calculating pierce points
     """
@@ -773,10 +801,10 @@ class PierceQuery:
       params["attenuationfreq"] = self._attenuationfreq
     if self._numattenuationfreq is not None:
       params["numattenuationfreq"] = self._numattenuationfreq
-    if len(self._strikediprake) > 0:
-      params["strikediprake"] = self._strikediprake
     if self._mw is not None:
       params["mw"] = self._mw
+    if len(self._strikediprake) > 0:
+      params["strikediprake"] = self._strikediprake
     if self._amp is not None:
       params["amp"] = self._amp
     if len(self._rel) > 0:

@@ -28,7 +28,8 @@ class DistazQuery:
 
   def station(self, val):
     """
-    List
+    List of Double
+
     
     station latitude and longitude. Creates a distance if event is also given.
     Also known as --sta and --station in command line.
@@ -43,7 +44,8 @@ class DistazQuery:
 
   def event(self, val):
     """
-    List
+    List of Double
+
     
     event latitude and longitude.  Creates a distance if station is also given.
     Also known as --evt and --event in command line.
@@ -82,7 +84,8 @@ class DistazQuery:
 
   def eid(self, val):
     """
-    List
+    List of String
+
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
     """
@@ -96,7 +99,8 @@ class DistazQuery:
 
   def sid(self, val):
     """
-    List
+    List of String
+
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
     """
@@ -159,7 +163,8 @@ class DistazQuery:
 
   def degree(self, val):
     """
-    List
+    List of Double
+
     
     distance in degrees
     Also known as --deg and --degree in command line.
@@ -174,7 +179,8 @@ class DistazQuery:
 
   def degreerange(self, val):
     """
-    List
+    List of Double
+
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
     """
@@ -188,7 +194,8 @@ class DistazQuery:
 
   def kilometer(self, val):
     """
-    List
+    List of Double
+
     
     distance in kilometers along surface.
     Also known as --km and --kilometer in command line.
@@ -203,7 +210,8 @@ class DistazQuery:
 
   def kilometerrange(self, val):
     """
-    List
+    List of Double
+
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
     """

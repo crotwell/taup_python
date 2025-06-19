@@ -24,7 +24,8 @@ class VelplotQuery:
 
   def model(self, val):
     """
-    List
+    List of String
+
     
     use velocity model "modelname" for calculations, format is guessed.
     Also known as --mod and --model in command line.
@@ -39,7 +40,8 @@ class VelplotQuery:
 
   def nd(self, val):
     """
-    List
+    List of String
+
     
     "named discontinuities" velocity file
     """
@@ -53,7 +55,8 @@ class VelplotQuery:
 
   def tvel(self, val):
     """
-    List
+    List of String
+
     
     ".tvel" velocity file, ala ttimes
     """

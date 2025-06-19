@@ -10,8 +10,8 @@ class CurveQuery:
     self._phasefile=[]
     self._attenuationfreq=None
     self._numattenuationfreq=None
-    self._strikediprake=[]
     self._mw=None
+    self._strikediprake=[]
     self._az=None
     self._mapwidth=None
     self._mapwidthunit=None
@@ -53,7 +53,8 @@ class CurveQuery:
 
   def receiverdepth(self, val):
     """
-    List
+    List of Double
+
     
     the receiver depth in km for stations not at the surface
     Also known as --stadepth and --receiverdepth in command line.
@@ -68,7 +69,8 @@ class CurveQuery:
 
   def scatter(self, val):
     """
-    List
+    List of Double
+
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
     Also known as --scat and --scatter in command line.
@@ -83,7 +85,8 @@ class CurveQuery:
 
   def sourcedepth(self, val):
     """
-    List
+    List of Double
+
     
     source depth in km
     Also known as -h and --sourcedepth in command line.
@@ -98,7 +101,8 @@ class CurveQuery:
 
   def phase(self, val):
     """
-    List
+    List of String
+
     
     seismic phase names
     Also known as -p and --phase in command line.
@@ -113,7 +117,8 @@ class CurveQuery:
 
   def phasefile(self, val):
     """
-    List
+    List of String
+
     
     read list of phase names from file
     """
@@ -146,20 +151,6 @@ class CurveQuery:
     self._numattenuationfreq = val
     return self
 
-  def get_strikediprake(self):
-    return self._strikediprake
-
-  def strikediprake(self, val):
-    """
-    List
-    
-    fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
-    """
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"{strikediprake} must be a list, not {val}")
-    self._strikediprake = val
-    return self
-
   def get_mw(self):
     return self._mw
 
@@ -170,6 +161,21 @@ class CurveQuery:
     scale amplitude by source moment magnitude, default is 4.0
     """
     self._mw = val
+    return self
+
+  def get_strikediprake(self):
+    return self._strikediprake
+
+  def strikediprake(self, val):
+    """
+    List of Float
+
+    
+    fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"{strikediprake} must be a list, not {val}")
+    self._strikediprake = val
     return self
 
   def get_az(self):
@@ -390,10 +396,10 @@ class CurveQuery:
       params["attenuationfreq"] = self._attenuationfreq
     if self._numattenuationfreq is not None:
       params["numattenuationfreq"] = self._numattenuationfreq
-    if len(self._strikediprake) > 0:
-      params["strikediprake"] = self._strikediprake
     if self._mw is not None:
       params["mw"] = self._mw
+    if len(self._strikediprake) > 0:
+      params["strikediprake"] = self._strikediprake
     if self._az is not None:
       params["az"] = self._az
     if self._mapwidth is not None:
