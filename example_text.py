@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import taup
 import requests
 
@@ -7,17 +9,19 @@ staLatLons = [ [34, -80], [35, -81]]
 print("IN TEXT")
 with taup.TauPServer() as taupserver:
 
-    timeParams = taup.PathQuery()
-    # params that will stay the same
-    timeParams.phase(["P", "S"])
-    timeParams.model('ak135')
-    timeParams.geodetic(True)
+    # query params correspond to the tools, one of:
+    # time, pierce, path, curve, discon, distaz, find, phase, refltrans, table, velplot, wavefront
+    params = taup.TimeQuery()
+    params.phase(["P", "S"])
+    params.model('ak135')
+    params.geodetic(True)
 
-    timeParams.event( *eventLatLons[0] )
-    timeParams.sourcedepth([100])
+    params.event( *eventLatLons[0] )
+    params.sourcedepth([100])
     for sta in staLatLons:
-        timeParams.andStation( *sta )
+        params.andStation( *sta )
 
-    #textTimes = timeParams.queryText(timeserver)
-    textTimes = timeParams.calcGmt(taupserver)
-    print(textTimes)
+    # get result as text, or other format depending on the tool, like:
+    # gmt, svg, json, csv...
+    textResult = params.calcText(taupserver)
+    print(textResult)

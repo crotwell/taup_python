@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import taup
 import requests
 
@@ -6,6 +8,8 @@ staLatLons = [ [34, -80], [35, -81]]
 
 with taup.TauPServer() as timeserver:
 
+    # query params correspond to the tools, one of:
+    # time, pierce, path, curve, discon, distaz, find, phase, refltrans, table, velplot, wavefront
     timeParams = taup.TimeQuery()
     # params that will stay the same
     timeParams.phase(["P", "S"])
@@ -19,6 +23,7 @@ with taup.TauPServer() as timeserver:
         for sta in staLatLons:
             timeParams.station( *sta )
 
+            # calculate results, parsed as JSON and returned as dict
             jsonTimes = timeParams.calc(timeserver)
             if len(jsonTimes["arrivals"]) == 0:
                 print(f"No arrivals...{event} to {sta}")
