@@ -20,8 +20,10 @@ class TauPServer:
             self.taup_path=shutil.which("taup")
         else:
             self.taup_path=taup_path
-        if self.taup_path is None or not Path(self.taup_path).exists():
-            raise Exception(f"Cannot find executable for {self.taup_path}, not on PATH?")
+        if self.taup_path is None:
+            raise Exception(f"Cannot find executable for taup, not on PATH?")
+        if not Path(self.taup_path).exists():
+            raise Exception(f"{self.taup_path} doesn't exist, TauP Toolkit not on installed?")
         self._taup = None
         self._stop_event = None
 
