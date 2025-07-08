@@ -12,7 +12,6 @@ class CurveQuery:
     self._mw=None
     self._numattenuationfreq=None
     self._phase=[]
-    self._phasefile=[]
     self._receiverdepth=[]
     self._reddeg=None
     self._redkm=None
@@ -373,49 +372,6 @@ class CurveQuery:
     :param val: value to set phase to
     """
     self._phase.append(val)
-    return self
-
-  def get_phasefile(self):
-    """
-    returns current value of phasefile as a List
-    """
-    return self._phasefile
-
-  def phasefile(self, val):
-    """
-    Sets the phasefile parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.phasefile( value )
-    and 
-    .xphasefile( [ value ] )
-    are equivalent. 
-    
-    read list of phase names from file
-    Known as --phasefile in command line.
-
-    :param val: value to set phasefile to
-    """
-    if not hasattr(val, "__getitem__"):
-      val = [ val ]
-    self._phasefile = val
-    return self
-
-
-  def andPhasefile(self, val):
-    """
-    Sets the phasefile parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.phasefile( value )
-    and 
-    .xphasefile( [ value ] )
-    are equivalent. 
-    
-    read list of phase names from file
-    Known as --phasefile in command line.
-
-    :param val: value to set phasefile to
-    """
-    self._phasefile.append(val)
     return self
 
   def get_stadepth(self):
@@ -960,8 +916,6 @@ class CurveQuery:
       params["numattenuationfreq"] = self._numattenuationfreq
     if len(self._phase) > 0:
       params["phase"] = self._phase
-    if len(self._phasefile) > 0:
-      params["phasefile"] = self._phasefile
     if len(self._receiverdepth) > 0:
       params["receiverdepth"] = self._receiverdepth
     if self._reddeg is not None:

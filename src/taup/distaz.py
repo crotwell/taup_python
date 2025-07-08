@@ -6,17 +6,13 @@ class DistazQuery:
     self._baz=None
     self._degree=[]
     self._degreerange=[]
-    self._eid=[]
     self._event=[]
     self._geodetic=None
     self._geodeticflattening=None
     self._kilometer=[]
     self._kilometerrange=[]
-    self._quakeml=None
     self._radius=None
-    self._sid=[]
     self._station=[]
-    self._staxml=None
 
   def calc(self, taupServer):
     """
@@ -195,49 +191,6 @@ class DistazQuery:
     :param val: value to set degreerange to
     """
     self._degreerange.append(val)
-    return self
-
-  def get_eid(self):
-    """
-    returns current value of eid as a List
-    """
-    return self._eid
-
-  def eid(self, val):
-    """
-    Sets the eid parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.eid( value )
-    and 
-    .xeid( [ value ] )
-    are equivalent. 
-    
-    event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
-    Known as --eid in command line.
-
-    :param val: value to set eid to
-    """
-    if not hasattr(val, "__getitem__"):
-      val = [ val ]
-    self._eid = val
-    return self
-
-
-  def andEid(self, val):
-    """
-    Sets the eid parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.eid( value )
-    and 
-    .xeid( [ value ] )
-    are equivalent. 
-    
-    event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
-    Known as --eid in command line.
-
-    :param val: value to set eid to
-    """
-    self._eid.append(val)
     return self
 
   def get_evt(self):
@@ -457,41 +410,6 @@ class DistazQuery:
     self._kilometerrange.append(val)
     return self
 
-  def get_qml(self):
-    """
-    returns current value of quakeml as a String
-    """
-    return self._quakeml
-
-  def qml(self, val):
-    """
-    Sets the quakeml parameter, of type String    
-    QuakeML file to load for earthquake origins to use
-    Known as --qml in command line.
-    Also known as --quakeml in command line.
-
-    :param val: value to set quakeml to
-    """
-    self._quakeml = val
-    return self
-
-  def get_quakeml(self):
-    """
-    returns current value of quakeml as a String
-    """
-    return self._quakeml
-
-  def quakeml(self, val):
-    """
-    Sets the quakeml parameter, of type String    
-    QuakeML file to load for earthquake origins to use
-    Known as --quakeml in command line.
-
-    :param val: value to set quakeml to
-    """
-    self._quakeml = val
-    return self
-
   def get_radius(self):
     """
     returns current value of radius as a Double
@@ -507,49 +425,6 @@ class DistazQuery:
     :param val: value to set radius to
     """
     self._radius = val
-    return self
-
-  def get_sid(self):
-    """
-    returns current value of sid as a List
-    """
-    return self._sid
-
-  def sid(self, val):
-    """
-    Sets the sid parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.sid( value )
-    and 
-    .xsid( [ value ] )
-    are equivalent. 
-    
-    station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
-    Known as --sid in command line.
-
-    :param val: value to set sid to
-    """
-    if not hasattr(val, "__getitem__"):
-      val = [ val ]
-    self._sid = val
-    return self
-
-
-  def andSid(self, val):
-    """
-    Sets the sid parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.sid( value )
-    and 
-    .xsid( [ value ] )
-    are equivalent. 
-    
-    station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
-    Known as --sid in command line.
-
-    :param val: value to set sid to
-    """
-    self._sid.append(val)
     return self
 
   def get_sta(self):
@@ -614,23 +489,6 @@ class DistazQuery:
     self._station += [lat, lon]
     return self
 
-  def get_staxml(self):
-    """
-    returns current value of staxml as a String
-    """
-    return self._staxml
-
-  def staxml(self, val):
-    """
-    Sets the staxml parameter, of type String    
-    StationXML file to extract station latitudes and longitudes from
-    Known as --staxml in command line.
-
-    :param val: value to set staxml to
-    """
-    self._staxml = val
-    return self
-
 
   def create_params(self):
     """
@@ -647,8 +505,6 @@ class DistazQuery:
       params["degree"] = self._degree
     if len(self._degreerange) > 0:
       params["degreerange"] = self._degreerange
-    if len(self._eid) > 0:
-      params["eid"] = self._eid
     if len(self._event) > 0:
       params["event"] = self._event
     if self._geodetic is not None:
@@ -659,15 +515,9 @@ class DistazQuery:
       params["kilometer"] = self._kilometer
     if len(self._kilometerrange) > 0:
       params["kilometerrange"] = self._kilometerrange
-    if self._quakeml is not None:
-      params["quakeml"] = self._quakeml
     if self._radius is not None:
       params["radius"] = self._radius
-    if len(self._sid) > 0:
-      params["sid"] = self._sid
     if len(self._station) > 0:
       params["station"] = self._station
-    if self._staxml is not None:
-      params["staxml"] = self._staxml
     return params
 

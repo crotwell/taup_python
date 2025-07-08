@@ -9,7 +9,6 @@ class PierceQuery:
     self._baz=None
     self._degree=[]
     self._degreerange=[]
-    self._eid=[]
     self._event=[]
     self._exactdegree=[]
     self._exactdegreerange=[]
@@ -29,9 +28,7 @@ class PierceQuery:
     self._onlyrayp=None
     self._onlytime=None
     self._phase=[]
-    self._phasefile=[]
     self._pierce=[]
-    self._quakeml=None
     self._rayparamdeg=[]
     self._rayparamidx=[]
     self._rayparamkm=[]
@@ -40,10 +37,8 @@ class PierceQuery:
     self._rel=[]
     self._rev=None
     self._scatter=[]
-    self._sid=[]
     self._sourcedepth=[]
     self._station=[]
-    self._staxml=None
     self._strikediprake=[]
     self._takeoff=[]
     self._takeoffrange=[]
@@ -278,49 +273,6 @@ class PierceQuery:
     :param val: value to set degreerange to
     """
     self._degreerange.append(val)
-    return self
-
-  def get_eid(self):
-    """
-    returns current value of eid as a List
-    """
-    return self._eid
-
-  def eid(self, val):
-    """
-    Sets the eid parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.eid( value )
-    and 
-    .xeid( [ value ] )
-    are equivalent. 
-    
-    event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
-    Known as --eid in command line.
-
-    :param val: value to set eid to
-    """
-    if not hasattr(val, "__getitem__"):
-      val = [ val ]
-    self._eid = val
-    return self
-
-
-  def andEid(self, val):
-    """
-    Sets the eid parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.eid( value )
-    and 
-    .xeid( [ value ] )
-    are equivalent. 
-    
-    event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
-    Known as --eid in command line.
-
-    :param val: value to set eid to
-    """
-    self._eid.append(val)
     return self
 
   def get_evt(self):
@@ -1094,49 +1046,6 @@ class PierceQuery:
     self._phase.append(val)
     return self
 
-  def get_phasefile(self):
-    """
-    returns current value of phasefile as a List
-    """
-    return self._phasefile
-
-  def phasefile(self, val):
-    """
-    Sets the phasefile parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.phasefile( value )
-    and 
-    .xphasefile( [ value ] )
-    are equivalent. 
-    
-    read list of phase names from file
-    Known as --phasefile in command line.
-
-    :param val: value to set phasefile to
-    """
-    if not hasattr(val, "__getitem__"):
-      val = [ val ]
-    self._phasefile = val
-    return self
-
-
-  def andPhasefile(self, val):
-    """
-    Sets the phasefile parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.phasefile( value )
-    and 
-    .xphasefile( [ value ] )
-    are equivalent. 
-    
-    read list of phase names from file
-    Known as --phasefile in command line.
-
-    :param val: value to set phasefile to
-    """
-    self._phasefile.append(val)
-    return self
-
   def get_pierce(self):
     """
     returns current value of pierce as a List
@@ -1178,41 +1087,6 @@ class PierceQuery:
     :param val: value to set pierce to
     """
     self._pierce.append(val)
-    return self
-
-  def get_qml(self):
-    """
-    returns current value of quakeml as a String
-    """
-    return self._quakeml
-
-  def qml(self, val):
-    """
-    Sets the quakeml parameter, of type String    
-    QuakeML file to load for earthquake origins to use
-    Known as --qml in command line.
-    Also known as --quakeml in command line.
-
-    :param val: value to set quakeml to
-    """
-    self._quakeml = val
-    return self
-
-  def get_quakeml(self):
-    """
-    returns current value of quakeml as a String
-    """
-    return self._quakeml
-
-  def quakeml(self, val):
-    """
-    Sets the quakeml parameter, of type String    
-    QuakeML file to load for earthquake origins to use
-    Known as --quakeml in command line.
-
-    :param val: value to set quakeml to
-    """
-    self._quakeml = val
     return self
 
   def get_rayparamdeg(self):
@@ -1572,49 +1446,6 @@ class PierceQuery:
     self._scatter = [depth, degree]
     return self
 
-  def get_sid(self):
-    """
-    returns current value of sid as a List
-    """
-    return self._sid
-
-  def sid(self, val):
-    """
-    Sets the sid parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.sid( value )
-    and 
-    .xsid( [ value ] )
-    are equivalent. 
-    
-    station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
-    Known as --sid in command line.
-
-    :param val: value to set sid to
-    """
-    if not hasattr(val, "__getitem__"):
-      val = [ val ]
-    self._sid = val
-    return self
-
-
-  def andSid(self, val):
-    """
-    Sets the sid parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.sid( value )
-    and 
-    .xsid( [ value ] )
-    are equivalent. 
-    
-    station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
-    Known as --sid in command line.
-
-    :param val: value to set sid to
-    """
-    self._sid.append(val)
-    return self
-
   def get_h(self):
     """
     returns current value of sourcedepth as a List
@@ -1810,23 +1641,6 @@ class PierceQuery:
     self._station += [lat, lon]
     return self
 
-  def get_staxml(self):
-    """
-    returns current value of staxml as a String
-    """
-    return self._staxml
-
-  def staxml(self, val):
-    """
-    Sets the staxml parameter, of type String    
-    StationXML file to extract station latitudes and longitudes from
-    Known as --staxml in command line.
-
-    :param val: value to set staxml to
-    """
-    self._staxml = val
-    return self
-
   def get_strikediprake(self):
     """
     returns current value of strikediprake as a List
@@ -1992,8 +1806,6 @@ class PierceQuery:
       params["degree"] = self._degree
     if len(self._degreerange) > 0:
       params["degreerange"] = self._degreerange
-    if len(self._eid) > 0:
-      params["eid"] = self._eid
     if len(self._event) > 0:
       params["event"] = self._event
     if len(self._exactdegree) > 0:
@@ -2032,12 +1844,8 @@ class PierceQuery:
       params["onlytime"] = self._onlytime
     if len(self._phase) > 0:
       params["phase"] = self._phase
-    if len(self._phasefile) > 0:
-      params["phasefile"] = self._phasefile
     if len(self._pierce) > 0:
       params["pierce"] = self._pierce
-    if self._quakeml is not None:
-      params["quakeml"] = self._quakeml
     if len(self._rayparamdeg) > 0:
       params["rayparamdeg"] = self._rayparamdeg
     if len(self._rayparamidx) > 0:
@@ -2054,14 +1862,10 @@ class PierceQuery:
       params["rev"] = self._rev
     if len(self._scatter) > 0:
       params["scatter"] = self._scatter
-    if len(self._sid) > 0:
-      params["sid"] = self._sid
     if len(self._sourcedepth) > 0:
       params["sourcedepth"] = self._sourcedepth
     if len(self._station) > 0:
       params["station"] = self._station
-    if self._staxml is not None:
-      params["staxml"] = self._staxml
     if len(self._strikediprake) > 0:
       params["strikediprake"] = self._strikediprake
     if len(self._takeoff) > 0:
