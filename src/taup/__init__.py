@@ -18,18 +18,18 @@ from .version import VersionQuery
 
 __all__ = [
     "TauPServer",
-    "CurveQuery"
-    "DistazQuery"
-    "DisconQuery"
-    "FindQuery"
-    "PathQuery"
-    "PhaseQuery"
-    "PierceQuery"
-    "RefltransQuery"
-    "TableQuery"
-    "TimeQuery"
-    "VelmergeQuery"
-    "VelplotQuery"
-    "WavefrontQuery"
+    "CurveQuery",
+    "DistazQuery",
+    "DisconQuery",
+    "FindQuery",
+    "PathQuery",
+    "PhaseQuery",
+    "PierceQuery",
+    "RefltransQuery",
+    "TableQuery",
+    "TimeQuery",
+    "VelmergeQuery",
+    "VelplotQuery",
+    "WavefrontQuery",
     "VersionQuery"
 ]

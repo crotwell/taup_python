@@ -2,51 +2,35 @@ class VelmergeQuery:
   def __init__(self):
     self.toolname= "velmerge"
 
-    self._nd=None
-    self._tvel=None
-    self._model=None
-    self._ndmerge=None
-    self._tvelmerge=None
-    self._modmerge=None
-    self._smoothtop=None
-    self._smoothbot=None
     self._elev=None
+    self._model=None
+    self._modmerge=None
+    self._nd=None
+    self._ndmerge=None
+    self._smoothbot=None
+    self._smoothtop=None
+    self._tvel=None
+    self._tvelmerge=None
 
   def calc(self, taupServer):
     params = self.create_params()
     return taupServer.queryJson(params, self.toolname)
 
 
-  def get_nd(self):
+  def get_elev(self):
     """
-    returns current value of nd as a String
+    returns current value of elev as a Float
     """
-    return self._nd
+    return self._elev
 
-  def nd(self, val):
+  def elev(self, val):
     """
-    Sets the nd parameter, of type String    
-    "named discontinuities" velocity file
+    Sets the elev parameter, of type Float    
+    increase topmost layer by elevation (meters)
 
-    :param val: value to set nd to
+    :param val: value to set elev to
     """
-    self._nd = val
-    return self
-
-  def get_tvel(self):
-    """
-    returns current value of tvel as a String
-    """
-    return self._tvel
-
-  def tvel(self, val):
-    """
-    Sets the tvel parameter, of type String    
-    ".tvel" velocity file, ala ttimes
-
-    :param val: value to set tvel to
-    """
-    self._tvel = val
+    self._elev = val
     return self
 
   def get_mod(self):
@@ -82,38 +66,6 @@ class VelmergeQuery:
     self._model = val
     return self
 
-  def get_ndmerge(self):
-    """
-    returns current value of ndmerge as a String
-    """
-    return self._ndmerge
-
-  def ndmerge(self, val):
-    """
-    Sets the ndmerge parameter, of type String    
-    "named discontinuities" velocity file to merge
-
-    :param val: value to set ndmerge to
-    """
-    self._ndmerge = val
-    return self
-
-  def get_tvelmerge(self):
-    """
-    returns current value of tvelmerge as a String
-    """
-    return self._tvelmerge
-
-  def tvelmerge(self, val):
-    """
-    Sets the tvelmerge parameter, of type String    
-    ".tvel" velocity file to merge, ala ttimes
-
-    :param val: value to set tvelmerge to
-    """
-    self._tvelmerge = val
-    return self
-
   def get_modmerge(self):
     """
     returns current value of modmerge as a String
@@ -130,20 +82,36 @@ class VelmergeQuery:
     self._modmerge = val
     return self
 
-  def get_smoothtop(self):
+  def get_nd(self):
     """
-    returns current value of smoothtop as a Boolean
+    returns current value of nd as a String
     """
-    return self._smoothtop
+    return self._nd
 
-  def smoothtop(self, val):
+  def nd(self, val):
     """
-    Sets the smoothtop parameter, of type Boolean    
-    smooth merge at top
+    Sets the nd parameter, of type String    
+    "named discontinuities" velocity file
 
-    :param val: value to set smoothtop to
+    :param val: value to set nd to
     """
-    self._smoothtop = val
+    self._nd = val
+    return self
+
+  def get_ndmerge(self):
+    """
+    returns current value of ndmerge as a String
+    """
+    return self._ndmerge
+
+  def ndmerge(self, val):
+    """
+    Sets the ndmerge parameter, of type String    
+    "named discontinuities" velocity file to merge
+
+    :param val: value to set ndmerge to
+    """
+    self._ndmerge = val
     return self
 
   def get_smoothbot(self):
@@ -162,20 +130,52 @@ class VelmergeQuery:
     self._smoothbot = val
     return self
 
-  def get_elev(self):
+  def get_smoothtop(self):
     """
-    returns current value of elev as a Float
+    returns current value of smoothtop as a Boolean
     """
-    return self._elev
+    return self._smoothtop
 
-  def elev(self, val):
+  def smoothtop(self, val):
     """
-    Sets the elev parameter, of type Float    
-    increase topmost layer by elevation (meters)
+    Sets the smoothtop parameter, of type Boolean    
+    smooth merge at top
 
-    :param val: value to set elev to
+    :param val: value to set smoothtop to
     """
-    self._elev = val
+    self._smoothtop = val
+    return self
+
+  def get_tvel(self):
+    """
+    returns current value of tvel as a String
+    """
+    return self._tvel
+
+  def tvel(self, val):
+    """
+    Sets the tvel parameter, of type String    
+    ".tvel" velocity file, ala ttimes
+
+    :param val: value to set tvel to
+    """
+    self._tvel = val
+    return self
+
+  def get_tvelmerge(self):
+    """
+    returns current value of tvelmerge as a String
+    """
+    return self._tvelmerge
+
+  def tvelmerge(self, val):
+    """
+    Sets the tvelmerge parameter, of type String    
+    ".tvel" velocity file to merge, ala ttimes
+
+    :param val: value to set tvelmerge to
+    """
+    self._tvelmerge = val
     return self
 
 
@@ -186,23 +186,23 @@ class VelmergeQuery:
     params = {
       "format": "json",
     }
-    if self._nd is not None:
-      params["nd"] = self._nd
-    if self._tvel is not None:
-      params["tvel"] = self._tvel
-    if self._model is not None:
-      params["model"] = self._model
-    if self._ndmerge is not None:
-      params["ndmerge"] = self._ndmerge
-    if self._tvelmerge is not None:
-      params["tvelmerge"] = self._tvelmerge
-    if self._modmerge is not None:
-      params["modmerge"] = self._modmerge
-    if self._smoothtop is not None:
-      params["smoothtop"] = self._smoothtop
-    if self._smoothbot is not None:
-      params["smoothbot"] = self._smoothbot
     if self._elev is not None:
       params["elev"] = self._elev
+    if self._model is not None:
+      params["model"] = self._model
+    if self._modmerge is not None:
+      params["modmerge"] = self._modmerge
+    if self._nd is not None:
+      params["nd"] = self._nd
+    if self._ndmerge is not None:
+      params["ndmerge"] = self._ndmerge
+    if self._smoothbot is not None:
+      params["smoothbot"] = self._smoothbot
+    if self._smoothtop is not None:
+      params["smoothtop"] = self._smoothtop
+    if self._tvel is not None:
+      params["tvel"] = self._tvel
+    if self._tvelmerge is not None:
+      params["tvelmerge"] = self._tvelmerge
     return params
 

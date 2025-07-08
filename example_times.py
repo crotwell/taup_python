@@ -14,10 +14,10 @@ with taup.TauPServer() as timeserver:
 
     # params that will vary
     for event in eventLatLons:
-        timeParams.event(event)
+        timeParams.event( *event ) # splat to expand list into function args
         timeParams.sourcedepth([100])
         for sta in staLatLons:
-            timeParams.station(sta)
+            timeParams.station( *sta )
 
             jsonTimes = timeParams.calc(timeserver)
             if len(jsonTimes["arrivals"]) == 0:

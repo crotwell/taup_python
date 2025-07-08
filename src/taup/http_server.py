@@ -80,8 +80,18 @@ class TauPServer:
             self._stop_event.set()
             self._stop_event = None
 
-    def queryTime(self, params):
-        return self.queryJson(params, "time")
+    def queryText(self, params, tool="time"):
+        if self._taup is None:
+            raise Exception("TauP is None???")
+        if hasattr(params, "create_params"):
+            params = params.create_params()
+        taup_url = f'http://localhost:{self.port}/{tool}'
+        params['format'] = 'text'
+        print("TEXT")
+        print(f"Query: {taup_url}")
+        print(f"Params: {params}")
+        r = requests.get(taup_url, params=params, timeout=3)
+        return r.text
 
     def queryJson(self, params, tool="time"):
         if self._taup is None:
