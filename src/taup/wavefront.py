@@ -71,6 +71,7 @@ class WavefrontQuery:
     """
     Sets the color parameter, of type edu.sc.seis.TauP.cmdline.args.ColorType    
     style of coloring for paths and wavefronts, one of: auto, wavetype, phase, none
+    Known as --color in command line.
 
     :param val: value to set color to
     """
@@ -87,6 +88,7 @@ class WavefrontQuery:
     """
     Sets the degminmax parameter, of type [D    
     min and max distance in degrees for plotting
+    Known as --degminmax in command line.
 
     :param val: value to set degminmax to
     """
@@ -103,6 +105,7 @@ class WavefrontQuery:
     """
     Sets the depthminmax parameter, of type [D    
     min and max depth, km,  for plotting
+    Known as --depthminmax in command line.
 
     :param val: value to set depthminmax to
     """
@@ -119,6 +122,7 @@ class WavefrontQuery:
     """
     Sets the legend parameter, of type Boolean    
     create a legend
+    Known as --legend in command line.
 
     :param val: value to set legend to
     """
@@ -135,6 +139,7 @@ class WavefrontQuery:
     """
     Sets the mapwidth parameter, of type Float    
     plot width in units from --mapwidthunit.
+    Known as --mapwidth in command line.
 
     :param val: value to set mapwidth to
     """
@@ -151,6 +156,7 @@ class WavefrontQuery:
     """
     Sets the mapwidthunit parameter, of type String    
     plot width unit, i for inch, c for cm or p for px.
+    Known as --mapwidthunit in command line.
 
     :param val: value to set mapwidthunit to
     """
@@ -168,6 +174,7 @@ class WavefrontQuery:
     Sets the model parameter, of type String    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+    Known as --mod in command line.
     Also known as --model in command line.
 
     :param val: value to set model to
@@ -186,6 +193,7 @@ class WavefrontQuery:
     Sets the model parameter, of type String    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+    Known as --model in command line.
 
     :param val: value to set model to
     """
@@ -202,6 +210,7 @@ class WavefrontQuery:
     """
     Sets the negdist parameter, of type Boolean    
     outputs negative distance as well so wavefronts are in both halves.
+    Known as --negdist in command line.
 
     :param val: value to set negdist to
     """
@@ -218,6 +227,7 @@ class WavefrontQuery:
     """
     Sets the onlynameddiscon parameter, of type Boolean    
     only draw circles on the plot for named discontinuities like moho, cmb, iocb but not 410
+    Known as --onlynameddiscon in command line.
 
     :param val: value to set onlynameddiscon to
     """
@@ -240,6 +250,7 @@ class WavefrontQuery:
     are equivalent. 
     
     seismic phase names
+    Known as -p in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -260,6 +271,7 @@ class WavefrontQuery:
     are equivalent. 
     
     seismic phase names
+    Known as -p in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -283,6 +295,7 @@ class WavefrontQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --phase in command line.
 
     :param val: value to set phase to
     """
@@ -302,6 +315,7 @@ class WavefrontQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --phase in command line.
 
     :param val: value to set phase to
     """
@@ -324,6 +338,7 @@ class WavefrontQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --ph in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -344,6 +359,7 @@ class WavefrontQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --ph in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -367,6 +383,7 @@ class WavefrontQuery:
     are equivalent. 
     
     read list of phase names from file
+    Known as --phasefile in command line.
 
     :param val: value to set phasefile to
     """
@@ -386,6 +403,7 @@ class WavefrontQuery:
     are equivalent. 
     
     read list of phase names from file
+    Known as --phasefile in command line.
 
     :param val: value to set phasefile to
     """
@@ -408,6 +426,7 @@ class WavefrontQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -428,6 +447,7 @@ class WavefrontQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -451,6 +471,7 @@ class WavefrontQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -470,6 +491,7 @@ class WavefrontQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -487,6 +509,7 @@ class WavefrontQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+    Known as --scat in command line.
     Also known as --scatter in command line.
 
     :param val: value to set scatter to
@@ -505,6 +528,7 @@ class WavefrontQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+    Known as --scatter in command line.
 
     :param val: value to set scatter to
     """
@@ -527,6 +551,7 @@ class WavefrontQuery:
     are equivalent. 
     
     source depth in km
+    Known as -h in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -547,6 +572,7 @@ class WavefrontQuery:
     are equivalent. 
     
     source depth in km
+    Known as -h in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -570,6 +596,7 @@ class WavefrontQuery:
     are equivalent. 
     
     source depth in km
+    Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -589,6 +616,7 @@ class WavefrontQuery:
     are equivalent. 
     
     source depth in km
+    Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -611,6 +639,7 @@ class WavefrontQuery:
     are equivalent. 
     
     source depth in km
+    Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -631,6 +660,7 @@ class WavefrontQuery:
     are equivalent. 
     
     source depth in km
+    Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -648,6 +678,7 @@ class WavefrontQuery:
     """
     Sets the timefiles parameter, of type Boolean    
     outputs each time into a separate file within the gmt script.
+    Known as --timefiles in command line.
 
     :param val: value to set timefiles to
     """
@@ -664,6 +695,7 @@ class WavefrontQuery:
     """
     Sets the timestep parameter, of type Float    
     steps in time (seconds) for output, default is 100
+    Known as --timestep in command line.
 
     :param val: value to set timestep to
     """
@@ -681,6 +713,7 @@ class WavefrontQuery:
     Sets the xaxis parameter, of type edu.sc.seis.TauP.DistanceAxisType    
     x axis type, the depth/radius axis, one of degree, radian, kilometer
     No effect for SVG output.
+    Known as --xaxis in command line.
 
     :param val: value to set xaxis to
     """
@@ -698,6 +731,7 @@ class WavefrontQuery:
     Sets the yaxis parameter, of type edu.sc.seis.TauP.DepthAxisType    
     y axis type, the depth/radius axis, one of depth, radius
     No effect for SVG output.
+    Known as --yaxis in command line.
 
     :param val: value to set yaxis to
     """

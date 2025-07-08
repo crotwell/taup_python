@@ -79,6 +79,7 @@ class TimeQuery:
     """
     Sets the allindex parameter, of type Boolean    
     all arrivals at sampling of model
+    Known as --allindex in command line.
 
     :param val: value to set allindex to
     """
@@ -95,6 +96,7 @@ class TimeQuery:
     """
     Sets the amp parameter, of type Boolean    
     show amplitude factor for each phase
+    Known as --amp in command line.
 
     :param val: value to set amp to
     """
@@ -111,6 +113,7 @@ class TimeQuery:
     """
     Sets the attenuationfreq parameter, of type Float    
     attenuation frequency for amplitude calculations, default is 1.0
+    Known as --attenuationfreq in command line.
 
     :param val: value to set attenuationfreq to
     """
@@ -127,6 +130,7 @@ class TimeQuery:
     """
     Sets the az parameter, of type Double    
     azimuth in degrees, source to receiver
+    Known as --az in command line.
 
     :param val: value to set az to
     """
@@ -143,6 +147,7 @@ class TimeQuery:
     """
     Sets the baz parameter, of type Double    
     backazimuth in degrees, receiver to source
+    Known as --baz in command line.
 
     :param val: value to set baz to
     """
@@ -165,6 +170,7 @@ class TimeQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --deg in command line.
     Also known as --degree in command line.
 
     :param val: value to set degree to
@@ -185,6 +191,7 @@ class TimeQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --deg in command line.
     Also known as --degree in command line.
 
     :param val: value to set degree to
@@ -208,6 +215,7 @@ class TimeQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --degree in command line.
 
     :param val: value to set degree to
     """
@@ -227,6 +235,7 @@ class TimeQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --degree in command line.
 
     :param val: value to set degree to
     """
@@ -244,6 +253,7 @@ class TimeQuery:
     Sets the degreerange parameter, of type List of Double
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+    Known as --degreerange in command line.
 
     :param val: value to set degreerange to
     """
@@ -258,6 +268,7 @@ class TimeQuery:
     Sets the degreerange parameter, of type List of Double
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+    Known as --degreerange in command line.
 
     :param val: value to set degreerange to
     """
@@ -280,6 +291,7 @@ class TimeQuery:
     are equivalent. 
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
+    Known as --eid in command line.
 
     :param val: value to set eid to
     """
@@ -299,6 +311,7 @@ class TimeQuery:
     are equivalent. 
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
+    Known as --eid in command line.
 
     :param val: value to set eid to
     """
@@ -316,6 +329,7 @@ class TimeQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --evt in command line.
     Also known as --event in command line.
 
     :param val: value to set event to
@@ -328,6 +342,7 @@ class TimeQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --evt in command line.
     Also known as --event in command line.
 
     :param val: value to set event to
@@ -346,6 +361,7 @@ class TimeQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --event in command line.
 
     :param val: value to set event to
     """
@@ -357,6 +373,7 @@ class TimeQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --event in command line.
 
     :param val: value to set event to
     """
@@ -379,6 +396,7 @@ class TimeQuery:
     are equivalent. 
     
     exact distance traveled in degrees, not 360-d
+    Known as --exactdegree in command line.
 
     :param val: value to set exactdegree to
     """
@@ -398,6 +416,7 @@ class TimeQuery:
     are equivalent. 
     
     exact distance traveled in degrees, not 360-d
+    Known as --exactdegree in command line.
 
     :param val: value to set exactdegree to
     """
@@ -415,6 +434,7 @@ class TimeQuery:
     Sets the exactdegreerange parameter, of type List of Double
     
     regular distance range in exact degrees, not 360-deg, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+    Known as --exactdegreerange in command line.
 
     :param val: value to set exactdegreerange to
     """
@@ -429,6 +449,7 @@ class TimeQuery:
     Sets the exactdegreerange parameter, of type List of Double
     
     regular distance range in exact degrees, not 360-deg, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+    Known as --exactdegreerange in command line.
 
     :param val: value to set exactdegreerange to
     """
@@ -451,6 +472,7 @@ class TimeQuery:
     are equivalent. 
     
     exact distance traveled in kilometers, not 360-k
+    Known as --exactkilometer in command line.
 
     :param val: value to set exactkilometer to
     """
@@ -470,6 +492,7 @@ class TimeQuery:
     are equivalent. 
     
     exact distance traveled in kilometers, not 360-k
+    Known as --exactkilometer in command line.
 
     :param val: value to set exactkilometer to
     """
@@ -487,6 +510,7 @@ class TimeQuery:
     Sets the exactkilometerrange parameter, of type List of Double
     
     regular distance range in kilometers, not 360-k, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+    Known as --exactkilometerrange in command line.
 
     :param val: value to set exactkilometerrange to
     """
@@ -501,6 +525,7 @@ class TimeQuery:
     Sets the exactkilometerrange parameter, of type List of Double
     
     regular distance range in kilometers, not 360-k, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+    Known as --exactkilometerrange in command line.
 
     :param val: value to set exactkilometerrange to
     """
@@ -517,6 +542,7 @@ class TimeQuery:
     """
     Sets the geodetic parameter, of type Boolean    
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
+    Known as --geodetic in command line.
 
     :param val: value to set geodetic to
     """
@@ -533,6 +559,7 @@ class TimeQuery:
     """
     Sets the geodeticflattening parameter, of type Double    
     Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
+    Known as --geodeticflattening in command line.
 
     :param val: value to set geodeticflattening to
     """
@@ -555,6 +582,7 @@ class TimeQuery:
     are equivalent. 
     
     incident angle in degrees at the receiver, zero is down, 90 horizontal, 180 is up.
+    Known as --incident in command line.
 
     :param val: value to set incident to
     """
@@ -574,6 +602,7 @@ class TimeQuery:
     are equivalent. 
     
     incident angle in degrees at the receiver, zero is down, 90 horizontal, 180 is up.
+    Known as --incident in command line.
 
     :param val: value to set incident to
     """
@@ -591,6 +620,7 @@ class TimeQuery:
     Sets the incidentrange parameter, of type List of Double
     
     regular range in incident angle in degrees, one of step; min max or min max step. Default min is 0 and step is 10.
+    Known as --incidentrange in command line.
 
     :param val: value to set incidentrange to
     """
@@ -605,6 +635,7 @@ class TimeQuery:
     Sets the incidentrange parameter, of type List of Double
     
     regular range in incident angle in degrees, one of step; min max or min max step. Default min is 0 and step is 10.
+    Known as --incidentrange in command line.
 
     :param val: value to set incidentrange to
     """
@@ -627,6 +658,7 @@ class TimeQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --km in command line.
     Also known as --kilometer in command line.
 
     :param val: value to set kilometer to
@@ -647,6 +679,7 @@ class TimeQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --km in command line.
     Also known as --kilometer in command line.
 
     :param val: value to set kilometer to
@@ -670,6 +703,7 @@ class TimeQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --kilometer in command line.
 
     :param val: value to set kilometer to
     """
@@ -689,6 +723,7 @@ class TimeQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --kilometer in command line.
 
     :param val: value to set kilometer to
     """
@@ -706,6 +741,7 @@ class TimeQuery:
     Sets the kilometerrange parameter, of type List of Double
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+    Known as --kilometerrange in command line.
 
     :param val: value to set kilometerrange to
     """
@@ -720,6 +756,7 @@ class TimeQuery:
     Sets the kilometerrange parameter, of type List of Double
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+    Known as --kilometerrange in command line.
 
     :param val: value to set kilometerrange to
     """
@@ -737,6 +774,7 @@ class TimeQuery:
     Sets the model parameter, of type String    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+    Known as --mod in command line.
     Also known as --model in command line.
 
     :param val: value to set model to
@@ -755,6 +793,7 @@ class TimeQuery:
     Sets the model parameter, of type String    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+    Known as --model in command line.
 
     :param val: value to set model to
     """
@@ -771,6 +810,7 @@ class TimeQuery:
     """
     Sets the mw parameter, of type Float    
     scale amplitude by source moment magnitude, default is 4.0
+    Known as --mw in command line.
 
     :param val: value to set mw to
     """
@@ -787,6 +827,7 @@ class TimeQuery:
     """
     Sets the numattenuationfreq parameter, of type Integer    
      number attenuation frequencies for amplitude calculations, default is 64
+    Known as --numattenuationfreq in command line.
 
     :param val: value to set numattenuationfreq to
     """
@@ -803,6 +844,7 @@ class TimeQuery:
     """
     Sets the onlyfirst parameter, of type Boolean    
     only output the first arrival for each phase, no triplications
+    Known as --first in command line.
     Also known as --onlyfirst in command line.
 
     :param val: value to set onlyfirst to
@@ -820,6 +862,7 @@ class TimeQuery:
     """
     Sets the onlyfirst parameter, of type Boolean    
     only output the first arrival for each phase, no triplications
+    Known as --onlyfirst in command line.
 
     :param val: value to set onlyfirst to
     """
@@ -836,6 +879,7 @@ class TimeQuery:
     """
     Sets the onlyrayp parameter, of type Boolean    
     only output the ray parameter
+    Known as --rayp in command line.
     Also known as --onlyrayp in command line.
 
     :param val: value to set onlyrayp to
@@ -853,6 +897,7 @@ class TimeQuery:
     """
     Sets the onlyrayp parameter, of type Boolean    
     only output the ray parameter
+    Known as --onlyrayp in command line.
 
     :param val: value to set onlyrayp to
     """
@@ -869,6 +914,7 @@ class TimeQuery:
     """
     Sets the onlytime parameter, of type Boolean    
     only output travel time
+    Known as --time in command line.
     Also known as --onlytime in command line.
 
     :param val: value to set onlytime to
@@ -886,6 +932,7 @@ class TimeQuery:
     """
     Sets the onlytime parameter, of type Boolean    
     only output travel time
+    Known as --onlytime in command line.
 
     :param val: value to set onlytime to
     """
@@ -908,6 +955,7 @@ class TimeQuery:
     are equivalent. 
     
     seismic phase names
+    Known as -p in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -928,6 +976,7 @@ class TimeQuery:
     are equivalent. 
     
     seismic phase names
+    Known as -p in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -951,6 +1000,7 @@ class TimeQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --phase in command line.
 
     :param val: value to set phase to
     """
@@ -970,6 +1020,7 @@ class TimeQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --phase in command line.
 
     :param val: value to set phase to
     """
@@ -992,6 +1043,7 @@ class TimeQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --ph in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -1012,6 +1064,7 @@ class TimeQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --ph in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -1035,6 +1088,7 @@ class TimeQuery:
     are equivalent. 
     
     read list of phase names from file
+    Known as --phasefile in command line.
 
     :param val: value to set phasefile to
     """
@@ -1054,6 +1108,7 @@ class TimeQuery:
     are equivalent. 
     
     read list of phase names from file
+    Known as --phasefile in command line.
 
     :param val: value to set phasefile to
     """
@@ -1070,6 +1125,7 @@ class TimeQuery:
     """
     Sets the quakeml parameter, of type String    
     QuakeML file to load for earthquake origins to use
+    Known as --qml in command line.
     Also known as --quakeml in command line.
 
     :param val: value to set quakeml to
@@ -1087,6 +1143,7 @@ class TimeQuery:
     """
     Sets the quakeml parameter, of type String    
     QuakeML file to load for earthquake origins to use
+    Known as --quakeml in command line.
 
     :param val: value to set quakeml to
     """
@@ -1109,6 +1166,7 @@ class TimeQuery:
     are equivalent. 
     
     ray parameter from the source in s/deg, up or down is determined by the phase
+    Known as --rayparamdeg in command line.
 
     :param val: value to set rayparamdeg to
     """
@@ -1128,6 +1186,7 @@ class TimeQuery:
     are equivalent. 
     
     ray parameter from the source in s/deg, up or down is determined by the phase
+    Known as --rayparamdeg in command line.
 
     :param val: value to set rayparamdeg to
     """
@@ -1150,6 +1209,7 @@ class TimeQuery:
     are equivalent. 
     
     ray parameter from the source as index into model sampling, up or down is determined by the phase
+    Known as --rayparamidx in command line.
 
     :param val: value to set rayparamidx to
     """
@@ -1169,6 +1229,7 @@ class TimeQuery:
     are equivalent. 
     
     ray parameter from the source as index into model sampling, up or down is determined by the phase
+    Known as --rayparamidx in command line.
 
     :param val: value to set rayparamidx to
     """
@@ -1191,6 +1252,7 @@ class TimeQuery:
     are equivalent. 
     
     ray parameter from the source in s/km, up or down is determined by the phase
+    Known as --rayparamkm in command line.
 
     :param val: value to set rayparamkm to
     """
@@ -1210,6 +1272,7 @@ class TimeQuery:
     are equivalent. 
     
     ray parameter from the source in s/km, up or down is determined by the phase
+    Known as --rayparamkm in command line.
 
     :param val: value to set rayparamkm to
     """
@@ -1232,6 +1295,7 @@ class TimeQuery:
     are equivalent. 
     
     ray parameter from the source in s/rad, up or down is determined by the phase
+    Known as --rayparamrad in command line.
 
     :param val: value to set rayparamrad to
     """
@@ -1251,6 +1315,7 @@ class TimeQuery:
     are equivalent. 
     
     ray parameter from the source in s/rad, up or down is determined by the phase
+    Known as --rayparamrad in command line.
 
     :param val: value to set rayparamrad to
     """
@@ -1273,6 +1338,7 @@ class TimeQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -1293,6 +1359,7 @@ class TimeQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -1316,6 +1383,7 @@ class TimeQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -1335,6 +1403,7 @@ class TimeQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -1357,6 +1426,7 @@ class TimeQuery:
     are equivalent. 
     
     times relative to the first of the given phases
+    Known as --rel in command line.
 
     :param val: value to set rel to
     """
@@ -1376,6 +1446,7 @@ class TimeQuery:
     are equivalent. 
     
     times relative to the first of the given phases
+    Known as --rel in command line.
 
     :param val: value to set rel to
     """
@@ -1393,6 +1464,7 @@ class TimeQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+    Known as --scat in command line.
     Also known as --scatter in command line.
 
     :param val: value to set scatter to
@@ -1411,6 +1483,7 @@ class TimeQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+    Known as --scatter in command line.
 
     :param val: value to set scatter to
     """
@@ -1433,6 +1506,7 @@ class TimeQuery:
     are equivalent. 
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
+    Known as --sid in command line.
 
     :param val: value to set sid to
     """
@@ -1452,6 +1526,7 @@ class TimeQuery:
     are equivalent. 
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
+    Known as --sid in command line.
 
     :param val: value to set sid to
     """
@@ -1474,6 +1549,7 @@ class TimeQuery:
     are equivalent. 
     
     source depth in km
+    Known as -h in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -1494,6 +1570,7 @@ class TimeQuery:
     are equivalent. 
     
     source depth in km
+    Known as -h in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -1517,6 +1594,7 @@ class TimeQuery:
     are equivalent. 
     
     source depth in km
+    Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -1536,6 +1614,7 @@ class TimeQuery:
     are equivalent. 
     
     source depth in km
+    Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -1558,6 +1637,7 @@ class TimeQuery:
     are equivalent. 
     
     source depth in km
+    Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -1578,6 +1658,7 @@ class TimeQuery:
     are equivalent. 
     
     source depth in km
+    Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -1596,6 +1677,7 @@ class TimeQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --sta in command line.
     Also known as --station in command line.
 
     :param val: value to set station to
@@ -1608,6 +1690,7 @@ class TimeQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --sta in command line.
     Also known as --station in command line.
 
     :param val: value to set station to
@@ -1626,6 +1709,7 @@ class TimeQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --station in command line.
 
     :param val: value to set station to
     """
@@ -1637,6 +1721,7 @@ class TimeQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --station in command line.
 
     :param val: value to set station to
     """
@@ -1653,6 +1738,7 @@ class TimeQuery:
     """
     Sets the staxml parameter, of type String    
     StationXML file to extract station latitudes and longitudes from
+    Known as --staxml in command line.
 
     :param val: value to set staxml to
     """
@@ -1670,6 +1756,7 @@ class TimeQuery:
     Sets the strikediprake parameter, of type List of Float
     
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
+    Known as --strikediprake in command line.
 
     :param val: value to set strikediprake to
     """
@@ -1684,6 +1771,7 @@ class TimeQuery:
     Sets the strikediprake parameter, of type List of Float
     
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
+    Known as --strikediprake in command line.
 
     :param val: value to set strikediprake to
     """
@@ -1706,6 +1794,7 @@ class TimeQuery:
     are equivalent. 
     
     takeoff angle in degrees from the source, zero is down, 90 horizontal, 180 is up.
+    Known as --takeoff in command line.
 
     :param val: value to set takeoff to
     """
@@ -1725,6 +1814,7 @@ class TimeQuery:
     are equivalent. 
     
     takeoff angle in degrees from the source, zero is down, 90 horizontal, 180 is up.
+    Known as --takeoff in command line.
 
     :param val: value to set takeoff to
     """
@@ -1742,6 +1832,7 @@ class TimeQuery:
     Sets the takeoffrange parameter, of type List of Double
     
     regular range in takeoff angle in degrees, one of step; min,max or min,max,step. Default min is 0 and step is 10.
+    Known as --takeoffrange in command line.
 
     :param val: value to set takeoffrange to
     """
@@ -1756,6 +1847,7 @@ class TimeQuery:
     Sets the takeoffrange parameter, of type List of Double
     
     regular range in takeoff angle in degrees, one of step; min,max or min,max,step. Default min is 0 and step is 10.
+    Known as --takeoffrange in command line.
 
     :param val: value to set takeoffrange to
     """

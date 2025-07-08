@@ -28,6 +28,7 @@ class VelmergeQuery:
     """
     Sets the elev parameter, of type Float    
     increase topmost layer by elevation (meters)
+    Known as --elev in command line.
 
     :param val: value to set elev to
     """
@@ -44,6 +45,7 @@ class VelmergeQuery:
     """
     Sets the model parameter, of type String    
     use velocity model "modelname" for calculations, format is guessed.
+    Known as --mod in command line.
     Also known as --model in command line.
 
     :param val: value to set model to
@@ -61,6 +63,7 @@ class VelmergeQuery:
     """
     Sets the model parameter, of type String    
     use velocity model "modelname" for calculations, format is guessed.
+    Known as --model in command line.
 
     :param val: value to set model to
     """
@@ -77,6 +80,7 @@ class VelmergeQuery:
     """
     Sets the modmerge parameter, of type String    
     velocity file to merge, format is guessed
+    Known as --modmerge in command line.
 
     :param val: value to set modmerge to
     """
@@ -93,6 +97,7 @@ class VelmergeQuery:
     """
     Sets the ndmerge parameter, of type String    
     "named discontinuities" velocity file to merge
+    Known as --ndmerge in command line.
 
     :param val: value to set ndmerge to
     """
@@ -109,6 +114,7 @@ class VelmergeQuery:
     """
     Sets the smoothbot parameter, of type Boolean    
     smooth merge at bottom
+    Known as --smoothbot in command line.
 
     :param val: value to set smoothbot to
     """
@@ -125,6 +131,7 @@ class VelmergeQuery:
     """
     Sets the smoothtop parameter, of type Boolean    
     smooth merge at top
+    Known as --smoothtop in command line.
 
     :param val: value to set smoothtop to
     """
@@ -141,6 +148,7 @@ class VelmergeQuery:
     """
     Sets the tvelmerge parameter, of type String    
     ".tvel" velocity file to merge, ala ttimes
+    Known as --tvelmerge in command line.
 
     :param val: value to set tvelmerge to
     """

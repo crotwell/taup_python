@@ -52,6 +52,7 @@ class DistazQuery:
     """
     Sets the az parameter, of type Double    
     azimuth in degrees, source to receiver
+    Known as --az in command line.
 
     :param val: value to set az to
     """
@@ -68,6 +69,7 @@ class DistazQuery:
     """
     Sets the baz parameter, of type Double    
     backazimuth in degrees, receiver to source
+    Known as --baz in command line.
 
     :param val: value to set baz to
     """
@@ -90,6 +92,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --deg in command line.
     Also known as --degree in command line.
 
     :param val: value to set degree to
@@ -110,6 +113,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --deg in command line.
     Also known as --degree in command line.
 
     :param val: value to set degree to
@@ -133,6 +137,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --degree in command line.
 
     :param val: value to set degree to
     """
@@ -152,6 +157,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --degree in command line.
 
     :param val: value to set degree to
     """
@@ -169,6 +175,7 @@ class DistazQuery:
     Sets the degreerange parameter, of type List of Double
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+    Known as --degreerange in command line.
 
     :param val: value to set degreerange to
     """
@@ -183,6 +190,7 @@ class DistazQuery:
     Sets the degreerange parameter, of type List of Double
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+    Known as --degreerange in command line.
 
     :param val: value to set degreerange to
     """
@@ -205,6 +213,7 @@ class DistazQuery:
     are equivalent. 
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
+    Known as --eid in command line.
 
     :param val: value to set eid to
     """
@@ -224,6 +233,7 @@ class DistazQuery:
     are equivalent. 
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
+    Known as --eid in command line.
 
     :param val: value to set eid to
     """
@@ -241,6 +251,7 @@ class DistazQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --evt in command line.
     Also known as --event in command line.
 
     :param val: value to set event to
@@ -253,6 +264,7 @@ class DistazQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --evt in command line.
     Also known as --event in command line.
 
     :param val: value to set event to
@@ -271,6 +283,7 @@ class DistazQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --event in command line.
 
     :param val: value to set event to
     """
@@ -282,6 +295,7 @@ class DistazQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --event in command line.
 
     :param val: value to set event to
     """
@@ -298,6 +312,7 @@ class DistazQuery:
     """
     Sets the geodetic parameter, of type Boolean    
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
+    Known as --geodetic in command line.
 
     :param val: value to set geodetic to
     """
@@ -314,6 +329,7 @@ class DistazQuery:
     """
     Sets the geodeticflattening parameter, of type Double    
     Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
+    Known as --geodeticflattening in command line.
 
     :param val: value to set geodeticflattening to
     """
@@ -336,6 +352,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --km in command line.
     Also known as --kilometer in command line.
 
     :param val: value to set kilometer to
@@ -356,6 +373,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --km in command line.
     Also known as --kilometer in command line.
 
     :param val: value to set kilometer to
@@ -379,6 +397,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --kilometer in command line.
 
     :param val: value to set kilometer to
     """
@@ -398,6 +417,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --kilometer in command line.
 
     :param val: value to set kilometer to
     """
@@ -415,6 +435,7 @@ class DistazQuery:
     Sets the kilometerrange parameter, of type List of Double
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+    Known as --kilometerrange in command line.
 
     :param val: value to set kilometerrange to
     """
@@ -429,6 +450,7 @@ class DistazQuery:
     Sets the kilometerrange parameter, of type List of Double
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+    Known as --kilometerrange in command line.
 
     :param val: value to set kilometerrange to
     """
@@ -445,6 +467,7 @@ class DistazQuery:
     """
     Sets the quakeml parameter, of type String    
     QuakeML file to load for earthquake origins to use
+    Known as --qml in command line.
     Also known as --quakeml in command line.
 
     :param val: value to set quakeml to
@@ -462,6 +485,7 @@ class DistazQuery:
     """
     Sets the quakeml parameter, of type String    
     QuakeML file to load for earthquake origins to use
+    Known as --quakeml in command line.
 
     :param val: value to set quakeml to
     """
@@ -478,6 +502,7 @@ class DistazQuery:
     """
     Sets the radius parameter, of type Double    
     radius of earth in km, used when distance given in km
+    Known as --radius in command line.
 
     :param val: value to set radius to
     """
@@ -500,6 +525,7 @@ class DistazQuery:
     are equivalent. 
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
+    Known as --sid in command line.
 
     :param val: value to set sid to
     """
@@ -519,6 +545,7 @@ class DistazQuery:
     are equivalent. 
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
+    Known as --sid in command line.
 
     :param val: value to set sid to
     """
@@ -536,6 +563,7 @@ class DistazQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --sta in command line.
     Also known as --station in command line.
 
     :param val: value to set station to
@@ -548,6 +576,7 @@ class DistazQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --sta in command line.
     Also known as --station in command line.
 
     :param val: value to set station to
@@ -566,6 +595,7 @@ class DistazQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --station in command line.
 
     :param val: value to set station to
     """
@@ -577,6 +607,7 @@ class DistazQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --station in command line.
 
     :param val: value to set station to
     """
@@ -593,6 +624,7 @@ class DistazQuery:
     """
     Sets the staxml parameter, of type String    
     StationXML file to extract station latitudes and longitudes from
+    Known as --staxml in command line.
 
     :param val: value to set staxml to
     """

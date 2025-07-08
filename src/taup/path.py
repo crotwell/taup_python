@@ -98,6 +98,7 @@ class PathQuery:
     """
     Sets the allindex parameter, of type Boolean    
     all arrivals at sampling of model
+    Known as --allindex in command line.
 
     :param val: value to set allindex to
     """
@@ -114,6 +115,7 @@ class PathQuery:
     """
     Sets the az parameter, of type Double    
     azimuth in degrees, source to receiver
+    Known as --az in command line.
 
     :param val: value to set az to
     """
@@ -130,6 +132,7 @@ class PathQuery:
     """
     Sets the baz parameter, of type Double    
     backazimuth in degrees, receiver to source
+    Known as --baz in command line.
 
     :param val: value to set baz to
     """
@@ -146,6 +149,7 @@ class PathQuery:
     """
     Sets the color parameter, of type edu.sc.seis.TauP.cmdline.args.ColorType    
     style of coloring for paths and wavefronts, one of: auto, wavetype, phase, none
+    Known as --color in command line.
 
     :param val: value to set color to
     """
@@ -162,6 +166,7 @@ class PathQuery:
     """
     Sets the degminmax parameter, of type [D    
     min and max distance in degrees for plotting
+    Known as --degminmax in command line.
 
     :param val: value to set degminmax to
     """
@@ -184,6 +189,7 @@ class PathQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --deg in command line.
     Also known as --degree in command line.
 
     :param val: value to set degree to
@@ -204,6 +210,7 @@ class PathQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --deg in command line.
     Also known as --degree in command line.
 
     :param val: value to set degree to
@@ -227,6 +234,7 @@ class PathQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --degree in command line.
 
     :param val: value to set degree to
     """
@@ -246,6 +254,7 @@ class PathQuery:
     are equivalent. 
     
     distance in degrees
+    Known as --degree in command line.
 
     :param val: value to set degree to
     """
@@ -263,6 +272,7 @@ class PathQuery:
     Sets the degreerange parameter, of type List of Double
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+    Known as --degreerange in command line.
 
     :param val: value to set degreerange to
     """
@@ -277,6 +287,7 @@ class PathQuery:
     Sets the degreerange parameter, of type List of Double
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+    Known as --degreerange in command line.
 
     :param val: value to set degreerange to
     """
@@ -293,6 +304,7 @@ class PathQuery:
     """
     Sets the depthminmax parameter, of type [D    
     min and max depth, km,  for plotting
+    Known as --depthminmax in command line.
 
     :param val: value to set depthminmax to
     """
@@ -315,6 +327,7 @@ class PathQuery:
     are equivalent. 
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
+    Known as --eid in command line.
 
     :param val: value to set eid to
     """
@@ -334,6 +347,7 @@ class PathQuery:
     are equivalent. 
     
     event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
+    Known as --eid in command line.
 
     :param val: value to set eid to
     """
@@ -351,6 +365,7 @@ class PathQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --evt in command line.
     Also known as --event in command line.
 
     :param val: value to set event to
@@ -363,6 +378,7 @@ class PathQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --evt in command line.
     Also known as --event in command line.
 
     :param val: value to set event to
@@ -381,6 +397,7 @@ class PathQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --event in command line.
 
     :param val: value to set event to
     """
@@ -392,6 +409,7 @@ class PathQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+    Known as --event in command line.
 
     :param val: value to set event to
     """
@@ -414,6 +432,7 @@ class PathQuery:
     are equivalent. 
     
     exact distance traveled in degrees, not 360-d
+    Known as --exactdegree in command line.
 
     :param val: value to set exactdegree to
     """
@@ -433,6 +452,7 @@ class PathQuery:
     are equivalent. 
     
     exact distance traveled in degrees, not 360-d
+    Known as --exactdegree in command line.
 
     :param val: value to set exactdegree to
     """
@@ -450,6 +470,7 @@ class PathQuery:
     Sets the exactdegreerange parameter, of type List of Double
     
     regular distance range in exact degrees, not 360-deg, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+    Known as --exactdegreerange in command line.
 
     :param val: value to set exactdegreerange to
     """
@@ -464,6 +485,7 @@ class PathQuery:
     Sets the exactdegreerange parameter, of type List of Double
     
     regular distance range in exact degrees, not 360-deg, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+    Known as --exactdegreerange in command line.
 
     :param val: value to set exactdegreerange to
     """
@@ -486,6 +508,7 @@ class PathQuery:
     are equivalent. 
     
     exact distance traveled in kilometers, not 360-k
+    Known as --exactkilometer in command line.
 
     :param val: value to set exactkilometer to
     """
@@ -505,6 +528,7 @@ class PathQuery:
     are equivalent. 
     
     exact distance traveled in kilometers, not 360-k
+    Known as --exactkilometer in command line.
 
     :param val: value to set exactkilometer to
     """
@@ -522,6 +546,7 @@ class PathQuery:
     Sets the exactkilometerrange parameter, of type List of Double
     
     regular distance range in kilometers, not 360-k, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+    Known as --exactkilometerrange in command line.
 
     :param val: value to set exactkilometerrange to
     """
@@ -536,6 +561,7 @@ class PathQuery:
     Sets the exactkilometerrange parameter, of type List of Double
     
     regular distance range in kilometers, not 360-k, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+    Known as --exactkilometerrange in command line.
 
     :param val: value to set exactkilometerrange to
     """
@@ -552,6 +578,7 @@ class PathQuery:
     """
     Sets the geodetic parameter, of type Boolean    
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
+    Known as --geodetic in command line.
 
     :param val: value to set geodetic to
     """
@@ -568,6 +595,7 @@ class PathQuery:
     """
     Sets the geodeticflattening parameter, of type Double    
     Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
+    Known as --geodeticflattening in command line.
 
     :param val: value to set geodeticflattening to
     """
@@ -590,6 +618,7 @@ class PathQuery:
     are equivalent. 
     
     incident angle in degrees at the receiver, zero is down, 90 horizontal, 180 is up.
+    Known as --incident in command line.
 
     :param val: value to set incident to
     """
@@ -609,6 +638,7 @@ class PathQuery:
     are equivalent. 
     
     incident angle in degrees at the receiver, zero is down, 90 horizontal, 180 is up.
+    Known as --incident in command line.
 
     :param val: value to set incident to
     """
@@ -626,6 +656,7 @@ class PathQuery:
     Sets the incidentrange parameter, of type List of Double
     
     regular range in incident angle in degrees, one of step; min max or min max step. Default min is 0 and step is 10.
+    Known as --incidentrange in command line.
 
     :param val: value to set incidentrange to
     """
@@ -640,6 +671,7 @@ class PathQuery:
     Sets the incidentrange parameter, of type List of Double
     
     regular range in incident angle in degrees, one of step; min max or min max step. Default min is 0 and step is 10.
+    Known as --incidentrange in command line.
 
     :param val: value to set incidentrange to
     """
@@ -662,6 +694,7 @@ class PathQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --km in command line.
     Also known as --kilometer in command line.
 
     :param val: value to set kilometer to
@@ -682,6 +715,7 @@ class PathQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --km in command line.
     Also known as --kilometer in command line.
 
     :param val: value to set kilometer to
@@ -705,6 +739,7 @@ class PathQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --kilometer in command line.
 
     :param val: value to set kilometer to
     """
@@ -724,6 +759,7 @@ class PathQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+    Known as --kilometer in command line.
 
     :param val: value to set kilometer to
     """
@@ -741,6 +777,7 @@ class PathQuery:
     Sets the kilometerrange parameter, of type List of Double
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+    Known as --kilometerrange in command line.
 
     :param val: value to set kilometerrange to
     """
@@ -755,6 +792,7 @@ class PathQuery:
     Sets the kilometerrange parameter, of type List of Double
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+    Known as --kilometerrange in command line.
 
     :param val: value to set kilometerrange to
     """
@@ -771,6 +809,7 @@ class PathQuery:
     """
     Sets the label parameter, of type Boolean    
     label with phase name
+    Known as --label in command line.
 
     :param val: value to set label to
     """
@@ -787,6 +826,7 @@ class PathQuery:
     """
     Sets the legend parameter, of type Boolean    
     create a legend
+    Known as --legend in command line.
 
     :param val: value to set legend to
     """
@@ -803,6 +843,7 @@ class PathQuery:
     """
     Sets the mapwidth parameter, of type Float    
     plot width in units from --mapwidthunit.
+    Known as --mapwidth in command line.
 
     :param val: value to set mapwidth to
     """
@@ -819,6 +860,7 @@ class PathQuery:
     """
     Sets the mapwidthunit parameter, of type String    
     plot width unit, i for inch, c for cm or p for px.
+    Known as --mapwidthunit in command line.
 
     :param val: value to set mapwidthunit to
     """
@@ -835,6 +877,7 @@ class PathQuery:
     """
     Sets the maxpathinc parameter, of type Double    
     Maximum distance increment in degrees between path points, avoid visible segmentation in plots
+    Known as --maxpathinc in command line.
 
     :param val: value to set maxpathinc to
     """
@@ -852,6 +895,7 @@ class PathQuery:
     Sets the model parameter, of type String    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+    Known as --mod in command line.
     Also known as --model in command line.
 
     :param val: value to set model to
@@ -870,6 +914,7 @@ class PathQuery:
     Sets the model parameter, of type String    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+    Known as --model in command line.
 
     :param val: value to set model to
     """
@@ -886,6 +931,7 @@ class PathQuery:
     """
     Sets the onlynameddiscon parameter, of type Boolean    
     only draw circles on the plot for named discontinuities like moho, cmb, iocb
+    Known as --onlynameddiscon in command line.
 
     :param val: value to set onlynameddiscon to
     """
@@ -908,6 +954,7 @@ class PathQuery:
     are equivalent. 
     
     seismic phase names
+    Known as -p in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -928,6 +975,7 @@ class PathQuery:
     are equivalent. 
     
     seismic phase names
+    Known as -p in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -951,6 +999,7 @@ class PathQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --phase in command line.
 
     :param val: value to set phase to
     """
@@ -970,6 +1019,7 @@ class PathQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --phase in command line.
 
     :param val: value to set phase to
     """
@@ -992,6 +1042,7 @@ class PathQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --ph in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -1012,6 +1063,7 @@ class PathQuery:
     are equivalent. 
     
     seismic phase names
+    Known as --ph in command line.
     Also known as --phase in command line.
 
     :param val: value to set phase to
@@ -1035,6 +1087,7 @@ class PathQuery:
     are equivalent. 
     
     read list of phase names from file
+    Known as --phasefile in command line.
 
     :param val: value to set phasefile to
     """
@@ -1054,6 +1107,7 @@ class PathQuery:
     are equivalent. 
     
     read list of phase names from file
+    Known as --phasefile in command line.
 
     :param val: value to set phasefile to
     """
@@ -1070,6 +1124,7 @@ class PathQuery:
     """
     Sets the quakeml parameter, of type String    
     QuakeML file to load for earthquake origins to use
+    Known as --qml in command line.
     Also known as --quakeml in command line.
 
     :param val: value to set quakeml to
@@ -1087,6 +1142,7 @@ class PathQuery:
     """
     Sets the quakeml parameter, of type String    
     QuakeML file to load for earthquake origins to use
+    Known as --quakeml in command line.
 
     :param val: value to set quakeml to
     """
@@ -1109,6 +1165,7 @@ class PathQuery:
     are equivalent. 
     
     ray parameter from the source in s/deg, up or down is determined by the phase
+    Known as --rayparamdeg in command line.
 
     :param val: value to set rayparamdeg to
     """
@@ -1128,6 +1185,7 @@ class PathQuery:
     are equivalent. 
     
     ray parameter from the source in s/deg, up or down is determined by the phase
+    Known as --rayparamdeg in command line.
 
     :param val: value to set rayparamdeg to
     """
@@ -1150,6 +1208,7 @@ class PathQuery:
     are equivalent. 
     
     ray parameter from the source as index into model sampling, up or down is determined by the phase
+    Known as --rayparamidx in command line.
 
     :param val: value to set rayparamidx to
     """
@@ -1169,6 +1228,7 @@ class PathQuery:
     are equivalent. 
     
     ray parameter from the source as index into model sampling, up or down is determined by the phase
+    Known as --rayparamidx in command line.
 
     :param val: value to set rayparamidx to
     """
@@ -1191,6 +1251,7 @@ class PathQuery:
     are equivalent. 
     
     ray parameter from the source in s/km, up or down is determined by the phase
+    Known as --rayparamkm in command line.
 
     :param val: value to set rayparamkm to
     """
@@ -1210,6 +1271,7 @@ class PathQuery:
     are equivalent. 
     
     ray parameter from the source in s/km, up or down is determined by the phase
+    Known as --rayparamkm in command line.
 
     :param val: value to set rayparamkm to
     """
@@ -1232,6 +1294,7 @@ class PathQuery:
     are equivalent. 
     
     ray parameter from the source in s/rad, up or down is determined by the phase
+    Known as --rayparamrad in command line.
 
     :param val: value to set rayparamrad to
     """
@@ -1251,6 +1314,7 @@ class PathQuery:
     are equivalent. 
     
     ray parameter from the source in s/rad, up or down is determined by the phase
+    Known as --rayparamrad in command line.
 
     :param val: value to set rayparamrad to
     """
@@ -1273,6 +1337,7 @@ class PathQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -1293,6 +1358,7 @@ class PathQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -1316,6 +1382,7 @@ class PathQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -1335,6 +1402,7 @@ class PathQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+    Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -1352,6 +1420,7 @@ class PathQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+    Known as --scat in command line.
     Also known as --scatter in command line.
 
     :param val: value to set scatter to
@@ -1370,6 +1439,7 @@ class PathQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+    Known as --scatter in command line.
 
     :param val: value to set scatter to
     """
@@ -1392,6 +1462,7 @@ class PathQuery:
     are equivalent. 
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
+    Known as --sid in command line.
 
     :param val: value to set sid to
     """
@@ -1411,6 +1482,7 @@ class PathQuery:
     are equivalent. 
     
     station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
+    Known as --sid in command line.
 
     :param val: value to set sid to
     """
@@ -1433,6 +1505,7 @@ class PathQuery:
     are equivalent. 
     
     source depth in km
+    Known as -h in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -1453,6 +1526,7 @@ class PathQuery:
     are equivalent. 
     
     source depth in km
+    Known as -h in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -1476,6 +1550,7 @@ class PathQuery:
     are equivalent. 
     
     source depth in km
+    Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -1495,6 +1570,7 @@ class PathQuery:
     are equivalent. 
     
     source depth in km
+    Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -1517,6 +1593,7 @@ class PathQuery:
     are equivalent. 
     
     source depth in km
+    Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -1537,6 +1614,7 @@ class PathQuery:
     are equivalent. 
     
     source depth in km
+    Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -1555,6 +1633,7 @@ class PathQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --sta in command line.
     Also known as --station in command line.
 
     :param val: value to set station to
@@ -1567,6 +1646,7 @@ class PathQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --sta in command line.
     Also known as --station in command line.
 
     :param val: value to set station to
@@ -1585,6 +1665,7 @@ class PathQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --station in command line.
 
     :param val: value to set station to
     """
@@ -1596,6 +1677,7 @@ class PathQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+    Known as --station in command line.
 
     :param val: value to set station to
     """
@@ -1612,6 +1694,7 @@ class PathQuery:
     """
     Sets the staxml parameter, of type String    
     StationXML file to extract station latitudes and longitudes from
+    Known as --staxml in command line.
 
     :param val: value to set staxml to
     """
@@ -1634,6 +1717,7 @@ class PathQuery:
     are equivalent. 
     
     takeoff angle in degrees from the source, zero is down, 90 horizontal, 180 is up.
+    Known as --takeoff in command line.
 
     :param val: value to set takeoff to
     """
@@ -1653,6 +1737,7 @@ class PathQuery:
     are equivalent. 
     
     takeoff angle in degrees from the source, zero is down, 90 horizontal, 180 is up.
+    Known as --takeoff in command line.
 
     :param val: value to set takeoff to
     """
@@ -1670,6 +1755,7 @@ class PathQuery:
     Sets the takeoffrange parameter, of type List of Double
     
     regular range in takeoff angle in degrees, one of step; min,max or min,max,step. Default min is 0 and step is 10.
+    Known as --takeoffrange in command line.
 
     :param val: value to set takeoffrange to
     """
@@ -1684,6 +1770,7 @@ class PathQuery:
     Sets the takeoffrange parameter, of type List of Double
     
     regular range in takeoff angle in degrees, one of step; min,max or min,max,step. Default min is 0 and step is 10.
+    Known as --takeoffrange in command line.
 
     :param val: value to set takeoffrange to
     """
@@ -1700,6 +1787,7 @@ class PathQuery:
     """
     Sets the withtime parameter, of type Boolean    
     include time for each path point, no effect for SVG.
+    Known as --withtime in command line.
 
     :param val: value to set withtime to
     """
@@ -1717,6 +1805,7 @@ class PathQuery:
     Sets the xaxis parameter, of type edu.sc.seis.TauP.DistanceAxisType    
     x axis type, the depth/radius axis, one of degree, radian, kilometer
     No effect for SVG output.
+    Known as --xaxis in command line.
 
     :param val: value to set xaxis to
     """
@@ -1734,6 +1823,7 @@ class PathQuery:
     Sets the yaxis parameter, of type edu.sc.seis.TauP.DepthAxisType    
     y axis type, the depth/radius axis, one of depth, radius
     No effect for SVG output.
+    Known as --yaxis in command line.
 
     :param val: value to set yaxis to
     """

@@ -44,6 +44,7 @@ class DisconQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+    Known as --mod in command line.
     Also known as --model in command line.
 
     :param val: value to set model to
@@ -64,6 +65,7 @@ class DisconQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+    Known as --mod in command line.
     Also known as --model in command line.
 
     :param val: value to set model to
@@ -87,6 +89,7 @@ class DisconQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+    Known as --model in command line.
 
     :param val: value to set model to
     """
@@ -106,6 +109,7 @@ class DisconQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+    Known as --model in command line.
 
     :param val: value to set model to
     """

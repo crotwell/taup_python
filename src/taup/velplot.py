@@ -77,6 +77,7 @@ class VelplotQuery:
     """
     Sets the legend parameter, of type Boolean    
     create a legend
+    Known as --legend in command line.
 
     :param val: value to set legend to
     """
@@ -93,6 +94,7 @@ class VelplotQuery:
     """
     Sets the mapwidth parameter, of type Float    
     plot width in units from --mapwidthunit.
+    Known as --mapwidth in command line.
 
     :param val: value to set mapwidth to
     """
@@ -109,6 +111,7 @@ class VelplotQuery:
     """
     Sets the mapwidthunit parameter, of type String    
     plot width unit, i for inch, c for cm or p for px.
+    Known as --mapwidthunit in command line.
 
     :param val: value to set mapwidthunit to
     """
@@ -131,6 +134,7 @@ class VelplotQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+    Known as --mod in command line.
     Also known as --model in command line.
 
     :param val: value to set model to
@@ -151,6 +155,7 @@ class VelplotQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+    Known as --mod in command line.
     Also known as --model in command line.
 
     :param val: value to set model to
@@ -174,6 +179,7 @@ class VelplotQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+    Known as --model in command line.
 
     :param val: value to set model to
     """
@@ -193,6 +199,7 @@ class VelplotQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+    Known as --model in command line.
 
     :param val: value to set model to
     """
@@ -210,6 +217,7 @@ class VelplotQuery:
     Sets the xaxis parameter, of type edu.sc.seis.TauP.ModelAxisType    
     X axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is velocity.
+    Known as -x in command line.
     Also known as --xaxis in command line.
 
     :param val: value to set xaxis to
@@ -228,6 +236,7 @@ class VelplotQuery:
     Sets the xaxis parameter, of type edu.sc.seis.TauP.ModelAxisType    
     X axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is velocity.
+    Known as --xaxis in command line.
 
     :param val: value to set xaxis to
     """
@@ -244,6 +253,7 @@ class VelplotQuery:
     """
     Sets the xminmax parameter, of type [D    
     min and max x axis for plotting
+    Known as --xminmax in command line.
 
     :param val: value to set xminmax to
     """
@@ -261,6 +271,7 @@ class VelplotQuery:
     Sets the yaxis parameter, of type edu.sc.seis.TauP.ModelAxisType    
     Y axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is depth.
+    Known as -y in command line.
     Also known as --yaxis in command line.
 
     :param val: value to set yaxis to
@@ -279,6 +290,7 @@ class VelplotQuery:
     Sets the yaxis parameter, of type edu.sc.seis.TauP.ModelAxisType    
     Y axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is depth.
+    Known as --yaxis in command line.
 
     :param val: value to set yaxis to
     """
@@ -295,6 +307,7 @@ class VelplotQuery:
     """
     Sets the yminmax parameter, of type [D    
     min and max y axis for plotting
+    Known as --yminmax in command line.
 
     :param val: value to set yminmax to
     """
