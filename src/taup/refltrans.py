@@ -28,8 +28,43 @@ class RefltransQuery:
     self._y=[]
 
   def calc(self, taupServer):
+    """
+    Sends all params to the server, returns the result parsed from JSON.
+    """
     params = self.create_params()
     return taupServer.queryJson(params, self.toolname)
+
+
+  def calcGmt(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of gmt.
+    """
+    params = self.create_params()
+    return taupServer.queryGmt(params, self.toolname)
+
+
+  def calcHtml(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of html.
+    """
+    params = self.create_params()
+    return taupServer.queryHtml(params, self.toolname)
+
+
+  def calcSvg(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of svg.
+    """
+    params = self.create_params()
+    return taupServer.querySvg(params, self.toolname)
+
+
+  def calcText(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of text.
+    """
+    params = self.create_params()
+    return taupServer.queryText(params, self.toolname)
 
 
   def get_abs(self):

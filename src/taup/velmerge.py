@@ -5,14 +5,15 @@ class VelmergeQuery:
     self._elev=None
     self._model=None
     self._modmerge=None
-    self._nd=None
     self._ndmerge=None
     self._smoothbot=None
     self._smoothtop=None
-    self._tvel=None
     self._tvelmerge=None
 
   def calc(self, taupServer):
+    """
+    Sends all params to the server, returns the result parsed from JSON.
+    """
     params = self.create_params()
     return taupServer.queryJson(params, self.toolname)
 
@@ -82,22 +83,6 @@ class VelmergeQuery:
     self._modmerge = val
     return self
 
-  def get_nd(self):
-    """
-    returns current value of nd as a String
-    """
-    return self._nd
-
-  def nd(self, val):
-    """
-    Sets the nd parameter, of type String    
-    "named discontinuities" velocity file
-
-    :param val: value to set nd to
-    """
-    self._nd = val
-    return self
-
   def get_ndmerge(self):
     """
     returns current value of ndmerge as a String
@@ -146,22 +131,6 @@ class VelmergeQuery:
     self._smoothtop = val
     return self
 
-  def get_tvel(self):
-    """
-    returns current value of tvel as a String
-    """
-    return self._tvel
-
-  def tvel(self, val):
-    """
-    Sets the tvel parameter, of type String    
-    ".tvel" velocity file, ala ttimes
-
-    :param val: value to set tvel to
-    """
-    self._tvel = val
-    return self
-
   def get_tvelmerge(self):
     """
     returns current value of tvelmerge as a String
@@ -192,16 +161,12 @@ class VelmergeQuery:
       params["model"] = self._model
     if self._modmerge is not None:
       params["modmerge"] = self._modmerge
-    if self._nd is not None:
-      params["nd"] = self._nd
     if self._ndmerge is not None:
       params["ndmerge"] = self._ndmerge
     if self._smoothbot is not None:
       params["smoothbot"] = self._smoothbot
     if self._smoothtop is not None:
       params["smoothtop"] = self._smoothtop
-    if self._tvel is not None:
-      params["tvel"] = self._tvel
     if self._tvelmerge is not None:
       params["tvelmerge"] = self._tvelmerge
     return params

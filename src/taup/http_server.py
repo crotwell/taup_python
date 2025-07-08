@@ -80,20 +80,20 @@ class TauPServer:
             self._stop_event.set()
             self._stop_event = None
 
-    def queryText(self, params, tool="time"):
+    def retrieveTextual(self, params, tool="time", format="text"):
         if self._taup is None:
             raise Exception("TauP is None???")
         if hasattr(params, "create_params"):
             params = params.create_params()
         taup_url = f'http://localhost:{self.port}/{tool}'
-        params['format'] = 'text'
+        params['format'] = format
         print("TEXT")
         print(f"Query: {taup_url}")
         print(f"Params: {params}")
         r = requests.get(taup_url, params=params, timeout=3)
         return r.text
 
-    def queryJson(self, params, tool="time"):
+    def retrieveJson(self, params, tool="time"):
         if self._taup is None:
             raise Exception("TauP is None???")
         if hasattr(params, "create_params"):
@@ -104,3 +104,24 @@ class TauPServer:
         r = requests.get(taup_url, params=params, timeout=3)
         jsonTimes = r.json()
         return jsonTimes
+
+    def queryJson(self, params, tool="time"):
+        return self.retrieveJson(params, tool=tool)
+
+    def queryText(self, params, tool="time"):
+        return self.retrieveTextual(params, tool=tool, format="text")
+
+    def querySvg(self, params, tool="time"):
+        return self.retrieveTextual(params, tool=tool, format="svg")
+
+    def queryGmt(self, params, tool="time"):
+        return self.retrieveTextual(params, tool=tool, format="gmt")
+
+    def queryHtml(self, params, tool="time"):
+        return self.retrieveTextual(params, tool=tool, format="html")
+
+    def queryCsv(self, params, tool="time"):
+        return self.retrieveTextual(params, tool=tool, format="csv")
+
+    def queryLocsat(self, params, tool="time"):
+        return self.retrieveTextual(params, tool=tool, format="locsat")

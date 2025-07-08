@@ -4,7 +4,6 @@ class TableQuery:
 
     self._generic=None
     self._header=None
-    self._locsat=None
     self._model=None
     self._phase=[]
     self._phasefile=[]
@@ -12,8 +11,43 @@ class TableQuery:
     self._scatter=[]
 
   def calc(self, taupServer):
+    """
+    Sends all params to the server, returns the result parsed from JSON.
+    """
     params = self.create_params()
     return taupServer.queryJson(params, self.toolname)
+
+
+  def calcHtml(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of html.
+    """
+    params = self.create_params()
+    return taupServer.queryHtml(params, self.toolname)
+
+
+  def calcCsv(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of csv.
+    """
+    params = self.create_params()
+    return taupServer.queryCsv(params, self.toolname)
+
+
+  def calcText(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of text.
+    """
+    params = self.create_params()
+    return taupServer.queryText(params, self.toolname)
+
+
+  def calcLocsat(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of locsat.
+    """
+    params = self.create_params()
+    return taupServer.queryLocsat(params, self.toolname)
 
 
   def get_text(self):
@@ -63,22 +97,6 @@ class TableQuery:
     :param val: value to set header to
     """
     self._header = val
-    return self
-
-  def get_locsat(self):
-    """
-    returns current value of locsat as a Boolean
-    """
-    return self._locsat
-
-  def locsat(self, val):
-    """
-    Sets the locsat parameter, of type Boolean    
-    outputs as Locsat
-
-    :param val: value to set locsat to
-    """
-    self._locsat = val
     return self
 
   def get_mod(self):
@@ -415,8 +433,6 @@ class TableQuery:
       params["generic"] = self._generic
     if self._header is not None:
       params["header"] = self._header
-    if self._locsat is not None:
-      params["locsat"] = self._locsat
     if self._model is not None:
       params["model"] = self._model
     if len(self._phase) > 0:

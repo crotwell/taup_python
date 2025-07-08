@@ -6,17 +6,65 @@ class VelplotQuery:
     self._mapwidth=None
     self._mapwidthunit=None
     self._model=[]
-    self._nameddiscon=None
-    self._nd=[]
-    self._tvel=[]
     self._xaxis=None
     self._xminmax=None
     self._yaxis=None
     self._yminmax=None
 
   def calc(self, taupServer):
+    """
+    Sends all params to the server, returns the result parsed from JSON.
+    """
     params = self.create_params()
     return taupServer.queryJson(params, self.toolname)
+
+
+  def calcGmt(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of gmt.
+    """
+    params = self.create_params()
+    return taupServer.queryGmt(params, self.toolname)
+
+
+  def calcHtml(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of html.
+    """
+    params = self.create_params()
+    return taupServer.queryHtml(params, self.toolname)
+
+
+  def calcCsv(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of csv.
+    """
+    params = self.create_params()
+    return taupServer.queryCsv(params, self.toolname)
+
+
+  def calcSvg(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of svg.
+    """
+    params = self.create_params()
+    return taupServer.querySvg(params, self.toolname)
+
+
+  def calcText(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of text.
+    """
+    params = self.create_params()
+    return taupServer.queryText(params, self.toolname)
+
+
+  def calcNameddiscon(self, taupServer):
+    """
+    Sends all params to the server, returns the result as a text version of nameddiscon.
+    """
+    params = self.create_params()
+    return taupServer.queryNameddiscon(params, self.toolname)
 
 
   def get_legend(self):
@@ -151,104 +199,6 @@ class VelplotQuery:
     self._model.append(val)
     return self
 
-  def get_nameddiscon(self):
-    """
-    returns current value of nameddiscon as a Boolean
-    """
-    return self._nameddiscon
-
-  def nameddiscon(self, val):
-    """
-    Sets the nameddiscon parameter, of type Boolean    
-    outputs as .nd named discontinuity model file
-
-    :param val: value to set nameddiscon to
-    """
-    self._nameddiscon = val
-    return self
-
-  def get_nd(self):
-    """
-    returns current value of nd as a List
-    """
-    return self._nd
-
-  def nd(self, val):
-    """
-    Sets the nd parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.nd( value )
-    and 
-    .xnd( [ value ] )
-    are equivalent. 
-    
-    "named discontinuities" velocity file
-
-    :param val: value to set nd to
-    """
-    if not hasattr(val, "__getitem__"):
-      val = [ val ]
-    self._nd = val
-    return self
-
-
-  def andNd(self, val):
-    """
-    Sets the nd parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.nd( value )
-    and 
-    .xnd( [ value ] )
-    are equivalent. 
-    
-    "named discontinuities" velocity file
-
-    :param val: value to set nd to
-    """
-    self._nd.append(val)
-    return self
-
-  def get_tvel(self):
-    """
-    returns current value of tvel as a List
-    """
-    return self._tvel
-
-  def tvel(self, val):
-    """
-    Sets the tvel parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.tvel( value )
-    and 
-    .xtvel( [ value ] )
-    are equivalent. 
-    
-    ".tvel" velocity file, ala ttimes
-
-    :param val: value to set tvel to
-    """
-    if not hasattr(val, "__getitem__"):
-      val = [ val ]
-    self._tvel = val
-    return self
-
-
-  def andTvel(self, val):
-    """
-    Sets the tvel parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So 
-    x.tvel( value )
-    and 
-    .xtvel( [ value ] )
-    are equivalent. 
-    
-    ".tvel" velocity file, ala ttimes
-
-    :param val: value to set tvel to
-    """
-    self._tvel.append(val)
-    return self
-
   def get_x(self):
     """
     returns current value of xaxis as a edu.sc.seis.TauP.ModelAxisType
@@ -367,12 +317,6 @@ class VelplotQuery:
       params["mapwidthunit"] = self._mapwidthunit
     if len(self._model) > 0:
       params["model"] = self._model
-    if self._nameddiscon is not None:
-      params["nameddiscon"] = self._nameddiscon
-    if len(self._nd) > 0:
-      params["nd"] = self._nd
-    if len(self._tvel) > 0:
-      params["tvel"] = self._tvel
     if self._xaxis is not None:
       params["xaxis"] = self._xaxis
     if self._xminmax is not None:
