@@ -31,5 +31,5 @@ __all__ = [
     "VelmergeQuery",
     "VelplotQuery",
     "WavefrontQuery",
-    "VersionQuery"
+    "VersionQuery",
 ]
