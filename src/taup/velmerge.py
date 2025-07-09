@@ -26,8 +26,10 @@ class VelmergeQuery:
 
   def elev(self, val):
     """
-    Sets the elev parameter, of type Float    
+    Sets the elev parameter, of type Float
+    
     increase topmost layer by elevation (meters)
+
     Known as --elev in command line.
 
     :param val: value to set elev to
@@ -43,8 +45,10 @@ class VelmergeQuery:
 
   def mod(self, val):
     """
-    Sets the model parameter, of type String    
+    Sets the model parameter, of type String
+    
     use velocity model "modelname" for calculations, format is guessed.
+
     Known as --mod in command line.
     Also known as --model in command line.
 
@@ -61,8 +65,10 @@ class VelmergeQuery:
 
   def model(self, val):
     """
-    Sets the model parameter, of type String    
+    Sets the model parameter, of type String
+    
     use velocity model "modelname" for calculations, format is guessed.
+
     Known as --model in command line.
 
     :param val: value to set model to
@@ -78,8 +84,10 @@ class VelmergeQuery:
 
   def modmerge(self, val):
     """
-    Sets the modmerge parameter, of type String    
+    Sets the modmerge parameter, of type String
+    
     velocity file to merge, format is guessed
+
     Known as --modmerge in command line.
 
     :param val: value to set modmerge to
@@ -95,8 +103,10 @@ class VelmergeQuery:
 
   def ndmerge(self, val):
     """
-    Sets the ndmerge parameter, of type String    
+    Sets the ndmerge parameter, of type String
+    
     "named discontinuities" velocity file to merge
+
     Known as --ndmerge in command line.
 
     :param val: value to set ndmerge to
@@ -112,8 +122,10 @@ class VelmergeQuery:
 
   def smoothbot(self, val):
     """
-    Sets the smoothbot parameter, of type Boolean    
+    Sets the smoothbot parameter, of type Boolean
+    
     smooth merge at bottom
+
     Known as --smoothbot in command line.
 
     :param val: value to set smoothbot to
@@ -129,8 +141,10 @@ class VelmergeQuery:
 
   def smoothtop(self, val):
     """
-    Sets the smoothtop parameter, of type Boolean    
+    Sets the smoothtop parameter, of type Boolean
+    
     smooth merge at top
+
     Known as --smoothtop in command line.
 
     :param val: value to set smoothtop to
@@ -146,8 +160,10 @@ class VelmergeQuery:
 
   def tvelmerge(self, val):
     """
-    Sets the tvelmerge parameter, of type String    
+    Sets the tvelmerge parameter, of type String
+    
     ".tvel" velocity file to merge, ala ttimes
+
     Known as --tvelmerge in command line.
 
     :param val: value to set tvelmerge to

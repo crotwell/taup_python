@@ -46,8 +46,10 @@ class DistazQuery:
 
   def az(self, val):
     """
-    Sets the az parameter, of type Double    
+    Sets the az parameter, of type Double
+    
     azimuth in degrees, source to receiver
+
     Known as --az in command line.
 
     :param val: value to set az to
@@ -63,8 +65,10 @@ class DistazQuery:
 
   def baz(self, val):
     """
-    Sets the baz parameter, of type Double    
+    Sets the baz parameter, of type Double
+    
     backazimuth in degrees, receiver to source
+
     Known as --baz in command line.
 
     :param val: value to set baz to
@@ -88,6 +92,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in degrees
+
     Known as --deg in command line.
     Also known as --degree in command line.
 
@@ -109,6 +114,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in degrees
+
     Known as --deg in command line.
     Also known as --degree in command line.
 
@@ -133,6 +139,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in degrees
+
     Known as --degree in command line.
 
     :param val: value to set degree to
@@ -153,6 +160,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in degrees
+
     Known as --degree in command line.
 
     :param val: value to set degree to
@@ -169,8 +177,10 @@ class DistazQuery:
   def degreerange(self, val):
     """
     Sets the degreerange parameter, of type List of Double
+    step or min,max or min,max,step
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+
     Known as --degreerange in command line.
 
     :param val: value to set degreerange to
@@ -184,8 +194,10 @@ class DistazQuery:
   def andDegreerange(self, val):
     """
     Sets the degreerange parameter, of type List of Double
+    step or min,max or min,max,step
     
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
+
     Known as --degreerange in command line.
 
     :param val: value to set degreerange to
@@ -204,6 +216,7 @@ class DistazQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+
     Known as --evt in command line.
     Also known as --event in command line.
 
@@ -217,6 +230,7 @@ class DistazQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+
     Known as --evt in command line.
     Also known as --event in command line.
 
@@ -236,6 +250,7 @@ class DistazQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+
     Known as --event in command line.
 
     :param val: value to set event to
@@ -248,6 +263,7 @@ class DistazQuery:
     Sets the event parameter, of type List of Double
     
     event latitude and longitude.  Creates a distance if station is also given.
+
     Known as --event in command line.
 
     :param val: value to set event to
@@ -263,8 +279,10 @@ class DistazQuery:
 
   def geodetic(self, val):
     """
-    Sets the geodetic parameter, of type Boolean    
+    Sets the geodetic parameter, of type Boolean
+    
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
+
     Known as --geodetic in command line.
 
     :param val: value to set geodetic to
@@ -280,8 +298,10 @@ class DistazQuery:
 
   def geodeticflattening(self, val):
     """
-    Sets the geodeticflattening parameter, of type Double    
+    Sets the geodeticflattening parameter, of type Double
+    
     Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
+
     Known as --geodeticflattening in command line.
 
     :param val: value to set geodeticflattening to
@@ -305,6 +325,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+
     Known as --km in command line.
     Also known as --kilometer in command line.
 
@@ -326,6 +347,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+
     Known as --km in command line.
     Also known as --kilometer in command line.
 
@@ -350,6 +372,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+
     Known as --kilometer in command line.
 
     :param val: value to set kilometer to
@@ -370,6 +393,7 @@ class DistazQuery:
     are equivalent. 
     
     distance in kilometers along surface.
+
     Known as --kilometer in command line.
 
     :param val: value to set kilometer to
@@ -386,8 +410,10 @@ class DistazQuery:
   def kilometerrange(self, val):
     """
     Sets the kilometerrange parameter, of type List of Double
+    step or min,max or min,max,step
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+
     Known as --kilometerrange in command line.
 
     :param val: value to set kilometerrange to
@@ -401,8 +427,10 @@ class DistazQuery:
   def andKilometerrange(self, val):
     """
     Sets the kilometerrange parameter, of type List of Double
+    step or min,max or min,max,step
     
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
+
     Known as --kilometerrange in command line.
 
     :param val: value to set kilometerrange to
@@ -418,8 +446,10 @@ class DistazQuery:
 
   def radius(self, val):
     """
-    Sets the radius parameter, of type Double    
+    Sets the radius parameter, of type Double
+    
     radius of earth in km, used when distance given in km
+
     Known as --radius in command line.
 
     :param val: value to set radius to
@@ -438,6 +468,7 @@ class DistazQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+
     Known as --sta in command line.
     Also known as --station in command line.
 
@@ -451,6 +482,7 @@ class DistazQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+
     Known as --sta in command line.
     Also known as --station in command line.
 
@@ -470,6 +502,7 @@ class DistazQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+
     Known as --station in command line.
 
     :param val: value to set station to
@@ -482,6 +515,7 @@ class DistazQuery:
     Sets the station parameter, of type List of Double
     
     station latitude and longitude. Creates a distance if event is also given.
+
     Known as --station in command line.
 
     :param val: value to set station to

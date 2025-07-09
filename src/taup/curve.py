@@ -76,8 +76,10 @@ class CurveQuery:
 
   def attenuationfreq(self, val):
     """
-    Sets the attenuationfreq parameter, of type Float    
+    Sets the attenuationfreq parameter, of type Float
+    
     attenuation frequency for amplitude calculations, default is 1.0
+
     Known as --attenuationfreq in command line.
 
     :param val: value to set attenuationfreq to
@@ -93,8 +95,10 @@ class CurveQuery:
 
   def az(self, val):
     """
-    Sets the az parameter, of type Double    
+    Sets the az parameter, of type Double
+    
     azimuth in degrees, for amp calculations
+
     Known as --az in command line.
 
     :param val: value to set az to
@@ -110,8 +114,11 @@ class CurveQuery:
 
   def color(self, val):
     """
-    Sets the color parameter, of type edu.sc.seis.TauP.cmdline.args.ColorType    
+    Sets the color parameter, a choice of one of:
+     auto, wavetype, phase, none
+    
     style of coloring for paths and wavefronts, one of: auto, wavetype, phase, none
+
     Known as --color in command line.
 
     :param val: value to set color to
@@ -127,8 +134,10 @@ class CurveQuery:
 
   def legend(self, val):
     """
-    Sets the legend parameter, of type Boolean    
+    Sets the legend parameter, of type Boolean
+    
     create a legend
+
     Known as --legend in command line.
 
     :param val: value to set legend to
@@ -144,8 +153,10 @@ class CurveQuery:
 
   def mapwidth(self, val):
     """
-    Sets the mapwidth parameter, of type Float    
+    Sets the mapwidth parameter, of type Float
+    
     plot width in units from --mapwidthunit.
+
     Known as --mapwidth in command line.
 
     :param val: value to set mapwidth to
@@ -161,8 +172,10 @@ class CurveQuery:
 
   def mapwidthunit(self, val):
     """
-    Sets the mapwidthunit parameter, of type String    
+    Sets the mapwidthunit parameter, of type String
+    
     plot width unit, i for inch, c for cm or p for px.
+
     Known as --mapwidthunit in command line.
 
     :param val: value to set mapwidthunit to
@@ -178,9 +191,11 @@ class CurveQuery:
 
   def mod(self, val):
     """
-    Sets the model parameter, of type String    
+    Sets the model parameter, of type String
+    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+
     Known as --mod in command line.
     Also known as --model in command line.
 
@@ -197,9 +212,11 @@ class CurveQuery:
 
   def model(self, val):
     """
-    Sets the model parameter, of type String    
+    Sets the model parameter, of type String
+    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+
     Known as --model in command line.
 
     :param val: value to set model to
@@ -215,8 +232,10 @@ class CurveQuery:
 
   def mw(self, val):
     """
-    Sets the mw parameter, of type Float    
+    Sets the mw parameter, of type Float
+    
     scale amplitude by source moment magnitude, default is 4.0
+
     Known as --mw in command line.
 
     :param val: value to set mw to
@@ -232,8 +251,10 @@ class CurveQuery:
 
   def numattenuationfreq(self, val):
     """
-    Sets the numattenuationfreq parameter, of type Integer    
+    Sets the numattenuationfreq parameter, of type Integer
+    
      number attenuation frequencies for amplitude calculations, default is 64
+
     Known as --numattenuationfreq in command line.
 
     :param val: value to set numattenuationfreq to
@@ -257,6 +278,7 @@ class CurveQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as -p in command line.
     Also known as --phase in command line.
 
@@ -278,6 +300,7 @@ class CurveQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as -p in command line.
     Also known as --phase in command line.
 
@@ -302,6 +325,7 @@ class CurveQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --phase in command line.
 
     :param val: value to set phase to
@@ -322,6 +346,7 @@ class CurveQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --phase in command line.
 
     :param val: value to set phase to
@@ -345,6 +370,7 @@ class CurveQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --ph in command line.
     Also known as --phase in command line.
 
@@ -366,6 +392,7 @@ class CurveQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --ph in command line.
     Also known as --phase in command line.
 
@@ -390,6 +417,7 @@ class CurveQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
@@ -411,6 +439,7 @@ class CurveQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
@@ -435,6 +464,7 @@ class CurveQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -455,6 +485,7 @@ class CurveQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -470,8 +501,10 @@ class CurveQuery:
 
   def reddeg(self, val):
     """
-    Sets the reddeg parameter, of type Double    
+    Sets the reddeg parameter, of type Double
+    
     outputs curves with a reducing velocity (deg/sec), no effect if axis is not distance-like/time
+
     Known as --reddeg in command line.
 
     :param val: value to set reddeg to
@@ -487,8 +520,10 @@ class CurveQuery:
 
   def redkm(self, val):
     """
-    Sets the redkm parameter, of type Double    
+    Sets the redkm parameter, of type Double
+    
     outputs curves with a reducing velocity (km/sec), no effect if axis is not distance-like/time
+
     Known as --redkm in command line.
 
     :param val: value to set redkm to
@@ -504,8 +539,10 @@ class CurveQuery:
 
   def rel(self, val):
     """
-    Sets the rel parameter, of type String    
+    Sets the rel parameter, of type String
+    
     plot relative to the given phase, no effect unless distance/time
+
     Known as --rel in command line.
 
     :param val: value to set rel to
@@ -524,6 +561,7 @@ class CurveQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+
     Known as --scat in command line.
     Also known as --scatter in command line.
 
@@ -543,6 +581,7 @@ class CurveQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+
     Known as --scatter in command line.
 
     :param val: value to set scatter to
@@ -566,6 +605,7 @@ class CurveQuery:
     are equivalent. 
     
     source depth in km
+
     Known as -h in command line.
     Also known as --sourcedepth in command line.
 
@@ -587,6 +627,7 @@ class CurveQuery:
     are equivalent. 
     
     source depth in km
+
     Known as -h in command line.
     Also known as --sourcedepth in command line.
 
@@ -611,6 +652,7 @@ class CurveQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -631,6 +673,7 @@ class CurveQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -654,6 +697,7 @@ class CurveQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
@@ -675,6 +719,7 @@ class CurveQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
@@ -694,6 +739,7 @@ class CurveQuery:
     Sets the strikediprake parameter, of type List of Float
     
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
+
     Known as --strikediprake in command line.
 
     :param val: value to set strikediprake to
@@ -709,6 +755,7 @@ class CurveQuery:
     Sets the strikediprake parameter, of type List of Float
     
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
+
     Known as --strikediprake in command line.
 
     :param val: value to set strikediprake to
@@ -724,8 +771,10 @@ class CurveQuery:
 
   def xabs(self, val):
     """
-    Sets the xabs parameter, of type Boolean    
+    Sets the xabs parameter, of type Boolean
+    
     X axis is absolute value
+
     Known as --xabs in command line.
 
     :param val: value to set xabs to
@@ -741,8 +790,11 @@ class CurveQuery:
 
   def x(self, val):
     """
-    Sets the xaxis parameter, of type edu.sc.seis.TauP.AxisType    
+    Sets the xaxis parameter, a choice of one of:
+     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
+    
     X axis data type, default is degree180, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
+
     Known as -x in command line.
     Also known as --xaxis in command line.
 
@@ -759,8 +811,11 @@ class CurveQuery:
 
   def xaxis(self, val):
     """
-    Sets the xaxis parameter, of type edu.sc.seis.TauP.AxisType    
+    Sets the xaxis parameter, a choice of one of:
+     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
+    
     X axis data type, default is degree180, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
+
     Known as --xaxis in command line.
 
     :param val: value to set xaxis to
@@ -776,8 +831,10 @@ class CurveQuery:
 
   def xlog(self, val):
     """
-    Sets the xlog parameter, of type Boolean    
+    Sets the xlog parameter, of type Boolean
+    
     X axis is log
+
     Known as --xlog in command line.
 
     :param val: value to set xlog to
@@ -793,8 +850,10 @@ class CurveQuery:
 
   def xminmax(self, val):
     """
-    Sets the xminmax parameter, of type [D    
+    Sets the xminmax parameter, of type [D
+    
     min and max x axis for plotting
+
     Known as --xminmax in command line.
 
     :param val: value to set xminmax to
@@ -810,8 +869,10 @@ class CurveQuery:
 
   def yabs(self, val):
     """
-    Sets the yabs parameter, of type Boolean    
+    Sets the yabs parameter, of type Boolean
+    
     Y axis is absolute value
+
     Known as --yabs in command line.
 
     :param val: value to set yabs to
@@ -827,8 +888,11 @@ class CurveQuery:
 
   def y(self, val):
     """
-    Sets the yaxis parameter, of type edu.sc.seis.TauP.AxisType    
+    Sets the yaxis parameter, a choice of one of:
+     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
+    
     Y axis data type, default is time, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
+
     Known as -y in command line.
     Also known as --yaxis in command line.
 
@@ -845,8 +909,11 @@ class CurveQuery:
 
   def yaxis(self, val):
     """
-    Sets the yaxis parameter, of type edu.sc.seis.TauP.AxisType    
+    Sets the yaxis parameter, a choice of one of:
+     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
+    
     Y axis data type, default is time, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
+
     Known as --yaxis in command line.
 
     :param val: value to set yaxis to
@@ -862,8 +929,10 @@ class CurveQuery:
 
   def ylog(self, val):
     """
-    Sets the ylog parameter, of type Boolean    
+    Sets the ylog parameter, of type Boolean
+    
     Y axis is log
+
     Known as --ylog in command line.
 
     :param val: value to set ylog to
@@ -879,8 +948,10 @@ class CurveQuery:
 
   def yminmax(self, val):
     """
-    Sets the yminmax parameter, of type [D    
+    Sets the yminmax parameter, of type [D
+    
     min and max y axis for plotting
+
     Known as --yminmax in command line.
 
     :param val: value to set yminmax to

@@ -75,8 +75,10 @@ class VelplotQuery:
 
   def legend(self, val):
     """
-    Sets the legend parameter, of type Boolean    
+    Sets the legend parameter, of type Boolean
+    
     create a legend
+
     Known as --legend in command line.
 
     :param val: value to set legend to
@@ -92,8 +94,10 @@ class VelplotQuery:
 
   def mapwidth(self, val):
     """
-    Sets the mapwidth parameter, of type Float    
+    Sets the mapwidth parameter, of type Float
+    
     plot width in units from --mapwidthunit.
+
     Known as --mapwidth in command line.
 
     :param val: value to set mapwidth to
@@ -109,8 +113,10 @@ class VelplotQuery:
 
   def mapwidthunit(self, val):
     """
-    Sets the mapwidthunit parameter, of type String    
+    Sets the mapwidthunit parameter, of type String
+    
     plot width unit, i for inch, c for cm or p for px.
+
     Known as --mapwidthunit in command line.
 
     :param val: value to set mapwidthunit to
@@ -134,6 +140,7 @@ class VelplotQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+
     Known as --mod in command line.
     Also known as --model in command line.
 
@@ -155,6 +162,7 @@ class VelplotQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+
     Known as --mod in command line.
     Also known as --model in command line.
 
@@ -179,6 +187,7 @@ class VelplotQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+
     Known as --model in command line.
 
     :param val: value to set model to
@@ -199,6 +208,7 @@ class VelplotQuery:
     are equivalent. 
     
     use velocity model "modelname" for calculations, format is guessed.
+
     Known as --model in command line.
 
     :param val: value to set model to
@@ -214,9 +224,12 @@ class VelplotQuery:
 
   def x(self, val):
     """
-    Sets the xaxis parameter, of type edu.sc.seis.TauP.ModelAxisType    
+    Sets the xaxis parameter, a choice of one of:
+     depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
+    
     X axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is velocity.
+
     Known as -x in command line.
     Also known as --xaxis in command line.
 
@@ -233,9 +246,12 @@ class VelplotQuery:
 
   def xaxis(self, val):
     """
-    Sets the xaxis parameter, of type edu.sc.seis.TauP.ModelAxisType    
+    Sets the xaxis parameter, a choice of one of:
+     depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
+    
     X axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is velocity.
+
     Known as --xaxis in command line.
 
     :param val: value to set xaxis to
@@ -251,8 +267,10 @@ class VelplotQuery:
 
   def xminmax(self, val):
     """
-    Sets the xminmax parameter, of type [D    
+    Sets the xminmax parameter, of type [D
+    
     min and max x axis for plotting
+
     Known as --xminmax in command line.
 
     :param val: value to set xminmax to
@@ -268,9 +286,12 @@ class VelplotQuery:
 
   def y(self, val):
     """
-    Sets the yaxis parameter, of type edu.sc.seis.TauP.ModelAxisType    
+    Sets the yaxis parameter, a choice of one of:
+     depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
+    
     Y axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is depth.
+
     Known as -y in command line.
     Also known as --yaxis in command line.
 
@@ -287,9 +308,12 @@ class VelplotQuery:
 
   def yaxis(self, val):
     """
-    Sets the yaxis parameter, of type edu.sc.seis.TauP.ModelAxisType    
+    Sets the yaxis parameter, a choice of one of:
+     depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
+    
     Y axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is depth.
+
     Known as --yaxis in command line.
 
     :param val: value to set yaxis to
@@ -305,8 +329,10 @@ class VelplotQuery:
 
   def yminmax(self, val):
     """
-    Sets the yminmax parameter, of type [D    
+    Sets the yminmax parameter, of type [D
+    
     min and max y axis for plotting
+
     Known as --yminmax in command line.
 
     :param val: value to set yminmax to

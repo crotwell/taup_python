@@ -40,9 +40,11 @@ class PhaseQuery:
 
   def mod(self, val):
     """
-    Sets the model parameter, of type String    
+    Sets the model parameter, of type String
+    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+
     Known as --mod in command line.
     Also known as --model in command line.
 
@@ -59,9 +61,11 @@ class PhaseQuery:
 
   def model(self, val):
     """
-    Sets the model parameter, of type String    
+    Sets the model parameter, of type String
+    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+
     Known as --model in command line.
 
     :param val: value to set model to
@@ -85,6 +89,7 @@ class PhaseQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as -p in command line.
     Also known as --phase in command line.
 
@@ -106,6 +111,7 @@ class PhaseQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as -p in command line.
     Also known as --phase in command line.
 
@@ -130,6 +136,7 @@ class PhaseQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --phase in command line.
 
     :param val: value to set phase to
@@ -150,6 +157,7 @@ class PhaseQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --phase in command line.
 
     :param val: value to set phase to
@@ -173,6 +181,7 @@ class PhaseQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --ph in command line.
     Also known as --phase in command line.
 
@@ -194,6 +203,7 @@ class PhaseQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --ph in command line.
     Also known as --phase in command line.
 
@@ -218,6 +228,7 @@ class PhaseQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
@@ -239,6 +250,7 @@ class PhaseQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
@@ -263,6 +275,7 @@ class PhaseQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -283,6 +296,7 @@ class PhaseQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -301,6 +315,7 @@ class PhaseQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+
     Known as --scat in command line.
     Also known as --scatter in command line.
 
@@ -320,6 +335,7 @@ class PhaseQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+
     Known as --scatter in command line.
 
     :param val: value to set scatter to
@@ -343,6 +359,7 @@ class PhaseQuery:
     are equivalent. 
     
     source depth in km
+
     Known as -h in command line.
     Also known as --sourcedepth in command line.
 
@@ -364,6 +381,7 @@ class PhaseQuery:
     are equivalent. 
     
     source depth in km
+
     Known as -h in command line.
     Also known as --sourcedepth in command line.
 
@@ -388,6 +406,7 @@ class PhaseQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -408,6 +427,7 @@ class PhaseQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -431,6 +451,7 @@ class PhaseQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
@@ -452,6 +473,7 @@ class PhaseQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 

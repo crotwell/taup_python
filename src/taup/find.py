@@ -57,8 +57,10 @@ class FindQuery:
 
   def amp(self, val):
     """
-    Sets the amp parameter, of type Boolean    
+    Sets the amp parameter, of type Boolean
+    
     show amplitude factor for each phase
+
     Known as --amp in command line.
 
     :param val: value to set amp to
@@ -74,8 +76,10 @@ class FindQuery:
 
   def attenuationfreq(self, val):
     """
-    Sets the attenuationfreq parameter, of type Float    
+    Sets the attenuationfreq parameter, of type Float
+    
     attenuation frequency for amplitude calculations, default is 1.0
+
     Known as --attenuationfreq in command line.
 
     :param val: value to set attenuationfreq to
@@ -91,8 +95,10 @@ class FindQuery:
 
   def az(self, val):
     """
-    Sets the az parameter, of type Double    
+    Sets the az parameter, of type Double
+    
     azimuth in degrees, for amp calculations
+
     Known as --az in command line.
 
     :param val: value to set az to
@@ -116,6 +122,7 @@ class FindQuery:
     are equivalent. 
     
     distance in degrees
+
     Known as --deg in command line.
     Also known as --degree in command line.
 
@@ -137,6 +144,7 @@ class FindQuery:
     are equivalent. 
     
     distance in degrees
+
     Known as --deg in command line.
     Also known as --degree in command line.
 
@@ -161,6 +169,7 @@ class FindQuery:
     are equivalent. 
     
     distance in degrees
+
     Known as --degree in command line.
 
     :param val: value to set degree to
@@ -181,6 +190,7 @@ class FindQuery:
     are equivalent. 
     
     distance in degrees
+
     Known as --degree in command line.
 
     :param val: value to set degree to
@@ -196,8 +206,10 @@ class FindQuery:
 
   def deltatime(self, val):
     """
-    Sets the deltatime parameter, of type Double    
+    Sets the deltatime parameter, of type Double
+    
     find arrivals within the +- deltatime, --times must have single time
+
     Known as --deltatime in command line.
 
     :param val: value to set deltatime to
@@ -217,6 +229,7 @@ class FindQuery:
     
     Exclude boundaries from phase conversion or reflection interactions
     May be depth (within tol) or named boundary like moho, cmb, iocb
+
     Known as --exclude in command line.
 
     :param val: value to set exclude to
@@ -233,6 +246,7 @@ class FindQuery:
     
     Exclude boundaries from phase conversion or reflection interactions
     May be depth (within tol) or named boundary like moho, cmb, iocb
+
     Known as --exclude in command line.
 
     :param val: value to set exclude to
@@ -248,8 +262,10 @@ class FindQuery:
 
   def max(self, val):
     """
-    Sets the max parameter, of type Integer    
+    Sets the max parameter, of type Integer
+    
     Maximum number of reflections and phase conversion
+
     Known as --max in command line.
 
     :param val: value to set max to
@@ -265,9 +281,11 @@ class FindQuery:
 
   def mod(self, val):
     """
-    Sets the model parameter, of type String    
+    Sets the model parameter, of type String
+    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+
     Known as --mod in command line.
     Also known as --model in command line.
 
@@ -284,9 +302,11 @@ class FindQuery:
 
   def model(self, val):
     """
-    Sets the model parameter, of type String    
+    Sets the model parameter, of type String
+    
     use velocity model "modelName" for calculations. 
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
+
     Known as --model in command line.
 
     :param val: value to set model to
@@ -302,8 +322,10 @@ class FindQuery:
 
   def mw(self, val):
     """
-    Sets the mw parameter, of type Float    
+    Sets the mw parameter, of type Float
+    
     scale amplitude by source moment magnitude, default is 4.0
+
     Known as --mw in command line.
 
     :param val: value to set mw to
@@ -319,8 +341,10 @@ class FindQuery:
 
   def numattenuationfreq(self, val):
     """
-    Sets the numattenuationfreq parameter, of type Integer    
+    Sets the numattenuationfreq parameter, of type Integer
+    
      number attenuation frequencies for amplitude calculations, default is 64
+
     Known as --numattenuationfreq in command line.
 
     :param val: value to set numattenuationfreq to
@@ -336,8 +360,10 @@ class FindQuery:
 
   def onlynameddiscon(self, val):
     """
-    Sets the onlynameddiscon parameter, of type Boolean    
+    Sets the onlynameddiscon parameter, of type Boolean
+    
     only interact with named discontinuities like moho, cmb, iocb
+
     Known as --onlynameddiscon in command line.
 
     :param val: value to set onlynameddiscon to
@@ -361,6 +387,7 @@ class FindQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as -p in command line.
     Also known as --phase in command line.
 
@@ -382,6 +409,7 @@ class FindQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as -p in command line.
     Also known as --phase in command line.
 
@@ -406,6 +434,7 @@ class FindQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --phase in command line.
 
     :param val: value to set phase to
@@ -426,6 +455,7 @@ class FindQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --phase in command line.
 
     :param val: value to set phase to
@@ -449,6 +479,7 @@ class FindQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --ph in command line.
     Also known as --phase in command line.
 
@@ -470,6 +501,7 @@ class FindQuery:
     are equivalent. 
     
     seismic phase names
+
     Known as --ph in command line.
     Also known as --phase in command line.
 
@@ -486,8 +518,10 @@ class FindQuery:
 
   def pwaveonly(self, val):
     """
-    Sets the pwaveonly parameter, of type Boolean    
+    Sets the pwaveonly parameter, of type Boolean
+    
     only P wave legs, no S
+
     Known as --pwaveonly in command line.
 
     :param val: value to set pwaveonly to
@@ -503,8 +537,10 @@ class FindQuery:
 
   def rayparamdeg(self, val):
     """
-    Sets the rayparamdeg parameter, of type [Ljava.lang.Double;    
+    Sets the rayparamdeg parameter, of type [Ljava.lang.Double;
+    
     only keep phases that overlap the given ray parameter range in s/deg
+
     Known as --rayparamdeg in command line.
 
     :param val: value to set rayparamdeg to
@@ -520,8 +556,10 @@ class FindQuery:
 
   def rayparamkm(self, val):
     """
-    Sets the rayparamkm parameter, of type [Ljava.lang.Double;    
+    Sets the rayparamkm parameter, of type [Ljava.lang.Double;
+    
     only keep phases that overlap the given ray parameter range in s/km
+
     Known as --rayparamkm in command line.
 
     :param val: value to set rayparamkm to
@@ -545,6 +583,7 @@ class FindQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
@@ -566,6 +605,7 @@ class FindQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --stadepth in command line.
     Also known as --receiverdepth in command line.
 
@@ -590,6 +630,7 @@ class FindQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -610,6 +651,7 @@ class FindQuery:
     are equivalent. 
     
     the receiver depth in km for stations not at the surface
+
     Known as --receiverdepth in command line.
 
     :param val: value to set receiverdepth to
@@ -628,6 +670,7 @@ class FindQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+
     Known as --scat in command line.
     Also known as --scatter in command line.
 
@@ -647,6 +690,7 @@ class FindQuery:
     Sets the scatter parameter, of type List of Double
     
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
+
     Known as --scatter in command line.
 
     :param val: value to set scatter to
@@ -662,8 +706,10 @@ class FindQuery:
 
   def showrayparam(self, val):
     """
-    Sets the showrayparam parameter, of type Boolean    
+    Sets the showrayparam parameter, of type Boolean
+    
     show min and max ray parameter for each phase name
+
     Known as --showrayparam in command line.
 
     :param val: value to set showrayparam to
@@ -687,6 +733,7 @@ class FindQuery:
     are equivalent. 
     
     source depth in km
+
     Known as -h in command line.
     Also known as --sourcedepth in command line.
 
@@ -708,6 +755,7 @@ class FindQuery:
     are equivalent. 
     
     source depth in km
+
     Known as -h in command line.
     Also known as --sourcedepth in command line.
 
@@ -732,6 +780,7 @@ class FindQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -752,6 +801,7 @@ class FindQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --sourcedepth in command line.
 
     :param val: value to set sourcedepth to
@@ -775,6 +825,7 @@ class FindQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
@@ -796,6 +847,7 @@ class FindQuery:
     are equivalent. 
     
     source depth in km
+
     Known as --evdepth in command line.
     Also known as --sourcedepth in command line.
 
@@ -815,6 +867,7 @@ class FindQuery:
     Sets the strikediprake parameter, of type List of Float
     
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
+
     Known as --strikediprake in command line.
 
     :param val: value to set strikediprake to
@@ -830,6 +883,7 @@ class FindQuery:
     Sets the strikediprake parameter, of type List of Float
     
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
+
     Known as --strikediprake in command line.
 
     :param val: value to set strikediprake to
@@ -845,8 +899,10 @@ class FindQuery:
 
   def swaveonly(self, val):
     """
-    Sets the swaveonly parameter, of type Boolean    
+    Sets the swaveonly parameter, of type Boolean
+    
     only S wave legs, no P
+
     Known as --swaveonly in command line.
 
     :param val: value to set swaveonly to
@@ -865,6 +921,7 @@ class FindQuery:
     Sets the time parameter, of type List of Double
     
     find arrivals within the given range
+
     Known as --time in command line.
 
     :param val: value to set time to
@@ -880,6 +937,7 @@ class FindQuery:
     Sets the time parameter, of type List of Double
     
     find arrivals within the given range
+
     Known as --time in command line.
 
     :param val: value to set time to
