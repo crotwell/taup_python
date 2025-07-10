@@ -1,6 +1,8 @@
 
 from .Arrival import Arrival
-from .Fault import Fault
+from .Curve import Curve
+from .CurveResult import CurveResult
+from .CurveSegment import CurveSegment
 from .RelativeArrival import RelativeArrival
 from .Scatter import Scatter
 from .Source import Source
@@ -9,6 +11,9 @@ from .TimeResult import TimeResult
 
 __all__ = [
     "Arrival",
+    "Curve",
+    "CurveResult",
+    "CurveSegment",
     "Fault",
     "RelativeArrival",
     "Scatter",
