@@ -6,8 +6,7 @@ from .Amplitude import Amplitude
 from .Scatter import Scatter
 from .TimeDist import TimeDist
 
-if TYPE_CHECKING:
-    from .RelativeArrival import RelativeArrival
+from .RelativeArrival import RelativeArrival
 
 @dataclass
 class Arrival:
@@ -55,7 +54,7 @@ class Arrival:
         if 'scatter' in jsonObj:
             arr.scatter = jsonObj['scatter']
         if 'relative' in jsonObj:
-            arr.relative = jsonObj['relative']
+            arr.relative = RelativeArrival.from_json(jsonObj['relative'])
         if 'pierce' in jsonObj:
             for p in jsonObj['pierce']:
                 arr.pierce.append(TimeDist.from_json(p))
@@ -63,3 +62,6 @@ class Arrival:
             for p in jsonObj['path']:
                 arr.pathSegments.append(PathSegment.from_json(p))
         return arr
+
+    def __str__(self):
+        return f"{self.distdeg} {self.sourcedepth} {self.phase} {self.time} {self.rayparam} {self.takeoff} {self.incident} {self.puristdist} {self.pruistname}"

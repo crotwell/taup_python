@@ -12,9 +12,11 @@ with taup.TauPServer() as timeserver:
     # time, pierce, path, curve, discon, distaz, find, phase, refltrans, table, velplot, wavefront
     timeParams = taup.PierceQuery()
     # params that will stay the same
-    timeParams.phase(["P", "S"])
+    timeParams.phase(["P","PedoS"])
     timeParams.model('ak135')
     timeParams.geodetic(True)
+    timeParams.scatter(500, 2)
+    timeParams.rel("P")
 
     # params that will vary
     for event in eventLatLons:
@@ -32,5 +34,9 @@ with taup.TauPServer() as timeserver:
             for a in jsonTimes.arrivals:
                 #print(a)
                 print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc} p: {len(a.pierce)}")
-                for p in a.pierce:
-                    print(f"  {p}")
+                if a.pierce is not None:
+                    print("Pierce:")
+                    for p in a.pierce:
+                        print(f"  {p}")
+                if a.relative:
+                    print(f"Relative: {a.phase} - {a.relative.arrival.phase} = {a.relative.difference} s")

@@ -6,8 +6,8 @@ class TimeDist:
     distdeg: float
     depth: float
     time: float
-    lat: float | None
-    lon: float | None
+    lat: float | None = None
+    lon: float | None = None
 
     @classmethod
     def from_json(cls, jsonObj):
