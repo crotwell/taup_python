@@ -15,6 +15,10 @@ from .velmerge import VelmergeQuery
 from .velplot import VelplotQuery
 from .wavefront import WavefrontQuery
 from .version import VersionQuery
+from .dataclass import (
+    Amplitude, Arrival, Fault, PathSegment,
+    RelativeArrival, Scatter, Source, TimeDist, TimeResult
+)
 
 __all__ = [
     "TauPServer",
@@ -32,4 +36,13 @@ __all__ = [
     "VelplotQuery",
     "WavefrontQuery",
     "VersionQuery",
+    "Amplitude",
+    "Arrival",
+    "Fault",
+    "PathSegment",
+    "RelativeArrival",
+    "Scatter",
+    "Source",
+    "TimeDist",
+    "TimeResult"
 ]

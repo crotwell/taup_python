@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, Any
 from .PathSegment import PathSegment
 from .Amplitude import Amplitude
 from .Scatter import Scatter
+from .TimeDist import TimeDist
 
 if TYPE_CHECKING:
     from .RelativeArrival import RelativeArrival
@@ -26,6 +27,12 @@ class Arrival:
     relative: Any  = None # RelativeArrival
     pierce: list[list[float]] = field(default_factory=list)
     pathSegments: list[PathSegment] = field(default_factory=list)
+
+    def getPath(self):
+        path = []
+        for ps in self.pathSegments:
+            path = path + ps.segment
+        return path
 
     @classmethod
     def from_json(cls, jsonObj):
@@ -50,7 +57,9 @@ class Arrival:
         if 'relative' in jsonObj:
             arr.relative = jsonObj['relative']
         if 'pierce' in jsonObj:
-            arr.pierce = jsonObj['pierce']
-        if 'pathSegments' in jsonObj:
-            arr.pathSegments = jsonObj['pathSegments']
+            for p in jsonObj['pierce']:
+                arr.pierce.append(TimeDist.from_json(p))
+        if 'path' in jsonObj:
+            for p in jsonObj['path']:
+                arr.pathSegments.append(PathSegment.from_json(p))
         return arr

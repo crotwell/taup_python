@@ -10,7 +10,7 @@ with taup.TauPServer() as timeserver:
 
     # query params correspond to the tools, one of:
     # time, pierce, path, curve, discon, distaz, find, phase, refltrans, table, velplot, wavefront
-    timeParams = taup.TimeQuery()
+    timeParams = taup.PierceQuery()
     # params that will stay the same
     timeParams.phase(["P", "S"])
     timeParams.model('ak135')
@@ -31,4 +31,6 @@ with taup.TauPServer() as timeserver:
                 print("Phase Depth    Dist  Time")
             for a in jsonTimes.arrivals:
                 #print(a)
-                print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc}")
+                print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc} p: {len(a.pierce)}")
+                for p in a.pierce:
+                    print(f"  {p}")
