@@ -25,11 +25,10 @@ with taup.TauPServer() as timeserver:
 
             # calculate results, parsed as JSON and returned as dict
             jsonTimes = timeParams.calc(timeserver)
-            if len(jsonTimes["arrivals"]) == 0:
+            if len(jsonTimes.arrivals) == 0:
                 print(f"No arrivals...{event} to {sta}")
             else:
                 print("Phase Depth    Dist  Time")
-            for a in jsonTimes["arrivals"]:
-                desc= a['desc'] if "desc" in a else ""
+            for a in jsonTimes.arrivals:
                 #print(a)
-                print(f"{a['phase']}   {a['sourcedepth']} {a['distdeg']} {a['time']}  {desc}")
+                print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc}")
