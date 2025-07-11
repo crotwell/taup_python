@@ -1,5 +1,6 @@
 __version__ = "0.0.1-dev"
 
+from .taupversion import TAUP_VERSION
 from .http_server import TauPServer
 from .curve import CurveQuery
 from .distaz import DistazQuery
@@ -22,6 +23,7 @@ from .dataclass import (
 )
 
 __all__ = [
+    "TAUP_VERSION",
     "TauPServer",
     "CurveQuery",
     "DistazQuery",
