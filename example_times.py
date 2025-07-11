@@ -6,17 +6,21 @@ import requests
 eventLatLons = [ [35, -50], [-29, 45]]
 staLatLons = [ [34, -80], [35, -81]]
 
-with taup.TauPServer() as timeserver:
 
-    # query params correspond to the tools, one of:
-    # time, pierce, path, curve, discon, distaz, find, phase, refltrans, table, velplot, wavefront
-    timeParams = taup.PierceQuery()
-    # params that will stay the same
-    timeParams.phase(["P","PedoS"])
+with taup.TauPServer("/Users/crotwell/Code/seis/TauP/build/install/TauP/bin/taup") as taupserver:
+
+
+    # query params correspond to the tools, may be any one of:
+    # Time, Pierce, Path, Curve, Discon, Distaz, Find, Phase,
+    # Refltrans, Table, Velmerge, Velplot, Version, Wavefront
+    timeParams = taup.TimeQuery()
+    # params that will stay the same can be reused
+    timeParams.phase(["S","PedoS"])
     timeParams.model('ak135')
     timeParams.geodetic(True)
     timeParams.scatter(500, 2)
     timeParams.rel("P")
+
 
     # params that will vary
     for event in eventLatLons:
@@ -25,8 +29,8 @@ with taup.TauPServer() as timeserver:
         for sta in staLatLons:
             timeParams.station( *sta )
 
-            # calculate results, parsed as JSON and returned as dict
-            jsonTimes = timeParams.calc(timeserver)
+            # calculate results, parsed as JSON and returned as dataclass objects
+            jsonTimes = timeParams.calc(taupserver)
             if len(jsonTimes.arrivals) == 0:
                 print(f"No arrivals...{event} to {sta}")
             else:
@@ -34,9 +38,9 @@ with taup.TauPServer() as timeserver:
             for a in jsonTimes.arrivals:
                 #print(a)
                 print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc} p: {len(a.pierce)}")
-                if a.pierce is not None:
+                if len(a.pierce) != 0:
                     print("Pierce:")
                     for p in a.pierce:
                         print(f"  {p}")
                 if a.relative:
-                    print(f"Relative: {a.phase} - {a.relative.arrival.phase} = {a.relative.difference} s")
+                    print(f"    Relative: {a.phase} - {a.relative.arrival.phase} = {a.relative.difference} s")

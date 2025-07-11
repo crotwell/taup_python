@@ -6,11 +6,11 @@ import requests
 eventLatLons = [ [35, -50], [-29, 45]]
 staLatLons = [ [34, -80], [35, -81]]
 
-print("IN TEXT")
-with taup.TauPServer() as taupserver:
+with taup.TauPServer("/Users/crotwell/Code/seis/TauP/build/install/TauP/bin/taup") as taupserver:
 
-    # query params correspond to the tools, one of:
-    # time, pierce, path, curve, discon, distaz, find, phase, refltrans, table, velplot, wavefront
+    # query params correspond to the tools, may be any one of:
+    # Time, Pierce, Path, Curve, Discon, Distaz, Find, Phase,
+    # Refltrans, Table, Velmerge, Velplot, Version, Wavefront
     params = taup.TimeQuery()
     params.phase(["P", "S"])
     params.model('ak135')
@@ -22,6 +22,6 @@ with taup.TauPServer() as taupserver:
         params.andStation( *sta )
 
     # get result as text, or other format depending on the tool, like:
-    # gmt, svg, json, csv...
+    # calcGmt, calcSvg, calcJson, calcCsv...
     textResult = params.calcText(taupserver)
     print(textResult)
