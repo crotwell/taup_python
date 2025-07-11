@@ -24,7 +24,8 @@ class TauPServer:
             self.taup_path=taup_path
         if self.taup_path is None:
             raise Exception(f"Cannot find executable for taup, not on PATH?")
-        if not Path(self.taup_path).exists():
+        self.taup_path = Path(self.taup_path).expanduser().resolve()
+        if not self.taup_path.exists():
             raise Exception(f"{self.taup_path} doesn't exist, TauP Toolkit not on installed?")
         self._taup = None
         self._stop_event = None
