@@ -8,6 +8,8 @@ import random
 import requests
 import sys
 
+VERBOSE=False
+
 """
 Slightly more advanced python script. This starts the 'taup web' process
 within the script, avoiding a two step process to get the results. Many
@@ -32,7 +34,7 @@ class TauPServer:
         self._taup = subprocess.Popen(self._cmd,
                           stdout=subprocess.PIPE,
                           stderr=subprocess.STDOUT, close_fds=True)
-        print(f"starting... {' '.join(self._cmd)}")
+        if VERBOSE: print(f"starting... {' '.join(self._cmd)}")
         time.sleep(1)
         # read a line, makes sure service has had time to start
         # we should see a line with the url like
@@ -89,9 +91,9 @@ class TauPServer:
             params = params.create_params()
         taup_url = f'http://localhost:{self.port}/{tool}'
         params['format'] = format
-        print("TEXT")
-        print(f"Query: {taup_url}")
-        print(f"Params: {params}")
+        if VERBOSE:
+            print(f"Query: {taup_url}")
+            print(f"Params: {params}")
         r = requests.get(taup_url, params=params, timeout=3)
         return r.text
 
@@ -101,8 +103,9 @@ class TauPServer:
         if hasattr(params, "create_params"):
             params = params.create_params()
         taup_url = f'http://localhost:{self.port}/{tool}'
-        print(f"Query: {taup_url}")
-        print(f"Params: {params}")
+        if VERBOSE:
+            print(f"Query: {taup_url}")
+            print(f"Params: {params}")
         r = requests.get(taup_url, params=params, timeout=3)
         jsonTimes = r.json()
         return jsonTimes
