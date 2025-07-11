@@ -7,30 +7,30 @@ eventLatLons = [ [35, -50], [-29, 45]]
 staLatLons = [ [34, -80], [35, -81]]
 
 
-with taup.TauPServer("/Users/crotwell/Code/seis/TauP/build/install/TauP/bin/taup") as taupserver:
+with taup.TauPServer() as taupserver:
 
 
     # query params correspond to the tools, may be any one of:
     # Time, Pierce, Path, Curve, Discon, Distaz, Find, Phase,
     # Refltrans, Table, Velmerge, Velplot, Version, Wavefront
-    timeParams = taup.TimeQuery()
+    params = taup.TimeQuery()
     # params that will stay the same can be reused
-    timeParams.phase(["S","PedoS"])
-    timeParams.model('ak135')
-    timeParams.geodetic(True)
-    timeParams.scatter(500, 2)
-    timeParams.rel("P")
+    params.phase(["S","PedoS"])
+    params.model('ak135')
+    params.geodetic(True)
+    params.scatter(500, 2)
+    params.rel("P")
 
 
     # params that will vary
     for event in eventLatLons:
-        timeParams.event( *event ) # splat to expand list into function args
-        timeParams.sourcedepth([100])
+        params.event( *event ) # splat to expand list into function args
+        params.sourcedepth([100])
         for sta in staLatLons:
-            timeParams.station( *sta )
+            params.station( *sta )
 
             # calculate results, parsed as JSON and returned as dataclass objects
-            jsonTimes = timeParams.calc(taupserver)
+            jsonTimes = params.calc(taupserver)
             if len(jsonTimes.arrivals) == 0:
                 print(f"No arrivals...{event} to {sta}")
             else:

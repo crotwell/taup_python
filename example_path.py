@@ -6,8 +6,7 @@ import requests
 eventLatLons = [ [35, -50], [-29, 45]]
 staLatLons = [ [34, -80], [35, -81]]
 
-print("IN TEXT")
-with taup.TauPServer("/Users/crotwell/Code/seis/TauP/build/install/TauP/bin/taup") as taupserver:
+with taup.TauPServer() as taupserver:
 
     # query params correspond to the tools, one of:
     # time, pierce, path, curve, discon, distaz, find, phase, refltrans, table, velplot, wavefront
@@ -19,22 +18,21 @@ with taup.TauPServer("/Users/crotwell/Code/seis/TauP/build/install/TauP/bin/taup
 
     params.event( *eventLatLons[0] )
     params.sourcedepth([100])
-    params.degree([ 2 , 4, 10])
-    #for sta in staLatLons:
-    #    params.andStation( *sta )
+    for sta in staLatLons:
+        params.andStation( *sta )
 
-    # get result as text, or other format depending on the tool, like:
-    # gmt, svg, json, csv...
-    #textResult = params.calcSvg(taupserver)
-    #print(textResult)
-    # or
-    #textResult = params.calcGmt(taupserver)
-    #print(textResult)
-    # or
-    timeResult = params.calc(taupserver)
-    for a in timeResult.arrivals:
-        print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc} p: {len(a.pierce)}")
-        if a.pathlength is not None:
-            print(f"Path length: {a.pathlength} km")
-        else:
-            print("No Path")
+        # get result as text, or other format depending on the tool, like:
+        # gmt, svg, json, csv...
+        #textResult = params.calcSvg(taupserver)
+        #print(textResult)
+        # or
+        #textResult = params.calcGmt(taupserver)
+        #print(textResult)
+        # or
+        timeResult = params.calc(taupserver)
+        for a in timeResult.arrivals:
+            print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc} p: {len(a.pierce)}")
+            if a.pathlength is not None:
+                print(f"Path length: {a.pathlength} km")
+            else:
+                print("No Path")

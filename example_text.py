@@ -6,7 +6,7 @@ import requests
 eventLatLons = [ [35, -50], [-29, 45]]
 staLatLons = [ [34, -80], [35, -81]]
 
-with taup.TauPServer("/Users/crotwell/Code/seis/TauP/build/install/TauP/bin/taup") as taupserver:
+with taup.TauPServer() as taupserver:
 
     # query params correspond to the tools, may be any one of:
     # Time, Pierce, Path, Curve, Discon, Distaz, Find, Phase,
