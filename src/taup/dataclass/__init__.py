@@ -8,6 +8,9 @@ from .Scatter import Scatter
 from .Source import Source
 from .TimeDist import TimeDist
 from .TimeResult import TimeResult
+from .Isochron import Isochron
+from .Wavefront import Wavefront
+from .WavefrontResult import WavefrontResult
 
 __all__ = [
     "Arrival",
@@ -19,5 +22,8 @@ __all__ = [
     "Scatter",
     "Source",
     "TimeDist",
-    "TimeResult"
+    "TimeResult",
+    "Isochron",
+    "Wavefront",
+    "WavefrontResult"
 ]

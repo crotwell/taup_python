@@ -25,6 +25,7 @@ class Arrival:
     scatter: Scatter| None = None
     relative: Any  = None # RelativeArrival
     pierce: list[list[float]] = field(default_factory=list)
+    pathlength: float|None = None
     pathSegments: list[PathSegment] = field(default_factory=list)
 
     def getPath(self):
@@ -59,6 +60,7 @@ class Arrival:
             for p in jsonObj['pierce']:
                 arr.pierce.append(TimeDist.from_json(p))
         if 'path' in jsonObj:
+            arr.pathlength = jsonObj['pathlength']
             for p in jsonObj['path']:
                 arr.pathSegments.append(PathSegment.from_json(p))
         return arr

@@ -17,7 +17,8 @@ from .wavefront import WavefrontQuery
 from .version import VersionQuery
 from .dataclass import (
     Amplitude, Arrival, Fault, PathSegment,
-    RelativeArrival, Scatter, Source, TimeDist, TimeResult
+    RelativeArrival, Scatter, Source, TimeDist, TimeResult,
+    Isochron, Wavefront, WavefrontResult
 )
 
 __all__ = [
@@ -44,5 +45,8 @@ __all__ = [
     "Scatter",
     "Source",
     "TimeDist",
-    "TimeResult"
+    "TimeResult",
+    "Isochron",
+    "Wavefront",
+    "WavefrontResult"
 ]
