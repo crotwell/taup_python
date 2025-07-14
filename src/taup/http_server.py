@@ -18,7 +18,8 @@ within the script, avoiding a two step process to get the results. Many
 queries can be sent to the server, saving significant spin up/shutdown time.
 """
 class TauPServer:
-    def __init__(self, taup_path=None):
+    def __init__(self, taup_path=None, verbose=VERBOSE):
+        self.verbose = verbose
         self.port = f"{random.randrange(40000, 60000)}"
         if taup_path is None:
             self.taup_path=shutil.which("taup")
@@ -29,6 +30,8 @@ class TauPServer:
         self.taup_path = Path(self.taup_path).expanduser().resolve()
         if not self.taup_path.exists():
             raise Exception(f"{self.taup_path} doesn't exist, TauP Toolkit not on installed?")
+        if self.verbose:
+            print(f"TauP: {self.taup_path}")
         self._taup = None
         self._stop_event = None
 
@@ -37,7 +40,7 @@ class TauPServer:
         self._taup = subprocess.Popen(self._cmd,
                           stdout=subprocess.PIPE,
                           stderr=subprocess.STDOUT, close_fds=True)
-        if VERBOSE: print(f"starting... {' '.join(self._cmd)}")
+        if self.verbose: print(f"starting... {' '.join(self._cmd)}")
         time.sleep(1)
         # read a line, makes sure service has had time to start
         # we should see a line with the url like
@@ -60,7 +63,7 @@ class TauPServer:
             try:
                 while not stop_event.is_set():
                     line = out.readline().decode("utf-8").strip()
-                    if len(line) > 0:
+                    if self.verbose and len(line) > 0:
                         print(f"TauP: {line}", file=sys.stderr)
             except Exception as err:
                 print('exception, quitting copy to stderr')
@@ -84,6 +87,7 @@ class TauPServer:
             except:
                 self._taup.kill()
             self._taup=None
+            if self.verbose: print("TauP shutdown...")
         if self._stop_event is not None:
             self._stop_event.set()
             self._stop_event = None
@@ -122,18 +126,19 @@ class TauPServer:
         return serverVersion
 
     def printVersionWarnMsg(self, message, serverVersion, myVersion):
-        print()
-        print(f"WARNING: TauP server => Python client version mismatch!")
-        print(message)
-        print("This may cause errors. It is recommended that you upgrade to match.")
-        print("    The TauP Toolkit (Java):")
-        print("        https://taup.readthedocs.io/en/latest/")
-        print("        https://doi.org/10.5281/zenodo.15426279")
-        print("    TauPy (Python):")
-        print("        https://pypi.org/XXXXXXXX")
-        print(f"  Server: {serverVersion}")
-        print(f"    Mine: {TAUP_VERSION}")
-        print()
+        warn = f"""
+        WARNING: TauP server => Python client version mismatch!
+        {message}
+        This may cause errors. It is recommended that you upgrade to match.
+            The TauP Toolkit (Java):
+                https://taup.readthedocs.io/en/latest/
+                https://doi.org/10.5281/zenodo.15426279
+            TauPy (Python):
+                https://pypi.org/XXXXXXXX
+            Server: {serverVersion}
+            Python: {TAUP_VERSION}
+        """
+        print(warn, file=sys.stderr)
 
     def retrieveTextual(self, params, tool="time", format="text"):
         if self._taup is None:
@@ -142,9 +147,9 @@ class TauPServer:
             params = params.create_params()
         taup_url = f'http://localhost:{self.port}/{tool}'
         params['format'] = format
-        if VERBOSE:
+        if self.verbose:
             print(f"Query: {taup_url}")
-            print(f"Params: {params}")
+            print(f"Params: {json.dumps(params)}")
         r = requests.get(taup_url, params=params, timeout=3)
         return r.text
 
@@ -154,9 +159,9 @@ class TauPServer:
         if hasattr(params, "create_params"):
             params = params.create_params()
         taup_url = f'http://localhost:{self.port}/{tool}'
-        if VERBOSE:
+        if self.verbose:
             print(f"Query: {taup_url}")
-            print(f"Params: {params}")
+            print(f"Params: {json.dumps(params)}")
         r = requests.get(taup_url, params=params, timeout=3)
         jsonResult = r.json()
         return jsonResult
