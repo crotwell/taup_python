@@ -8,6 +8,8 @@ import random
 import requests
 import sys
 
+from .taupversion import TAUP_VERSION
+
 VERBOSE=False
 
 """
@@ -67,6 +69,7 @@ class TauPServer:
         self._stop_event=Event()
         t = Thread(target=copyStdOut, daemon=True, args=(self._taup.stdout, self._stop_event))
         t.start()
+        self.checkVersion()
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
@@ -84,6 +87,53 @@ class TauPServer:
         if self._stop_event is not None:
             self._stop_event.set()
             self._stop_event = None
+
+
+    def checkVersion(self):
+        """
+        Compare version these python bindings were created for with the version of the server.
+        Prints a message to stderr if not the same.
+        Returns the server version.
+        """
+        serverVersion = self.queryJson({}, "version")
+        serverVersion = serverVersion['version']
+        sVerMajor, sVerMinor, sVerMicro = serverVersion.split('.', maxsplit=2)
+        sVerSnap = None
+        if '-' in sVerMicro:
+            sVerMicro, _dash, sVerSnap = sVerMicro.partition('-')
+
+        myVerSnap = None
+        myVerMajor, myVerMinor, myVerMicro = TAUP_VERSION.split('.', maxsplit=2)
+        if '-' in myVerMicro:
+            myVerMicro, _dash, myVerSnap = myVerMicro.partition('-')
+
+        if sVerMajor != myVerMajor:
+            message = f"Major version mismatch! {sVerMajor} != {myVerMajor}"
+            self.printVersionWarnMsg(message, serverVersion, TAUP_VERSION)
+        elif sVerMinor != myVerMinor:
+            message = f"Minor version mismatch! {sVerMinor} != {myVerMinor}"
+            self.printVersionWarnMsg(message, serverVersion, TAUP_VERSION)
+        elif sVerMicro != myVerMicro:
+            message = f"Micro version mismatch! {sVerMicro} != {myVerMicro}"
+            self.printVersionWarnMsg(message, serverVersion, TAUP_VERSION)
+        elif sVerSnap != myVerSnap:
+            message = f"Snapshot Versions not compatible? {sVerSnap} != {myVerSnap}"
+            self.printVersionWarnMsg(message, serverVersion, TAUP_VERSION)
+        return serverVersion
+
+    def printVersionWarnMsg(self, message, serverVersion, myVersion):
+        print()
+        print(f"WARNING: TauP server => Python client version mismatch!")
+        print(message)
+        print("This may cause errors. It is recommended that you upgrade to match.")
+        print("    The TauP Toolkit (Java):")
+        print("        https://taup.readthedocs.io/en/latest/")
+        print("        https://doi.org/10.5281/zenodo.15426279")
+        print("    TauPy (Python):")
+        print("        https://pypi.org/XXXXXXXX")
+        print(f"  Server: {serverVersion}")
+        print(f"    Mine: {TAUP_VERSION}")
+        print()
 
     def retrieveTextual(self, params, tool="time", format="text"):
         if self._taup is None:
@@ -108,10 +158,12 @@ class TauPServer:
             print(f"Query: {taup_url}")
             print(f"Params: {params}")
         r = requests.get(taup_url, params=params, timeout=3)
-        jsonTimes = r.json()
-        return jsonTimes
+        jsonResult = r.json()
+        return jsonResult
 
     def queryJson(self, params, tool="time"):
+        if "format" not in params:
+            params["format"] = "json"
         return self.retrieveJson(params, tool=tool)
 
     def queryText(self, params, tool="time"):
