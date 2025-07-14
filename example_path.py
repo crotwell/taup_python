@@ -19,7 +19,7 @@ with taup.TauPServer() as taupserver:
     params.event( *eventLatLons[0] )
     params.sourcedepth([100])
     for sta in staLatLons:
-        params.andStation( *sta )
+        params.station( *sta )
 
         # get result as text, or other format depending on the tool, like:
         # gmt, svg, json, csv...
@@ -31,7 +31,7 @@ with taup.TauPServer() as taupserver:
         # or
         timeResult = params.calc(taupserver)
         for a in timeResult.arrivals:
-            print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc} p: {len(a.pierce)}")
+            print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc if a.desc is not None else ''}")
             if a.pathlength is not None:
                 print(f"Path length: {a.pathlength} km")
             else:
