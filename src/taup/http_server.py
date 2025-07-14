@@ -36,7 +36,7 @@ class TauPServer:
         self._stop_event = None
 
     def __enter__(self):
-        self._cmd = [self.taup_path, "web", "-p", self.port]
+        self._cmd = [str(self.taup_path), "web", "-p", self.port]
         self._taup = subprocess.Popen(self._cmd,
                           stdout=subprocess.PIPE,
                           stderr=subprocess.STDOUT, close_fds=True)

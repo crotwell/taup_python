@@ -2,6 +2,8 @@
 from .Arrival import Arrival
 from .Curve import Curve
 from .CurveResult import CurveResult
+from .Daz import Daz
+from .DistazResult import DistazResult
 from .CurveSegment import CurveSegment
 from .RelativeArrival import RelativeArrival
 from .Scatter import Scatter
@@ -17,6 +19,8 @@ __all__ = [
     "Curve",
     "CurveResult",
     "CurveSegment",
+    "Daz",
+    "DistazResult",
     "Fault",
     "RelativeArrival",
     "Scatter",
