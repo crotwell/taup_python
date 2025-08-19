@@ -65,8 +65,8 @@ class TableQuery:
 
     outputs as Text
 
-    Known as --text in command line.
-    Also known as --generic in command line.
+    Known as ``--text`` in command line.
+    Also known as ``--generic`` in command line.
 
     :param val: value to set generic to
     """
@@ -85,7 +85,7 @@ class TableQuery:
 
     outputs as Text
 
-    Known as --generic in command line.
+    Known as ``--generic`` in command line.
 
     :param val: value to set generic to
     """
@@ -104,7 +104,7 @@ class TableQuery:
 
     reads depth and distance spacing data from a LOCSAT style file.
 
-    Known as --header in command line.
+    Known as ``--header`` in command line.
 
     :param val: value to set header to
     """
@@ -124,8 +124,8 @@ class TableQuery:
     use velocity model "modelName" for calculations.
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
 
-    Known as --mod in command line.
-    Also known as --model in command line.
+    Known as ``--mod`` in command line.
+    Also known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -145,7 +145,7 @@ class TableQuery:
     use velocity model "modelName" for calculations.
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
 
-    Known as --model in command line.
+    Known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -169,8 +169,8 @@ class TableQuery:
 
     seismic phase names
 
-    Known as -p in command line.
-    Also known as --phase in command line.
+    Known as ``-p`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -186,8 +186,8 @@ class TableQuery:
 
     seismic phase names
 
-    Known as -p in command line.
-    Also known as --phase in command line.
+    Known as ``-p`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -211,7 +211,7 @@ class TableQuery:
 
     seismic phase names
 
-    Known as --phase in command line.
+    Known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -227,7 +227,7 @@ class TableQuery:
 
     seismic phase names
 
-    Known as --phase in command line.
+    Known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -251,8 +251,8 @@ class TableQuery:
 
     seismic phase names
 
-    Known as --ph in command line.
-    Also known as --phase in command line.
+    Known as ``--ph`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -268,8 +268,8 @@ class TableQuery:
 
     seismic phase names
 
-    Known as --ph in command line.
-    Also known as --phase in command line.
+    Known as ``--ph`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -293,8 +293,8 @@ class TableQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --stadepth in command line.
-    Also known as --receiverdepth in command line.
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -310,8 +310,8 @@ class TableQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --stadepth in command line.
-    Also known as --receiverdepth in command line.
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -335,7 +335,7 @@ class TableQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --receiverdepth in command line.
+    Known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -351,7 +351,7 @@ class TableQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --receiverdepth in command line.
+    Known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -370,8 +370,8 @@ class TableQuery:
 
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
 
-    Known as --scat in command line.
-    Also known as --scatter in command line.
+    Known as ``--scat`` in command line.
+    Also known as ``--scatter`` in command line.
 
     :param val: value to set scatter to
     """
@@ -390,7 +390,7 @@ class TableQuery:
 
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
 
-    Known as --scatter in command line.
+    Known as ``--scatter`` in command line.
 
     :param val: value to set scatter to
     """

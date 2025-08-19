@@ -91,7 +91,7 @@ class PierceQuery:
 
     all arrivals at sampling of model
 
-    Known as --allindex in command line.
+    Known as ``--allindex`` in command line.
 
     :param val: value to set allindex to
     """
@@ -110,7 +110,7 @@ class PierceQuery:
 
     show amplitude factor for each phase
 
-    Known as --amp in command line.
+    Known as ``--amp`` in command line.
 
     :param val: value to set amp to
     """
@@ -129,7 +129,7 @@ class PierceQuery:
 
     attenuation frequency for amplitude calculations, default is 1.0
 
-    Known as --attenuationfreq in command line.
+    Known as ``--attenuationfreq`` in command line.
 
     :param val: value to set attenuationfreq to
     """
@@ -148,7 +148,7 @@ class PierceQuery:
 
     azimuth in degrees, source to receiver
 
-    Known as --az in command line.
+    Known as ``--az`` in command line.
 
     :param val: value to set az to
     """
@@ -167,7 +167,7 @@ class PierceQuery:
 
     backazimuth in degrees, receiver to source
 
-    Known as --baz in command line.
+    Known as ``--baz`` in command line.
 
     :param val: value to set baz to
     """
@@ -191,8 +191,8 @@ class PierceQuery:
 
     distance in degrees
 
-    Known as --deg in command line.
-    Also known as --degree in command line.
+    Known as ``--deg`` in command line.
+    Also known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -208,8 +208,8 @@ class PierceQuery:
 
     distance in degrees
 
-    Known as --deg in command line.
-    Also known as --degree in command line.
+    Known as ``--deg`` in command line.
+    Also known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -233,7 +233,7 @@ class PierceQuery:
 
     distance in degrees
 
-    Known as --degree in command line.
+    Known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -249,7 +249,7 @@ class PierceQuery:
 
     distance in degrees
 
-    Known as --degree in command line.
+    Known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -269,7 +269,7 @@ class PierceQuery:
 
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
 
-    Known as --degreerange in command line.
+    Known as ``--degreerange`` in command line.
 
     :param val: value to set degreerange to
     """
@@ -285,7 +285,7 @@ class PierceQuery:
 
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
 
-    Known as --degreerange in command line.
+    Known as ``--degreerange`` in command line.
 
     :param val: value to set degreerange to
     """
@@ -304,8 +304,8 @@ class PierceQuery:
 
     event latitude and longitude.  Creates a distance if station is also given.
 
-    Known as --evt in command line.
-    Also known as --event in command line.
+    Known as ``--evt`` in command line.
+    Also known as ``--event`` in command line.
 
     :param val: value to set event to
     """
@@ -318,8 +318,8 @@ class PierceQuery:
 
     event latitude and longitude.  Creates a distance if station is also given.
 
-    Known as --evt in command line.
-    Also known as --event in command line.
+    Known as ``--evt`` in command line.
+    Also known as ``--event`` in command line.
 
     :param val: value to set event to
     """
@@ -338,7 +338,7 @@ class PierceQuery:
 
     event latitude and longitude.  Creates a distance if station is also given.
 
-    Known as --event in command line.
+    Known as ``--event`` in command line.
 
     :param val: value to set event to
     """
@@ -351,7 +351,7 @@ class PierceQuery:
 
     event latitude and longitude.  Creates a distance if station is also given.
 
-    Known as --event in command line.
+    Known as ``--event`` in command line.
 
     :param val: value to set event to
     """
@@ -375,7 +375,7 @@ class PierceQuery:
 
     exact distance traveled in degrees, not 360-d
 
-    Known as --exactdegree in command line.
+    Known as ``--exactdegree`` in command line.
 
     :param val: value to set exactdegree to
     """
@@ -391,7 +391,7 @@ class PierceQuery:
 
     exact distance traveled in degrees, not 360-d
 
-    Known as --exactdegree in command line.
+    Known as ``--exactdegree`` in command line.
 
     :param val: value to set exactdegree to
     """
@@ -411,7 +411,7 @@ class PierceQuery:
 
     regular distance range in exact degrees, not 360-deg, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
 
-    Known as --exactdegreerange in command line.
+    Known as ``--exactdegreerange`` in command line.
 
     :param val: value to set exactdegreerange to
     """
@@ -427,7 +427,7 @@ class PierceQuery:
 
     regular distance range in exact degrees, not 360-deg, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
 
-    Known as --exactdegreerange in command line.
+    Known as ``--exactdegreerange`` in command line.
 
     :param val: value to set exactdegreerange to
     """
@@ -451,7 +451,7 @@ class PierceQuery:
 
     exact distance traveled in kilometers, not 360-k
 
-    Known as --exactkilometer in command line.
+    Known as ``--exactkilometer`` in command line.
 
     :param val: value to set exactkilometer to
     """
@@ -467,7 +467,7 @@ class PierceQuery:
 
     exact distance traveled in kilometers, not 360-k
 
-    Known as --exactkilometer in command line.
+    Known as ``--exactkilometer`` in command line.
 
     :param val: value to set exactkilometer to
     """
@@ -487,7 +487,7 @@ class PierceQuery:
 
     regular distance range in kilometers, not 360-k, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
 
-    Known as --exactkilometerrange in command line.
+    Known as ``--exactkilometerrange`` in command line.
 
     :param val: value to set exactkilometerrange to
     """
@@ -503,7 +503,7 @@ class PierceQuery:
 
     regular distance range in kilometers, not 360-k, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
 
-    Known as --exactkilometerrange in command line.
+    Known as ``--exactkilometerrange`` in command line.
 
     :param val: value to set exactkilometerrange to
     """
@@ -522,7 +522,7 @@ class PierceQuery:
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
-    Known as --geodetic in command line.
+    Known as ``--geodetic`` in command line.
 
     :param val: value to set geodetic to
     """
@@ -541,7 +541,7 @@ class PierceQuery:
 
     Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
 
-    Known as --geodeticflattening in command line.
+    Known as ``--geodeticflattening`` in command line.
 
     :param val: value to set geodeticflattening to
     """
@@ -565,7 +565,7 @@ class PierceQuery:
 
     incident angle in degrees at the receiver, zero is down, 90 horizontal, 180 is up.
 
-    Known as --incident in command line.
+    Known as ``--incident`` in command line.
 
     :param val: value to set incident to
     """
@@ -581,7 +581,7 @@ class PierceQuery:
 
     incident angle in degrees at the receiver, zero is down, 90 horizontal, 180 is up.
 
-    Known as --incident in command line.
+    Known as ``--incident`` in command line.
 
     :param val: value to set incident to
     """
@@ -601,7 +601,7 @@ class PierceQuery:
 
     regular range in incident angle in degrees, one of step; min max or min max step. Default min is 0 and step is 10.
 
-    Known as --incidentrange in command line.
+    Known as ``--incidentrange`` in command line.
 
     :param val: value to set incidentrange to
     """
@@ -617,7 +617,7 @@ class PierceQuery:
 
     regular range in incident angle in degrees, one of step; min max or min max step. Default min is 0 and step is 10.
 
-    Known as --incidentrange in command line.
+    Known as ``--incidentrange`` in command line.
 
     :param val: value to set incidentrange to
     """
@@ -641,8 +641,8 @@ class PierceQuery:
 
     distance in kilometers along surface.
 
-    Known as --km in command line.
-    Also known as --kilometer in command line.
+    Known as ``--km`` in command line.
+    Also known as ``--kilometer`` in command line.
 
     :param val: value to set kilometer to
     """
@@ -658,8 +658,8 @@ class PierceQuery:
 
     distance in kilometers along surface.
 
-    Known as --km in command line.
-    Also known as --kilometer in command line.
+    Known as ``--km`` in command line.
+    Also known as ``--kilometer`` in command line.
 
     :param val: value to set kilometer to
     """
@@ -683,7 +683,7 @@ class PierceQuery:
 
     distance in kilometers along surface.
 
-    Known as --kilometer in command line.
+    Known as ``--kilometer`` in command line.
 
     :param val: value to set kilometer to
     """
@@ -699,7 +699,7 @@ class PierceQuery:
 
     distance in kilometers along surface.
 
-    Known as --kilometer in command line.
+    Known as ``--kilometer`` in command line.
 
     :param val: value to set kilometer to
     """
@@ -719,7 +719,7 @@ class PierceQuery:
 
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
 
-    Known as --kilometerrange in command line.
+    Known as ``--kilometerrange`` in command line.
 
     :param val: value to set kilometerrange to
     """
@@ -735,7 +735,7 @@ class PierceQuery:
 
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
 
-    Known as --kilometerrange in command line.
+    Known as ``--kilometerrange`` in command line.
 
     :param val: value to set kilometerrange to
     """
@@ -755,8 +755,8 @@ class PierceQuery:
     use velocity model "modelName" for calculations.
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
 
-    Known as --mod in command line.
-    Also known as --model in command line.
+    Known as ``--mod`` in command line.
+    Also known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -776,7 +776,7 @@ class PierceQuery:
     use velocity model "modelName" for calculations.
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
 
-    Known as --model in command line.
+    Known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -795,7 +795,7 @@ class PierceQuery:
 
     scale amplitude by source moment magnitude, default is 4.0
 
-    Known as --mw in command line.
+    Known as ``--mw`` in command line.
 
     :param val: value to set mw to
     """
@@ -814,7 +814,7 @@ class PierceQuery:
 
     only prints pierce points for the depths added with -pierce
 
-    Known as --nodiscon in command line.
+    Known as ``--nodiscon`` in command line.
 
     :param val: value to set nodiscon to
     """
@@ -833,7 +833,7 @@ class PierceQuery:
 
     number attenuation frequencies for amplitude calculations, default is 64
 
-    Known as --numattenuationfreq in command line.
+    Known as ``--numattenuationfreq`` in command line.
 
     :param val: value to set numattenuationfreq to
     """
@@ -852,8 +852,8 @@ class PierceQuery:
 
     only output the first arrival for each phase, no triplications
 
-    Known as --first in command line.
-    Also known as --onlyfirst in command line.
+    Known as ``--first`` in command line.
+    Also known as ``--onlyfirst`` in command line.
 
     :param val: value to set onlyfirst to
     """
@@ -872,7 +872,7 @@ class PierceQuery:
 
     only output the first arrival for each phase, no triplications
 
-    Known as --onlyfirst in command line.
+    Known as ``--onlyfirst`` in command line.
 
     :param val: value to set onlyfirst to
     """
@@ -896,8 +896,8 @@ class PierceQuery:
 
     seismic phase names
 
-    Known as -p in command line.
-    Also known as --phase in command line.
+    Known as ``-p`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -913,8 +913,8 @@ class PierceQuery:
 
     seismic phase names
 
-    Known as -p in command line.
-    Also known as --phase in command line.
+    Known as ``-p`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -938,7 +938,7 @@ class PierceQuery:
 
     seismic phase names
 
-    Known as --phase in command line.
+    Known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -954,7 +954,7 @@ class PierceQuery:
 
     seismic phase names
 
-    Known as --phase in command line.
+    Known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -978,8 +978,8 @@ class PierceQuery:
 
     seismic phase names
 
-    Known as --ph in command line.
-    Also known as --phase in command line.
+    Known as ``--ph`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -995,8 +995,8 @@ class PierceQuery:
 
     seismic phase names
 
-    Known as --ph in command line.
-    Also known as --phase in command line.
+    Known as ``--ph`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -1020,7 +1020,7 @@ class PierceQuery:
 
     additional depth for calculating pierce points
 
-    Known as --pierce in command line.
+    Known as ``--pierce`` in command line.
 
     :param val: value to set pierce to
     """
@@ -1036,7 +1036,7 @@ class PierceQuery:
 
     additional depth for calculating pierce points
 
-    Known as --pierce in command line.
+    Known as ``--pierce`` in command line.
 
     :param val: value to set pierce to
     """
@@ -1060,7 +1060,7 @@ class PierceQuery:
 
     ray parameter from the source in s/deg, up or down is determined by the phase
 
-    Known as --rayparamdeg in command line.
+    Known as ``--rayparamdeg`` in command line.
 
     :param val: value to set rayparamdeg to
     """
@@ -1076,7 +1076,7 @@ class PierceQuery:
 
     ray parameter from the source in s/deg, up or down is determined by the phase
 
-    Known as --rayparamdeg in command line.
+    Known as ``--rayparamdeg`` in command line.
 
     :param val: value to set rayparamdeg to
     """
@@ -1100,7 +1100,7 @@ class PierceQuery:
 
     ray parameter from the source as index into model sampling, up or down is determined by the phase
 
-    Known as --rayparamidx in command line.
+    Known as ``--rayparamidx`` in command line.
 
     :param val: value to set rayparamidx to
     """
@@ -1116,7 +1116,7 @@ class PierceQuery:
 
     ray parameter from the source as index into model sampling, up or down is determined by the phase
 
-    Known as --rayparamidx in command line.
+    Known as ``--rayparamidx`` in command line.
 
     :param val: value to set rayparamidx to
     """
@@ -1140,7 +1140,7 @@ class PierceQuery:
 
     ray parameter from the source in s/km, up or down is determined by the phase
 
-    Known as --rayparamkm in command line.
+    Known as ``--rayparamkm`` in command line.
 
     :param val: value to set rayparamkm to
     """
@@ -1156,7 +1156,7 @@ class PierceQuery:
 
     ray parameter from the source in s/km, up or down is determined by the phase
 
-    Known as --rayparamkm in command line.
+    Known as ``--rayparamkm`` in command line.
 
     :param val: value to set rayparamkm to
     """
@@ -1180,7 +1180,7 @@ class PierceQuery:
 
     ray parameter from the source in s/rad, up or down is determined by the phase
 
-    Known as --rayparamrad in command line.
+    Known as ``--rayparamrad`` in command line.
 
     :param val: value to set rayparamrad to
     """
@@ -1196,7 +1196,7 @@ class PierceQuery:
 
     ray parameter from the source in s/rad, up or down is determined by the phase
 
-    Known as --rayparamrad in command line.
+    Known as ``--rayparamrad`` in command line.
 
     :param val: value to set rayparamrad to
     """
@@ -1220,8 +1220,8 @@ class PierceQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --stadepth in command line.
-    Also known as --receiverdepth in command line.
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -1237,8 +1237,8 @@ class PierceQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --stadepth in command line.
-    Also known as --receiverdepth in command line.
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -1262,7 +1262,7 @@ class PierceQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --receiverdepth in command line.
+    Known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -1278,7 +1278,7 @@ class PierceQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --receiverdepth in command line.
+    Known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -1297,7 +1297,7 @@ class PierceQuery:
 
     only prints underside and bottom turn points, e.g. ^ and v
 
-    Known as --rev in command line.
+    Known as ``--rev`` in command line.
 
     :param val: value to set rev to
     """
@@ -1316,8 +1316,8 @@ class PierceQuery:
 
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
 
-    Known as --scat in command line.
-    Also known as --scatter in command line.
+    Known as ``--scat`` in command line.
+    Also known as ``--scatter`` in command line.
 
     :param val: value to set scatter to
     """
@@ -1336,7 +1336,7 @@ class PierceQuery:
 
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
 
-    Known as --scatter in command line.
+    Known as ``--scatter`` in command line.
 
     :param val: value to set scatter to
     """
@@ -1360,8 +1360,8 @@ class PierceQuery:
 
     source depth in km
 
-    Known as -h in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``-h`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -1377,8 +1377,8 @@ class PierceQuery:
 
     source depth in km
 
-    Known as -h in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``-h`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -1402,7 +1402,7 @@ class PierceQuery:
 
     source depth in km
 
-    Known as --sourcedepth in command line.
+    Known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -1418,7 +1418,7 @@ class PierceQuery:
 
     source depth in km
 
-    Known as --sourcedepth in command line.
+    Known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -1442,8 +1442,8 @@ class PierceQuery:
 
     source depth in km
 
-    Known as --evdepth in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``--evdepth`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -1459,8 +1459,8 @@ class PierceQuery:
 
     source depth in km
 
-    Known as --evdepth in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``--evdepth`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -1479,8 +1479,8 @@ class PierceQuery:
 
     station latitude and longitude. Creates a distance if event is also given.
 
-    Known as --sta in command line.
-    Also known as --station in command line.
+    Known as ``--sta`` in command line.
+    Also known as ``--station`` in command line.
 
     :param val: value to set station to
     """
@@ -1493,8 +1493,8 @@ class PierceQuery:
 
     station latitude and longitude. Creates a distance if event is also given.
 
-    Known as --sta in command line.
-    Also known as --station in command line.
+    Known as ``--sta`` in command line.
+    Also known as ``--station`` in command line.
 
     :param val: value to set station to
     """
@@ -1513,7 +1513,7 @@ class PierceQuery:
 
     station latitude and longitude. Creates a distance if event is also given.
 
-    Known as --station in command line.
+    Known as ``--station`` in command line.
 
     :param val: value to set station to
     """
@@ -1526,7 +1526,7 @@ class PierceQuery:
 
     station latitude and longitude. Creates a distance if event is also given.
 
-    Known as --station in command line.
+    Known as ``--station`` in command line.
 
     :param val: value to set station to
     """
@@ -1545,7 +1545,7 @@ class PierceQuery:
 
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
 
-    Known as --strikediprake in command line.
+    Known as ``--strikediprake`` in command line.
 
     :param val: value to set strikediprake to
     """
@@ -1561,7 +1561,7 @@ class PierceQuery:
 
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
 
-    Known as --strikediprake in command line.
+    Known as ``--strikediprake`` in command line.
 
     :param val: value to set strikediprake to
     """
@@ -1585,7 +1585,7 @@ class PierceQuery:
 
     takeoff angle in degrees from the source, zero is down, 90 horizontal, 180 is up.
 
-    Known as --takeoff in command line.
+    Known as ``--takeoff`` in command line.
 
     :param val: value to set takeoff to
     """
@@ -1601,7 +1601,7 @@ class PierceQuery:
 
     takeoff angle in degrees from the source, zero is down, 90 horizontal, 180 is up.
 
-    Known as --takeoff in command line.
+    Known as ``--takeoff`` in command line.
 
     :param val: value to set takeoff to
     """
@@ -1621,7 +1621,7 @@ class PierceQuery:
 
     regular range in takeoff angle in degrees, one of step; min,max or min,max,step. Default min is 0 and step is 10.
 
-    Known as --takeoffrange in command line.
+    Known as ``--takeoffrange`` in command line.
 
     :param val: value to set takeoffrange to
     """
@@ -1637,7 +1637,7 @@ class PierceQuery:
 
     regular range in takeoff angle in degrees, one of step; min,max or min,max,step. Default min is 0 and step is 10.
 
-    Known as --takeoffrange in command line.
+    Known as ``--takeoffrange`` in command line.
 
     :param val: value to set takeoffrange to
     """
@@ -1656,7 +1656,7 @@ class PierceQuery:
 
     only prints bottom turning points, e.g. v
 
-    Known as --turn in command line.
+    Known as ``--turn`` in command line.
 
     :param val: value to set turn to
     """
@@ -1675,7 +1675,7 @@ class PierceQuery:
 
     only prints underside reflection points, e.g. ^
 
-    Known as --under in command line.
+    Known as ``--under`` in command line.
 
     :param val: value to set under to
     """

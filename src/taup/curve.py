@@ -93,7 +93,7 @@ class CurveQuery:
 
     attenuation frequency for amplitude calculations, default is 1.0
 
-    Known as --attenuationfreq in command line.
+    Known as ``--attenuationfreq`` in command line.
 
     :param val: value to set attenuationfreq to
     """
@@ -112,7 +112,7 @@ class CurveQuery:
 
     azimuth in degrees, for amp calculations
 
-    Known as --az in command line.
+    Known as ``--az`` in command line.
 
     :param val: value to set az to
     """
@@ -132,7 +132,7 @@ class CurveQuery:
 
     style of coloring for paths and wavefronts, one of: auto, wavetype, phase, none
 
-    Known as --color in command line.
+    Known as ``--color`` in command line.
 
     :param val: value to set color to
     """
@@ -151,7 +151,7 @@ class CurveQuery:
 
     create a legend
 
-    Known as --legend in command line.
+    Known as ``--legend`` in command line.
 
     :param val: value to set legend to
     """
@@ -170,7 +170,7 @@ class CurveQuery:
 
     plot width in units from --mapwidthunit.
 
-    Known as --mapwidth in command line.
+    Known as ``--mapwidth`` in command line.
 
     :param val: value to set mapwidth to
     """
@@ -189,7 +189,7 @@ class CurveQuery:
 
     plot width unit, i for inch, c for cm or p for px.
 
-    Known as --mapwidthunit in command line.
+    Known as ``--mapwidthunit`` in command line.
 
     :param val: value to set mapwidthunit to
     """
@@ -209,8 +209,8 @@ class CurveQuery:
     use velocity model "modelName" for calculations.
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
 
-    Known as --mod in command line.
-    Also known as --model in command line.
+    Known as ``--mod`` in command line.
+    Also known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -230,7 +230,7 @@ class CurveQuery:
     use velocity model "modelName" for calculations.
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
 
-    Known as --model in command line.
+    Known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -249,7 +249,7 @@ class CurveQuery:
 
     scale amplitude by source moment magnitude, default is 4.0
 
-    Known as --mw in command line.
+    Known as ``--mw`` in command line.
 
     :param val: value to set mw to
     """
@@ -268,7 +268,7 @@ class CurveQuery:
 
     number attenuation frequencies for amplitude calculations, default is 64
 
-    Known as --numattenuationfreq in command line.
+    Known as ``--numattenuationfreq`` in command line.
 
     :param val: value to set numattenuationfreq to
     """
@@ -292,8 +292,8 @@ class CurveQuery:
 
     seismic phase names
 
-    Known as -p in command line.
-    Also known as --phase in command line.
+    Known as ``-p`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -309,8 +309,8 @@ class CurveQuery:
 
     seismic phase names
 
-    Known as -p in command line.
-    Also known as --phase in command line.
+    Known as ``-p`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -334,7 +334,7 @@ class CurveQuery:
 
     seismic phase names
 
-    Known as --phase in command line.
+    Known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -350,7 +350,7 @@ class CurveQuery:
 
     seismic phase names
 
-    Known as --phase in command line.
+    Known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -374,8 +374,8 @@ class CurveQuery:
 
     seismic phase names
 
-    Known as --ph in command line.
-    Also known as --phase in command line.
+    Known as ``--ph`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -391,8 +391,8 @@ class CurveQuery:
 
     seismic phase names
 
-    Known as --ph in command line.
-    Also known as --phase in command line.
+    Known as ``--ph`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -416,8 +416,8 @@ class CurveQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --stadepth in command line.
-    Also known as --receiverdepth in command line.
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -433,8 +433,8 @@ class CurveQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --stadepth in command line.
-    Also known as --receiverdepth in command line.
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -458,7 +458,7 @@ class CurveQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --receiverdepth in command line.
+    Known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -474,7 +474,7 @@ class CurveQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --receiverdepth in command line.
+    Known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -493,7 +493,7 @@ class CurveQuery:
 
     outputs curves with a reducing velocity (deg/sec), no effect if axis is not distance-like/time
 
-    Known as --reddeg in command line.
+    Known as ``--reddeg`` in command line.
 
     :param val: value to set reddeg to
     """
@@ -512,7 +512,7 @@ class CurveQuery:
 
     outputs curves with a reducing velocity (km/sec), no effect if axis is not distance-like/time
 
-    Known as --redkm in command line.
+    Known as ``--redkm`` in command line.
 
     :param val: value to set redkm to
     """
@@ -531,7 +531,7 @@ class CurveQuery:
 
     plot relative to the given phase, no effect unless distance/time
 
-    Known as --rel in command line.
+    Known as ``--rel`` in command line.
 
     :param val: value to set rel to
     """
@@ -550,8 +550,8 @@ class CurveQuery:
 
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
 
-    Known as --scat in command line.
-    Also known as --scatter in command line.
+    Known as ``--scat`` in command line.
+    Also known as ``--scatter`` in command line.
 
     :param val: value to set scatter to
     """
@@ -570,7 +570,7 @@ class CurveQuery:
 
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
 
-    Known as --scatter in command line.
+    Known as ``--scatter`` in command line.
 
     :param val: value to set scatter to
     """
@@ -594,8 +594,8 @@ class CurveQuery:
 
     source depth in km
 
-    Known as -h in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``-h`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -611,8 +611,8 @@ class CurveQuery:
 
     source depth in km
 
-    Known as -h in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``-h`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -636,7 +636,7 @@ class CurveQuery:
 
     source depth in km
 
-    Known as --sourcedepth in command line.
+    Known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -652,7 +652,7 @@ class CurveQuery:
 
     source depth in km
 
-    Known as --sourcedepth in command line.
+    Known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -676,8 +676,8 @@ class CurveQuery:
 
     source depth in km
 
-    Known as --evdepth in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``--evdepth`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -693,8 +693,8 @@ class CurveQuery:
 
     source depth in km
 
-    Known as --evdepth in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``--evdepth`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -713,7 +713,7 @@ class CurveQuery:
 
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
 
-    Known as --strikediprake in command line.
+    Known as ``--strikediprake`` in command line.
 
     :param val: value to set strikediprake to
     """
@@ -729,7 +729,7 @@ class CurveQuery:
 
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
 
-    Known as --strikediprake in command line.
+    Known as ``--strikediprake`` in command line.
 
     :param val: value to set strikediprake to
     """
@@ -748,7 +748,7 @@ class CurveQuery:
 
     X axis is absolute value
 
-    Known as --xabs in command line.
+    Known as ``--xabs`` in command line.
 
     :param val: value to set xabs to
     """
@@ -768,8 +768,8 @@ class CurveQuery:
 
     X axis data type, default is degree180, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
 
-    Known as -x in command line.
-    Also known as --xaxis in command line.
+    Known as ``-x`` in command line.
+    Also known as ``--xaxis`` in command line.
 
     :param val: value to set xaxis to
     """
@@ -789,7 +789,7 @@ class CurveQuery:
 
     X axis data type, default is degree180, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
 
-    Known as --xaxis in command line.
+    Known as ``--xaxis`` in command line.
 
     :param val: value to set xaxis to
     """
@@ -808,7 +808,7 @@ class CurveQuery:
 
     X axis is log
 
-    Known as --xlog in command line.
+    Known as ``--xlog`` in command line.
 
     :param val: value to set xlog to
     """
@@ -827,7 +827,7 @@ class CurveQuery:
 
     min and max x axis for plotting
 
-    Known as --xminmax in command line.
+    Known as ``--xminmax`` in command line.
 
     :param val: value to set xminmax to
     """
@@ -846,7 +846,7 @@ class CurveQuery:
 
     Y axis is absolute value
 
-    Known as --yabs in command line.
+    Known as ``--yabs`` in command line.
 
     :param val: value to set yabs to
     """
@@ -866,8 +866,8 @@ class CurveQuery:
 
     Y axis data type, default is time, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
 
-    Known as -y in command line.
-    Also known as --yaxis in command line.
+    Known as ``-y`` in command line.
+    Also known as ``--yaxis`` in command line.
 
     :param val: value to set yaxis to
     """
@@ -887,7 +887,7 @@ class CurveQuery:
 
     Y axis data type, default is time, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, amp, amppsv, ampsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh
 
-    Known as --yaxis in command line.
+    Known as ``--yaxis`` in command line.
 
     :param val: value to set yaxis to
     """
@@ -906,7 +906,7 @@ class CurveQuery:
 
     Y axis is log
 
-    Known as --ylog in command line.
+    Known as ``--ylog`` in command line.
 
     :param val: value to set ylog to
     """
@@ -925,7 +925,7 @@ class CurveQuery:
 
     min and max y axis for plotting
 
-    Known as --yminmax in command line.
+    Known as ``--yminmax`` in command line.
 
     :param val: value to set yminmax to
     """

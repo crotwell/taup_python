@@ -64,7 +64,7 @@ class DistazQuery:
 
     azimuth in degrees, source to receiver
 
-    Known as --az in command line.
+    Known as ``--az`` in command line.
 
     :param val: value to set az to
     """
@@ -83,7 +83,7 @@ class DistazQuery:
 
     backazimuth in degrees, receiver to source
 
-    Known as --baz in command line.
+    Known as ``--baz`` in command line.
 
     :param val: value to set baz to
     """
@@ -107,8 +107,8 @@ class DistazQuery:
 
     distance in degrees
 
-    Known as --deg in command line.
-    Also known as --degree in command line.
+    Known as ``--deg`` in command line.
+    Also known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -124,8 +124,8 @@ class DistazQuery:
 
     distance in degrees
 
-    Known as --deg in command line.
-    Also known as --degree in command line.
+    Known as ``--deg`` in command line.
+    Also known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -149,7 +149,7 @@ class DistazQuery:
 
     distance in degrees
 
-    Known as --degree in command line.
+    Known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -165,7 +165,7 @@ class DistazQuery:
 
     distance in degrees
 
-    Known as --degree in command line.
+    Known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -185,7 +185,7 @@ class DistazQuery:
 
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
 
-    Known as --degreerange in command line.
+    Known as ``--degreerange`` in command line.
 
     :param val: value to set degreerange to
     """
@@ -201,7 +201,7 @@ class DistazQuery:
 
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
 
-    Known as --degreerange in command line.
+    Known as ``--degreerange`` in command line.
 
     :param val: value to set degreerange to
     """
@@ -220,8 +220,8 @@ class DistazQuery:
 
     event latitude and longitude.  Creates a distance if station is also given.
 
-    Known as --evt in command line.
-    Also known as --event in command line.
+    Known as ``--evt`` in command line.
+    Also known as ``--event`` in command line.
 
     :param val: value to set event to
     """
@@ -234,8 +234,8 @@ class DistazQuery:
 
     event latitude and longitude.  Creates a distance if station is also given.
 
-    Known as --evt in command line.
-    Also known as --event in command line.
+    Known as ``--evt`` in command line.
+    Also known as ``--event`` in command line.
 
     :param val: value to set event to
     """
@@ -254,7 +254,7 @@ class DistazQuery:
 
     event latitude and longitude.  Creates a distance if station is also given.
 
-    Known as --event in command line.
+    Known as ``--event`` in command line.
 
     :param val: value to set event to
     """
@@ -267,7 +267,7 @@ class DistazQuery:
 
     event latitude and longitude.  Creates a distance if station is also given.
 
-    Known as --event in command line.
+    Known as ``--event`` in command line.
 
     :param val: value to set event to
     """
@@ -286,7 +286,7 @@ class DistazQuery:
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
-    Known as --geodetic in command line.
+    Known as ``--geodetic`` in command line.
 
     :param val: value to set geodetic to
     """
@@ -305,7 +305,7 @@ class DistazQuery:
 
     Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
 
-    Known as --geodeticflattening in command line.
+    Known as ``--geodeticflattening`` in command line.
 
     :param val: value to set geodeticflattening to
     """
@@ -329,8 +329,8 @@ class DistazQuery:
 
     distance in kilometers along surface.
 
-    Known as --km in command line.
-    Also known as --kilometer in command line.
+    Known as ``--km`` in command line.
+    Also known as ``--kilometer`` in command line.
 
     :param val: value to set kilometer to
     """
@@ -346,8 +346,8 @@ class DistazQuery:
 
     distance in kilometers along surface.
 
-    Known as --km in command line.
-    Also known as --kilometer in command line.
+    Known as ``--km`` in command line.
+    Also known as ``--kilometer`` in command line.
 
     :param val: value to set kilometer to
     """
@@ -371,7 +371,7 @@ class DistazQuery:
 
     distance in kilometers along surface.
 
-    Known as --kilometer in command line.
+    Known as ``--kilometer`` in command line.
 
     :param val: value to set kilometer to
     """
@@ -387,7 +387,7 @@ class DistazQuery:
 
     distance in kilometers along surface.
 
-    Known as --kilometer in command line.
+    Known as ``--kilometer`` in command line.
 
     :param val: value to set kilometer to
     """
@@ -407,7 +407,7 @@ class DistazQuery:
 
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
 
-    Known as --kilometerrange in command line.
+    Known as ``--kilometerrange`` in command line.
 
     :param val: value to set kilometerrange to
     """
@@ -423,7 +423,7 @@ class DistazQuery:
 
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
 
-    Known as --kilometerrange in command line.
+    Known as ``--kilometerrange`` in command line.
 
     :param val: value to set kilometerrange to
     """
@@ -442,8 +442,8 @@ class DistazQuery:
 
     use velocity model "modelName" for radius, used when distance given in km.
 
-    Known as --mod in command line.
-    Also known as --model in command line.
+    Known as ``--mod`` in command line.
+    Also known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -462,7 +462,7 @@ class DistazQuery:
 
     use velocity model "modelName" for radius, used when distance given in km.
 
-    Known as --model in command line.
+    Known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -481,7 +481,7 @@ class DistazQuery:
 
     radius of earth in km, used when distance given in km
 
-    Known as --radius in command line.
+    Known as ``--radius`` in command line.
 
     :param val: value to set radius to
     """
@@ -500,8 +500,8 @@ class DistazQuery:
 
     station latitude and longitude. Creates a distance if event is also given.
 
-    Known as --sta in command line.
-    Also known as --station in command line.
+    Known as ``--sta`` in command line.
+    Also known as ``--station`` in command line.
 
     :param val: value to set station to
     """
@@ -514,8 +514,8 @@ class DistazQuery:
 
     station latitude and longitude. Creates a distance if event is also given.
 
-    Known as --sta in command line.
-    Also known as --station in command line.
+    Known as ``--sta`` in command line.
+    Also known as ``--station`` in command line.
 
     :param val: value to set station to
     """
@@ -534,7 +534,7 @@ class DistazQuery:
 
     station latitude and longitude. Creates a distance if event is also given.
 
-    Known as --station in command line.
+    Known as ``--station`` in command line.
 
     :param val: value to set station to
     """
@@ -547,7 +547,7 @@ class DistazQuery:
 
     station latitude and longitude. Creates a distance if event is also given.
 
-    Known as --station in command line.
+    Known as ``--station`` in command line.
 
     :param val: value to set station to
     """

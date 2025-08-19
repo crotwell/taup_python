@@ -83,7 +83,7 @@ class RefltransQuery:
 
     absolute value of amplitude factor
 
-    Known as --abs in command line.
+    Known as ``--abs`` in command line.
 
     :param val: value to set abs to
     """
@@ -102,7 +102,7 @@ class RefltransQuery:
 
     all angle coefficients, like TpAngle
 
-    Known as --angles in command line.
+    Known as ``--angles`` in command line.
 
     :param val: value to set angles to
     """
@@ -121,7 +121,7 @@ class RefltransQuery:
 
     step in degrees when x is degrees
 
-    Known as --anglestep in command line.
+    Known as ``--anglestep`` in command line.
 
     :param val: value to set anglestep to
     """
@@ -140,7 +140,7 @@ class RefltransQuery:
 
     Depth in model to get boundary parameters, may be number or name like moho.
 
-    Known as --depth in command line.
+    Known as ``--depth`` in command line.
 
     :param val: value to set depth to
     """
@@ -159,7 +159,7 @@ class RefltransQuery:
 
     incident is downgoing
 
-    Known as --down in command line.
+    Known as ``--down`` in command line.
 
     :param val: value to set down to
     """
@@ -178,7 +178,7 @@ class RefltransQuery:
 
     all energy flux coefficients, like TppEnergy
 
-    Known as --energyflux in command line.
+    Known as ``--energyflux`` in command line.
 
     :param val: value to set energyflux to
     """
@@ -197,7 +197,7 @@ class RefltransQuery:
 
     all free surface receiver functions, like FreeRecFuncPz
 
-    Known as --fsrf in command line.
+    Known as ``--fsrf`` in command line.
 
     :param val: value to set fsrf to
     """
@@ -216,7 +216,7 @@ class RefltransQuery:
 
     inbound and transmitted layer parameters, vp, vs, rho, vp, vs, rho
 
-    Known as --layer in command line.
+    Known as ``--layer`` in command line.
 
     :param val: value to set layer to
     """
@@ -235,7 +235,7 @@ class RefltransQuery:
 
     create a legend
 
-    Known as --legend in command line.
+    Known as ``--legend`` in command line.
 
     :param val: value to set legend to
     """
@@ -254,7 +254,7 @@ class RefltransQuery:
 
     plot width in units from --mapwidthunit.
 
-    Known as --mapwidth in command line.
+    Known as ``--mapwidth`` in command line.
 
     :param val: value to set mapwidth to
     """
@@ -273,7 +273,7 @@ class RefltransQuery:
 
     plot width unit, i for inch, c for cm or p for px.
 
-    Known as --mapwidthunit in command line.
+    Known as ``--mapwidthunit`` in command line.
 
     :param val: value to set mapwidthunit to
     """
@@ -293,8 +293,8 @@ class RefltransQuery:
     use velocity model "modelName" for calculations.
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
 
-    Known as --mod in command line.
-    Also known as --model in command line.
+    Known as ``--mod`` in command line.
+    Also known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -314,7 +314,7 @@ class RefltransQuery:
     use velocity model "modelName" for calculations.
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
 
-    Known as --model in command line.
+    Known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -333,7 +333,7 @@ class RefltransQuery:
 
     incident P wave
 
-    Known as --pwave in command line.
+    Known as ``--pwave`` in command line.
 
     :param val: value to set pwave to
     """
@@ -357,8 +357,8 @@ class RefltransQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --stadepth in command line.
-    Also known as --receiverdepth in command line.
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -374,8 +374,8 @@ class RefltransQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --stadepth in command line.
-    Also known as --receiverdepth in command line.
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -399,7 +399,7 @@ class RefltransQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --receiverdepth in command line.
+    Known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -415,7 +415,7 @@ class RefltransQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --receiverdepth in command line.
+    Known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -434,7 +434,7 @@ class RefltransQuery:
 
     step in ray param when x is ray param
 
-    Known as --rpstep in command line.
+    Known as ``--rpstep`` in command line.
 
     :param val: value to set rpstep to
     """
@@ -453,8 +453,8 @@ class RefltransQuery:
 
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
 
-    Known as --scat in command line.
-    Also known as --scatter in command line.
+    Known as ``--scat`` in command line.
+    Also known as ``--scatter`` in command line.
 
     :param val: value to set scatter to
     """
@@ -473,7 +473,7 @@ class RefltransQuery:
 
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
 
-    Known as --scatter in command line.
+    Known as ``--scatter`` in command line.
 
     :param val: value to set scatter to
     """
@@ -492,7 +492,7 @@ class RefltransQuery:
 
     incident SH wave
 
-    Known as --shwave in command line.
+    Known as ``--shwave`` in command line.
 
     :param val: value to set shwave to
     """
@@ -516,8 +516,8 @@ class RefltransQuery:
 
     source depth in km
 
-    Known as -h in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``-h`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -533,8 +533,8 @@ class RefltransQuery:
 
     source depth in km
 
-    Known as -h in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``-h`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -558,7 +558,7 @@ class RefltransQuery:
 
     source depth in km
 
-    Known as --sourcedepth in command line.
+    Known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -574,7 +574,7 @@ class RefltransQuery:
 
     source depth in km
 
-    Known as --sourcedepth in command line.
+    Known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -598,8 +598,8 @@ class RefltransQuery:
 
     source depth in km
 
-    Known as --evdepth in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``--evdepth`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -615,8 +615,8 @@ class RefltransQuery:
 
     source depth in km
 
-    Known as --evdepth in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``--evdepth`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -635,7 +635,7 @@ class RefltransQuery:
 
     incident S wave
 
-    Known as --swave in command line.
+    Known as ``--swave`` in command line.
 
     :param val: value to set swave to
     """
@@ -654,7 +654,7 @@ class RefltransQuery:
 
     incident is upgoing, reverses the sense of the boundary
 
-    Known as --up in command line.
+    Known as ``--up`` in command line.
 
     :param val: value to set up to
     """
@@ -673,7 +673,7 @@ class RefltransQuery:
 
     min and max x axis for plotting
 
-    Known as --xminmax in command line.
+    Known as ``--xminmax`` in command line.
 
     :param val: value to set xminmax to
     """
@@ -692,7 +692,7 @@ class RefltransQuery:
 
     min and max y axis for plotting
 
-    Known as --yminmax in command line.
+    Known as ``--yminmax`` in command line.
 
     :param val: value to set yminmax to
     """
@@ -712,7 +712,7 @@ class RefltransQuery:
 
     X axis data type, one of degree, rayparam, default is degree
 
-    Known as -x in command line.
+    Known as ``-x`` in command line.
 
     :param val: value to set x to
     """
@@ -732,7 +732,7 @@ class RefltransQuery:
 
     Y axis data type, one or more of Rpp, Rps, Rsp, Rss, Tpp, Tps, Tsp, Tss, Rshsh, Tshsh, RppEnergy, TppEnergy, RpsEnergy, TpsEnergy, RspEnergy, TspEnergy, RssEnergy, TssEnergy, RshshEnergy, TshshEnergy, RpAngle, RsAngle, TpAngle, TsAngle, FreeRecFuncPr, FreeRecFuncSvr, FreeRecFuncPz, FreeRecFuncSvz, FreeRecFuncSh, default is all displacement coef.
 
-    Known as -y in command line.
+    Known as ``-y`` in command line.
 
     :param val: value to set y to
     """
@@ -749,7 +749,7 @@ class RefltransQuery:
 
     Y axis data type, one or more of Rpp, Rps, Rsp, Rss, Tpp, Tps, Tsp, Tss, Rshsh, Tshsh, RppEnergy, TppEnergy, RpsEnergy, TpsEnergy, RspEnergy, TspEnergy, RssEnergy, TssEnergy, RshshEnergy, TshshEnergy, RpAngle, RsAngle, TpAngle, TsAngle, FreeRecFuncPr, FreeRecFuncSvr, FreeRecFuncPz, FreeRecFuncSvz, FreeRecFuncSh, default is all displacement coef.
 
-    Known as -y in command line.
+    Known as ``-y`` in command line.
 
     :param val: value to set y to
     """

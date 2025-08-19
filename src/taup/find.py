@@ -73,7 +73,7 @@ class FindQuery:
 
     show amplitude factor for each phase
 
-    Known as --amp in command line.
+    Known as ``--amp`` in command line.
 
     :param val: value to set amp to
     """
@@ -92,7 +92,7 @@ class FindQuery:
 
     attenuation frequency for amplitude calculations, default is 1.0
 
-    Known as --attenuationfreq in command line.
+    Known as ``--attenuationfreq`` in command line.
 
     :param val: value to set attenuationfreq to
     """
@@ -111,7 +111,7 @@ class FindQuery:
 
     azimuth in degrees, for amp calculations
 
-    Known as --az in command line.
+    Known as ``--az`` in command line.
 
     :param val: value to set az to
     """
@@ -135,8 +135,8 @@ class FindQuery:
 
     distance in degrees
 
-    Known as --deg in command line.
-    Also known as --degree in command line.
+    Known as ``--deg`` in command line.
+    Also known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -152,8 +152,8 @@ class FindQuery:
 
     distance in degrees
 
-    Known as --deg in command line.
-    Also known as --degree in command line.
+    Known as ``--deg`` in command line.
+    Also known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -177,7 +177,7 @@ class FindQuery:
 
     distance in degrees
 
-    Known as --degree in command line.
+    Known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -193,7 +193,7 @@ class FindQuery:
 
     distance in degrees
 
-    Known as --degree in command line.
+    Known as ``--degree`` in command line.
 
     :param val: value to set degree to
     """
@@ -212,7 +212,7 @@ class FindQuery:
 
     find arrivals within the +- deltatime, --times must have single time
 
-    Known as --deltatime in command line.
+    Known as ``--deltatime`` in command line.
 
     :param val: value to set deltatime to
     """
@@ -232,7 +232,7 @@ class FindQuery:
     Exclude boundaries from phase conversion or reflection interactions
     May be depth (within tol) or named boundary like moho, cmb, iocb
 
-    Known as --exclude in command line.
+    Known as ``--exclude`` in command line.
 
     :param val: value to set exclude to
     """
@@ -249,7 +249,7 @@ class FindQuery:
     Exclude boundaries from phase conversion or reflection interactions
     May be depth (within tol) or named boundary like moho, cmb, iocb
 
-    Known as --exclude in command line.
+    Known as ``--exclude`` in command line.
 
     :param val: value to set exclude to
     """
@@ -268,7 +268,7 @@ class FindQuery:
 
     Maximum number of reflections and phase conversion
 
-    Known as --max in command line.
+    Known as ``--max`` in command line.
 
     :param val: value to set max to
     """
@@ -288,8 +288,8 @@ class FindQuery:
     use velocity model "modelName" for calculations.
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
 
-    Known as --mod in command line.
-    Also known as --model in command line.
+    Known as ``--mod`` in command line.
+    Also known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -309,7 +309,7 @@ class FindQuery:
     use velocity model "modelName" for calculations.
     Default is iasp91. Other builtin models include prem, ak135, ak135fcont, and ak135favg.
 
-    Known as --model in command line.
+    Known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -328,7 +328,7 @@ class FindQuery:
 
     scale amplitude by source moment magnitude, default is 4.0
 
-    Known as --mw in command line.
+    Known as ``--mw`` in command line.
 
     :param val: value to set mw to
     """
@@ -347,7 +347,7 @@ class FindQuery:
 
     number attenuation frequencies for amplitude calculations, default is 64
 
-    Known as --numattenuationfreq in command line.
+    Known as ``--numattenuationfreq`` in command line.
 
     :param val: value to set numattenuationfreq to
     """
@@ -366,7 +366,7 @@ class FindQuery:
 
     only interact with named discontinuities like moho, cmb, iocb
 
-    Known as --onlynameddiscon in command line.
+    Known as ``--onlynameddiscon`` in command line.
 
     :param val: value to set onlynameddiscon to
     """
@@ -390,8 +390,8 @@ class FindQuery:
 
     seismic phase names
 
-    Known as -p in command line.
-    Also known as --phase in command line.
+    Known as ``-p`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -407,8 +407,8 @@ class FindQuery:
 
     seismic phase names
 
-    Known as -p in command line.
-    Also known as --phase in command line.
+    Known as ``-p`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -432,7 +432,7 @@ class FindQuery:
 
     seismic phase names
 
-    Known as --phase in command line.
+    Known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -448,7 +448,7 @@ class FindQuery:
 
     seismic phase names
 
-    Known as --phase in command line.
+    Known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -472,8 +472,8 @@ class FindQuery:
 
     seismic phase names
 
-    Known as --ph in command line.
-    Also known as --phase in command line.
+    Known as ``--ph`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -489,8 +489,8 @@ class FindQuery:
 
     seismic phase names
 
-    Known as --ph in command line.
-    Also known as --phase in command line.
+    Known as ``--ph`` in command line.
+    Also known as ``--phase`` in command line.
 
     :param val: value to set phase to
     """
@@ -509,7 +509,7 @@ class FindQuery:
 
     only P wave legs, no S
 
-    Known as --pwaveonly in command line.
+    Known as ``--pwaveonly`` in command line.
 
     :param val: value to set pwaveonly to
     """
@@ -528,7 +528,7 @@ class FindQuery:
 
     only keep phases that overlap the given ray parameter range in s/deg
 
-    Known as --rayparamdeg in command line.
+    Known as ``--rayparamdeg`` in command line.
 
     :param val: value to set rayparamdeg to
     """
@@ -547,7 +547,7 @@ class FindQuery:
 
     only keep phases that overlap the given ray parameter range in s/km
 
-    Known as --rayparamkm in command line.
+    Known as ``--rayparamkm`` in command line.
 
     :param val: value to set rayparamkm to
     """
@@ -571,8 +571,8 @@ class FindQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --stadepth in command line.
-    Also known as --receiverdepth in command line.
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -588,8 +588,8 @@ class FindQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --stadepth in command line.
-    Also known as --receiverdepth in command line.
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -613,7 +613,7 @@ class FindQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --receiverdepth in command line.
+    Known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -629,7 +629,7 @@ class FindQuery:
 
     the receiver depth in km for stations not at the surface
 
-    Known as --receiverdepth in command line.
+    Known as ``--receiverdepth`` in command line.
 
     :param val: value to set receiverdepth to
     """
@@ -648,8 +648,8 @@ class FindQuery:
 
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
 
-    Known as --scat in command line.
-    Also known as --scatter in command line.
+    Known as ``--scat`` in command line.
+    Also known as ``--scatter`` in command line.
 
     :param val: value to set scatter to
     """
@@ -668,7 +668,7 @@ class FindQuery:
 
     scattering depth and distance in degrees, which may be negative. Only effects phases with 'o' or 'O' in the phase name.
 
-    Known as --scatter in command line.
+    Known as ``--scatter`` in command line.
 
     :param val: value to set scatter to
     """
@@ -687,7 +687,7 @@ class FindQuery:
 
     show min and max ray parameter for each phase name
 
-    Known as --showrayparam in command line.
+    Known as ``--showrayparam`` in command line.
 
     :param val: value to set showrayparam to
     """
@@ -711,8 +711,8 @@ class FindQuery:
 
     source depth in km
 
-    Known as -h in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``-h`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -728,8 +728,8 @@ class FindQuery:
 
     source depth in km
 
-    Known as -h in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``-h`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -753,7 +753,7 @@ class FindQuery:
 
     source depth in km
 
-    Known as --sourcedepth in command line.
+    Known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -769,7 +769,7 @@ class FindQuery:
 
     source depth in km
 
-    Known as --sourcedepth in command line.
+    Known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -793,8 +793,8 @@ class FindQuery:
 
     source depth in km
 
-    Known as --evdepth in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``--evdepth`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -810,8 +810,8 @@ class FindQuery:
 
     source depth in km
 
-    Known as --evdepth in command line.
-    Also known as --sourcedepth in command line.
+    Known as ``--evdepth`` in command line.
+    Also known as ``--sourcedepth`` in command line.
 
     :param val: value to set sourcedepth to
     """
@@ -830,7 +830,7 @@ class FindQuery:
 
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
 
-    Known as --strikediprake in command line.
+    Known as ``--strikediprake`` in command line.
 
     :param val: value to set strikediprake to
     """
@@ -846,7 +846,7 @@ class FindQuery:
 
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
 
-    Known as --strikediprake in command line.
+    Known as ``--strikediprake`` in command line.
 
     :param val: value to set strikediprake to
     """
@@ -865,7 +865,7 @@ class FindQuery:
 
     only S wave legs, no P
 
-    Known as --swaveonly in command line.
+    Known as ``--swaveonly`` in command line.
 
     :param val: value to set swaveonly to
     """
@@ -884,7 +884,7 @@ class FindQuery:
 
     find arrivals within the given range
 
-    Known as --time in command line.
+    Known as ``--time`` in command line.
 
     :param val: value to set time to
     """
@@ -900,7 +900,7 @@ class FindQuery:
 
     find arrivals within the given range
 
-    Known as --time in command line.
+    Known as ``--time`` in command line.
 
     :param val: value to set time to
     """

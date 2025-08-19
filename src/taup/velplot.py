@@ -83,7 +83,7 @@ class VelplotQuery:
 
     create a legend
 
-    Known as --legend in command line.
+    Known as ``--legend`` in command line.
 
     :param val: value to set legend to
     """
@@ -102,7 +102,7 @@ class VelplotQuery:
 
     plot width in units from --mapwidthunit.
 
-    Known as --mapwidth in command line.
+    Known as ``--mapwidth`` in command line.
 
     :param val: value to set mapwidth to
     """
@@ -121,7 +121,7 @@ class VelplotQuery:
 
     plot width unit, i for inch, c for cm or p for px.
 
-    Known as --mapwidthunit in command line.
+    Known as ``--mapwidthunit`` in command line.
 
     :param val: value to set mapwidthunit to
     """
@@ -145,8 +145,8 @@ class VelplotQuery:
 
     use velocity model "modelname" for calculations, format is guessed.
 
-    Known as --mod in command line.
-    Also known as --model in command line.
+    Known as ``--mod`` in command line.
+    Also known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -162,8 +162,8 @@ class VelplotQuery:
 
     use velocity model "modelname" for calculations, format is guessed.
 
-    Known as --mod in command line.
-    Also known as --model in command line.
+    Known as ``--mod`` in command line.
+    Also known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -187,7 +187,7 @@ class VelplotQuery:
 
     use velocity model "modelname" for calculations, format is guessed.
 
-    Known as --model in command line.
+    Known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -203,7 +203,7 @@ class VelplotQuery:
 
     use velocity model "modelname" for calculations, format is guessed.
 
-    Known as --model in command line.
+    Known as ``--model`` in command line.
 
     :param val: value to set model to
     """
@@ -224,8 +224,8 @@ class VelplotQuery:
     X axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is velocity.
 
-    Known as -x in command line.
-    Also known as --xaxis in command line.
+    Known as ``-x`` in command line.
+    Also known as ``--xaxis`` in command line.
 
     :param val: value to set xaxis to
     """
@@ -246,7 +246,7 @@ class VelplotQuery:
     X axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is velocity.
 
-    Known as --xaxis in command line.
+    Known as ``--xaxis`` in command line.
 
     :param val: value to set xaxis to
     """
@@ -265,7 +265,7 @@ class VelplotQuery:
 
     min and max x axis for plotting
 
-    Known as --xminmax in command line.
+    Known as ``--xminmax`` in command line.
 
     :param val: value to set xminmax to
     """
@@ -286,8 +286,8 @@ class VelplotQuery:
     Y axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is depth.
 
-    Known as -y in command line.
-    Also known as --yaxis in command line.
+    Known as ``-y`` in command line.
+    Also known as ``--yaxis`` in command line.
 
     :param val: value to set yaxis to
     """
@@ -308,7 +308,7 @@ class VelplotQuery:
     Y axis data type, one of depth, radius, velocity, Vp, Vs, slownessdeg, slownessdeg_p, slownessdeg_s, slownessrad, slownessrad_p, slownessrad_s, density, velocity_density, Qp, Qs, Q, vpvs, vpdensity, vsdensity, poisson, shearmodulus, lambda, bulkmodulus, youngsmodulus
     Default is depth.
 
-    Known as --yaxis in command line.
+    Known as ``--yaxis`` in command line.
 
     :param val: value to set yaxis to
     """
@@ -327,7 +327,7 @@ class VelplotQuery:
 
     min and max y axis for plotting
 
-    Known as --yminmax in command line.
+    Known as ``--yminmax`` in command line.
 
     :param val: value to set yminmax to
     """
