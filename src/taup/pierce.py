@@ -204,12 +204,7 @@ class PierceQuery:
 
   def andDeg(self, val):
     """
-    Sets the degree parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.deg( value )
-    and
-    params.deg( [ value ] )
-    are equivalent.
+    Append a value to the degree parameter,  of type Double
 
     distance in degrees
 
@@ -250,12 +245,7 @@ class PierceQuery:
 
   def andDegree(self, val):
     """
-    Sets the degree parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.degree( value )
-    and
-    params.degree( [ value ] )
-    are equivalent.
+    Append a value to the degree parameter,  of type Double
 
     distance in degrees
 
@@ -291,8 +281,7 @@ class PierceQuery:
 
   def andDegreerange(self, val):
     """
-    Sets the degreerange parameter, of type List of Double
-    step or min,max or min,max,step
+    Append a value to the degreerange parameter,  of type Double
 
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
 
@@ -398,12 +387,7 @@ class PierceQuery:
 
   def andExactdegree(self, val):
     """
-    Sets the exactdegree parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.exactdegree( value )
-    and
-    params.exactdegree( [ value ] )
-    are equivalent.
+    Append a value to the exactdegree parameter,  of type Double
 
     exact distance traveled in degrees, not 360-d
 
@@ -439,8 +423,7 @@ class PierceQuery:
 
   def andExactdegreerange(self, val):
     """
-    Sets the exactdegreerange parameter, of type List of Double
-    step or min,max or min,max,step
+    Append a value to the exactdegreerange parameter,  of type Double
 
     regular distance range in exact degrees, not 360-deg, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
 
@@ -480,12 +463,7 @@ class PierceQuery:
 
   def andExactkilometer(self, val):
     """
-    Sets the exactkilometer parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.exactkilometer( value )
-    and
-    params.exactkilometer( [ value ] )
-    are equivalent.
+    Append a value to the exactkilometer parameter,  of type Double
 
     exact distance traveled in kilometers, not 360-k
 
@@ -521,8 +499,7 @@ class PierceQuery:
 
   def andExactkilometerrange(self, val):
     """
-    Sets the exactkilometerrange parameter, of type List of Double
-    step or min,max or min,max,step
+    Append a value to the exactkilometerrange parameter,  of type Double
 
     regular distance range in kilometers, not 360-k, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
 
@@ -600,12 +577,7 @@ class PierceQuery:
 
   def andIncident(self, val):
     """
-    Sets the incident parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.incident( value )
-    and
-    params.incident( [ value ] )
-    are equivalent.
+    Append a value to the incident parameter,  of type Double
 
     incident angle in degrees at the receiver, zero is down, 90 horizontal, 180 is up.
 
@@ -641,8 +613,7 @@ class PierceQuery:
 
   def andIncidentrange(self, val):
     """
-    Sets the incidentrange parameter, of type List of Double
-    step or min,max or min,max,step
+    Append a value to the incidentrange parameter,  of type Double
 
     regular range in incident angle in degrees, one of step; min max or min max step. Default min is 0 and step is 10.
 
@@ -683,12 +654,7 @@ class PierceQuery:
 
   def andKm(self, val):
     """
-    Sets the kilometer parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.km( value )
-    and
-    params.km( [ value ] )
-    are equivalent.
+    Append a value to the kilometer parameter,  of type Double
 
     distance in kilometers along surface.
 
@@ -729,12 +695,7 @@ class PierceQuery:
 
   def andKilometer(self, val):
     """
-    Sets the kilometer parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.kilometer( value )
-    and
-    params.kilometer( [ value ] )
-    are equivalent.
+    Append a value to the kilometer parameter,  of type Double
 
     distance in kilometers along surface.
 
@@ -770,8 +731,7 @@ class PierceQuery:
 
   def andKilometerrange(self, val):
     """
-    Sets the kilometerrange parameter, of type List of Double
-    step or min,max or min,max,step
+    Append a value to the kilometerrange parameter,  of type Double
 
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
 
@@ -949,12 +909,7 @@ class PierceQuery:
 
   def andP(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.p( value )
-    and
-    params.p( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -995,12 +950,7 @@ class PierceQuery:
 
   def andPhase(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.phase( value )
-    and
-    params.phase( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -1041,12 +991,7 @@ class PierceQuery:
 
   def andPh(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.ph( value )
-    and
-    params.ph( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -1087,12 +1032,7 @@ class PierceQuery:
 
   def andPierce(self, val):
     """
-    Sets the pierce parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.pierce( value )
-    and
-    params.pierce( [ value ] )
-    are equivalent.
+    Append a value to the pierce parameter,  of type Double
 
     additional depth for calculating pierce points
 
@@ -1132,12 +1072,7 @@ class PierceQuery:
 
   def andRayparamdeg(self, val):
     """
-    Sets the rayparamdeg parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.rayparamdeg( value )
-    and
-    params.rayparamdeg( [ value ] )
-    are equivalent.
+    Append a value to the rayparamdeg parameter,  of type Double
 
     ray parameter from the source in s/deg, up or down is determined by the phase
 
@@ -1177,12 +1112,7 @@ class PierceQuery:
 
   def andRayparamidx(self, val):
     """
-    Sets the rayparamidx parameter, of type List of Integer
-    If a single Integer is passed in, it is automatically wrapped in a list. So
-    params.rayparamidx( value )
-    and
-    params.rayparamidx( [ value ] )
-    are equivalent.
+    Append a value to the rayparamidx parameter,  of type Integer
 
     ray parameter from the source as index into model sampling, up or down is determined by the phase
 
@@ -1222,12 +1152,7 @@ class PierceQuery:
 
   def andRayparamkm(self, val):
     """
-    Sets the rayparamkm parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.rayparamkm( value )
-    and
-    params.rayparamkm( [ value ] )
-    are equivalent.
+    Append a value to the rayparamkm parameter,  of type Double
 
     ray parameter from the source in s/km, up or down is determined by the phase
 
@@ -1267,12 +1192,7 @@ class PierceQuery:
 
   def andRayparamrad(self, val):
     """
-    Sets the rayparamrad parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.rayparamrad( value )
-    and
-    params.rayparamrad( [ value ] )
-    are equivalent.
+    Append a value to the rayparamrad parameter,  of type Double
 
     ray parameter from the source in s/rad, up or down is determined by the phase
 
@@ -1313,12 +1233,7 @@ class PierceQuery:
 
   def andStadepth(self, val):
     """
-    Sets the receiverdepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.stadepth( value )
-    and
-    params.stadepth( [ value ] )
-    are equivalent.
+    Append a value to the receiverdepth parameter,  of type Double
 
     the receiver depth in km for stations not at the surface
 
@@ -1359,12 +1274,7 @@ class PierceQuery:
 
   def andReceiverdepth(self, val):
     """
-    Sets the receiverdepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.receiverdepth( value )
-    and
-    params.receiverdepth( [ value ] )
-    are equivalent.
+    Append a value to the receiverdepth parameter,  of type Double
 
     the receiver depth in km for stations not at the surface
 
@@ -1463,12 +1373,7 @@ class PierceQuery:
 
   def andH(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.h( value )
-    and
-    params.h( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -1509,12 +1414,7 @@ class PierceQuery:
 
   def andSourcedepth(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.sourcedepth( value )
-    and
-    params.sourcedepth( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -1555,12 +1455,7 @@ class PierceQuery:
 
   def andEvdepth(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.evdepth( value )
-    and
-    params.evdepth( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -1662,7 +1557,7 @@ class PierceQuery:
 
   def andStrikediprake(self, val):
     """
-    Sets the strikediprake parameter, of type List of Float
+    Append a value to the strikediprake parameter,  of type Float
 
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
 
@@ -1702,12 +1597,7 @@ class PierceQuery:
 
   def andTakeoff(self, val):
     """
-    Sets the takeoff parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.takeoff( value )
-    and
-    params.takeoff( [ value ] )
-    are equivalent.
+    Append a value to the takeoff parameter,  of type Double
 
     takeoff angle in degrees from the source, zero is down, 90 horizontal, 180 is up.
 
@@ -1743,8 +1633,7 @@ class PierceQuery:
 
   def andTakeoffrange(self, val):
     """
-    Sets the takeoffrange parameter, of type List of Double
-    step or min,max or min,max,step
+    Append a value to the takeoffrange parameter,  of type Double
 
     regular range in takeoff angle in degrees, one of step; min,max or min,max,step. Default min is 0 and step is 10.
 

@@ -297,12 +297,7 @@ class WavefrontQuery:
 
   def andP(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.p( value )
-    and
-    params.p( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -343,12 +338,7 @@ class WavefrontQuery:
 
   def andPhase(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.phase( value )
-    and
-    params.phase( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -389,12 +379,7 @@ class WavefrontQuery:
 
   def andPh(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.ph( value )
-    and
-    params.ph( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -436,12 +421,7 @@ class WavefrontQuery:
 
   def andStadepth(self, val):
     """
-    Sets the receiverdepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.stadepth( value )
-    and
-    params.stadepth( [ value ] )
-    are equivalent.
+    Append a value to the receiverdepth parameter,  of type Double
 
     the receiver depth in km for stations not at the surface
 
@@ -482,12 +462,7 @@ class WavefrontQuery:
 
   def andReceiverdepth(self, val):
     """
-    Sets the receiverdepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.receiverdepth( value )
-    and
-    params.receiverdepth( [ value ] )
-    are equivalent.
+    Append a value to the receiverdepth parameter,  of type Double
 
     the receiver depth in km for stations not at the surface
 
@@ -567,12 +542,7 @@ class WavefrontQuery:
 
   def andH(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.h( value )
-    and
-    params.h( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -613,12 +583,7 @@ class WavefrontQuery:
 
   def andSourcedepth(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.sourcedepth( value )
-    and
-    params.sourcedepth( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -659,12 +624,7 @@ class WavefrontQuery:
 
   def andEvdepth(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.evdepth( value )
-    and
-    params.evdepth( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 

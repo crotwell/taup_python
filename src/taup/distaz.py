@@ -120,12 +120,7 @@ class DistazQuery:
 
   def andDeg(self, val):
     """
-    Sets the degree parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.deg( value )
-    and
-    params.deg( [ value ] )
-    are equivalent.
+    Append a value to the degree parameter,  of type Double
 
     distance in degrees
 
@@ -166,12 +161,7 @@ class DistazQuery:
 
   def andDegree(self, val):
     """
-    Sets the degree parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.degree( value )
-    and
-    params.degree( [ value ] )
-    are equivalent.
+    Append a value to the degree parameter,  of type Double
 
     distance in degrees
 
@@ -207,8 +197,7 @@ class DistazQuery:
 
   def andDegreerange(self, val):
     """
-    Sets the degreerange parameter, of type List of Double
-    step or min,max or min,max,step
+    Append a value to the degreerange parameter,  of type Double
 
     regular distance range in degrees, one of step; min max or min max step. Default min is 0, max is 180 and step is 10.
 
@@ -353,12 +342,7 @@ class DistazQuery:
 
   def andKm(self, val):
     """
-    Sets the kilometer parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.km( value )
-    and
-    params.km( [ value ] )
-    are equivalent.
+    Append a value to the kilometer parameter,  of type Double
 
     distance in kilometers along surface.
 
@@ -399,12 +383,7 @@ class DistazQuery:
 
   def andKilometer(self, val):
     """
-    Sets the kilometer parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.kilometer( value )
-    and
-    params.kilometer( [ value ] )
-    are equivalent.
+    Append a value to the kilometer parameter,  of type Double
 
     distance in kilometers along surface.
 
@@ -440,8 +419,7 @@ class DistazQuery:
 
   def andKilometerrange(self, val):
     """
-    Sets the kilometerrange parameter, of type List of Double
-    step or min,max or min,max,step
+    Append a value to the kilometerrange parameter,  of type Double
 
     regular distance range in kilometers, one of step; min max or min max step. Default min is 0, max is 1000 and step is 100.
 

@@ -62,12 +62,7 @@ class DisconQuery:
 
   def andMod(self, val):
     """
-    Sets the model parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.mod( value )
-    and
-    params.mod( [ value ] )
-    are equivalent.
+    Append a value to the model parameter,  of type String
 
     use velocity model "modelname" for calculations, format is guessed.
 
@@ -108,12 +103,7 @@ class DisconQuery:
 
   def andModel(self, val):
     """
-    Sets the model parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.model( value )
-    and
-    params.model( [ value ] )
-    are equivalent.
+    Append a value to the model parameter,  of type String
 
     use velocity model "modelname" for calculations, format is guessed.
 

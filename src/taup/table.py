@@ -182,12 +182,7 @@ class TableQuery:
 
   def andP(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.p( value )
-    and
-    params.p( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -228,12 +223,7 @@ class TableQuery:
 
   def andPhase(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.phase( value )
-    and
-    params.phase( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -274,12 +264,7 @@ class TableQuery:
 
   def andPh(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.ph( value )
-    and
-    params.ph( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -321,12 +306,7 @@ class TableQuery:
 
   def andStadepth(self, val):
     """
-    Sets the receiverdepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.stadepth( value )
-    and
-    params.stadepth( [ value ] )
-    are equivalent.
+    Append a value to the receiverdepth parameter,  of type Double
 
     the receiver depth in km for stations not at the surface
 
@@ -367,12 +347,7 @@ class TableQuery:
 
   def andReceiverdepth(self, val):
     """
-    Sets the receiverdepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.receiverdepth( value )
-    and
-    params.receiverdepth( [ value ] )
-    are equivalent.
+    Append a value to the receiverdepth parameter,  of type Double
 
     the receiver depth in km for stations not at the surface
 

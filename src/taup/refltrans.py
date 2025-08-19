@@ -370,12 +370,7 @@ class RefltransQuery:
 
   def andStadepth(self, val):
     """
-    Sets the receiverdepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.stadepth( value )
-    and
-    params.stadepth( [ value ] )
-    are equivalent.
+    Append a value to the receiverdepth parameter,  of type Double
 
     the receiver depth in km for stations not at the surface
 
@@ -416,12 +411,7 @@ class RefltransQuery:
 
   def andReceiverdepth(self, val):
     """
-    Sets the receiverdepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.receiverdepth( value )
-    and
-    params.receiverdepth( [ value ] )
-    are equivalent.
+    Append a value to the receiverdepth parameter,  of type Double
 
     the receiver depth in km for stations not at the surface
 
@@ -539,12 +529,7 @@ class RefltransQuery:
 
   def andH(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.h( value )
-    and
-    params.h( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -585,12 +570,7 @@ class RefltransQuery:
 
   def andSourcedepth(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.sourcedepth( value )
-    and
-    params.sourcedepth( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -631,12 +611,7 @@ class RefltransQuery:
 
   def andEvdepth(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.evdepth( value )
-    and
-    params.evdepth( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -769,8 +744,8 @@ class RefltransQuery:
 
   def andY(self, val):
     """
-    Sets the y parameter, a choice of one of:
-     Rpp, Rps, Rsp, Rss, Tpp, Tps, Tsp, Tss, Rshsh, Tshsh, RppEnergy, TppEnergy, RpsEnergy, TpsEnergy, RspEnergy, TspEnergy, RssEnergy, TssEnergy, RshshEnergy, TshshEnergy, RpAngle, RsAngle, TpAngle, TsAngle, FreeRecFuncPr, FreeRecFuncSvr, FreeRecFuncPz, FreeRecFuncSvz, FreeRecFuncSh of edu.sc.seis.TauP.ReflTransAxisType
+    Append a value to the y parameter, a choice of one of:
+     Rpp, Rps, Rsp, Rss, Tpp, Tps, Tsp, Tss, Rshsh, Tshsh, RppEnergy, TppEnergy, RpsEnergy, TpsEnergy, RspEnergy, TspEnergy, RssEnergy, TssEnergy, RshshEnergy, TshshEnergy, RpAngle, RsAngle, TpAngle, TsAngle, FreeRecFuncPr, FreeRecFuncSvr, FreeRecFuncPz, FreeRecFuncSvz, FreeRecFuncSh
 
     Y axis data type, one or more of Rpp, Rps, Rsp, Rss, Tpp, Tps, Tsp, Tss, Rshsh, Tshsh, RppEnergy, TppEnergy, RpsEnergy, TpsEnergy, RspEnergy, TspEnergy, RssEnergy, TssEnergy, RshshEnergy, TshshEnergy, RpAngle, RsAngle, TpAngle, TsAngle, FreeRecFuncPr, FreeRecFuncSvr, FreeRecFuncPz, FreeRecFuncSvz, FreeRecFuncSh, default is all displacement coef.
 

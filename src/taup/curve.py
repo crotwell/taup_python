@@ -305,12 +305,7 @@ class CurveQuery:
 
   def andP(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.p( value )
-    and
-    params.p( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -351,12 +346,7 @@ class CurveQuery:
 
   def andPhase(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.phase( value )
-    and
-    params.phase( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -397,12 +387,7 @@ class CurveQuery:
 
   def andPh(self, val):
     """
-    Sets the phase parameter, of type List of String
-    If a single String is passed in, it is automatically wrapped in a list. So
-    params.ph( value )
-    and
-    params.ph( [ value ] )
-    are equivalent.
+    Append a value to the phase parameter,  of type String
 
     seismic phase names
 
@@ -444,12 +429,7 @@ class CurveQuery:
 
   def andStadepth(self, val):
     """
-    Sets the receiverdepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.stadepth( value )
-    and
-    params.stadepth( [ value ] )
-    are equivalent.
+    Append a value to the receiverdepth parameter,  of type Double
 
     the receiver depth in km for stations not at the surface
 
@@ -490,12 +470,7 @@ class CurveQuery:
 
   def andReceiverdepth(self, val):
     """
-    Sets the receiverdepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.receiverdepth( value )
-    and
-    params.receiverdepth( [ value ] )
-    are equivalent.
+    Append a value to the receiverdepth parameter,  of type Double
 
     the receiver depth in km for stations not at the surface
 
@@ -632,12 +607,7 @@ class CurveQuery:
 
   def andH(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.h( value )
-    and
-    params.h( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -678,12 +648,7 @@ class CurveQuery:
 
   def andSourcedepth(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.sourcedepth( value )
-    and
-    params.sourcedepth( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -724,12 +689,7 @@ class CurveQuery:
 
   def andEvdepth(self, val):
     """
-    Sets the sourcedepth parameter, of type List of Double
-    If a single Double is passed in, it is automatically wrapped in a list. So
-    params.evdepth( value )
-    and
-    params.evdepth( [ value ] )
-    are equivalent.
+    Append a value to the sourcedepth parameter,  of type Double
 
     source depth in km
 
@@ -765,7 +725,7 @@ class CurveQuery:
 
   def andStrikediprake(self, val):
     """
-    Sets the strikediprake parameter, of type List of Float
+    Append a value to the strikediprake parameter,  of type Float
 
     fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
 
