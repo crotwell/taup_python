@@ -14,9 +14,9 @@ from .taupversion import TAUP_VERSION
 VERBOSE=False
 
 """
-Slightly more advanced python script. This starts the 'taup web' process
-within the script, avoiding a two step process to get the results. Many
-queries can be sent to the server, saving significant spin up/shutdown time.
+This starts the 'taup web' process within the script, avoiding a two step
+process to get the results. Many queries can be sent to the server,
+saving significant spin up/shutdown time.
 """
 class TauPServer:
     def __init__(self, taup_path=None, verbose=VERBOSE):
@@ -32,7 +32,7 @@ class TauPServer:
         if not self.taup_path.exists():
             raise Exception(f"{self.taup_path} doesn't exist, TauP Toolkit not on installed?")
         if self.verbose:
-            print(f"TauP: {self.taup_path}")
+            print(f"TauP: {self.taup_path}", file=sys.stderr)
         self._taup = None
         self._stop_event = None
 
@@ -41,7 +41,7 @@ class TauPServer:
         self._taup = subprocess.Popen(self._cmd,
                           stdout=subprocess.PIPE,
                           stderr=subprocess.STDOUT, close_fds=True)
-        if self.verbose: print(f"starting... {' '.join(self._cmd)}")
+        if self.verbose: print(f"starting... {' '.join(self._cmd)}", file=sys.stderr)
         time.sleep(1)
         # read a line, makes sure service has had time to start
         # we should see a line with the url like
@@ -51,7 +51,6 @@ class TauPServer:
         startLines = []
         for i in range(4):
             line = self._taup.stdout.readline().decode("utf-8")
-            #print(line)
             line = line.strip()
             startLines.append(line)
             if line.startswith("http"):
@@ -59,7 +58,7 @@ class TauPServer:
         if not startupOk:
             raise Exception("Unable to startup taup web:"+("\n".join(startLines)))
 
-        # thread just to pull taup stdout and print it to our output
+        # thread just to pull taup stdout and print it to our stderr output
         def copyStdOut(out, stop_event):
             try:
                 while not stop_event.is_set():
@@ -67,8 +66,8 @@ class TauPServer:
                     if self.verbose and len(line) > 0:
                         print(f"TauP: {line}", file=sys.stderr)
             except Exception as err:
-                print('exception, quitting copy to stderr')
-                print(err)
+                print('exception, quitting copy to stderr', file=sys.stderr)
+                print(err, file=sys.stderr)
                 return
         self._stop_event=Event()
         t = Thread(target=copyStdOut, daemon=True, args=(self._taup.stdout, self._stop_event))
@@ -88,7 +87,7 @@ class TauPServer:
             except:
                 self._taup.kill()
             self._taup=None
-            if self.verbose: print("TauP shutdown...")
+            if self.verbose: print("TauP shutdown...", file=sys.stderr)
         if self._stop_event is not None:
             self._stop_event.set()
             self._stop_event = None
@@ -149,8 +148,8 @@ class TauPServer:
         taup_url = f'http://localhost:{self.port}/{tool}'
         params['format'] = format
         if self.verbose:
-            print(f"Query: {taup_url}")
-            print(f"Params: {json.dumps(params)}")
+            print(f"Query: {taup_url}", file=sys.stderr)
+            print(f"Params: {json.dumps(params)}", file=sys.stderr)
         r = requests.get(taup_url, params=params, timeout=3)
         return r.text
 
@@ -161,8 +160,8 @@ class TauPServer:
             params = params.create_params()
         taup_url = f'http://localhost:{self.port}/{tool}'
         if self.verbose:
-            print(f"Query: {taup_url}")
-            print(f"Params: {json.dumps(params)}")
+            print(f"Query: {taup_url}", file=sys.stderr)
+            print(f"Params: {json.dumps(params)}", file=sys.stderr)
         r = requests.get(taup_url, params=params, timeout=3)
         jsonResult = r.json()
         return jsonResult
