@@ -3,9 +3,6 @@
 import taup
 import requests
 
-eventLatLons = [ [35, -50], [-29, 45]]
-staLatLons = [ [34, -80], [35, -81]]
-
 with taup.TauPServer() as taupserver:
 
 
