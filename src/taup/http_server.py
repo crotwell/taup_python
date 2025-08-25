@@ -27,7 +27,13 @@ class TauPServer:
         else:
             self.taup_path=taup_path
         if self.taup_path is None:
-            raise Exception(f"Cannot find executable for taup, not on PATH?")
+            raise Exception(f"""\
+                            Cannot find executable for taup, not on PATH?
+                            Download from https://doi.org/10.5281/zenodo.10794857
+                            or
+                            brew tap crotwell/crotwell
+                            brew install taup
+                            """)
         self.taup_path = Path(self.taup_path).expanduser().resolve()
         if not self.taup_path.exists():
             raise Exception(f"{self.taup_path} doesn't exist, TauP Toolkit not on installed?")

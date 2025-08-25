@@ -12,7 +12,13 @@ and then use that to answer many queries via http, avoiding the startup time of 
 
 You will also need to have an instance of the
 [TauP Toolkit](https://taup.readthedocs.io/en/latest/)
-installed.
+installed. This can be done manually by
+downloading from [Zenodo](https://doi.org/10.5281/zenodo.10794857)
+or from [Homebrew](https://brew.sh) via
+```
+brew tap crotwell/crotwell
+brew install taup
+```
 
 The Python classes representing each tool's query parameters are based off
 off the command line arguments of the same name. For example, this Python
