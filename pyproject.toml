@@ -9,7 +9,7 @@ dynamic = ["version"]
 authors = [
   {name="Philip Crotwell", email = "crotwell@seis.sc.edu"}
 ]
-description = "The TauP Toolkit, from python"
+description = "The TauP Toolkit, via python using http"
 readme = "README.md"
 keywords = ["seismology", "traveltime"]
 classifiers = [
