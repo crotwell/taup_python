@@ -17,9 +17,9 @@ from .velplot import VelplotQuery
 from .wavefront import WavefrontQuery
 from .version import VersionQuery
 from .dataclass import (
-    Amplitude, Arrival, Fault, PathSegment,
-    RelativeArrival, Scatter, Source, TimeDist, TimeResult,
-    Isochron, Wavefront, WavefrontResult
+    Amplitude, Arrival, Curve, CurveSegment, Daz, Fault, Isochron,
+    PathSegment, RelativeArrival, Scatter, Source, TimeDist, TimeResult,
+    Wavefront, WavefrontResult
 )
 
 __all__ = [
@@ -41,14 +41,17 @@ __all__ = [
     "VersionQuery",
     "Amplitude",
     "Arrival",
+    "Curve",
+    "CurveSegment",
+    "Daz",
     "Fault",
+    "Isochron",
     "PathSegment",
     "RelativeArrival",
     "Scatter",
     "Source",
     "TimeDist",
     "TimeResult",
-    "Isochron",
     "Wavefront",
     "WavefrontResult"
 ]
