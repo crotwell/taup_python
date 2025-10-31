@@ -45,4 +45,4 @@ the server is only started up once.
 See `example_times.py` and `example_text.py`  in the examples directory for a couple of more detailed examples.
 
 Documentation available at readthedocs for
-[TauP_python](https://taup_python.readthedocs.io/en/latest/)
+[TauP-python](https://taup-python.readthedocs.io/en/latest/)

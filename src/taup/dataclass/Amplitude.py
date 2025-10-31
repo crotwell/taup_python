@@ -18,7 +18,7 @@ class Amplitude:
 
     @classmethod
     def from_json(cls, jsonObj):
-        arr = Amplitude(
+        return Amplitude(
             jsonObj['factorpsv'],
             jsonObj['factorsh'],
             jsonObj['geospread'],
