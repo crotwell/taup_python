@@ -7,6 +7,7 @@ from .Scatter import Scatter
 from .TimeDist import TimeDist
 
 from .RelativeArrival import RelativeArrival
+from .Derivative import Derivative
 
 @dataclass
 class Arrival:
@@ -24,6 +25,7 @@ class Arrival:
     amp: Amplitude| None = None
     scatter: Scatter| None = None
     relative: Any  = None # RelativeArrival
+    derivative: Any = None
     pierce: list[list[float]] = field(default_factory=list)
     pathlength: float|None = None
     pathSegments: list[PathSegment] = field(default_factory=list)
@@ -56,6 +58,8 @@ class Arrival:
             arr.scatter = jsonObj['scatter']
         if 'relative' in jsonObj:
             arr.relative = RelativeArrival.from_json(jsonObj['relative'])
+        if 'derivative' in jsonObj:
+            arr.derivative = Derivative.from_json(jsonObj['derivative'])
         if 'pierce' in jsonObj:
             for p in jsonObj['pierce']:
                 arr.pierce.append(TimeDist.from_json(p))
