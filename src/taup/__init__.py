@@ -3,6 +3,7 @@ __version__ = "0.1.1"
 from .taupversion import TAUP_VERSION
 from .http_server import TauPServer
 from .curve import CurveQuery
+from .beachball import BeachballQuery
 from .distaz import DistazQuery
 from .discon import DisconQuery
 from .find import FindQuery
@@ -26,6 +27,7 @@ __all__ = [
     "TAUP_VERSION",
     "TauPServer",
     "CurveQuery",
+    "BeachballQuery",
     "DistazQuery",
     "DisconQuery",
     "FindQuery",
