@@ -26,7 +26,7 @@ class Arrival:
     scatter: Scatter| None = None
     relative: Any  = None # RelativeArrival
     derivative: Any = None
-    pierce: list[list[float]] = field(default_factory=list)
+    pierce: list[TimeDist] = field(default_factory=list)
     pathlength: float|None = None
     pathSegments: list[PathSegment] = field(default_factory=list)
 
