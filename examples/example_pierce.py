@@ -10,7 +10,7 @@ with taup.TauPServer(verbose=True) as taupserver:
 
     # query params correspond to the tools, one of:
     # time, pierce, path, curve, discon, distaz, find, phase, refltrans, table, velplot, wavefront
-    params = taup.PathQuery()
+    params = taup.PierceQuery()
     # params that will stay the same
     params.phase(["P", "S"])
     params.model('ak135')
