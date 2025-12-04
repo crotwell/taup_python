@@ -140,7 +140,7 @@ class TauPServer:
                 https://taup.readthedocs.io/en/latest/
                 https://doi.org/10.5281/zenodo.15426279
             TauPy (Python):
-                https://pypi.org/XXXXXXXX
+                https://pypi.org/project/taup/
             Server: {serverVersion}
             Python: {TAUP_VERSION}
         """
