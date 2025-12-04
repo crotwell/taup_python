@@ -8,6 +8,7 @@ from .Derivative import Derivative
 from .DerivativeSR import DerivativeSR
 from .DistazResult import DistazResult
 from .Fault import Fault
+from .PhaseResult import PhaseResult
 from .RelativeArrival import RelativeArrival
 from .Scatter import Scatter
 from .Source import Source
@@ -27,6 +28,7 @@ __all__ = [
     "DerivativeSR",
     "DistazResult",
     "Fault",
+    "PhaseResult",
     "RelativeArrival",
     "Scatter",
     "Source",
