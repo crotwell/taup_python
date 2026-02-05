@@ -18,7 +18,8 @@ from .velplot import VelplotQuery
 from .wavefront import WavefrontQuery
 from .version import VersionQuery
 from .dataclass import (
-    DataClassJsonEncoder, Amplitude, Arrival, Curve, CurveSegment, Daz, Fault, Isochron,
+    DataClassJsonEncoder,
+    Amplitude, Arrival, Curve, CurveSegment, Daz, Fault, Isochron,
     PathSegment, RelativeArrival, Scatter, Source, TimeDist, TimeResult,
     Wavefront, WavefrontResult
 )
