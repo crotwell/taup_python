@@ -61,6 +61,8 @@ class TauPServer:
             startLines.append(line)
             if line.startswith("http"):
                 startupOk = True
+            if verbose:
+                print(line, file=sys.stderr)
         if not startupOk:
             raise Exception("Unable to startup taup web:"+("\n".join(startLines)))
 
