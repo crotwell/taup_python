@@ -70,4 +70,4 @@ class Arrival:
         return arr
 
     def __str__(self):
-        return f"{self.distdeg} {self.sourcedepth} {self.phase} {self.time} {self.rayparam} {self.takeoff} {self.incident} {self.puristdist} {self.pruistname}"
+        return f"{self.distdeg} {self.sourcedepth} {self.phase} {self.time} {self.rayparam} {self.takeoff} {self.incident} {self.puristdist} {self.puristname}"
