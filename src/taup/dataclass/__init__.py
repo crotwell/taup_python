@@ -1,4 +1,5 @@
 
+from .dcjson import DataClassJsonEncoder
 from .Arrival import Arrival
 from .Curve import Curve
 from .CurveResult import CurveResult
@@ -19,6 +20,7 @@ from .Wavefront import Wavefront
 from .WavefrontResult import WavefrontResult
 
 __all__ = [
+    "DataClassJsonEncoder",
     "Arrival",
     "Curve",
     "CurveResult",
