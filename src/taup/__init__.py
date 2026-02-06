@@ -1,4 +1,4 @@
-__version__ = "0.2.0-alpha2"
+__version__ = "0.2.0-alpha3"
 
 from .taupversion import TAUP_VERSION
 from .http_server import TauPServer
