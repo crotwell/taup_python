@@ -61,7 +61,7 @@ class TauPServer:
             startLines.append(line)
             if line.startswith("http"):
                 startupOk = True
-            if verbose:
+            if self.verbose:
                 print(line, file=sys.stderr)
         if not startupOk:
             raise Exception("Unable to startup taup web:"+("\n".join(startLines)))
@@ -78,8 +78,10 @@ class TauPServer:
                 print(err, file=sys.stderr)
                 return
         self._stop_event=Event()
-        t = Thread(target=copyStdOut, daemon=True, args=(self._taup.stdout, self._stop_event))
-        t.start()
+        self._stdout_thread = Thread(target=copyStdOut, daemon=True, args=(self._taup.stdout, self._stop_event))
+        self._stdout_thread.start()
+        self._stderr_thread = Thread(target=copyStdOut, daemon=True, args=(self._taup.stderr, self._stop_event))
+        self._stderr_thread.start()
         self.checkVersion()
         return self
 
