@@ -8,6 +8,7 @@ import time
 import random
 import requests
 import sys
+import traceback
 
 from .taupversion import TAUP_VERSION
 
@@ -55,14 +56,16 @@ class TauPServer:
         # once the server has had a chance to be fully started up
         startupOk = False
         startLines = []
-        for i in range(4):
+        for i in range(10):
             line = self._taup.stdout.readline().decode("utf-8")
             line = line.strip()
             startLines.append(line)
-            if line.startswith("http"):
+            if line.startswith("http") or line.startswith("TauP Web"):
                 startupOk = True
             if self.verbose:
                 print(line, file=sys.stderr)
+            if startupOk:
+                break
         if not startupOk:
             raise Exception("Unable to startup taup web:"+("\n".join(startLines)))
 
@@ -75,13 +78,11 @@ class TauPServer:
                         print(f"TauP: {line}", file=sys.stderr)
             except Exception as err:
                 print('exception, quitting copy to stderr', file=sys.stderr)
-                print(err, file=sys.stderr)
+                traceback.print_exception(err, file=sys.stderr)
                 return
         self._stop_event=Event()
         self._stdout_thread = Thread(target=copyStdOut, daemon=True, args=(self._taup.stdout, self._stop_event))
         self._stdout_thread.start()
-        self._stderr_thread = Thread(target=copyStdOut, daemon=True, args=(self._taup.stderr, self._stop_event))
-        self._stderr_thread.start()
         self.checkVersion()
         return self
 
