@@ -161,7 +161,11 @@ class TauPServer:
         if self.verbose:
             print(f"Query: {taup_url}", file=sys.stderr)
             print(f"Params: {json.dumps(params)}", file=sys.stderr)
-        r = requests.get(taup_url, params=params, timeout=3)
+        try:
+            r = requests.get(taup_url, params=params, timeout=3)
+        except requests.ConnectionError:
+            print("Connection error to taup, retrying...")
+            r = requests.get(taup_url, params=params, timeout=3)
         return r.text
 
     def retrieveJson(self, params, tool="time"):
@@ -173,7 +177,11 @@ class TauPServer:
         if self.verbose:
             print(f"Query: {taup_url}", file=sys.stderr)
             print(f"Params: {json.dumps(params)}", file=sys.stderr)
-        r = requests.get(taup_url, params=params, timeout=3)
+        try:
+            r = requests.get(taup_url, params=params, timeout=3)
+        except requests.ConnectionError:
+            print("Connection error to taup, retrying...")
+            r = requests.get(taup_url, params=params, timeout=3)
         jsonResult = r.json()
         return jsonResult
 
