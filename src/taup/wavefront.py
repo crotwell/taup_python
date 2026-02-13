@@ -30,7 +30,6 @@ class WavefrontQuery:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
-    params = self.create_params()
     return WavefrontResult.from_json(self.calcJson(taupServer))
 
   def calcJson(self, taupServer):

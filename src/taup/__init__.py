@@ -1,4 +1,4 @@
-__version__ = "0.2.0-alpha3"
+__version__ = "0.2.0-alpha4"
 
 from .taupversion import TAUP_VERSION
 from .http_server import TauPServer
@@ -19,7 +19,8 @@ from .wavefront import WavefrontQuery
 from .version import VersionQuery
 from .dataclass import (
     DataClassJsonEncoder,
-    Amplitude, Arrival, Curve, CurveSegment, Daz, Fault, Isochron,
+    Amplitude, Arrival, Curve, CurveSegment, Daz,
+    DisconLayer, Discontinuity, ModelDiscon, DisconResult, Fault, Isochron,
     PathSegment, RelativeArrival, Scatter, Source, TimeDist, TimeResult,
     Wavefront, WavefrontResult
 )
@@ -48,6 +49,10 @@ __all__ = [
     "Curve",
     "CurveSegment",
     "Daz",
+    "DisconLayer",
+    "Discontinuity",
+    "ModelDiscon",
+    "DisconResult",
     "Fault",
     "Isochron",
     "PathSegment",

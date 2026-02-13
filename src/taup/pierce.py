@@ -55,7 +55,6 @@ class PierceQuery:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
-    params = self.create_params()
     return TimeResult.from_json(self.calcJson(taupServer))
 
   def calcJson(self, taupServer):
