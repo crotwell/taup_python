@@ -6,7 +6,7 @@ from .TimeDist import TimeDist
 class PathSegment:
     name: str
     wavetype: str
-    segment: list[list[TimeDist]] = field(default_factory=list)
+    segment: list[TimeDist] = field(default_factory=list)
 
     @classmethod
     def from_json(cls, jsonObj):
