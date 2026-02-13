@@ -7,6 +7,7 @@ from .CurveSegment import CurveSegment
 from .Daz import Daz
 from .Derivative import Derivative
 from .DerivativeSR import DerivativeSR
+from .Discontinuity import DisconLayer, Discontinuity, ModelDiscon, DisconResult
 from .DistazResult import DistazResult
 from .Fault import Fault
 from .PhaseResult import PhaseResult
@@ -28,6 +29,7 @@ __all__ = [
     "Daz",
     "Derivative",
     "DerivativeSR",
+    "DisconLayer", "Discontinuity", "ModelDiscon", "DisconResult",
     "DistazResult",
     "Fault",
     "PhaseResult",
