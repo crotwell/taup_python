@@ -3,8 +3,8 @@
 import taup
 import requests
 
-eventLatLons = [ [35, -50], [-29, 45]]
-staLatLons = [ [34, -80], [35, -81]]
+eventLatLons = [ [-35, -50], ]
+staLatLons = [  [35, -81]]
 
 with taup.TauPServer() as taupserver:
 
@@ -12,7 +12,7 @@ with taup.TauPServer() as taupserver:
     # time, pierce, path, curve, discon, distaz, find, phase, refltrans, table, velplot, wavefront
     params = taup.PathQuery()
     # params that will stay the same
-    params.phase(["P", "S"])
+    params.phase(["P", "SKS"])
     params.model('ak135')
     params.geodetic(True)
 
@@ -33,6 +33,10 @@ with taup.TauPServer() as taupserver:
         for a in timeResult.arrivals:
             print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc if a.desc is not None else ''}")
             if a.pathlength is not None:
-                print(f"Path length: {a.pathlength} km")
+                print(f"  Path length: {a.pathlength} km")
             else:
-                print("No Path")
+                print("  No Path")
+            for pathseg in a.pathSegments:
+                firstPoint = pathseg.segment[0]
+                lastPoint = pathseg.segment[-1]
+                print(f"    {pathseg.name} as {pathseg.wavetype} from {firstPoint.depth} km at {firstPoint.distdeg} deg to {lastPoint.depth} km at {lastPoint.distdeg} deg takes {lastPoint.time-firstPoint.time} sec")
