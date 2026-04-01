@@ -11,6 +11,7 @@ import sys
 import traceback
 
 from .taupversion import TAUP_VERSION
+from . import __version__
 
 VERBOSE=False
 
@@ -145,9 +146,10 @@ class TauPServer:
                 https://taup.readthedocs.io/en/latest/
                 https://doi.org/10.5281/zenodo.15426279
             TauPy (Python):
+                version: {__version__}
                 https://pypi.org/project/taup/
-            Server: {serverVersion}
-            Python: {TAUP_VERSION}
+            TauP Toolkit Server: {serverVersion}
+            Python Generated for: {TAUP_VERSION}
         """
         print(warn, file=sys.stderr)
 
