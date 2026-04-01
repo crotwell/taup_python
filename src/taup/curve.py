@@ -144,9 +144,11 @@ class CurveQuery:
     """
     return self._legend
 
-  def legend(self, val):
+  def legend(self, val=True):
     """
     Sets the legend parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     create a legend
 
@@ -741,9 +743,11 @@ class CurveQuery:
     """
     return self._xabs
 
-  def xabs(self, val):
+  def xabs(self, val=True):
     """
     Sets the xabs parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     X axis is absolute value
 
@@ -801,9 +805,11 @@ class CurveQuery:
     """
     return self._xlog
 
-  def xlog(self, val):
+  def xlog(self, val=True):
     """
     Sets the xlog parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     X axis is log
 
@@ -839,9 +845,11 @@ class CurveQuery:
     """
     return self._yabs
 
-  def yabs(self, val):
+  def yabs(self, val=True):
     """
     Sets the yabs parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     Y axis is absolute value
 
@@ -899,9 +907,11 @@ class CurveQuery:
     """
     return self._ylog
 
-  def ylog(self, val):
+  def ylog(self, val=True):
     """
     Sets the ylog parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     Y axis is log
 

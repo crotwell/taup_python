@@ -300,9 +300,11 @@ class DistazQuery:
     """
     return self._geodetic
 
-  def geodetic(self, val):
+  def geodetic(self, val=True):
     """
     Sets the geodetic parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 

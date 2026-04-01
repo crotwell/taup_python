@@ -124,9 +124,11 @@ class VelmergeQuery:
     """
     return self._smoothbot
 
-  def smoothbot(self, val):
+  def smoothbot(self, val=True):
     """
     Sets the smoothbot parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     smooth merge at bottom
 
@@ -143,9 +145,11 @@ class VelmergeQuery:
     """
     return self._smoothtop
 
-  def smoothtop(self, val):
+  def smoothtop(self, val=True):
     """
     Sets the smoothtop parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     smooth merge at top
 

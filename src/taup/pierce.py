@@ -87,9 +87,11 @@ class PierceQuery:
     """
     return self._allindex
 
-  def allindex(self, val):
+  def allindex(self, val=True):
     """
     Sets the allindex parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     all arrivals at sampling of model
 
@@ -106,9 +108,11 @@ class PierceQuery:
     """
     return self._amp
 
-  def amp(self, val):
+  def amp(self, val=True):
     """
     Sets the amp parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     show amplitude factor for each phase
 
@@ -537,9 +541,11 @@ class PierceQuery:
     """
     return self._geodetic
 
-  def geodetic(self, val):
+  def geodetic(self, val=True):
     """
     Sets the geodetic parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
@@ -849,9 +855,11 @@ class PierceQuery:
     """
     return self._nodiscon
 
-  def nodiscon(self, val):
+  def nodiscon(self, val=True):
     """
     Sets the nodiscon parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only prints pierce points for the depths added with -pierce
 
@@ -887,9 +895,11 @@ class PierceQuery:
     """
     return self._onlyfirst
 
-  def first(self, val):
+  def first(self, val=True):
     """
     Sets the onlyfirst parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only output the first arrival for each phase, no triplications
 
@@ -907,9 +917,11 @@ class PierceQuery:
     """
     return self._onlyfirst
 
-  def onlyfirst(self, val):
+  def onlyfirst(self, val=True):
     """
     Sets the onlyfirst parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only output the first arrival for each phase, no triplications
 
@@ -1352,9 +1364,11 @@ class PierceQuery:
     """
     return self._rev
 
-  def rev(self, val):
+  def rev(self, val=True):
     """
     Sets the rev parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only prints underside and bottom turn points, e.g. ^ and v
 
@@ -1751,9 +1765,11 @@ class PierceQuery:
     """
     return self._turn
 
-  def turn(self, val):
+  def turn(self, val=True):
     """
     Sets the turn parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only prints bottom turning points, e.g. v
 
@@ -1770,9 +1786,11 @@ class PierceQuery:
     """
     return self._under
 
-  def under(self, val):
+  def under(self, val=True):
     """
     Sets the under parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only prints underside reflection points, e.g. ^
 

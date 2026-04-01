@@ -129,9 +129,11 @@ class DisconQuery:
     """
     return self._slowness
 
-  def slowness(self, val):
+  def slowness(self, val=True):
     """
     Sets the slowness parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     output the slowness for each discontinuity also
 

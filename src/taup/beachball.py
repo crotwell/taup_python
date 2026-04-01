@@ -93,9 +93,11 @@ class BeachballQuery:
     """
     return self._allindex
 
-  def allindex(self, val):
+  def allindex(self, val=True):
     """
     Sets the allindex parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     all arrivals at sampling of model
 
@@ -230,9 +232,11 @@ class BeachballQuery:
     """
     return self._colorphases
 
-  def colorphases(self, val):
+  def colorphases(self, val=True):
     """
     Sets the colorphases parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     Color takeoff range for phases.
 
@@ -604,9 +608,11 @@ class BeachballQuery:
     """
     return self._geodetic
 
-  def geodetic(self, val):
+  def geodetic(self, val=True):
     """
     Sets the geodetic parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 

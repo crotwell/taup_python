@@ -67,9 +67,11 @@ class FindQuery:
     """
     return self._amp
 
-  def amp(self, val):
+  def amp(self, val=True):
     """
     Sets the amp parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     show amplitude factor for each phase
 
@@ -360,9 +362,11 @@ class FindQuery:
     """
     return self._onlynameddiscon
 
-  def onlynameddiscon(self, val):
+  def onlynameddiscon(self, val=True):
     """
     Sets the onlynameddiscon parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only interact with named discontinuities like moho, cmb, iocb
 
@@ -503,9 +507,11 @@ class FindQuery:
     """
     return self._pwaveonly
 
-  def pwaveonly(self, val):
+  def pwaveonly(self, val=True):
     """
     Sets the pwaveonly parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only P wave legs, no S
 
@@ -681,9 +687,11 @@ class FindQuery:
     """
     return self._showrayparam
 
-  def showrayparam(self, val):
+  def showrayparam(self, val=True):
     """
     Sets the showrayparam parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     show min and max ray parameter for each phase name
 
@@ -859,9 +867,11 @@ class FindQuery:
     """
     return self._swaveonly
 
-  def swaveonly(self, val):
+  def swaveonly(self, val=True):
     """
     Sets the swaveonly parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only S wave legs, no P
 

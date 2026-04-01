@@ -78,9 +78,11 @@ class RefltransQuery:
     """
     return self._abs
 
-  def abs(self, val):
+  def abs(self, val=True):
     """
     Sets the abs parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     absolute value of amplitude factor
 
@@ -97,9 +99,11 @@ class RefltransQuery:
     """
     return self._angles
 
-  def angles(self, val):
+  def angles(self, val=True):
     """
     Sets the angles parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     all angle coefficients, like TpAngle
 
@@ -154,9 +158,11 @@ class RefltransQuery:
     """
     return self._down
 
-  def down(self, val):
+  def down(self, val=True):
     """
     Sets the down parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     incident is downgoing
 
@@ -173,9 +179,11 @@ class RefltransQuery:
     """
     return self._energyflux
 
-  def energyflux(self, val):
+  def energyflux(self, val=True):
     """
     Sets the energyflux parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     all energy flux coefficients, like TppEnergy
 
@@ -192,9 +200,11 @@ class RefltransQuery:
     """
     return self._fsrf
 
-  def fsrf(self, val):
+  def fsrf(self, val=True):
     """
     Sets the fsrf parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     all free surface receiver functions, like FreeRecFuncPz
 
@@ -230,9 +240,11 @@ class RefltransQuery:
     """
     return self._legend
 
-  def legend(self, val):
+  def legend(self, val=True):
     """
     Sets the legend parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     create a legend
 
@@ -328,9 +340,11 @@ class RefltransQuery:
     """
     return self._phase
 
-  def phase(self, val):
+  def phase(self, val=True):
     """
     Sets the phase parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     all displacement phase coefficients, like TppPhase
 
@@ -347,9 +361,11 @@ class RefltransQuery:
     """
     return self._pwave
 
-  def pwave(self, val):
+  def pwave(self, val=True):
     """
     Sets the pwave parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     incident P wave
 
@@ -506,9 +522,11 @@ class RefltransQuery:
     """
     return self._shwave
 
-  def shwave(self, val):
+  def shwave(self, val=True):
     """
     Sets the shwave parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     incident SH wave
 
@@ -649,9 +667,11 @@ class RefltransQuery:
     """
     return self._swave
 
-  def swave(self, val):
+  def swave(self, val=True):
     """
     Sets the swave parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     incident S wave
 
@@ -668,9 +688,11 @@ class RefltransQuery:
     """
     return self._up
 
-  def up(self, val):
+  def up(self, val=True):
     """
     Sets the up parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     incident is upgoing, reverses the sense of the boundary
 

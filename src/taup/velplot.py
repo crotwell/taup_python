@@ -77,9 +77,11 @@ class VelplotQuery:
     """
     return self._legend
 
-  def legend(self, val):
+  def legend(self, val=True):
     """
     Sets the legend parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     create a legend
 

@@ -94,9 +94,11 @@ class TimeQuery:
     """
     return self._allindex
 
-  def allindex(self, val):
+  def allindex(self, val=True):
     """
     Sets the allindex parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     all arrivals at sampling of model
 
@@ -113,9 +115,11 @@ class TimeQuery:
     """
     return self._amp
 
-  def amp(self, val):
+  def amp(self, val=True):
     """
     Sets the amp parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     show amplitude factor for each phase
 
@@ -307,9 +311,11 @@ class TimeQuery:
     """
     return self._derivative
 
-  def derivative(self, val):
+  def derivative(self, val=True):
     """
     Sets the derivative parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     include derivative calculations
 
@@ -563,9 +569,11 @@ class TimeQuery:
     """
     return self._geodetic
 
-  def geodetic(self, val):
+  def geodetic(self, val=True):
     """
     Sets the geodetic parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
@@ -894,9 +902,11 @@ class TimeQuery:
     """
     return self._onlyfirst
 
-  def first(self, val):
+  def first(self, val=True):
     """
     Sets the onlyfirst parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only output the first arrival for each phase, no triplications
 
@@ -914,9 +924,11 @@ class TimeQuery:
     """
     return self._onlyfirst
 
-  def onlyfirst(self, val):
+  def onlyfirst(self, val=True):
     """
     Sets the onlyfirst parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only output the first arrival for each phase, no triplications
 
@@ -933,9 +945,11 @@ class TimeQuery:
     """
     return self._onlyrayp
 
-  def rayp(self, val):
+  def rayp(self, val=True):
     """
     Sets the onlyrayp parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only output the ray parameter
 
@@ -953,9 +967,11 @@ class TimeQuery:
     """
     return self._onlyrayp
 
-  def onlyrayp(self, val):
+  def onlyrayp(self, val=True):
     """
     Sets the onlyrayp parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only output the ray parameter
 
@@ -972,9 +988,11 @@ class TimeQuery:
     """
     return self._onlytime
 
-  def time(self, val):
+  def time(self, val=True):
     """
     Sets the onlytime parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only output travel time
 
@@ -992,9 +1010,11 @@ class TimeQuery:
     """
     return self._onlytime
 
-  def onlytime(self, val):
+  def onlytime(self, val=True):
     """
     Sets the onlytime parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only output travel time
 

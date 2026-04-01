@@ -105,9 +105,11 @@ class PathQuery:
     """
     return self._allindex
 
-  def allindex(self, val):
+  def allindex(self, val=True):
     """
     Sets the allindex parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     all arrivals at sampling of model
 
@@ -575,9 +577,11 @@ class PathQuery:
     """
     return self._geodetic
 
-  def geodetic(self, val):
+  def geodetic(self, val=True):
     """
     Sets the geodetic parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
@@ -827,9 +831,11 @@ class PathQuery:
     """
     return self._label
 
-  def label(self, val):
+  def label(self, val=True):
     """
     Sets the label parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     label with phase name
 
@@ -846,9 +852,11 @@ class PathQuery:
     """
     return self._legend
 
-  def legend(self, val):
+  def legend(self, val=True):
     """
     Sets the legend parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     create a legend
 
@@ -963,9 +971,11 @@ class PathQuery:
     """
     return self._onlynameddiscon
 
-  def onlynameddiscon(self, val):
+  def onlynameddiscon(self, val=True):
     """
     Sets the onlynameddiscon parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only draw circles on the plot for named discontinuities like moho, cmb, iocb
 
@@ -1713,9 +1723,11 @@ class PathQuery:
     """
     return self._withlatlon
 
-  def withlatlon(self, val):
+  def withlatlon(self, val=True):
     """
     Sets the withlatlon parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     include lat,lon for path points in output.
 
@@ -1732,9 +1744,11 @@ class PathQuery:
     """
     return self._withtime
 
-  def withtime(self, val):
+  def withtime(self, val=True):
     """
     Sets the withtime parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     include time for each path point, no effect for SVG.
 

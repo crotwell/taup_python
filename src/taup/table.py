@@ -60,9 +60,11 @@ class TableQuery:
     """
     return self._derivative
 
-  def derivative(self, val):
+  def derivative(self, val=True):
     """
     Sets the derivative parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     include derivative calculations
 
@@ -79,9 +81,11 @@ class TableQuery:
     """
     return self._generic
 
-  def text(self, val):
+  def text(self, val=True):
     """
     Sets the generic parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     outputs as Text
 
@@ -99,9 +103,11 @@ class TableQuery:
     """
     return self._generic
 
-  def generic(self, val):
+  def generic(self, val=True):
     """
     Sets the generic parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     outputs as Text
 

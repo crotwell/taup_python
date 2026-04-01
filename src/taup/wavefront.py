@@ -136,9 +136,11 @@ class WavefrontQuery:
     """
     return self._legend
 
-  def legend(self, val):
+  def legend(self, val=True):
     """
     Sets the legend parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     create a legend
 
@@ -234,9 +236,11 @@ class WavefrontQuery:
     """
     return self._negdist
 
-  def negdist(self, val):
+  def negdist(self, val=True):
     """
     Sets the negdist parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     outputs negative distance as well so wavefronts are in both halves.
 
@@ -253,9 +257,11 @@ class WavefrontQuery:
     """
     return self._onlynameddiscon
 
-  def onlynameddiscon(self, val):
+  def onlynameddiscon(self, val=True):
     """
     Sets the onlynameddiscon parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     only draw circles on the plot for named discontinuities like moho, cmb, iocb but not 410
 
@@ -641,9 +647,11 @@ class WavefrontQuery:
     """
     return self._timefiles
 
-  def timefiles(self, val):
+  def timefiles(self, val=True):
     """
     Sets the timefiles parameter, of type Boolean
+
+    Without arguments sets the value to True. 
 
     outputs each time into a separate file within the gmt script.
 
