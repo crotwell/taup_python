@@ -11,7 +11,9 @@ class Source:
 
     @classmethod
     def from_json(cls, jsonObj):
-        source = Source(jsonObj['Mw'], jsonObj['attenuationfreq'], jsonObj['numFrequencies'])
+        attenFreq = jsonObj['attenuationfreq'] if 'attenuationfreq' in jsonObj else 1
+        numFreq = jsonObj['numFrequencies'] if 'numFrequencies' in jsonObj else 1
+        source = Source(jsonObj['Mw'], attenFreq, numFreq)
         if "fault" in jsonObj:
             source.fault = Fault.from_json(jsonObj['fault'])
         return source

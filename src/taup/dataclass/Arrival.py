@@ -53,7 +53,7 @@ class Arrival:
         if 'desc' in jsonObj:
             arr.desc = jsonObj['desc']
         if 'amp' in jsonObj:
-            arr.amp = jsonObj['amp']
+            arr.amp = Amplitude.from_json(jsonObj['amp'])
         if 'scatter' in jsonObj:
             arr.scatter = jsonObj['scatter']
         if 'relative' in jsonObj:
