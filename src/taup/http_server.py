@@ -170,7 +170,7 @@ class TauPServer:
             r = requests.get(taup_url, params=params, timeout=3)
         return r.text
 
-    def retrieveJson(self, params, tool="time"):
+    def retrieveJson(self, params, tool="time", method="GET"):
         if self._taup is None:
             raise Exception("TauP is None???")
         if hasattr(params, "create_params"):
@@ -180,17 +180,22 @@ class TauPServer:
             print(f"Query: {taup_url}", file=sys.stderr)
             print(f"Params: {json.dumps(params)}", file=sys.stderr)
         try:
-            r = requests.get(taup_url, params=params, timeout=3)
+            if method == "GET":
+                r = requests.get(taup_url, params=params, timeout=3)
+            elif method == "POST":
+                r = requests.post(taup_url, data=json.dumps(params), timeout=3)
+            else:
+                raise Exception(f"Unknown method: {method}")
         except requests.ConnectionError:
             print("Connection error to taup, retrying...")
             r = requests.get(taup_url, params=params, timeout=3)
         jsonResult = r.json()
         return jsonResult
 
-    def queryJson(self, params, tool="time"):
+    def queryJson(self, params, tool="time", method="POST"):
         if "format" not in params:
             params["format"] = "json"
-        return self.retrieveJson(params, tool=tool)
+        return self.retrieveJson(params, tool=tool, method=method)
 
     def queryText(self, params, tool="time"):
         return self.retrieveTextual(params, tool=tool, format="text")
