@@ -32,7 +32,9 @@ with taup.TauPServer(verbose=True) as taupserver:
         timeResult = params.calc(taupserver)
         for a in timeResult.arrivals:
             print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc if a.desc is not None else ''} p: {len(a.pierce)}")
-            if a.pathlength is not None:
-                print(f"Path length: {a.pathlength} km")
+            if a.pierce is not None:
+                print(f"Pierce:")
+                for td in a.pierce:
+                    print(f"  {td}")
             else:
-                print("No Path")
+                print("No Pierce")

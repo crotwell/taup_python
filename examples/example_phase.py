@@ -6,7 +6,7 @@ with taup.TauPServer() as taupserver:
     params = taup.PhaseQuery()
     params.phase(["P", "S"])
     params.sourcedepth(35)
-    taupResult = params.calcJson(taupserver)
+    taupResult = params.calc(taupserver)
     if len(taupResult.descriptions) == 0:
         print(f"No descriptions...")
     else:
