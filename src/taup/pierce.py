@@ -35,6 +35,7 @@ class PierceQuery:
     self._phase=[]
     self._pierce=[]
     self._planet=None
+    self._quakemltext=None
     self._rayparamdeg=[]
     self._rayparamidx=[]
     self._rayparamkm=[]
@@ -45,6 +46,7 @@ class PierceQuery:
     self._seconds=[]
     self._sourcedepth=[]
     self._station=[]
+    self._staxmltext=None
     self._strikediprake=[]
     self._takeoff=[]
     self._takeoffrange=[]
@@ -1116,6 +1118,25 @@ class PierceQuery:
     self._planet = val
     return self
 
+  def get_quakemltext(self):
+    """
+    returns current value of quakemltext as a String
+    """
+    return self._quakemltext
+
+  def quakemltext(self, val):
+    """
+    Sets the quakemltext parameter, of type String
+
+    Raw QuakeML text to load for earthquake origins to use
+
+    Known as ``--quakemltext`` in command line.
+
+    :param val: value to set quakemltext to
+    """
+    self._quakemltext = val
+    return self
+
   def get_rayparamdeg(self):
     """
     returns current value of rayparamdeg as a List
@@ -1648,6 +1669,25 @@ class PierceQuery:
     self._station += [lat, lon]
     return self
 
+  def get_staxmltext(self):
+    """
+    returns current value of staxmltext as a String
+    """
+    return self._staxmltext
+
+  def staxmltext(self, val):
+    """
+    Sets the staxmltext parameter, of type String
+
+    Raw StationXML text to extract station latitudes and longitudes from
+
+    Known as ``--staxmltext`` in command line.
+
+    :param val: value to set staxmltext to
+    """
+    self._staxmltext = val
+    return self
+
   def get_strikediprake(self):
     """
     returns current value of strikediprake as a List
@@ -1863,6 +1903,8 @@ class PierceQuery:
       params["pierce"] = self._pierce
     if self._planet is not None:
       params["planet"] = self._planet
+    if self._quakemltext is not None:
+      params["quakemltext"] = self._quakemltext
     if len(self._rayparamdeg) > 0:
       params["rayparamdeg"] = self._rayparamdeg
     if len(self._rayparamidx) > 0:
@@ -1883,6 +1925,8 @@ class PierceQuery:
       params["sourcedepth"] = self._sourcedepth
     if len(self._station) > 0:
       params["station"] = self._station
+    if self._staxmltext is not None:
+      params["staxmltext"] = self._staxmltext
     if len(self._strikediprake) > 0:
       params["strikediprake"] = self._strikediprake
     if len(self._takeoff) > 0:
