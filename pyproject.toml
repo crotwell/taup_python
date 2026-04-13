@@ -34,5 +34,11 @@ addopts = [
     "--import-mode=importlib",
 ]
 
+[tool.hatch.envs.test]
+  dependencies = [
+    "pytest"
+  ]
+
+
 [tool.hatch.version]
 path = "src/taup/__init__.py"
