@@ -15,6 +15,10 @@ from . import __version__
 
 VERBOSE=False
 
+POST="POST"
+GET="GET"
+DEFAULT_METHOD=POST
+
 """
 This starts the 'taup web' process within the script, avoiding a two step
 process to get the results. Many queries can be sent to the server,
@@ -22,6 +26,7 @@ saving significant spin up/shutdown time.
 """
 class TauPServer:
     def __init__(self, taup_path=None, verbose=VERBOSE):
+        self.method=DEFAULT_METHOD
         self.verbose = verbose
         self.port = f"{random.randrange(40000, 60000)}"
         if taup_path is None:
@@ -161,28 +166,33 @@ class TauPServer:
         taup_url = f'http://localhost:{self.port}/{tool}'
         params['format'] = format
         if self.verbose:
-            print(f"Query: {taup_url}", file=sys.stderr)
+            print(f"{self.method} Query: {taup_url}", file=sys.stderr)
             print(f"Params: {json.dumps(params)}", file=sys.stderr)
         try:
-            r = requests.get(taup_url, params=params, timeout=3)
+            if self.method == GET:
+                r = requests.get(taup_url, params=params, timeout=3)
+            elif self.method == POST:
+                r = requests.post(taup_url, data=json.dumps(params), timeout=3)
+            else:
+                raise Exception(f"Unknown method: {method}")
         except requests.ConnectionError:
             print("Connection error to taup, retrying...")
             r = requests.get(taup_url, params=params, timeout=3)
         return r.text
 
-    def retrieveJson(self, params, tool="time", method="GET"):
+    def retrieveJson(self, params, tool="time"):
         if self._taup is None:
             raise Exception("TauP is None???")
         if hasattr(params, "create_params"):
             params = params.create_params()
         taup_url = f'http://localhost:{self.port}/{tool}'
         if self.verbose:
-            print(f"Query: {taup_url}", file=sys.stderr)
+            print(f"{self.method} Query: {taup_url}", file=sys.stderr)
             print(f"Params: {json.dumps(params)}", file=sys.stderr)
         try:
-            if method == "GET":
+            if self.method == GET:
                 r = requests.get(taup_url, params=params, timeout=3)
-            elif method == "POST":
+            elif self.method == POST:
                 r = requests.post(taup_url, data=json.dumps(params), timeout=3)
             else:
                 raise Exception(f"Unknown method: {method}")
@@ -192,10 +202,10 @@ class TauPServer:
         jsonResult = r.json()
         return jsonResult
 
-    def queryJson(self, params, tool="time", method="POST"):
+    def queryJson(self, params, tool="time"):
         if "format" not in params:
             params["format"] = "json"
-        return self.retrieveJson(params, tool=tool, method=method)
+        return self.retrieveJson(params, tool=tool)
 
     def queryText(self, params, tool="time"):
         return self.retrieveTextual(params, tool=tool, format="text")
