@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 
-from .PathSegment import PathSegment
+from .WavefrontPathSegment import WavefrontPathSegment
 
 @dataclass
 class Wavefront:
@@ -21,5 +21,5 @@ class Wavefront:
             jsonObj['receiverdepth']
             )
         for s in jsonObj['segments']:
-            res.segments.append(PathSegment.from_json(s))
+            res.segments.append(WavefrontPathSegment.from_json(s))
         return res
