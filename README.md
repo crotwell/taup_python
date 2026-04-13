@@ -28,7 +28,7 @@ code:
 with taup.TauPServer() as timeserver:
     timeParams = taup.TimeQuery()
     timeParams.phase(["P", "S"])
-    timeParams.model('ak135')
+    timeParams.mod('ak135')
     timeParams.degree(35)
     results = timeParams.calc(timeserver)
 ```
