@@ -543,7 +543,7 @@ class DistazQuery:
     """
     Sets the quakemltext parameter, of type String
 
-    Raw QuakeML text to load for earthquake origins to use
+    Raw QuakeML text to load for earthquake origins to use, similar to --quakeml but is text instead of a file
 
     Known as ``--quakemltext`` in command line.
 
@@ -647,7 +647,7 @@ class DistazQuery:
     """
     Sets the staxmltext parameter, of type String
 
-    Raw StationXML text to extract station latitudes and longitudes from
+    Raw StationXML text to extract station latitudes and longitudes from, similar to --staxml but is text instead of a file
 
     Known as ``--staxmltext`` in command line.
 
