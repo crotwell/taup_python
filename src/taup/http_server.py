@@ -165,19 +165,11 @@ class TauPServer:
             params = params.create_params()
         taup_url = f'http://localhost:{self.port}/{tool}'
         params['format'] = format
-        if self.verbose:
-            print(f"{self.method} Query: {taup_url}", file=sys.stderr)
-            print(f"Params: {json.dumps(params)}", file=sys.stderr)
         try:
-            if self.method == GET:
-                r = requests.get(taup_url, params=params, timeout=3)
-            elif self.method == POST:
-                r = requests.post(taup_url, data=json.dumps(params), timeout=3)
-            else:
-                raise Exception(f"Unknown method: {method}")
+            r = self.do_request(taup_url, params)
         except requests.ConnectionError:
             print("Connection error to taup, retrying...")
-            r = requests.get(taup_url, params=params, timeout=3)
+            r = self.do_request(taup_url, params)
         return r.text
 
     def retrieveJson(self, params, tool="time"):
@@ -186,19 +178,11 @@ class TauPServer:
         if hasattr(params, "create_params"):
             params = params.create_params()
         taup_url = f'http://localhost:{self.port}/{tool}'
-        if self.verbose:
-            print(f"{self.method} Query: {taup_url}", file=sys.stderr)
-            print(f"Params: {json.dumps(params)}", file=sys.stderr)
         try:
-            if self.method == GET:
-                r = requests.get(taup_url, params=params, timeout=3)
-            elif self.method == POST:
-                r = requests.post(taup_url, data=json.dumps(params), timeout=3)
-            else:
-                raise Exception(f"Unknown method: {method}")
+            r = self.do_request(taup_url, params)
         except requests.ConnectionError:
             print("Connection error to taup, retrying...")
-            r = requests.get(taup_url, params=params, timeout=3)
+            r = self.do_request(taup_url, params)
         jsonResult = r.json()
         return jsonResult
 
@@ -224,3 +208,16 @@ class TauPServer:
 
     def queryLocsat(self, params, tool="time"):
         return self.retrieveTextual(params, tool=tool, format="locsat")
+
+
+    def do_request(self, taup_url, params):
+        if self.verbose:
+            print(f"{self.method} Query: {taup_url}", file=sys.stderr)
+            print(f"Params: {json.dumps(params)}\n", file=sys.stderr)
+        if self.method == GET:
+            r = requests.get(taup_url, params=params, timeout=3)
+        elif self.method == POST:
+            r = requests.post(taup_url, data=json.dumps(params), timeout=3)
+        else:
+            raise Exception(f"Unknown method: {self.method}")
+        return r
