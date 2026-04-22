@@ -183,8 +183,12 @@ class TauPServer:
         except requests.ConnectionError:
             print("Connection error to taup, retrying...")
             r = self.do_request(taup_url, params)
-        jsonResult = r.json()
-        return jsonResult
+
+        if 'content-type' in r.headers and r.headers['content-type']=='application/json':
+            jsonResult = r.json()
+            return jsonResult
+        else:
+            raise Exception(f"TauP response error: {r.text}")
 
     def queryJson(self, params, tool="time"):
         if "format" not in params:
@@ -214,10 +218,25 @@ class TauPServer:
         if self.verbose:
             print(f"{self.method} Query: {taup_url}", file=sys.stderr)
             print(f"Params: {json.dumps(params)}\n", file=sys.stderr)
+        headers = {}
+        if "format" in params:
+            if params["format"]=="json":
+                headers["Accept"] = "application/json"
+            elif params["format"] in ["text", "gmt", "nd", "tvel", "locsat"]:
+                headers["Accept"] = "text/plain"
+            elif params["format"]=="svg":
+                headers["Accept"] = "image/svg+xml"
+            elif params["format"]=="csv":
+                headers["Accept"] = "text/csv"
+            elif params["format"]=="html":
+                headers["Accept"] = "text/html"
+            elif params["format"]=="sac" or params["format"]=="ms3":
+                headers["Accept"] = "application/octet-stream"
         if self.method == GET:
             r = requests.get(taup_url, params=params, timeout=3)
         elif self.method == POST:
             r = requests.post(taup_url, data=json.dumps(params), timeout=3)
         else:
             raise Exception(f"Unknown method: {self.method}")
+        r.raise_for_status()
         return r
