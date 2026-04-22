@@ -9,7 +9,7 @@ with taup.TauPServer() as taupserver:
     # Refltrans, Table, Velmerge, Velplot, Version, Wavefront
     params = taup.DistazQuery()
     # params that will stay the same can be reused
-    params.geodetic(True)
+    params.geodist(["spherical", "geocentric", "geodetic"])
 
 
     eventLatLons = [ [35, -50], [-29, 45]]
@@ -21,8 +21,11 @@ with taup.TauPServer() as taupserver:
             params.event( *evt )
             # calculate results, parsed as JSON and returned as dataclass objects
             distazResult = params.calc(taupserver)
-            if distazResult.calctype == "geodetic":
-                print(f"    geodetic, flattening= 1/{distazResult.invflattening}")
+            for distcalc in distazResult.disttypes:
+                print(f"    {distcalc.type}, radius={distcalc.radius}")
+                if distcalc.type != "spherical":
+                    print(f"    equitorialradius={distcalc.equitorialradius}")
+                    print(f"    flattening= 1/{distazResult.invflattening}")
             for d in distazResult.distances:
                 km = f"Km: {d.km}" if d.km is not None else ""
                 print(f"from {sta} to {evt}: Dist: {d.deg} Az: {d.az} Baz: {d.baz} {km}")

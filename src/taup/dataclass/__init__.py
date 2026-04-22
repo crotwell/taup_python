@@ -9,7 +9,9 @@ from .Derivative import Derivative
 from .DerivativeSR import DerivativeSR
 from .Discontinuity import DisconLayer, Discontinuity, ModelDiscon, DisconResult
 from .DistazResult import DistazResult
+from .DistCalcType import DistCalcType
 from .Fault import Fault
+from .LatLonDepth import LatLonDepth
 from .PhaseResult import PhaseResult
 from .RelativeArrival import RelativeArrival
 from .Scatter import Scatter
@@ -31,7 +33,9 @@ __all__ = [
     "DerivativeSR",
     "DisconLayer", "Discontinuity", "ModelDiscon", "DisconResult",
     "DistazResult",
+    "DistCalcType",
     "Fault",
+    "LatLonDepth",
     "PhaseResult",
     "RelativeArrival",
     "Scatter",
