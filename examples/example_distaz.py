@@ -24,8 +24,8 @@ with taup.TauPServer() as taupserver:
             for distcalc in distazResult.disttypes:
                 print(f"    {distcalc.type}, radius={distcalc.radius}")
                 if distcalc.type != "spherical":
-                    print(f"    equitorialradius={distcalc.equitorialradius}")
-                    print(f"    flattening= 1/{distazResult.invflattening}")
+                    print(f"      equitorialradius={distcalc.equitorialradius}")
+                    print(f"      flattening= 1/{distcalc.invflattening}")
             for d in distazResult.distances:
                 km = f"Km: {d.km}" if d.km is not None else ""
-                print(f"from {sta} to {evt}: Dist: {d.deg} Az: {d.az} Baz: {d.baz} {km}")
+                print(f"{d.disttype.type} from {sta} to {evt}: Dist: {d.deg} Az: {d.az} Baz: {d.baz} {km}")
