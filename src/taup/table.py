@@ -8,6 +8,7 @@ class TableQuery:
 
     self._derivative=None
     self._generic=None
+    self._geodist=None
     self._header=None
     self._model=None
     self._phase=[]
@@ -116,6 +117,26 @@ class TableQuery:
     :param val: value to set generic to
     """
     self._generic = val
+    return self
+
+  def get_geodist(self):
+    """
+    returns current value of geodist as a edu.sc.seis.TauP.GeoDistType
+    """
+    return self._geodist
+
+  def geodist(self, val):
+    """
+    Sets the geodist parameter, a choice of one of:
+     spherical, geocentric, geodetic
+
+    Type of distance calculation to use for lat,lon distance calculation, one of spherical, geocentric, geodetic
+
+    Known as ``--geodist`` in command line.
+
+    :param val: value to set geodist to
+    """
+    self._geodist = val
     return self
 
   def get_header(self):
@@ -435,6 +456,8 @@ class TableQuery:
       params["derivative"] = self._derivative
     if self._generic is not None:
       params["generic"] = self._generic
+    if self._geodist is not None:
+      params["geodist"] = self._geodist
     if self._header is not None:
       params["header"] = self._header
     if self._model is not None:

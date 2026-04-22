@@ -767,9 +767,9 @@ class CurveQuery:
   def x(self, val):
     """
     Sets the xaxis parameter, a choice of one of:
-     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
+     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
 
-    X axis data type, default is degree180, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
+    X axis data type, default is degree180, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
 
     Known as ``-x`` in command line.
     Also known as ``--xaxis`` in command line.
@@ -788,9 +788,9 @@ class CurveQuery:
   def xaxis(self, val):
     """
     Sets the xaxis parameter, a choice of one of:
-     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
+     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
 
-    X axis data type, default is degree180, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
+    X axis data type, default is degree180, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
 
     Known as ``--xaxis`` in command line.
 
@@ -869,9 +869,9 @@ class CurveQuery:
   def y(self, val):
     """
     Sets the yaxis parameter, a choice of one of:
-     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
+     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
 
-    Y axis data type, default is time, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
+    Y axis data type, default is time, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
 
     Known as ``-y`` in command line.
     Also known as ``--yaxis`` in command line.
@@ -890,9 +890,9 @@ class CurveQuery:
   def yaxis(self, val):
     """
     Sets the yaxis parameter, a choice of one of:
-     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
+     radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
 
-    Y axis data type, default is time, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, theta, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
+    Y axis data type, default is time, one of radian, radian180, degree, degree180, kilometer, kilometer180, rayparamrad, rayparamdeg, rayparamkm, time, tau, takeoffangle, incidentangle, turndepth, dpddelta, dpddeg, amp, amppsv, ampsh, phase, phasepsv, phasesh, phasedeg, phasedegpsv, phasedegsh, unwrapphasedeg, unwrapphasedegpsv, unwrapphasedegsh, geospread, refltran, refltranpsv, refltransh, index, tstar, attenuation, energygeospread, pathlength, radiation, radiationpsv, radiationsh, intcaustic
 
     Known as ``--yaxis`` in command line.
 

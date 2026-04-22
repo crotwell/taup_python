@@ -16,12 +16,15 @@ class DistazQuery:
     self._event=[]
     self._geodetic=None
     self._geodeticflattening=None
+    self._geodist=[]
     self._kilometer=[]
     self._kilometerrange=[]
     self._model=None
     self._planet=None
     self._quakemltext=None
     self._radius=None
+    self._receiverdepth=[]
+    self._sourcedepth=[]
     self._station=[]
     self._staxmltext=None
 
@@ -221,7 +224,7 @@ class DistazQuery:
     """
     Sets the equitorialradius parameter, of type Double
 
-    Equitorial radius in meters for distance calculations when --geodetic, defaults to WGS84 ~ 6378137 meters.
+    Equitorial radius in meters for distance calculations when geodetic or geocentric, defaults to WGS84 ~ 6378137 meters.
 
     Known as ``--equitorialradius`` in command line.
 
@@ -327,7 +330,7 @@ class DistazQuery:
     """
     Sets the geodeticflattening parameter, of type Double
 
-    Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
+    Inverse Elliptical flattening for distance calculations when geocentric or geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
 
     Known as ``--invflattening`` in command line.
     Also known as ``--geodeticflattening`` in command line.
@@ -347,13 +350,50 @@ class DistazQuery:
     """
     Sets the geodeticflattening parameter, of type Double
 
-    Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
+    Inverse Elliptical flattening for distance calculations when geocentric or geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
 
     Known as ``--geodeticflattening`` in command line.
 
     :param val: value to set geodeticflattening to
     """
     self._geodeticflattening = val
+    return self
+
+  def get_geodist(self):
+    """
+    returns current value of geodist as a List
+    """
+    return self._geodist
+
+  def geodist(self, val):
+    """
+    Sets the geodist parameter, a choice of one of:
+     spherical, geocentric, geodetic of edu.sc.seis.TauP.GeoDistType
+
+    Type of distance calculation to use for lat,lon distance calculation, one of spherical, geocentric, geodetic. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
+
+    Known as ``--geodist`` in command line.
+
+    :param val: value to set geodist to
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"geodist() requires a list, not {val}")
+    self._geodist = val
+    return self
+
+
+  def andGeodist(self, val):
+    """
+    Append a value to the geodist parameter, a choice of one of:
+     spherical, geocentric, geodetic
+
+    Type of distance calculation to use for lat,lon distance calculation, one of spherical, geocentric, geodetic. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
+
+    Known as ``--geodist`` in command line.
+
+    :param val: value to set geodist to
+    """
+    self._geodist.append(val)
     return self
 
   def get_km(self):
@@ -571,6 +611,212 @@ class DistazQuery:
     self._radius = val
     return self
 
+  def get_stadepth(self):
+    """
+    returns current value of receiverdepth as a List
+    """
+    return self._receiverdepth
+
+  def stadepth(self, val):
+    """
+    Sets the receiverdepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So
+    params.stadepth( value )
+    and
+    params.stadepth( [ value ] )
+    are equivalent.
+
+    the receiver depth in km for stations not at the surface
+
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
+
+    :param val: value to set receiverdepth to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._receiverdepth = val
+    return self
+
+
+  def andStadepth(self, val):
+    """
+    Append a value to the receiverdepth parameter,  of type Double
+
+    the receiver depth in km for stations not at the surface
+
+    Known as ``--stadepth`` in command line.
+    Also known as ``--receiverdepth`` in command line.
+
+    :param val: value to set receiverdepth to
+    """
+    self._receiverdepth.append(val)
+    return self
+
+  def get_receiverdepth(self):
+    """
+    returns current value of receiverdepth as a List
+    """
+    return self._receiverdepth
+
+  def receiverdepth(self, val):
+    """
+    Sets the receiverdepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So
+    params.receiverdepth( value )
+    and
+    params.receiverdepth( [ value ] )
+    are equivalent.
+
+    the receiver depth in km for stations not at the surface
+
+    Known as ``--receiverdepth`` in command line.
+
+    :param val: value to set receiverdepth to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._receiverdepth = val
+    return self
+
+
+  def andReceiverdepth(self, val):
+    """
+    Append a value to the receiverdepth parameter,  of type Double
+
+    the receiver depth in km for stations not at the surface
+
+    Known as ``--receiverdepth`` in command line.
+
+    :param val: value to set receiverdepth to
+    """
+    self._receiverdepth.append(val)
+    return self
+
+  def get_h(self):
+    """
+    returns current value of sourcedepth as a List
+    """
+    return self._sourcedepth
+
+  def h(self, val):
+    """
+    Sets the sourcedepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So
+    params.h( value )
+    and
+    params.h( [ value ] )
+    are equivalent.
+
+    source depth in km
+
+    Known as ``-h`` in command line.
+    Also known as ``--sourcedepth`` in command line.
+
+    :param val: value to set sourcedepth to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._sourcedepth = val
+    return self
+
+
+  def andH(self, val):
+    """
+    Append a value to the sourcedepth parameter,  of type Double
+
+    source depth in km
+
+    Known as ``-h`` in command line.
+    Also known as ``--sourcedepth`` in command line.
+
+    :param val: value to set sourcedepth to
+    """
+    self._sourcedepth.append(val)
+    return self
+
+  def get_sourcedepth(self):
+    """
+    returns current value of sourcedepth as a List
+    """
+    return self._sourcedepth
+
+  def sourcedepth(self, val):
+    """
+    Sets the sourcedepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So
+    params.sourcedepth( value )
+    and
+    params.sourcedepth( [ value ] )
+    are equivalent.
+
+    source depth in km
+
+    Known as ``--sourcedepth`` in command line.
+
+    :param val: value to set sourcedepth to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._sourcedepth = val
+    return self
+
+
+  def andSourcedepth(self, val):
+    """
+    Append a value to the sourcedepth parameter,  of type Double
+
+    source depth in km
+
+    Known as ``--sourcedepth`` in command line.
+
+    :param val: value to set sourcedepth to
+    """
+    self._sourcedepth.append(val)
+    return self
+
+  def get_evdepth(self):
+    """
+    returns current value of sourcedepth as a List
+    """
+    return self._sourcedepth
+
+  def evdepth(self, val):
+    """
+    Sets the sourcedepth parameter, of type List of Double
+    If a single Double is passed in, it is automatically wrapped in a list. So
+    params.evdepth( value )
+    and
+    params.evdepth( [ value ] )
+    are equivalent.
+
+    source depth in km
+
+    Known as ``--evdepth`` in command line.
+    Also known as ``--sourcedepth`` in command line.
+
+    :param val: value to set sourcedepth to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._sourcedepth = val
+    return self
+
+
+  def andEvdepth(self, val):
+    """
+    Append a value to the sourcedepth parameter,  of type Double
+
+    source depth in km
+
+    Known as ``--evdepth`` in command line.
+    Also known as ``--sourcedepth`` in command line.
+
+    :param val: value to set sourcedepth to
+    """
+    self._sourcedepth.append(val)
+    return self
+
   def get_sta(self):
     """
     returns current value of station as a List
@@ -680,6 +926,8 @@ class DistazQuery:
       params["geodetic"] = self._geodetic
     if self._geodeticflattening is not None:
       params["geodeticflattening"] = self._geodeticflattening
+    if len(self._geodist) > 0:
+      params["geodist"] = self._geodist
     if len(self._kilometer) > 0:
       params["kilometer"] = self._kilometer
     if len(self._kilometerrange) > 0:
@@ -692,6 +940,10 @@ class DistazQuery:
       params["quakemltext"] = self._quakemltext
     if self._radius is not None:
       params["radius"] = self._radius
+    if len(self._receiverdepth) > 0:
+      params["receiverdepth"] = self._receiverdepth
+    if len(self._sourcedepth) > 0:
+      params["sourcedepth"] = self._sourcedepth
     if len(self._station) > 0:
       params["station"] = self._station
     if self._staxmltext is not None:

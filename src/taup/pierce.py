@@ -23,6 +23,7 @@ class PierceQuery:
     self._exactkilometerrange=[]
     self._geodetic=None
     self._geodeticflattening=None
+    self._geodist=[]
     self._incident=[]
     self._incidentrange=[]
     self._kilometer=[]
@@ -310,7 +311,7 @@ class PierceQuery:
     """
     Sets the equitorialradius parameter, of type Double
 
-    Equitorial radius in meters for distance calculations when --geodetic, defaults to WGS84 ~ 6378137 meters.
+    Equitorial radius in meters for distance calculations when geodetic or geocentric, defaults to WGS84 ~ 6378137 meters.
 
     Known as ``--equitorialradius`` in command line.
 
@@ -568,7 +569,7 @@ class PierceQuery:
     """
     Sets the geodeticflattening parameter, of type Double
 
-    Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
+    Inverse Elliptical flattening for distance calculations when geocentric or geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
 
     Known as ``--invflattening`` in command line.
     Also known as ``--geodeticflattening`` in command line.
@@ -588,13 +589,50 @@ class PierceQuery:
     """
     Sets the geodeticflattening parameter, of type Double
 
-    Inverse Elliptical flattening for distance calculations when --geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
+    Inverse Elliptical flattening for distance calculations when geocentric or geodetic, defaults to WGS84 ~ 298.257. The distance calculation uses 1/x.
 
     Known as ``--geodeticflattening`` in command line.
 
     :param val: value to set geodeticflattening to
     """
     self._geodeticflattening = val
+    return self
+
+  def get_geodist(self):
+    """
+    returns current value of geodist as a List
+    """
+    return self._geodist
+
+  def geodist(self, val):
+    """
+    Sets the geodist parameter, a choice of one of:
+     spherical, geocentric, geodetic of edu.sc.seis.TauP.GeoDistType
+
+    Type of distance calculation to use for lat,lon distance calculation, one of spherical, geocentric, geodetic. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
+
+    Known as ``--geodist`` in command line.
+
+    :param val: value to set geodist to
+    """
+    if not hasattr(val, "__getitem__"):
+      raise Exception(f"geodist() requires a list, not {val}")
+    self._geodist = val
+    return self
+
+
+  def andGeodist(self, val):
+    """
+    Append a value to the geodist parameter, a choice of one of:
+     spherical, geocentric, geodetic
+
+    Type of distance calculation to use for lat,lon distance calculation, one of spherical, geocentric, geodetic. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
+
+    Known as ``--geodist`` in command line.
+
+    :param val: value to set geodist to
+    """
+    self._geodist.append(val)
     return self
 
   def get_incident(self):
@@ -1879,6 +1917,8 @@ class PierceQuery:
       params["geodetic"] = self._geodetic
     if self._geodeticflattening is not None:
       params["geodeticflattening"] = self._geodeticflattening
+    if len(self._geodist) > 0:
+      params["geodist"] = self._geodist
     if len(self._incident) > 0:
       params["incident"] = self._incident
     if len(self._incidentrange) > 0:
