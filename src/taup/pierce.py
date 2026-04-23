@@ -889,6 +889,28 @@ class PierceQuery:
     self._mw = val
     return self
 
+  def get_added(self):
+    """
+    returns current value of nodiscon as a Boolean
+    """
+    return self._nodiscon
+
+  def added(self, val=True):
+    """
+    Sets the nodiscon parameter, of type Boolean
+
+    Without arguments sets the value to True. 
+
+    only prints pierce points for the depths added with --pierce
+
+    Known as ``--added`` in command line.
+    Also known as ``--nodiscon`` in command line.
+
+    :param val: value to set nodiscon to
+    """
+    self._nodiscon = val
+    return self
+
   def get_nodiscon(self):
     """
     returns current value of nodiscon as a Boolean
@@ -901,7 +923,7 @@ class PierceQuery:
 
     Without arguments sets the value to True. 
 
-    only prints pierce points for the depths added with -pierce
+    only prints pierce points for the depths added with --pierce
 
     Known as ``--nodiscon`` in command line.
 
