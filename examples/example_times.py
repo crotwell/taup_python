@@ -34,13 +34,9 @@ with taup.TauPServer() as taupserver:
             if len(jsonTimes.arrivals) == 0:
                 print(f"No arrivals...{event} to {sta}")
             else:
-                print("Phase Depth    Dist  Time")
+                print("Phase Depth    Dist  Time   Desc")
             for a in jsonTimes.arrivals:
                 #print(a)
-                print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc} p: {len(a.pierce)}")
-                if len(a.pierce) != 0:
-                    print("Pierce:")
-                    for p in a.pierce:
-                        print(f"  {p}")
+                print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc}")
                 if a.relative:
                     print(f"    Relative: {a.phase} - {a.relative.arrival.phase} = {a.relative.difference} s")
