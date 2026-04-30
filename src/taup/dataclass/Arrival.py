@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 from .PathSegment import PathSegment
 from .Amplitude import Amplitude
@@ -24,8 +24,8 @@ class Arrival:
     desc: str| None = None
     amp: Amplitude| None = None
     scatter: Scatter| None = None
-    relative: Any  = None # RelativeArrival
-    derivative: Any = None
+    relative: RelativeArrival|None  = None # RelativeArrival
+    derivative: Derivative = None
     pierce: list[TimeDist] = field(default_factory=list)
     pathlength: float|None = None
     pathSegments: list[PathSegment] = field(default_factory=list)
