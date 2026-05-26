@@ -114,9 +114,12 @@ class TauPServer:
         """
         Compare version these python bindings were created for with the version of the server.
         Prints a message to stderr if not the same.
-        Returns the server version.
+        Returns tuple of isMatchOk, message, the server version, python version.
         """
-        serverVersion = self.queryJson({}, "version")
+        # do this as GET as old TauP did not allow POST
+        params = {}
+        params["format"] = "json"
+        serverVersion = self.retrieveJson(params, "version", GET)
         serverVersion = serverVersion['version']
         sVerMajor, sVerMinor, sVerMicro = serverVersion.split('.', maxsplit=2)
         sVerSnap = None
@@ -128,33 +131,40 @@ class TauPServer:
         if '-' in myVerMicro:
             myVerMicro, _dash, myVerSnap = myVerMicro.partition('-')
 
+        serverIsOk = False
+        message="Not OK"
         if sVerMajor != myVerMajor:
             message = f"Major version mismatch! {sVerMajor} != {myVerMajor}"
-            self.printVersionWarnMsg(message, serverVersion, TAUP_VERSION)
         elif sVerMinor != myVerMinor:
             message = f"Minor version mismatch! {sVerMinor} != {myVerMinor}"
-            self.printVersionWarnMsg(message, serverVersion, TAUP_VERSION)
         elif sVerMicro != myVerMicro:
             message = f"Micro version mismatch! {sVerMicro} != {myVerMicro}"
-            self.printVersionWarnMsg(message, serverVersion, TAUP_VERSION)
         elif sVerSnap != myVerSnap:
             message = f"Snapshot Versions not compatible? {sVerSnap} != {myVerSnap}"
+        else:
+            serverIsOk = True
+            message = "OK: Server version matches Python client version."
+        if not serverIsOk:
             self.printVersionWarnMsg(message, serverVersion, TAUP_VERSION)
-        return serverVersion
+
+        return serverIsOk, message, serverVersion, TAUP_VERSION
 
     def printVersionWarnMsg(self, message, serverVersion, myVersion):
         warn = f"""
-        WARNING: TauP server => Python client version mismatch!
+
+        WARNING: TauP server <==> Python client version mismatch!
+
         {message}
+
         This may cause errors. It is recommended that you upgrade to match.
             The TauP Toolkit (Java):
                 https://taup.readthedocs.io/en/latest/
-                https://doi.org/10.5281/zenodo.15426279
+                https://doi.org/10.5281/zenodo.10794857
             TauPy (Python):
                 version: {__version__}
                 https://pypi.org/project/taup/
-            TauP Toolkit Server: {serverVersion}
-            Python Generated for: {TAUP_VERSION}
+            The TauP Toolkit server is {serverVersion}
+            But Python was generated for {TAUP_VERSION}
         """
         print(warn, file=sys.stderr)
 
@@ -172,17 +182,17 @@ class TauPServer:
             r = self.do_request(taup_url, params)
         return r.text
 
-    def retrieveJson(self, params, tool="time"):
+    def retrieveJson(self, params, tool="time", method=None):
         if self._taup is None:
             raise Exception("TauP is None???")
         if hasattr(params, "create_params"):
             params = params.create_params()
         taup_url = f'http://localhost:{self.port}/{tool}'
         try:
-            r = self.do_request(taup_url, params)
+            r = self.do_request(taup_url, params, method=method)
         except requests.ConnectionError:
             print("Connection error to taup, retrying...")
-            r = self.do_request(taup_url, params)
+            r = self.do_request(taup_url, params, method=method)
 
         if 'content-type' in r.headers and r.headers['content-type']=='application/json':
             jsonResult = r.json()
@@ -214,9 +224,11 @@ class TauPServer:
         return self.retrieveTextual(params, tool=tool, format="locsat")
 
 
-    def do_request(self, taup_url, params):
+    def do_request(self, taup_url, params, method=None):
+        if method is None:
+            method = self.method
         if self.verbose:
-            print(f"{self.method} Query: {taup_url}", file=sys.stderr)
+            print(f"{method} Query: {taup_url}", file=sys.stderr)
             print(f"Params: {json.dumps(params)}\n", file=sys.stderr)
         headers = {}
         if "format" in params:
@@ -232,11 +244,11 @@ class TauPServer:
                 headers["Accept"] = "text/html"
             elif params["format"]=="sac" or params["format"]=="ms3":
                 headers["Accept"] = "application/octet-stream"
-        if self.method == GET:
+        if method == GET:
             r = requests.get(taup_url, params=params, timeout=3)
-        elif self.method == POST:
+        elif method == POST:
             r = requests.post(taup_url, data=json.dumps(params), timeout=3)
         else:
-            raise Exception(f"Unknown method: {self.method}")
+            raise Exception(f"Unknown method: {method}")
         r.raise_for_status()
         return r
