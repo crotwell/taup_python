@@ -25,12 +25,17 @@ off the command line arguments of the same name. For example, this Python
 code:
 
 ```
-with taup.TauPServer() as timeserver:
+import taup
+
+with taup.TauPServer() as taupserver:
     timeParams = taup.TimeQuery()
     timeParams.phase(["P", "S"])
     timeParams.mod('ak135')
     timeParams.degree(35)
-    results = timeParams.calc(timeserver)
+    timeResult = timeParams.calc(taupserver)
+    print("Phase  Depth   Dist   Time")
+    for a in timeResult.arrivals:
+        print(f"{a.phase}      {a.sourcedepth}     {a.distdeg}   {a.time}")
 ```
 
 roughly corresponds to this command line:
@@ -39,10 +44,10 @@ bin/taup time --ph P,S --mod ak135 --deg 35 --json
 ```
 
 Note that if you have many calculations in a loop, you want to have the loop
-on the inside of the `with taup.TauPServer() as timeserver:` line so that
+on the inside of the `with taup.TauPServer() as taupserver:` line so that
 the server is only started up once.
 
-See `example_times.py` and `example_text.py`  in the examples directory for a couple of more detailed examples.
+See `example_times.py` and others in the examples directory for more detailed examples.
 
 Documentation available at readthedocs for
 [TauP-python](https://taup-python.readthedocs.io/en/latest/)
