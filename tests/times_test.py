@@ -1,6 +1,6 @@
 import pytest
 import taup
-from .conftest import taupserver
+from .conftest import taupserver, jsonMatchDataclass
 
 class TestTauPTime:
     def test_amp(self, taupserver):
@@ -15,3 +15,17 @@ class TestTauPTime:
         for sta in staLatLons:
             params.station( *sta )
         ans = params.calc(taupserver)
+
+    def testDataClass(self, taupserver):
+
+        params = taup.TimeQuery()
+        params.phase(["S","P"])
+        params.model('ak135fcont')
+        params.amp()
+        params.event( 35, -50 )
+        params.sourcedepth([100])
+        params.station( 34, -80 )
+        jsonAns = params.calcJson(taupserver)
+        ans = taup.dataclass.TimeResult.from_json(jsonAns)
+        jsonMatchDataclass(jsonAns, ans)
+

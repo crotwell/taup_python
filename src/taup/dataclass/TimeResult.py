@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 
 from .Arrival import Arrival
 from .Scatter import Scatter
+from .Source import Source
 
 @dataclass
 class TimeResult:
@@ -10,6 +11,7 @@ class TimeResult:
     receiverdepthlist: list
     phases: list
     scatter: Scatter = None
+    source: Source = None
     arrivals: list = field(default_factory=list)
 
     @classmethod
@@ -22,6 +24,8 @@ class TimeResult:
             )
         if 'scatter' in jsonObj:
             res.scatter = Scatter.from_json(jsonObj['scatter'])
+        if 'source' in jsonObj:
+            res.source = Source.from_json(jsonObj['source'])
         for arr in jsonObj['arrivals']:
             res.arrivals.append(Arrival.from_json(arr))
         return res
