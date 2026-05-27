@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 
 import taup
-import requests
 
 staLatLons = [ [34, -80], [35, -81]]
-
 
 with taup.TauPServer() as taupserver:
     params = taup.TimeQuery()
@@ -18,19 +16,17 @@ with taup.TauPServer() as taupserver:
     params.event(-29, 45)
     params.sourcedepth([100])
 
-
-    # params that will vary
-
     for sta in staLatLons:
+        # params that will vary with each iteration
         params.station( *sta )
 
         # calculate results, parsed as JSON and returned as dataclass objects
-        jsonTimes = params.calc(taupserver)
-        if len(jsonTimes.arrivals) == 0:
+        timeResult = params.calc(taupserver)
+        if len(timeResult.arrivals) == 0:
             print(f"No arrivals... at {sta}")
         else:
             print("Phase Depth    Dist    Time     Amp      Desc")
-        for a in jsonTimes.arrivals:
+        for a in timeResult.arrivals:
             #print(a)
             print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.amp.factorpsv:.1e}  {a.desc}")
             if len(a.pierce) != 0:

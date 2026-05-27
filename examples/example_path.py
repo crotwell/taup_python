@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import taup
-import requests
 
 eventLatLons = [ [-35, -50], ]
 staLatLons = [  [35, -81]]
@@ -29,8 +28,8 @@ with taup.TauPServer() as taupserver:
         #textResult = params.calcGmt(taupserver)
         #print(textResult)
         # or
-        timeResult = params.calc(taupserver)
-        for a in timeResult.arrivals:
+        pathResult = params.calc(taupserver)
+        for a in pathResult.arrivals:
             print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc if a.desc is not None else ''}")
             if a.pathlength is not None:
                 print(f"  Path length: {a.pathlength} km")

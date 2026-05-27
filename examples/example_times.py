@@ -1,14 +1,11 @@
 #!/usr/bin/env python
 
 import taup
-import requests
 
 eventLatLons = [ [35, -50], [-29, 45]]
 staLatLons = [ [34, -80], [35, -81]]
 
-
 with taup.TauPServer() as taupserver:
-
 
     # query params correspond to the tools, may be any one of:
     # Time, Pierce, Path, Curve, Discon, Distaz, Find, Phase,
@@ -21,7 +18,6 @@ with taup.TauPServer() as taupserver:
     params.scatter(500, 2)
     params.rel("P")
 
-
     # params that will vary
     for event in eventLatLons:
         params.event( *event ) # splat to expand list into function args
@@ -30,12 +26,12 @@ with taup.TauPServer() as taupserver:
             params.station( *sta )
 
             # calculate results, parsed as JSON and returned as dataclass objects
-            jsonTimes = params.calc(taupserver)
-            if len(jsonTimes.arrivals) == 0:
+            timeResult = params.calc(taupserver)
+            if len(timeResult.arrivals) == 0:
                 print(f"No arrivals...{event} to {sta}")
             else:
                 print("Phase Depth    Dist  Time   Desc")
-            for a in jsonTimes.arrivals:
+            for a in timeResult.arrivals:
                 #print(a)
                 print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc}")
                 if a.relative:

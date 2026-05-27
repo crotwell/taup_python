@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import taup
-import requests
 
 with taup.TauPServer() as taupserver:
 
@@ -18,6 +17,6 @@ with taup.TauPServer() as taupserver:
 
 
     # calculate results, parsed as JSON and returned as dataclass objects
-    jsonCurve = params.calc(taupserver)
-    for c in jsonCurve.curves:
+    curveResult = params.calc(taupserver)
+    for c in curveResult.curves:
         print(f"curve {c.label} is {c.description}")

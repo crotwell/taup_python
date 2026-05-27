@@ -14,10 +14,10 @@ with taup.TauPServer(verbose=True) as taupserver:
     with open("my_stations.staml", "r") as instaxml:
         params.staxmltext(instaxml.read())
     params.amp()
-    taupResult = params.calc(taupserver)
-    if len(taupResult.arrivals) == 0:
+    timeResult = params.calc(taupserver)
+    if len(timeResult.arrivals) == 0:
         print(f"No arrivals...")
     else:
         print(f"{'Phase':^10}  {'Depth':^10}  {'Dist':^10}  {'Time':^10}  {'AmpPSv':^8}  {'AmpSh':^8}")
-        for a in taupResult.arrivals:
+        for a in timeResult.arrivals:
             print(f"{a.phase:>10}  {a.sourcedepth:>10}  {a.distdeg:>10.3f}  {a.time:>10.3f}  {a.amp.factorpsv:0.1e}  {a.amp.factorsh:0.1e}  \"{a.desc}\"")
