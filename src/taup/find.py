@@ -832,7 +832,7 @@ class FindQuery:
     """
     return self._strikediprake
 
-  def strikediprake(self, val):
+  def strikediprake(self, strike, dip, rake):
     """
     Sets the strikediprake parameter, of type List of Float
 
@@ -842,23 +842,7 @@ class FindQuery:
 
     :param val: value to set strikediprake to
     """
-    if not hasattr(val, "__getitem__"):
-      raise Exception(f"strikediprake() requires a list, not {val}")
-    self._strikediprake = val
-    return self
-
-
-  def andStrikediprake(self, val):
-    """
-    Append a value to the strikediprake parameter,  of type Float
-
-    fault strike, dip and rake for amplitude calculations. If not given radiation pattern is unity in all directions.
-
-    Known as ``--strikediprake`` in command line.
-
-    :param val: value to set strikediprake to
-    """
-    self._strikediprake.append(val)
+    self._strikediprake = [strike, dip, rake]
     return self
 
   def get_swaveonly(self):

@@ -28,13 +28,13 @@ class Arrival:
     derivative: Derivative = None
     pierce: list[TimeDist] = field(default_factory=list)
     pathlength: float|None = None
-    pathSegments: list[PathSegment] = field(default_factory=list)
+    path: list[PathSegment] = field(default_factory=list)
 
-    def getPath(self):
-        path = []
-        for ps in self.pathSegments:
-            path = path + ps.segment
-        return path
+    def mergePath(self):
+        mergedpath = []
+        for ps in self.path:
+            mergedpath = mergedpath + ps.segment
+        return mergedpath
 
     @classmethod
     def from_json(cls, jsonObj):
@@ -66,7 +66,7 @@ class Arrival:
         if 'path' in jsonObj:
             arr.pathlength = jsonObj['pathlength']
             for p in jsonObj['path']:
-                arr.pathSegments.append(PathSegment.from_json(p))
+                arr.path.append(PathSegment.from_json(p))
         return arr
 
     def __str__(self):
