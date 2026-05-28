@@ -20,6 +20,6 @@ def jsonMatchDataclass(jsonObj, dcObj):
         assert found, f"{jk} {jv}"
 
     for jk, jv in jsonObj.items():
-        if isinstance(jv, dict):
+        if isinstance(jv, dict) and dataclasses.is_dataclass(getattr(dcObj, jk)):
             jsonMatchDataclass(jv, getattr(dcObj, jk))
 
