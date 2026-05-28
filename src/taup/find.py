@@ -8,7 +8,7 @@ class FindQuery:
 
     self._amp=None
     self._attenuationfreq=None
-    self._az=None
+    self._azimuth=None
     self._degree=[]
     self._deltatime=None
     self._exclude=[]
@@ -103,21 +103,41 @@ class FindQuery:
 
   def get_az(self):
     """
-    returns current value of az as a Double
+    returns current value of azimuth as a Double
     """
-    return self._az
+    return self._azimuth
 
   def az(self, val):
     """
-    Sets the az parameter, of type Double
+    Sets the azimuth parameter, of type Double
 
     azimuth in degrees, for amp calculations
 
     Known as ``--az`` in command line.
+    Also known as ``--azimuth`` in command line.
 
-    :param val: value to set az to
+    :param val: value to set azimuth to
     """
-    self._az = val
+    self._azimuth = val
+    return self
+
+  def get_azimuth(self):
+    """
+    returns current value of azimuth as a Double
+    """
+    return self._azimuth
+
+  def azimuth(self, val):
+    """
+    Sets the azimuth parameter, of type Double
+
+    azimuth in degrees, for amp calculations
+
+    Known as ``--azimuth`` in command line.
+
+    :param val: value to set azimuth to
+    """
+    self._azimuth = val
     return self
 
   def get_deg(self):
@@ -913,8 +933,8 @@ class FindQuery:
       params["amp"] = self._amp
     if self._attenuationfreq is not None:
       params["attenuationfreq"] = self._attenuationfreq
-    if self._az is not None:
-      params["az"] = self._az
+    if self._azimuth is not None:
+      params["azimuth"] = self._azimuth
     if len(self._degree) > 0:
       params["degree"] = self._degree
     if self._deltatime is not None:

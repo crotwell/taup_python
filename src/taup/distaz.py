@@ -8,8 +8,8 @@ class DistazQuery:
   def __init__(self):
     self.toolname= "distaz"
 
-    self._az=None
-    self._baz=None
+    self._azimuth=None
+    self._backazimuth=None
     self._degree=[]
     self._degreerange=[]
     self._equitorialradius=None
@@ -60,40 +60,80 @@ class DistazQuery:
 
   def get_az(self):
     """
-    returns current value of az as a Double
+    returns current value of azimuth as a Double
     """
-    return self._az
+    return self._azimuth
 
   def az(self, val):
     """
-    Sets the az parameter, of type Double
+    Sets the azimuth parameter, of type Double
 
     azimuth in degrees, source to receiver
 
     Known as ``--az`` in command line.
+    Also known as ``--azimuth`` in command line.
 
-    :param val: value to set az to
+    :param val: value to set azimuth to
     """
-    self._az = val
+    self._azimuth = val
+    return self
+
+  def get_azimuth(self):
+    """
+    returns current value of azimuth as a Double
+    """
+    return self._azimuth
+
+  def azimuth(self, val):
+    """
+    Sets the azimuth parameter, of type Double
+
+    azimuth in degrees, source to receiver
+
+    Known as ``--azimuth`` in command line.
+
+    :param val: value to set azimuth to
+    """
+    self._azimuth = val
     return self
 
   def get_baz(self):
     """
-    returns current value of baz as a Double
+    returns current value of backazimuth as a Double
     """
-    return self._baz
+    return self._backazimuth
 
   def baz(self, val):
     """
-    Sets the baz parameter, of type Double
+    Sets the backazimuth parameter, of type Double
 
     backazimuth in degrees, receiver to source
 
     Known as ``--baz`` in command line.
+    Also known as ``--backazimuth`` in command line.
 
-    :param val: value to set baz to
+    :param val: value to set backazimuth to
     """
-    self._baz = val
+    self._backazimuth = val
+    return self
+
+  def get_backazimuth(self):
+    """
+    returns current value of backazimuth as a Double
+    """
+    return self._backazimuth
+
+  def backazimuth(self, val):
+    """
+    Sets the backazimuth parameter, of type Double
+
+    backazimuth in degrees, receiver to source
+
+    Known as ``--backazimuth`` in command line.
+
+    :param val: value to set backazimuth to
+    """
+    self._backazimuth = val
     return self
 
   def get_deg(self):
@@ -370,7 +410,7 @@ class DistazQuery:
     Sets the geodist parameter, a choice of one of:
      spherical, geocentric, geodetic of edu.sc.seis.TauP.GeoDistType
 
-    Type of distance calculation to use for lat,lon distance calculation, one of spherical, geocentric, geodetic. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
+    Type of distance calculation to use for lat,lon distance calculation, from spherical, geocentric, geodetic. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
     Known as ``--geodist`` in command line.
 
@@ -387,7 +427,7 @@ class DistazQuery:
     Append a value to the geodist parameter, a choice of one of:
      spherical, geocentric, geodetic
 
-    Type of distance calculation to use for lat,lon distance calculation, one of spherical, geocentric, geodetic. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
+    Type of distance calculation to use for lat,lon distance calculation, from spherical, geocentric, geodetic. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
     Known as ``--geodist`` in command line.
 
@@ -910,10 +950,10 @@ class DistazQuery:
     params = {
       "format": "json",
     }
-    if self._az is not None:
-      params["az"] = self._az
-    if self._baz is not None:
-      params["baz"] = self._baz
+    if self._azimuth is not None:
+      params["azimuth"] = self._azimuth
+    if self._backazimuth is not None:
+      params["backazimuth"] = self._backazimuth
     if len(self._degree) > 0:
       params["degree"] = self._degree
     if len(self._degreerange) > 0:
