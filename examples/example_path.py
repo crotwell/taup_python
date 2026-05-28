@@ -35,7 +35,7 @@ with taup.TauPServer() as taupserver:
                 print(f"  Path length: {a.pathlength} km")
             else:
                 print("  No Path")
-            for pathseg in a.pathSegments:
+            for pathseg in a.path:
                 firstPoint = pathseg.segment[0]
                 lastPoint = pathseg.segment[-1]
                 print(f"    {pathseg.name} as {pathseg.wavetype} from {firstPoint.depth} km at {firstPoint.distdeg} deg to {lastPoint.depth} km at {lastPoint.distdeg} deg takes {lastPoint.time-firstPoint.time} sec")
