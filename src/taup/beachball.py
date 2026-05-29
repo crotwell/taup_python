@@ -9,6 +9,7 @@ class BeachballQuery:
     self.toolname= "beachball"
 
     self._allindex=None
+    self._arrows=None
     self._attenuationfreq=None
     self._azimuth=None
     self._backazimuth=None
@@ -26,6 +27,7 @@ class BeachballQuery:
     self._geodetic=None
     self._geodeticflattening=None
     self._geodist=[]
+    self._gridstep=None
     self._incident=[]
     self._incidentrange=[]
     self._kilometer=[]
@@ -35,6 +37,7 @@ class BeachballQuery:
     self._model=None
     self._mw=None
     self._numattenuationfreq=None
+    self._numpoints=None
     self._phase=[]
     self._planet=None
     self._quakemltext=None
@@ -117,6 +120,27 @@ class BeachballQuery:
     :param val: value to set allindex to
     """
     self._allindex = val
+    return self
+
+  def get_arrows(self):
+    """
+    returns current value of arrows as a Boolean
+    """
+    return self._arrows
+
+  def arrows(self, val=True):
+    """
+    Sets the arrows parameter, of type Boolean
+
+    Without arguments sets the value to True. 
+
+    Arrows to show direction for svg.
+
+    Known as ``--arrows`` in command line.
+
+    :param val: value to set arrows to
+    """
+    self._arrows = val
     return self
 
   def get_attenuationfreq(self):
@@ -750,6 +774,25 @@ class BeachballQuery:
     self._geodist.append(val)
     return self
 
+  def get_gridstep(self):
+    """
+    returns current value of gridstep as a Float
+    """
+    return self._gridstep
+
+  def gridstep(self, val):
+    """
+    Sets the gridstep parameter, of type Float
+
+    Step in degrees for griding the background radiation pattern for svg image
+
+    Known as ``--gridstep`` in command line.
+
+    :param val: value to set gridstep to
+    """
+    self._gridstep = val
+    return self
+
   def get_incident(self):
     """
     returns current value of incident as a List
@@ -1059,6 +1102,25 @@ class BeachballQuery:
     :param val: value to set numattenuationfreq to
     """
     self._numattenuationfreq = val
+    return self
+
+  def get_numpoints(self):
+    """
+    returns current value of numpoints as a Integer
+    """
+    return self._numpoints
+
+  def numpoints(self, val):
+    """
+    Sets the numpoints parameter, of type Integer
+
+    Number of points for json, number of arrows to show direction for svg
+
+    Known as ``--numpoints`` in command line.
+
+    :param val: value to set numpoints to
+    """
+    self._numpoints = val
     return self
 
   def get_p(self):
@@ -1859,6 +1921,8 @@ class BeachballQuery:
     }
     if self._allindex is not None:
       params["allindex"] = self._allindex
+    if self._arrows is not None:
+      params["arrows"] = self._arrows
     if self._attenuationfreq is not None:
       params["attenuationfreq"] = self._attenuationfreq
     if self._azimuth is not None:
@@ -1893,6 +1957,8 @@ class BeachballQuery:
       params["geodeticflattening"] = self._geodeticflattening
     if len(self._geodist) > 0:
       params["geodist"] = self._geodist
+    if self._gridstep is not None:
+      params["gridstep"] = self._gridstep
     if len(self._incident) > 0:
       params["incident"] = self._incident
     if len(self._incidentrange) > 0:
@@ -1911,6 +1977,8 @@ class BeachballQuery:
       params["mw"] = self._mw
     if self._numattenuationfreq is not None:
       params["numattenuationfreq"] = self._numattenuationfreq
+    if self._numpoints is not None:
+      params["numpoints"] = self._numpoints
     if len(self._phase) > 0:
       params["phase"] = self._phase
     if self._planet is not None:
