@@ -19,10 +19,14 @@ from .wavefront import WavefrontQuery
 from .version import VersionQuery
 from .dataclass import (
     DataClassJsonEncoder,
-    Amplitude, Arrival, Curve, CurveSegment, Daz,
-    DisconLayer, Discontinuity, ModelDiscon, DisconResult, Fault, Isochron,
-    PathSegment, RelativeArrival, Scatter, Source, TimeDist, TimeResult,
-    Wavefront, WavefrontResult
+    Amplitude, Arrival, BeachballResult, Curve, CurveSegment, Daz,
+    Derivative, DerivativeSR,
+    DisconLayer, Discontinuity, ModelDiscon, DisconResult, 
+    DistazResult, DistCalcType, 
+    Fault, LatLonDepth, Isochron,
+    PathSegment, PhaseBranch, PhaseDescription, PhaseResult,
+    RelativeArrival, Scatter, Source, TimeDist, TimeResult,
+    Wavefront, WavefrontPathSegment, WavefrontResult
 )
 
 __all__ = [
@@ -43,24 +47,33 @@ __all__ = [
     "VelplotQuery",
     "WavefrontQuery",
     "VersionQuery",
+
+    "BeachballResult",
     "DataClassJsonEncoder",
     "Amplitude",
     "Arrival",
     "Curve",
+    "CurveResult",
     "CurveSegment",
     "Daz",
-    "DisconLayer",
-    "Discontinuity",
-    "ModelDiscon",
-    "DisconResult",
+    "Derivative",
+    "DerivativeSR",
+    "DisconLayer", "Discontinuity", "ModelDiscon", "DisconResult",
+    "DistazResult",
+    "DistCalcType",
     "Fault",
-    "Isochron",
+    "LatLonDepth",
     "PathSegment",
+    "PhaseBranch",
+    "PhaseDescription",
+    "PhaseResult",
     "RelativeArrival",
     "Scatter",
     "Source",
     "TimeDist",
     "TimeResult",
+    "Isochron",
     "Wavefront",
+    "WavefrontPathSegment",
     "WavefrontResult"
 ]
