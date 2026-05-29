@@ -6,12 +6,10 @@ class TestTauPFind:
 
     def testDataClass(self, taupserver):
         params = taup.FindQuery()
+        params.max(1)
         params.amp()
         params.az(35)
         params.model('ak135fcont')
-        params.event( 35, -50 )
-        params.sourcedepth([100])
-        params.station( 34, -80 )
         params.strikediprake(35, 65, 75)
         jsonAns = params.calcJson(taupserver)
         ans = taup.dataclass.FindResult.from_json(jsonAns)
