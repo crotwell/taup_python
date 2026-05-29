@@ -23,3 +23,8 @@ cd docs ; make html && open build/html/index.html ; cd ..
 git status
 hatch publish -u __token__ --auth <token>
 ```
+
+# regen __all__ for dataclasses
+cd src/taup/dataclass
+grep class *  | grep -v dataclass | grep -v classm | awk '{ print "\42" $2 "\42" "\," }'
+
