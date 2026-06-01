@@ -18,6 +18,7 @@ VERBOSE=False
 POST="POST"
 GET="GET"
 DEFAULT_METHOD=POST
+DEFAULT_TIMEOUT=10
 
 """
 This starts the 'taup web' process within the script, avoiding a two step
@@ -28,6 +29,7 @@ class TauPServer:
     def __init__(self, taup_path=None, verbose=VERBOSE):
         self.method=DEFAULT_METHOD
         self.verbose = verbose
+        self.timeout = DEFAULT_TIMEOUT
         self.port = f"{random.randrange(40000, 60000)}"
         if taup_path is None:
             self.taup_path=shutil.which("taup")
@@ -245,9 +247,9 @@ class TauPServer:
             elif params["format"]=="sac" or params["format"]=="ms3":
                 headers["Accept"] = "application/octet-stream"
         if method == GET:
-            r = requests.get(taup_url, params=params, timeout=3)
+            r = requests.get(taup_url, params=params, timeout=self.timeout)
         elif method == POST:
-            r = requests.post(taup_url, data=json.dumps(params), timeout=3)
+            r = requests.post(taup_url, data=json.dumps(params), timeout=self.timeout)
         else:
             raise Exception(f"Unknown method: {method}")
         r.raise_for_status()
