@@ -258,10 +258,11 @@ class TauPServer:
     def asCommandLine(self, params, tool="time", method=None):
         if method is None:
             method = self.method
-
-        method = GET
-        
         cmdLineUrl = f'http://localhost:{self.port}/cmdline/{tool}'
+
+        if self.verbose:
+            print(f"{method} Query: {cmdLineUrl}", file=sys.stderr)
+            print(f"Params: {json.dumps(params)}\n", file=sys.stderr)
         if method == GET:
             r = requests.get(cmdLineUrl, params=params, timeout=self.timeout)
         elif method == POST:
