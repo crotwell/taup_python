@@ -14,6 +14,7 @@ class TableQuery:
     self._phase=[]
     self._receiverdepth=[]
     self._scatter=[]
+    self._velocitymodeltext=None
 
   def asCommandLine(self, taupServer):
     """
@@ -452,6 +453,25 @@ class TableQuery:
     self._scatter = [depth, degree]
     return self
 
+  def get_velocitymodeltext(self):
+    """
+    returns current value of velocitymodeltext as a String
+    """
+    return self._velocitymodeltext
+
+  def velocitymodeltext(self, val):
+    """
+    Sets the velocitymodeltext parameter, of type String
+
+    Velocity model as json to load for calculations, similar to --model but is text instead of a file or name
+
+    Known as ``--velocitymodeltext`` in command line.
+
+    :param val: value to set velocitymodeltext to
+    """
+    self._velocitymodeltext = val
+    return self
+
 
   def create_params(self):
     """
@@ -476,5 +496,7 @@ class TableQuery:
       params["receiverdepth"] = self._receiverdepth
     if len(self._scatter) > 0:
       params["scatter"] = self._scatter
+    if self._velocitymodeltext is not None:
+      params["velocitymodeltext"] = self._velocitymodeltext
     return params
 

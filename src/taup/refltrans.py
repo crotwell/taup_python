@@ -27,6 +27,7 @@ class RefltransQuery:
     self._sourcedepth=[]
     self._swave=None
     self._up=None
+    self._velocitymodeltext=None
     self._xminmax=None
     self._yminmax=None
     self._x=None
@@ -711,6 +712,25 @@ class RefltransQuery:
     self._up = val
     return self
 
+  def get_velocitymodeltext(self):
+    """
+    returns current value of velocitymodeltext as a String
+    """
+    return self._velocitymodeltext
+
+  def velocitymodeltext(self, val):
+    """
+    Sets the velocitymodeltext parameter, of type String
+
+    Velocity model as json to load for calculations, similar to --model but is text instead of a file or name
+
+    Known as ``--velocitymodeltext`` in command line.
+
+    :param val: value to set velocitymodeltext to
+    """
+    self._velocitymodeltext = val
+    return self
+
   def get_xminmax(self):
     """
     returns current value of xminmax as a [D
@@ -856,6 +876,8 @@ class RefltransQuery:
       params["swave"] = self._swave
     if self._up is not None:
       params["up"] = self._up
+    if self._velocitymodeltext is not None:
+      params["velocitymodeltext"] = self._velocitymodeltext
     if self._xminmax is not None:
       params["xminmax"] = self._xminmax
     if self._yminmax is not None:

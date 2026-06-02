@@ -51,6 +51,7 @@ class PathQuery:
     self._staxmltext=None
     self._takeoff=[]
     self._takeoffrange=[]
+    self._velocitymodeltext=None
     self._withlatlon=None
     self._withtime=None
     self._xaxis=None
@@ -1843,6 +1844,25 @@ class PathQuery:
     self._takeoffrange.append(val)
     return self
 
+  def get_velocitymodeltext(self):
+    """
+    returns current value of velocitymodeltext as a String
+    """
+    return self._velocitymodeltext
+
+  def velocitymodeltext(self, val):
+    """
+    Sets the velocitymodeltext parameter, of type String
+
+    Velocity model as json to load for calculations, similar to --model but is text instead of a file or name
+
+    Known as ``--velocitymodeltext`` in command line.
+
+    :param val: value to set velocitymodeltext to
+    """
+    self._velocitymodeltext = val
+    return self
+
   def get_withlatlon(self):
     """
     returns current value of withlatlon as a Boolean
@@ -2021,6 +2041,8 @@ class PathQuery:
       params["takeoff"] = self._takeoff
     if len(self._takeoffrange) > 0:
       params["takeoffrange"] = self._takeoffrange
+    if self._velocitymodeltext is not None:
+      params["velocitymodeltext"] = self._velocitymodeltext
     if self._withlatlon is not None:
       params["withlatlon"] = self._withlatlon
     if self._withtime is not None:

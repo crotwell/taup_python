@@ -10,6 +10,7 @@ class VelplotQuery:
     self._mapwidth=None
     self._mapwidthunit=None
     self._model=[]
+    self._velocitymodeltext=None
     self._xaxis=None
     self._xminmax=None
     self._yaxis=None
@@ -220,6 +221,25 @@ class VelplotQuery:
     self._model.append(val)
     return self
 
+  def get_velocitymodeltext(self):
+    """
+    returns current value of velocitymodeltext as a String
+    """
+    return self._velocitymodeltext
+
+  def velocitymodeltext(self, val):
+    """
+    Sets the velocitymodeltext parameter, of type String
+
+    Velocity model as json to load for calculations, similar to --model but is text instead of a file or name
+
+    Known as ``--velocitymodeltext`` in command line.
+
+    :param val: value to set velocitymodeltext to
+    """
+    self._velocitymodeltext = val
+    return self
+
   def get_x(self):
     """
     returns current value of xaxis as a edu.sc.seis.TauP.ModelAxisType
@@ -360,6 +380,8 @@ class VelplotQuery:
       params["mapwidthunit"] = self._mapwidthunit
     if len(self._model) > 0:
       params["model"] = self._model
+    if self._velocitymodeltext is not None:
+      params["velocitymodeltext"] = self._velocitymodeltext
     if self._xaxis is not None:
       params["xaxis"] = self._xaxis
     if self._xminmax is not None:

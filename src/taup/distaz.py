@@ -27,6 +27,7 @@ class DistazQuery:
     self._sourcedepth=[]
     self._station=[]
     self._staxmltext=None
+    self._velocitymodeltext=None
 
   def calc(self, taupServer):
     """
@@ -950,6 +951,25 @@ class DistazQuery:
     self._staxmltext = val
     return self
 
+  def get_velocitymodeltext(self):
+    """
+    returns current value of velocitymodeltext as a String
+    """
+    return self._velocitymodeltext
+
+  def velocitymodeltext(self, val):
+    """
+    Sets the velocitymodeltext parameter, of type String
+
+    Velocity model as json to load for calculations, similar to --model but is text instead of a file or name
+
+    Known as ``--velocitymodeltext`` in command line.
+
+    :param val: value to set velocitymodeltext to
+    """
+    self._velocitymodeltext = val
+    return self
+
 
   def create_params(self):
     """
@@ -996,5 +1016,7 @@ class DistazQuery:
       params["station"] = self._station
     if self._staxmltext is not None:
       params["staxmltext"] = self._staxmltext
+    if self._velocitymodeltext is not None:
+      params["velocitymodeltext"] = self._velocitymodeltext
     return params
 

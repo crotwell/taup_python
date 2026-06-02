@@ -13,6 +13,7 @@ class PhaseQuery:
     self._receiverdepth=[]
     self._scatter=[]
     self._sourcedepth=[]
+    self._velocitymodeltext=None
 
   def calc(self, taupServer):
     """
@@ -462,6 +463,25 @@ class PhaseQuery:
     self._sourcedepth.append(val)
     return self
 
+  def get_velocitymodeltext(self):
+    """
+    returns current value of velocitymodeltext as a String
+    """
+    return self._velocitymodeltext
+
+  def velocitymodeltext(self, val):
+    """
+    Sets the velocitymodeltext parameter, of type String
+
+    Velocity model as json to load for calculations, similar to --model but is text instead of a file or name
+
+    Known as ``--velocitymodeltext`` in command line.
+
+    :param val: value to set velocitymodeltext to
+    """
+    self._velocitymodeltext = val
+    return self
+
 
   def create_params(self):
     """
@@ -480,5 +500,7 @@ class PhaseQuery:
       params["scatter"] = self._scatter
     if len(self._sourcedepth) > 0:
       params["sourcedepth"] = self._sourcedepth
+    if self._velocitymodeltext is not None:
+      params["velocitymodeltext"] = self._velocitymodeltext
     return params
 

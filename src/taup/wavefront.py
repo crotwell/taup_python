@@ -23,6 +23,7 @@ class WavefrontQuery:
     self._sourcedepth=[]
     self._timefiles=None
     self._timestep=None
+    self._velocitymodeltext=None
     self._xaxis=None
     self._yaxis=None
 
@@ -689,6 +690,25 @@ class WavefrontQuery:
     self._timestep = val
     return self
 
+  def get_velocitymodeltext(self):
+    """
+    returns current value of velocitymodeltext as a String
+    """
+    return self._velocitymodeltext
+
+  def velocitymodeltext(self, val):
+    """
+    Sets the velocitymodeltext parameter, of type String
+
+    Velocity model as json to load for calculations, similar to --model but is text instead of a file or name
+
+    Known as ``--velocitymodeltext`` in command line.
+
+    :param val: value to set velocitymodeltext to
+    """
+    self._velocitymodeltext = val
+    return self
+
   def get_xaxis(self):
     """
     returns current value of xaxis as a edu.sc.seis.TauP.DistanceAxisType
@@ -769,6 +789,8 @@ class WavefrontQuery:
       params["timefiles"] = self._timefiles
     if self._timestep is not None:
       params["timestep"] = self._timestep
+    if self._velocitymodeltext is not None:
+      params["velocitymodeltext"] = self._velocitymodeltext
     if self._xaxis is not None:
       params["xaxis"] = self._xaxis
     if self._yaxis is not None:

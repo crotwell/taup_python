@@ -25,6 +25,7 @@ class CurveQuery:
     self._scatter=[]
     self._sourcedepth=[]
     self._strikediprake=[]
+    self._velocitymodeltext=None
     self._xabs=None
     self._xaxis=None
     self._xlog=None
@@ -729,6 +730,25 @@ class CurveQuery:
     self._strikediprake = [strike, dip, rake]
     return self
 
+  def get_velocitymodeltext(self):
+    """
+    returns current value of velocitymodeltext as a String
+    """
+    return self._velocitymodeltext
+
+  def velocitymodeltext(self, val):
+    """
+    Sets the velocitymodeltext parameter, of type String
+
+    Velocity model as json to load for calculations, similar to --model but is text instead of a file or name
+
+    Known as ``--velocitymodeltext`` in command line.
+
+    :param val: value to set velocitymodeltext to
+    """
+    self._velocitymodeltext = val
+    return self
+
   def get_xabs(self):
     """
     returns current value of xabs as a Boolean
@@ -975,6 +995,8 @@ class CurveQuery:
       params["sourcedepth"] = self._sourcedepth
     if len(self._strikediprake) > 0:
       params["strikediprake"] = self._strikediprake
+    if self._velocitymodeltext is not None:
+      params["velocitymodeltext"] = self._velocitymodeltext
     if self._xabs is not None:
       params["xabs"] = self._xabs
     if self._xaxis is not None:
