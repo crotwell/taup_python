@@ -59,6 +59,14 @@ class TimeQuery:
     """
     return TimeResult.from_json(self.calcJson(taupServer))
 
+  def asCommandLine(self, taupServer):
+    """
+    Sends all params to the server, returns the equivalent command line.
+    """
+    params = self.create_params()
+    return taupServer.asCommandLine(params, self.toolname)
+
+
   def calcJson(self, taupServer):
     """
     Sends all params to the server, returns the result parsed from JSON.

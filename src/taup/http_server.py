@@ -254,3 +254,26 @@ class TauPServer:
             raise Exception(f"Unknown method: {method}")
         r.raise_for_status()
         return r
+
+    def asCommandLine(self, params, tool="time", method=None):
+        if method is None:
+            method = self.method
+
+        method = GET
+        
+        cmdLineUrl = f'http://localhost:{self.port}/cmdline/{tool}'
+        if method == GET:
+            r = requests.get(cmdLineUrl, params=params, timeout=self.timeout)
+        elif method == POST:
+            r = requests.post(cmdLineUrl, data=json.dumps(params), timeout=self.timeout)
+        else:
+            raise Exception(f"Unknown method: {method}")
+        r.raise_for_status()
+        return r.text
+
+
+    def preview_request(self, taup_url, params, method=None):
+            print(f"{method} Query: {taup_url}", file=sys.stderr)
+            print(f"Params: {json.dumps(params)}\n", file=sys.stderr)
+
+    
