@@ -7,9 +7,10 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'taup'
-copyright = '2025, Philip Crotwell'
+copyright = '2026, Philip Crotwell'
 author = 'Philip Crotwell'
-release = '0.1'
+release = '0.2'
+version = '0.2.0-alpha10'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
