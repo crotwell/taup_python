@@ -1603,7 +1603,7 @@ class PierceQuery:
     params.h( [ value ] )
     are equivalent.
 
-    source depth in km
+    source depth in km, default is 0.0
 
     Known as ``-h`` in command line.
     Also known as ``--sourcedepth`` in command line.
@@ -1620,7 +1620,7 @@ class PierceQuery:
     """
     Append a value to the sourcedepth parameter,  of type Double
 
-    source depth in km
+    source depth in km, default is 0.0
 
     Known as ``-h`` in command line.
     Also known as ``--sourcedepth`` in command line.
@@ -1645,7 +1645,7 @@ class PierceQuery:
     params.sourcedepth( [ value ] )
     are equivalent.
 
-    source depth in km
+    source depth in km, default is 0.0
 
     Known as ``--sourcedepth`` in command line.
 
@@ -1661,7 +1661,7 @@ class PierceQuery:
     """
     Append a value to the sourcedepth parameter,  of type Double
 
-    source depth in km
+    source depth in km, default is 0.0
 
     Known as ``--sourcedepth`` in command line.
 
@@ -1685,7 +1685,7 @@ class PierceQuery:
     params.evdepth( [ value ] )
     are equivalent.
 
-    source depth in km
+    source depth in km, default is 0.0
 
     Known as ``--evdepth`` in command line.
     Also known as ``--sourcedepth`` in command line.
@@ -1702,7 +1702,7 @@ class PierceQuery:
     """
     Append a value to the sourcedepth parameter,  of type Double
 
-    source depth in km
+    source depth in km, default is 0.0
 
     Known as ``--evdepth`` in command line.
     Also known as ``--sourcedepth`` in command line.

@@ -6,6 +6,7 @@ class VelmergeQuery:
   def __init__(self):
     self.toolname= "velmerge"
 
+    self._asjson=None
     self._elev=None
     self._model=None
     self._modmerge=None
@@ -30,6 +31,27 @@ class VelmergeQuery:
     params = self.create_params()
     return taupServer.queryJson(params, self.toolname)
 
+
+  def get_asjson(self):
+    """
+    returns current value of asjson as a Boolean
+    """
+    return self._asjson
+
+  def asjson(self, val=True):
+    """
+    Sets the asjson parameter, of type Boolean
+
+    Without arguments sets the value to True. 
+
+    output as a ".json" velocity file
+
+    Known as ``--asjson`` in command line.
+
+    :param val: value to set asjson to
+    """
+    self._asjson = val
+    return self
 
   def get_elev(self):
     """
@@ -215,6 +237,8 @@ class VelmergeQuery:
     params = {
       "format": "json",
     }
+    if self._asjson is not None:
+      params["asjson"] = self._asjson
     if self._elev is not None:
       params["elev"] = self._elev
     if self._model is not None:
