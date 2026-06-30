@@ -28,6 +28,7 @@ class BeachballQuery:
     self._geodeticflattening=None
     self._geodist=[]
     self._gridstep=None
+    self._hemi=None
     self._incident=[]
     self._incidentrange=[]
     self._kilometer=[]
@@ -800,6 +801,26 @@ class BeachballQuery:
     :param val: value to set gridstep to
     """
     self._gridstep = val
+    return self
+
+  def get_hemi(self):
+    """
+    returns current value of hemi as a edu.sc.seis.TauP.gson.HemisphereType
+    """
+    return self._hemi
+
+  def hemi(self, val):
+    """
+    Sets the hemi parameter, a choice of one of:
+     UPPER, LOWER, BOTH
+
+    Beachball hemisphere type, default is lower, one of UPPER, LOWER, BOTH
+
+    Known as ``--hemi`` in command line.
+
+    :param val: value to set hemi to
+    """
+    self._hemi = val
     return self
 
   def get_incident(self):
@@ -1987,6 +2008,8 @@ class BeachballQuery:
       params["geodist"] = self._geodist
     if self._gridstep is not None:
       params["gridstep"] = self._gridstep
+    if self._hemi is not None:
+      params["hemi"] = self._hemi
     if len(self._incident) > 0:
       params["incident"] = self._incident
     if len(self._incidentrange) > 0:
