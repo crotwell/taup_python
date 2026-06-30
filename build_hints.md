@@ -18,6 +18,11 @@ git status
 hatch clean && hatch build
 pytest
 # update release/version in docs/source/conf.py
+
+# to rebuild requirements.txt
+pip install pip-tools
+rm requirements.txt && pip-compile
+
 cd docs/source ; pip install -r requirements.txt; cd ../..
 cd docs ; make html && open build/html/index.html ; cd ..
 git status
@@ -27,4 +32,3 @@ hatch publish -u __token__ --auth <token>
 # regen __all__ for dataclasses
 cd src/taup/dataclass
 grep class *  | grep -v dataclass | grep -v classm | awk '{ print "\42" $2 "\42" "\," }'
-
