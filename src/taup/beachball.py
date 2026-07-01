@@ -15,7 +15,6 @@ class BeachballQuery:
     self._backazimuth=None
     self._bbtype=None
     self._color=None
-    self._colorphases=None
     self._degree=[]
     self._degreerange=[]
     self._equitorialradius=None
@@ -40,6 +39,7 @@ class BeachballQuery:
     self._numattenuationfreq=None
     self._numpoints=None
     self._phase=[]
+    self._phasecircles=None
     self._planet=None
     self._quakemltext=None
     self._rayparamdeg=[]
@@ -309,27 +309,6 @@ class BeachballQuery:
     :param val: value to set color to
     """
     self._color = val
-    return self
-
-  def get_colorphases(self):
-    """
-    returns current value of colorphases as a Boolean
-    """
-    return self._colorphases
-
-  def colorphases(self, val=True):
-    """
-    Sets the colorphases parameter, of type Boolean
-
-    Without arguments sets the value to True. 
-
-    Color takeoff range for phases.
-
-    Known as ``--colorphases`` in command line.
-
-    :param val: value to set colorphases to
-    """
-    self._colorphases = val
     return self
 
   def get_deg(self):
@@ -805,16 +784,16 @@ class BeachballQuery:
 
   def get_hemi(self):
     """
-    returns current value of hemi as a edu.sc.seis.TauP.gson.HemisphereType
+    returns current value of hemi as a edu.sc.seis.TauP.HemisphereType
     """
     return self._hemi
 
   def hemi(self, val):
     """
     Sets the hemi parameter, a choice of one of:
-     UPPER, LOWER, BOTH
+     upper, lower, both
 
-    Beachball hemisphere type, default is lower, one of UPPER, LOWER, BOTH
+    Beachball hemisphere type, default is lower, one of upper, lower, both
 
     Known as ``--hemi`` in command line.
 
@@ -1275,6 +1254,27 @@ class BeachballQuery:
     :param val: value to set phase to
     """
     self._phase.append(val)
+    return self
+
+  def get_phasecircles(self):
+    """
+    returns current value of phasecircles as a Boolean
+    """
+    return self._phasecircles
+
+  def phasecircles(self, val=True):
+    """
+    Sets the phasecircles parameter, of type Boolean
+
+    Without arguments sets the value to True. 
+
+    Draw circles for takeoff range for phases.
+
+    Known as ``--phasecircles`` in command line.
+
+    :param val: value to set phasecircles to
+    """
+    self._phasecircles = val
     return self
 
   def get_planet(self):
@@ -1982,8 +1982,6 @@ class BeachballQuery:
       params["bbtype"] = self._bbtype
     if self._color is not None:
       params["color"] = self._color
-    if self._colorphases is not None:
-      params["colorphases"] = self._colorphases
     if len(self._degree) > 0:
       params["degree"] = self._degree
     if len(self._degreerange) > 0:
@@ -2032,6 +2030,8 @@ class BeachballQuery:
       params["numpoints"] = self._numpoints
     if len(self._phase) > 0:
       params["phase"] = self._phase
+    if self._phasecircles is not None:
+      params["phasecircles"] = self._phasecircles
     if self._planet is not None:
       params["planet"] = self._planet
     if self._quakemltext is not None:
