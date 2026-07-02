@@ -6,14 +6,11 @@ class VelmergeQuery:
   def __init__(self):
     self.toolname= "velmerge"
 
-    self._asjson=None
     self._elev=None
     self._model=None
-    self._modmerge=None
-    self._ndmerge=None
     self._smoothbot=None
     self._smoothtop=None
-    self._tvelmerge=None
+    self._velocitymodelmergetext=None
     self._velocitymodeltext=None
 
   def asCommandLine(self, taupServer):
@@ -31,27 +28,6 @@ class VelmergeQuery:
     params = self.create_params()
     return taupServer.queryJson(params, self.toolname)
 
-
-  def get_asjson(self):
-    """
-    returns current value of asjson as a Boolean
-    """
-    return self._asjson
-
-  def asjson(self, val=True):
-    """
-    Sets the asjson parameter, of type Boolean
-
-    Without arguments sets the value to True. 
-
-    output as a ".json" velocity file
-
-    Known as ``--asjson`` in command line.
-
-    :param val: value to set asjson to
-    """
-    self._asjson = val
-    return self
 
   def get_elev(self):
     """
@@ -111,44 +87,6 @@ class VelmergeQuery:
     self._model = val
     return self
 
-  def get_modmerge(self):
-    """
-    returns current value of modmerge as a String
-    """
-    return self._modmerge
-
-  def modmerge(self, val):
-    """
-    Sets the modmerge parameter, of type String
-
-    velocity file to merge, format is guessed
-
-    Known as ``--modmerge`` in command line.
-
-    :param val: value to set modmerge to
-    """
-    self._modmerge = val
-    return self
-
-  def get_ndmerge(self):
-    """
-    returns current value of ndmerge as a String
-    """
-    return self._ndmerge
-
-  def ndmerge(self, val):
-    """
-    Sets the ndmerge parameter, of type String
-
-    "named discontinuities" velocity file to merge
-
-    Known as ``--ndmerge`` in command line.
-
-    :param val: value to set ndmerge to
-    """
-    self._ndmerge = val
-    return self
-
   def get_smoothbot(self):
     """
     returns current value of smoothbot as a Boolean
@@ -191,23 +129,23 @@ class VelmergeQuery:
     self._smoothtop = val
     return self
 
-  def get_tvelmerge(self):
+  def get_velocitymodelmergetext(self):
     """
-    returns current value of tvelmerge as a String
+    returns current value of velocitymodelmergetext as a String
     """
-    return self._tvelmerge
+    return self._velocitymodelmergetext
 
-  def tvelmerge(self, val):
+  def velocitymodelmergetext(self, val):
     """
-    Sets the tvelmerge parameter, of type String
+    Sets the velocitymodelmergetext parameter, of type String
 
-    ".tvel" velocity file to merge, ala ttimes
+    Velocity merge model as json to load for calculations, similar to --modmerge but is text instead of a file or name
 
-    Known as ``--tvelmerge`` in command line.
+    Known as ``--velocitymodelmergetext`` in command line.
 
-    :param val: value to set tvelmerge to
+    :param val: value to set velocitymodelmergetext to
     """
-    self._tvelmerge = val
+    self._velocitymodelmergetext = val
     return self
 
   def get_velocitymodeltext(self):
@@ -237,22 +175,16 @@ class VelmergeQuery:
     params = {
       "format": "json",
     }
-    if self._asjson is not None:
-      params["asjson"] = self._asjson
     if self._elev is not None:
       params["elev"] = self._elev
     if self._model is not None:
       params["model"] = self._model
-    if self._modmerge is not None:
-      params["modmerge"] = self._modmerge
-    if self._ndmerge is not None:
-      params["ndmerge"] = self._ndmerge
     if self._smoothbot is not None:
       params["smoothbot"] = self._smoothbot
     if self._smoothtop is not None:
       params["smoothtop"] = self._smoothtop
-    if self._tvelmerge is not None:
-      params["tvelmerge"] = self._tvelmerge
+    if self._velocitymodelmergetext is not None:
+      params["velocitymodelmergetext"] = self._velocitymodelmergetext
     if self._velocitymodeltext is not None:
       params["velocitymodeltext"] = self._velocitymodeltext
     return params
