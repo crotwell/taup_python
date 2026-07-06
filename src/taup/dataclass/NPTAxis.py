@@ -13,6 +13,6 @@ class NPTAxis:
     def from_json(cls, jsonObj):
         res = NPTAxis(
                 SphericalCoord.from_json(jsonObj['n']),
-                SphericalCoord.from_json(jsonObj['n']),
-                SphericalCoord.from_json(jsonObj['n']))
+                SphericalCoord.from_json(jsonObj['p']),
+                SphericalCoord.from_json(jsonObj['t']))
         return res
