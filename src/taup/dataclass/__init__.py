@@ -28,6 +28,8 @@ from .Source import Source
 from .SphericalCoord import SphericalCoord
 from .TimeDist import TimeDist
 from .TimeResult import TimeResult
+from .VelocityModel import VelocityModel, NamedDiscon
+from .VelocityLayer import VelocityLayer, VelocityLayerParams
 from .Wavefront import Wavefront
 from .WavefrontPathSegment import WavefrontPathSegment
 from .WavefrontResult import WavefrontResult
@@ -54,6 +56,7 @@ __all__ = [
     "Isochron",
     "LatLonDepth",
     "NPTAxis",
+    "NamedDiscon",
     "PathSegment",
     "PhaseBranch",
     "PhaseDescription",
@@ -66,6 +69,9 @@ __all__ = [
     "SphericalCoord",
     "TimeDist",
     "TimeResult",
+    "VelocityLayer",
+    "VelocityLayerParams",
+    "VelocityModel",
     "Wavefront",
     "WavefrontPathSegment",
     "WavefrontResult",
