@@ -16,6 +16,7 @@ from .Fault import Fault
 from .FindResult import FindResult
 from .Isochron import Isochron
 from .LatLonDepth import LatLonDepth
+from .NPTAxis import NPTAxis
 from .PathSegment import PathSegment
 from .PhaseBranch import PhaseBranch
 from .PhaseDescription import PhaseDescription
@@ -24,6 +25,7 @@ from .PhaseSegment import PhaseSegment
 from .RelativeArrival import RelativeArrival
 from .Scatter import Scatter
 from .Source import Source
+from .SphericalCoord import SphericalCoord
 from .TimeDist import TimeDist
 from .TimeResult import TimeResult
 from .Wavefront import Wavefront
@@ -51,6 +53,7 @@ __all__ = [
     "FindResult",
     "Isochron",
     "LatLonDepth",
+    "NPTAxis",
     "PathSegment",
     "PhaseBranch",
     "PhaseDescription",
@@ -60,6 +63,7 @@ __all__ = [
     "RelativeArrival",
     "Scatter",
     "Source",
+    "SphericalCoord",
     "TimeDist",
     "TimeResult",
     "Wavefront",
