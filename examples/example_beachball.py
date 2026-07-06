@@ -5,7 +5,6 @@ import taup
 eventLatLon = [35, -50]
 staLatLons = [ [34, -80], [35, -81]]
 
-
 with taup.TauPServer() as taupserver:
 
     # query params correspond to the tools, may be any one of:
@@ -16,7 +15,8 @@ with taup.TauPServer() as taupserver:
     params.phase(["S","pS"])
     params.model('ak135')
     params.strikediprake(35, 45, -75)
-    params.hemi('both')
+    params.hemi('lower')
+    params.numpoints(50)
 
     params.event( *eventLatLon ) # splat to expand list into function args
     params.sourcedepth([100])
@@ -25,12 +25,21 @@ with taup.TauPServer() as taupserver:
 
     # calculate results, parsed as JSON and returned as dataclass objects
     bbResult = params.calc(taupserver)
-    print("Arrivals: takeoff, azimuth, phase, PSv, Sh")
-    print("--------------------------------")
-    for a in bbResult.arrivals:
-        print(f"Arr: {a.takeoff:8.3f} {a.azimuth:8.3f} {a.phase} {a.amp.factorpsv} {a.amp.factorsh}")
+    npt = bbResult.nptAxis
+    print("Axis: Takeoff  Azimuth")
+    print("----------------------")
+    print(f"N: {npt.n.takeoff:8.2f}  {npt.n.azimuth:8.2f}")
+    print(f"P: {npt.p.takeoff:8.2f}  {npt.p.azimuth:8.2f}")
+    print(f"T: {npt.t.takeoff:8.2f}  {npt.t.azimuth:8.2f}")
     print()
-    print("Radiation Pattern: takeoff, azimuth, P, Sv, Sh")
+    print("Arrivals:")
+    print("    Takeoff, Azimuth, Phase, PSv, Sh")
+    print("----------------------------------------------")
+    for a in bbResult.arrivals:
+        print(f"    {a.takeoff:8.2f} {a.azimuth:8.2f}   {a.phase}   {a.amp.factorpsv:.1e} {a.amp.factorsh:.1e}")
+    print()
+    print(f"Radiation Pattern: ({params.get_hemi()})")
+    print("   Takeoff  Azimuth      P      Sv      Sh")
     print("----------------------------------------------")
     for rp in bbResult.radiationPattern:
-        print(" ".join(f"{x:8.3f}" for x in rp))
+        print(" ".join(f"{x:8.2f}" for x in rp))

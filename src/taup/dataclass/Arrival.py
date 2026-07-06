@@ -37,12 +37,6 @@ class Arrival:
     path: list[PathSegment] = field(default_factory=list)
     raytype: RayType|None = None
 
-    def mergePath(self):
-        mergedpath = []
-        for ps in self.path:
-            mergedpath = mergedpath + ps.segment
-        return mergedpath
-
     @classmethod
     def from_json(cls, jsonObj):
         arr = Arrival(
@@ -57,6 +51,10 @@ class Arrival:
             jsonObj['puristdist'],
             jsonObj['puristname']
             )
+        if 'az' in jsonObj:
+            arr.az = jsonObj['az']
+        if 'baz' in jsonObj:
+            arr.baz = jsonObj['baz']
         if 'desc' in jsonObj:
             arr.desc = jsonObj['desc']
         if 'raytype' in jsonObj:
@@ -89,6 +87,12 @@ class Arrival:
     @property
     def backazimuth(self):
         return self.baz
+
+    def mergePath(self):
+        mergedpath = []
+        for ps in self.path:
+            mergedpath = mergedpath + ps.segment
+        return mergedpath
 
     def __str__(self):
         return f"{self.distdeg} {self.sourcedepth} {self.phase} {self.time} {self.rayparam} {self.takeoff} {self.incident} {self.puristdist} {self.puristname}"

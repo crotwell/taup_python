@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
 from .Arrival import Arrival
+from .NPTAxis import NPTAxis
 from .Source import Source
 
 @dataclass
@@ -12,6 +13,7 @@ class BeachballResult:
     sourcedepthlist: list
     receiverdepthlist: list
     phases: list
+    nptAxis: NPTAxis
     arrivals: list = field(default_factory=list)
     radiationPattern: list = field(default_factory=list)
 
@@ -22,7 +24,8 @@ class BeachballResult:
             jsonObj['model'],
             jsonObj['sourcedepthlist'],
             jsonObj['receiverdepthlist'],
-            jsonObj['phases']
+            jsonObj['phases'],
+            NPTAxis.from_json(jsonObj['nptAxis'])
             )
         for arr in jsonObj['arrivals']:
             res.arrivals.append(Arrival.from_json(arr))
