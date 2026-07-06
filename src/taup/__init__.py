@@ -1,3 +1,4 @@
+# Note, version is set in Java PythonBinding class, update it there...
 __version__ = "0.2.0-alpha10"
 
 from .taupversion import TAUP_VERSION
