@@ -17,18 +17,21 @@ from .FindResult import FindResult
 from .Isochron import Isochron
 from .LatLonDepth import LatLonDepth
 from .NPTAxis import NPTAxis
+from .NamedDiscon import NamedDiscon
 from .PathSegment import PathSegment
 from .PhaseBranch import PhaseBranch
 from .PhaseDescription import PhaseDescription
 from .PhaseResult import PhaseResult
 from .PhaseSegment import PhaseSegment
+from .ReflTransResult import ReflTransResult
 from .RelativeArrival import RelativeArrival
 from .Scatter import Scatter
 from .Source import Source
 from .SphericalCoord import SphericalCoord
 from .TimeDist import TimeDist
 from .TimeResult import TimeResult
-from .VelocityModel import VelocityModel, NamedDiscon
+from .VelocityDiscontinuity import VelocityParams, VelocityDiscontinuity
+from .VelocityModel import VelocityModel
 from .VelocityLayer import VelocityLayer, VelocityLayerParams
 from .Wavefront import Wavefront
 from .WavefrontPathSegment import WavefrontPathSegment
@@ -63,15 +66,18 @@ __all__ = [
     "PhaseRay",
     "PhaseResult",
     "PhaseSegment",
+    "ReflTransResult",
     "RelativeArrival",
     "Scatter",
     "Source",
     "SphericalCoord",
     "TimeDist",
     "TimeResult",
+    "VelocityDiscontinuity",
     "VelocityLayer",
     "VelocityLayerParams",
     "VelocityModel",
+    "VelocityParams",
     "Wavefront",
     "WavefrontPathSegment",
     "WavefrontResult",

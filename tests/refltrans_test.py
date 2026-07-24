@@ -9,5 +9,5 @@ class TestTauPRefltrans:
         params.model('ak135fcont')
         params.depth(410)
         jsonAns = params.calcJson(taupserver)
-        ans = taup.dataclass.CurveResult.from_json(jsonAns)
+        ans = taup.dataclass.ReflTransResult.from_json(jsonAns)
         jsonMatchDataclass(jsonAns, ans)

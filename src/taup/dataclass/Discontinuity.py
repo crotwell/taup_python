@@ -21,13 +21,13 @@ class Discontinuity:
         above = None
         if "above" in jsonObj:
             l = jsonObj["above"]
-            above = DisconLayer(l["Vp"], l["Vs"],
+            above = DisconLayer(l["vp"], l["vs"],
                                 l["density"],
                                 l["slowness_p"], l["slowness_s"])
         below = None
         if "below" in jsonObj:
             l = jsonObj["below"]
-            below = DisconLayer(l["Vp"], l["Vs"],
+            below = DisconLayer(l["vp"], l["vs"],
                                 l["density"],
                                 l["slowness_p"], l["slowness_s"])
         return Discontinuity(

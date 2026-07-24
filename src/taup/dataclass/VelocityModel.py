@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
 from .VelocityLayer import VelocityLayer, VelocityLayerParams
+from .NamedDiscon import NamedDiscon
 
 @dataclass
 class VelocityModel:
@@ -16,32 +17,14 @@ class VelocityModel:
     @classmethod
     def from_json(cls, jsonObj):
         res = VelocityModel(
-                jsonObj['modelname'],
-                jsonObj['modelradius'],
-                jsonObj['minradius'],
-                jsonObj['maxradius'],
-                jsonObj['spherical'])
-
-        for nd in jsonObj['nameddisons']:
-            res.nameddisons.append(NamedDiscon.from_json(nd))
-        for layer in jsonObj['layers']:
-            res.layers.append(VelocityLayer.from_json(layer))
-        return res
-
-
-@dataclass
-class NamedDiscon:
-    name: str
-    depth: float
-    preferredname: str=""
-
-    @classmethod
-    def from_json(cls, jsonObj):
-        res = NamedDiscon(
-            jsonObj['name'],
-            jsonObj['depth'])
-        if 'preferredname' in jsonObj:
-            res.preferredname = jsonObj['preferredname']
-        else:
-            res.preferredname = res.name
+            jsonObj['modelname'],
+            jsonObj['modelradius'],
+            jsonObj['minradius'],
+            jsonObj['maxradius'],
+            jsonObj['spherical'])
+        
+        for arr in jsonObj['layers']:
+            res.layers.append(VelocityLayer.from_json(arr))
+        for arr in jsonObj['nameddisons']:
+            res.nameddisons.append(NamedDiscon.from_json(arr))
         return res

@@ -7,7 +7,7 @@ class VelocityLayerParams:
     depth: float
     vp: float
     vs: float
-    rho: float|None=None
+    density: float|None=None
     qp: float|None=None
     qs: float|None=None
 
@@ -17,8 +17,8 @@ class VelocityLayerParams:
             jsonObj['depth'],
             jsonObj['vp'],
             jsonObj['vs'])
-        if 'rho' in jsonObj:
-            res.rho = jsonObj['rho']
+        if 'density' in jsonObj:
+            res.density = jsonObj['density']
         if 'qp' in jsonObj:
             res.qp = jsonObj['qp']
         if 'qs' in jsonObj:
