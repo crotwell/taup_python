@@ -249,7 +249,7 @@ class FindQuery:
     """
     Sets the deltatime parameter, of type Double
 
-    find arrivals within the +- deltatime, --times must have single time
+    find arrivals within the +- deltatime in seconds, --times must have single time. Default value is 5.0.
 
     Known as ``--deltatime`` in command line.
 
