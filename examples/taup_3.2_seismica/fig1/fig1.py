@@ -144,7 +144,8 @@ def makePlots(fullImage, taupserver):
                 for seg in curve.segments:
                     ax.plot(seg.y, seg.x,lw=.35,c='lightpink',alpha=.75,zorder=2)
 
-        fig.savefig('fiji_55deg_Z_max3_.png', dpi=500, pad_inches=0.4)#bbox_inches='tight',
+        fig.savefig('fiji_55deg_Z_max3_.pdf')
+        fig.savefig('fiji_55deg_Z_max3_.png', dpi=600, pad_inches=0.4)#bbox_inches='tight',
         # plt.show()
     else:
         ### Fig1B. sub-plot for zoom in section plot for time: 1800-3200sec!
@@ -175,21 +176,23 @@ def makePlots(fullImage, taupserver):
                     i=i-2
         plt.gca().invert_yaxis()
         plt.title("")
-        fig.savefig('fiji_55deg_Z_max5_time_.png', dpi=500, pad_inches=0.4)
+        fig.savefig('fiji_55deg_Z_max5_time_.pdf')
+        fig.savefig('fiji_55deg_Z_max5_time_.png', dpi=600, pad_inches=0.4)
         #
         # bin/taup find --max 3 --evdepth 600 --exclude 20,210,moho,410,660 --pwaveonly --mod iasp91 --time 2400 2600 --showrayparam --deg 100
 
-def main():
+def fig1(taupserver):
     if not os.path.exists(inv_fiji):
         getData()
+    makePlots(True, taupserver) # fig a
+    makePlots(False, taupserver) # fig b
 
+def main():
     taup_path="~/Research/sct_wat/TauP/build/install/TauP/bin/taup"
     taup_path="~/Code/seis/TauP/build/install/TauP/bin/taup"
 
     with taup.TauPServer(taup_path=taup_path) as taupserver:
-        makePlots(True, taupserver)
-        makePlots(False, taupserver)
-
+        fig1(taupserver)
 
 if __name__ == '__main__':
     main()

@@ -1,4 +1,5 @@
 ##packages needed##
-taup = 0.2.0a10
-obspy = 1.4.2
-seaborn = 0.13.2
+taup==0.2.0a10
+obspy==1.5.0
+seaborn==0.13.2
+cartopy==0.25.0

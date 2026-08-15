@@ -116,22 +116,26 @@ def makePlot(plot_A, taupserver):
 
     # sys.exit()
     if plot_A:
+        plt.savefig('mx6.6_3phases_az80.pdf')
         plt.savefig('mx6.6_3phases_az80.png',dpi=400,bbox_inches='tight', pad_inches=0.1)
     else:
+        plt.savefig('mx6.6_3phases_dist_210.pdf')
         plt.savefig('mx6.6_3phases_dist_210.png',dpi=400,bbox_inches='tight', pad_inches=0.1)
 
     # plt.show()
 
 
-def main():
+def fig2(taupserver):
+    makePlot(True, taupserver)
+    makePlot(False, taupserver)
 
+
+def main():
     taup_path="~/Research/sct_wat/TauP/build/install/TauP/bin/taup"
     taup_path="~/Code/seis/TauP/build/install/TauP/bin/taup"
 
     with taup.TauPServer(taup_path=taup_path) as taupserver:
-        makePlot(True, taupserver)
-        makePlot(False, taupserver)
-
+        fig2(taupserver)
 
 if __name__ == '__main__':
     main()

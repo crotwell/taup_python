@@ -102,18 +102,20 @@ def makePlot(taupserver):
         ax.set_xlim(xmin, xmax)
 
     #ax8.legend()
+    plt.savefig('attributes_july28.pdf')
     plt.savefig('attributes_july28.png',dpi=400,bbox_inches='tight', pad_inches=0.1)
     ###
 
 
-def main():
+def fig4(taupserver):
+    makePlot(taupserver)
 
+def main():
     taup_path="~/Research/sct_wat/TauP/build/install/TauP/bin/taup"
     taup_path="~/Code/seis/TauP/build/install/TauP/bin/taup"
 
     with taup.TauPServer(taup_path=taup_path) as taupserver:
-        makePlot(taupserver)
-
+        fig4(taupserver)
 
 if __name__ == '__main__':
     main()

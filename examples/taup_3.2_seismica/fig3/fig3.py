@@ -134,21 +134,25 @@ def makePlot(clip, taupserver):
 
     ax.axis('off')
     if clip:
+        plt.savefig('bb_amp_phases_d210.pdf')
         plt.savefig('bb_amp_phases_d210.png',dpi=400,bbox_inches='tight', pad_inches=0.1)
     else:
+        plt.savefig('bb_Mw6.6Brazil.pdf')
         plt.savefig('bb_Mw6.6Brazil.png',dpi=400,bbox_inches='tight', pad_inches=0.1)
 
 
 
-def main():
+def fig3(taupserver):
+    makePlot(True, taupserver) # fig a
+    makePlot(False, taupserver) # fig b
 
+
+def main():
     taup_path="~/Research/sct_wat/TauP/build/install/TauP/bin/taup"
     taup_path="~/Code/seis/TauP/build/install/TauP/bin/taup"
 
     with taup.TauPServer(taup_path=taup_path) as taupserver:
-        makePlot(True, taupserver)
-        makePlot(False, taupserver)
-
+        fig3(taupserver)
 
 if __name__ == '__main__':
     main()
