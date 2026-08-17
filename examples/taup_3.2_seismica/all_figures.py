@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import subprocess
 import sys
 from contextlib import chdir
 import taup
@@ -13,6 +14,7 @@ sys.path.append("fig4")
 from fig4 import fig4
 sys.path.append("fig6")
 from fig6 import fig6
+
 
 
 def main():
@@ -35,6 +37,10 @@ def main():
         print("#### Figure 6 ####")
         with chdir("fig6"):
             fig6(taupserver)
+
+        # supplementary figures:
+        with chdir("supplementary_figs"):
+            subprocess.run("./sup_figs.sh", shell=True)
         print("#### Done ####")
 
 if __name__ == '__main__':
