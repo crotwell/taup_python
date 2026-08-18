@@ -33,6 +33,7 @@ from .TimeResult import TimeResult
 from .VelocityDiscontinuity import VelocityParams, VelocityDiscontinuity
 from .VelocityModel import VelocityModel
 from .VelocityLayer import VelocityLayer, VelocityLayerParams
+from .VelPlotResult import VelPlotResult
 from .Wavefront import Wavefront
 from .WavefrontPathSegment import WavefrontPathSegment
 from .WavefrontResult import WavefrontResult
@@ -78,6 +79,7 @@ __all__ = [
     "VelocityLayerParams",
     "VelocityModel",
     "VelocityParams",
+    "VelPlotResult",
     "Wavefront",
     "WavefrontPathSegment",
     "WavefrontResult",
