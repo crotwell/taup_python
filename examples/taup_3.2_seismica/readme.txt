@@ -1,19 +1,13 @@
-## explain taup
+## Examples from "The TauP Toolkit Version 3: New Tools and Python Integration"
+submitted to Seismica, August 2026
 
-How to run:
+Each figure is in a subdirectory, the all_figures.py script will run them all.
+See requirements.txt for python requirements, or
+`pip install -r requirements.txt`
 
-install TauP, taup, requirements.txt
-fix taup path it not no path
+The `fluid-solid` directory contains a jupyter notebook for the fluid
+to solid reflection and transmission coefficients, which also requires
+sympy.
 
-each figure is in subdir
-
-python all_figs.py
-
-
-# add fliud-solid python script
-# note requires sympy, https://www.sympy.org/en/index.html
-pip install sympy
-
-doi for zenodo releases, taup and taup_python, and supporting scripts
-
-READ THE PAPER!!!
+The `supplementary_figs`
+directory contains figures from the supplementary materials.
