@@ -13,7 +13,7 @@ class BeachballQuery:
     self._attenuationfreq=None
     self._azimuth=None
     self._backazimuth=None
-    self._bbtype=None
+    self._bbtype=[]
     self._color=None
     self._degree=[]
     self._degreerange=[]
@@ -252,13 +252,36 @@ class BeachballQuery:
 
   def get_b(self):
     """
-    returns current value of bbtype as a edu.sc.seis.TauP.BeachballType
+    returns current value of bbtype as a List
     """
     return self._bbtype
 
   def b(self, val):
     """
     Sets the bbtype parameter, a choice of one of:
+     P, S, Sv, Sh of edu.sc.seis.TauP.BeachballType
+    If a single edu.sc.seis.TauP.BeachballType is passed in, it is automatically wrapped in a list. So
+    params.b( value )
+    and
+    params.b( [ value ] )
+    are equivalent.
+
+    Beachball data type, default is ampp, one of P, S, Sv, Sh
+
+    Known as ``-b`` in command line.
+    Also known as ``--bbtype`` in command line.
+
+    :param val: value to set bbtype to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._bbtype = val
+    return self
+
+
+  def andB(self, val):
+    """
+    Append a value to the bbtype parameter, a choice of one of:
      P, S, Sv, Sh
 
     Beachball data type, default is ampp, one of P, S, Sv, Sh
@@ -268,18 +291,40 @@ class BeachballQuery:
 
     :param val: value to set bbtype to
     """
-    self._bbtype = val
+    self._bbtype.append(val)
     return self
 
   def get_bbtype(self):
     """
-    returns current value of bbtype as a edu.sc.seis.TauP.BeachballType
+    returns current value of bbtype as a List
     """
     return self._bbtype
 
   def bbtype(self, val):
     """
     Sets the bbtype parameter, a choice of one of:
+     P, S, Sv, Sh of edu.sc.seis.TauP.BeachballType
+    If a single edu.sc.seis.TauP.BeachballType is passed in, it is automatically wrapped in a list. So
+    params.bbtype( value )
+    and
+    params.bbtype( [ value ] )
+    are equivalent.
+
+    Beachball data type, default is ampp, one of P, S, Sv, Sh
+
+    Known as ``--bbtype`` in command line.
+
+    :param val: value to set bbtype to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._bbtype = val
+    return self
+
+
+  def andBbtype(self, val):
+    """
+    Append a value to the bbtype parameter, a choice of one of:
      P, S, Sv, Sh
 
     Beachball data type, default is ampp, one of P, S, Sv, Sh
@@ -288,7 +333,7 @@ class BeachballQuery:
 
     :param val: value to set bbtype to
     """
-    self._bbtype = val
+    self._bbtype.append(val)
     return self
 
   def get_color(self):
@@ -1978,7 +2023,7 @@ class BeachballQuery:
       params["azimuth"] = self._azimuth
     if self._backazimuth is not None:
       params["backazimuth"] = self._backazimuth
-    if self._bbtype is not None:
+    if len(self._bbtype) > 0:
       params["bbtype"] = self._bbtype
     if self._color is not None:
       params["color"] = self._color

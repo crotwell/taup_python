@@ -3,33 +3,29 @@ from typing import TYPE_CHECKING
 
 from .Arrival import Arrival
 from .NPTAxis import NPTAxis
-from .Source import Source
+from .Beachball import Beachball
 
 @dataclass
 class BeachballResult:
 
-    source: Source
     model: str
     sourcedepthlist: list
     receiverdepthlist: list
     phases: list
-    nptAxis: NPTAxis
     arrivals: list = field(default_factory=list)
-    radiationPattern: list = field(default_factory=list)
+    beachballs: list = field(default_factory=list)
 
     @classmethod
     def from_json(cls, jsonObj):
         res = BeachballResult(
-            jsonObj['source'],
             jsonObj['model'],
             jsonObj['sourcedepthlist'],
             jsonObj['receiverdepthlist'],
             jsonObj['phases'],
-            NPTAxis.from_json(jsonObj['nptAxis'])
             )
         for arr in jsonObj['arrivals']:
             res.arrivals.append(Arrival.from_json(arr))
 
-        for rp in jsonObj['radiationPattern']:
-            res.radiationPattern.append(rp) # fix this to a dataclass?
+        for bb in jsonObj['beachballs']:
+            res.beachballs.append(Beachball.from_json(bb)) # fix this to a dataclass?
         return res

@@ -2,6 +2,7 @@
 from .dcjson import DataClassJsonEncoder
 from .Amplitude import Amplitude
 from .Arrival import Arrival
+from .Beachball import Beachball
 from .BeachballResult import BeachballResult
 from .Curve import Curve
 from .CurveResult import CurveResult
