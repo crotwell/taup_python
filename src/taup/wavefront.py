@@ -12,6 +12,7 @@ class WavefrontQuery:
     self._degminmax=None
     self._depthminmax=None
     self._legend=None
+    self._legendloc=None
     self._mapwidth=None
     self._mapwidthunit=None
     self._model=None
@@ -158,6 +159,26 @@ class WavefrontQuery:
     :param val: value to set legend to
     """
     self._legend = val
+    return self
+
+  def get_legendloc(self):
+    """
+    returns current value of legendloc as a edu.sc.seis.TauP.LegendLocation
+    """
+    return self._legendloc
+
+  def legendloc(self, val):
+    """
+    Sets the legendloc parameter, a choice of one of:
+     TOP_LEFT, TOP_RIGHT, BOT_LEFT, BOT_RIGHT
+
+    position legend, one of TOP_LEFT, TOP_RIGHT, BOT_LEFT, BOT_RIGHT, default is TOP_LEFT
+
+    Known as ``--legendloc`` in command line.
+
+    :param val: value to set legendloc to
+    """
+    self._legendloc = val
     return self
 
   def get_mapwidth(self):
@@ -767,6 +788,8 @@ class WavefrontQuery:
       params["depthminmax"] = self._depthminmax
     if self._legend is not None:
       params["legend"] = self._legend
+    if self._legendloc is not None:
+      params["legendloc"] = self._legendloc
     if self._mapwidth is not None:
       params["mapwidth"] = self._mapwidth
     if self._mapwidthunit is not None:

@@ -16,6 +16,7 @@ class TimeQuery:
     self._degree=[]
     self._degreerange=[]
     self._derivative=None
+    self._eid=[]
     self._equitorialradius=None
     self._event=[]
     self._exactdegree=[]
@@ -46,6 +47,7 @@ class TimeQuery:
     self._rel=[]
     self._scatter=[]
     self._seconds=[]
+    self._sid=[]
     self._sourcedepth=[]
     self._station=[]
     self._staxmltext=None
@@ -376,6 +378,46 @@ class TimeQuery:
     :param val: value to set derivative to
     """
     self._derivative = val
+    return self
+
+  def get_eid(self):
+    """
+    returns current value of eid as a List
+    """
+    return self._eid
+
+  def eid(self, val):
+    """
+    Sets the eid parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So
+    params.eid( value )
+    and
+    params.eid( [ value ] )
+    are equivalent.
+
+    event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
+
+    Known as ``--eid`` in command line.
+
+    :param val: value to set eid to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._eid = val
+    return self
+
+
+  def andEid(self, val):
+    """
+    Append a value to the eid parameter,  of type String
+
+    event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
+
+    Known as ``--eid`` in command line.
+
+    :param val: value to set eid to
+    """
+    self._eid.append(val)
     return self
 
   def get_equitorialradius(self):
@@ -1638,6 +1680,46 @@ class TimeQuery:
     self._seconds.append(val)
     return self
 
+  def get_sid(self):
+    """
+    returns current value of sid as a List
+    """
+    return self._sid
+
+  def sid(self, val):
+    """
+    Sets the sid parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So
+    params.sid( value )
+    and
+    params.sid( [ value ] )
+    are equivalent.
+
+    station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
+
+    Known as ``--sid`` in command line.
+
+    :param val: value to set sid to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._sid = val
+    return self
+
+
+  def andSid(self, val):
+    """
+    Append a value to the sid parameter,  of type String
+
+    station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
+
+    Known as ``--sid`` in command line.
+
+    :param val: value to set sid to
+    """
+    self._sid.append(val)
+    return self
+
   def get_h(self):
     """
     returns current value of sourcedepth as a List
@@ -1985,6 +2067,8 @@ class TimeQuery:
       params["degreerange"] = self._degreerange
     if self._derivative is not None:
       params["derivative"] = self._derivative
+    if len(self._eid) > 0:
+      params["eid"] = self._eid
     if self._equitorialradius is not None:
       params["equitorialradius"] = self._equitorialradius
     if len(self._event) > 0:
@@ -2045,6 +2129,8 @@ class TimeQuery:
       params["scatter"] = self._scatter
     if len(self._seconds) > 0:
       params["seconds"] = self._seconds
+    if len(self._sid) > 0:
+      params["sid"] = self._sid
     if len(self._sourcedepth) > 0:
       params["sourcedepth"] = self._sourcedepth
     if len(self._station) > 0:

@@ -17,6 +17,7 @@ class BeachballQuery:
     self._color=None
     self._degree=[]
     self._degreerange=[]
+    self._eid=[]
     self._equitorialradius=None
     self._event=[]
     self._exactdegree=[]
@@ -32,6 +33,8 @@ class BeachballQuery:
     self._incidentrange=[]
     self._kilometer=[]
     self._kilometerrange=[]
+    self._legend=None
+    self._legendloc=None
     self._mapwidth=None
     self._mapwidthunit=None
     self._model=None
@@ -49,6 +52,7 @@ class BeachballQuery:
     self._receiverdepth=[]
     self._scatter=[]
     self._seconds=[]
+    self._sid=[]
     self._sourcedepth=[]
     self._station=[]
     self._staxmltext=None
@@ -472,6 +476,46 @@ class BeachballQuery:
     :param val: value to set degreerange to
     """
     self._degreerange.append(val)
+    return self
+
+  def get_eid(self):
+    """
+    returns current value of eid as a List
+    """
+    return self._eid
+
+  def eid(self, val):
+    """
+    Sets the eid parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So
+    params.eid( value )
+    and
+    params.eid( [ value ] )
+    are equivalent.
+
+    event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
+
+    Known as ``--eid`` in command line.
+
+    :param val: value to set eid to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._eid = val
+    return self
+
+
+  def andEid(self, val):
+    """
+    Append a value to the eid parameter,  of type String
+
+    event id, like us7000pn9s, for lookup via USGS fdsn event web service. Creates a distance if station is also given.
+
+    Known as ``--eid`` in command line.
+
+    :param val: value to set eid to
+    """
+    self._eid.append(val)
     return self
 
   def get_equitorialradius(self):
@@ -1039,6 +1083,47 @@ class BeachballQuery:
     :param val: value to set kilometerrange to
     """
     self._kilometerrange.append(val)
+    return self
+
+  def get_legend(self):
+    """
+    returns current value of legend as a Boolean
+    """
+    return self._legend
+
+  def legend(self, val=True):
+    """
+    Sets the legend parameter, of type Boolean
+
+    Without arguments sets the value to True. 
+
+    create a legend
+
+    Known as ``--legend`` in command line.
+
+    :param val: value to set legend to
+    """
+    self._legend = val
+    return self
+
+  def get_legendloc(self):
+    """
+    returns current value of legendloc as a edu.sc.seis.TauP.LegendLocation
+    """
+    return self._legendloc
+
+  def legendloc(self, val):
+    """
+    Sets the legendloc parameter, a choice of one of:
+     TOP_LEFT, TOP_RIGHT, BOT_LEFT, BOT_RIGHT
+
+    position legend, one of TOP_LEFT, TOP_RIGHT, BOT_LEFT, BOT_RIGHT, default is TOP_LEFT
+
+    Known as ``--legendloc`` in command line.
+
+    :param val: value to set legendloc to
+    """
+    self._legendloc = val
     return self
 
   def get_mapwidth(self):
@@ -1682,6 +1767,46 @@ class BeachballQuery:
     self._seconds.append(val)
     return self
 
+  def get_sid(self):
+    """
+    returns current value of sid as a List
+    """
+    return self._sid
+
+  def sid(self, val):
+    """
+    Sets the sid parameter, of type List of String
+    If a single String is passed in, it is automatically wrapped in a list. So
+    params.sid( value )
+    and
+    params.sid( [ value ] )
+    are equivalent.
+
+    station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
+
+    Known as ``--sid`` in command line.
+
+    :param val: value to set sid to
+    """
+    if not hasattr(val, "__getitem__"):
+      val = [ val ]
+    self._sid = val
+    return self
+
+
+  def andSid(self, val):
+    """
+    Append a value to the sid parameter,  of type String
+
+    station id, like CO.HAW or FDSN:CO_HAW, for lookup via fedcat web service. Creates a distance if event is also given.
+
+    Known as ``--sid`` in command line.
+
+    :param val: value to set sid to
+    """
+    self._sid.append(val)
+    return self
+
   def get_h(self):
     """
     returns current value of sourcedepth as a List
@@ -2031,6 +2156,8 @@ class BeachballQuery:
       params["degree"] = self._degree
     if len(self._degreerange) > 0:
       params["degreerange"] = self._degreerange
+    if len(self._eid) > 0:
+      params["eid"] = self._eid
     if self._equitorialradius is not None:
       params["equitorialradius"] = self._equitorialradius
     if len(self._event) > 0:
@@ -2061,6 +2188,10 @@ class BeachballQuery:
       params["kilometer"] = self._kilometer
     if len(self._kilometerrange) > 0:
       params["kilometerrange"] = self._kilometerrange
+    if self._legend is not None:
+      params["legend"] = self._legend
+    if self._legendloc is not None:
+      params["legendloc"] = self._legendloc
     if self._mapwidth is not None:
       params["mapwidth"] = self._mapwidth
     if self._mapwidthunit is not None:
@@ -2095,6 +2226,8 @@ class BeachballQuery:
       params["scatter"] = self._scatter
     if len(self._seconds) > 0:
       params["seconds"] = self._seconds
+    if len(self._sid) > 0:
+      params["sid"] = self._sid
     if len(self._sourcedepth) > 0:
       params["sourcedepth"] = self._sourcedepth
     if len(self._station) > 0:
