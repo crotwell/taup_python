@@ -9,8 +9,8 @@
 project = 'taup'
 copyright = '2026, Philip Crotwell'
 author = 'Philip Crotwell'
-release = '0.2'
-version = '0.2.0-alpha10'
+release = '3.2'
+version = '3.2.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
