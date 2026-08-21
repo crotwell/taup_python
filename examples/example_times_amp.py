@@ -11,7 +11,7 @@ with taup.TauPServer() as taupserver:
     params.model('ak135fcont')
     params.geodist('geodetic')
     params.amp()
-    params.strikediprake([35, 75, 90])
+    params.strikediprake(35, 75, 90)
     params.mw(6)
     params.event(-29, 45)
     params.sourcedepth([100])

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import taup
+import json
 
 eventLatLon = [35, -50]
 staLatLons = [ [34, -80], [35, -81]]
@@ -25,21 +26,22 @@ with taup.TauPServer() as taupserver:
 
     # calculate results, parsed as JSON and returned as dataclass objects
     bbResult = params.calc(taupserver)
-    npt = bbResult.nptAxis
-    print("Axis: Takeoff  Azimuth")
-    print("----------------------")
-    print(f"N: {npt.n.takeoff:8.2f}  {npt.n.azimuth:8.2f}")
-    print(f"P: {npt.p.takeoff:8.2f}  {npt.p.azimuth:8.2f}")
-    print(f"T: {npt.t.takeoff:8.2f}  {npt.t.azimuth:8.2f}")
-    print()
-    print("Arrivals:")
-    print("    Takeoff, Azimuth, Phase, PSv, Sh")
-    print("----------------------------------------------")
-    for a in bbResult.arrivals:
-        print(f"    {a.takeoff:8.2f} {a.azimuth:8.2f}   {a.phase}   {a.amp.factorpsv:.1e} {a.amp.factorsh:.1e}")
-    print()
-    print(f"Radiation Pattern: ({params.get_hemi()})")
-    print("   Takeoff  Azimuth      P      Sv      Sh")
-    print("----------------------------------------------")
-    for rp in bbResult.radiationPattern:
-        print(" ".join(f"{x:8.2f}" for x in rp))
+    for bb in bbResult.beachballs:
+        npt = bb.nptAxis
+        print("Axis: Takeoff  Azimuth")
+        print("----------------------")
+        print(f"N: {npt.n.takeoff:8.2f}  {npt.n.azimuth:8.2f}")
+        print(f"P: {npt.p.takeoff:8.2f}  {npt.p.azimuth:8.2f}")
+        print(f"T: {npt.t.takeoff:8.2f}  {npt.t.azimuth:8.2f}")
+        print()
+        print("Arrivals:")
+        print("    Takeoff, Azimuth, Phase, PSv, Sh")
+        print("----------------------------------------------")
+        for a in bb.arrivals:
+            print(f"    {a.takeoff:8.2f} {a.azimuth:8.2f}   {a.phase}   {a.amp.factorpsv:.1e} {a.amp.factorsh:.1e}")
+        print()
+        print(f"Radiation Pattern: ({params.get_hemi()})")
+        print("   Takeoff  Azimuth      P      Sv      Sh")
+        print("----------------------------------------------")
+        for rp in bb.radiationPattern:
+            print(" ".join(f"{x:8.2f}" for x in rp))
