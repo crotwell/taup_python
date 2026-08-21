@@ -17,6 +17,7 @@ The latest source is at GitHub,
 Install the latest release of the TauP Toolkit, for example using  `homebrew <https://brew.sh/>`_::
 
   brew tap crotwell/crotwell
+  brew trust --formula crotwell/crotwell/taup
   brew install taup
 
 Then install the Python package using `pip`
