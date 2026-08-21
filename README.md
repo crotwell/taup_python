@@ -17,6 +17,7 @@ downloading from [Zenodo](https://doi.org/10.5281/zenodo.10794857)
 or from [Homebrew](https://brew.sh) via
 ```
 brew tap crotwell/crotwell
+brew trust --formula crotwell/crotwell/taup 
 brew install taup
 ```
 
