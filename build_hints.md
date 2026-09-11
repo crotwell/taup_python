@@ -29,6 +29,9 @@ git status
 hatch publish -u __token__ --auth <token>
 ```
 
+# Zenodo
+edit version and related works for TauP doi
+
 # regen __all__ for dataclasses
 cd src/taup/dataclass
 grep class *  | grep -v dataclass | grep -v classm | awk '{ print "\42" $2 "\42" "\," }'
