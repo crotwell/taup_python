@@ -25,7 +25,7 @@ class Arrival:
     puristname: str
     az: float|None = None
     baz: float|None = None
-    desc: str| None = None
+    desc: str = ""
     sourceloc: LatLonDepth| None = None
     receiverloc: LatLonDepth| None = None
     amp: Amplitude| None = None
