@@ -1,5 +1,5 @@
 # Note, version is set in Java PythonBinding class, update it there...
-__version__ = "3.2.2-SNAPSHOT_2026-09-11T165623"
+__version__ = "3.2.2-SNAPSHOT_2026-09-12T151622"
 
 from .taupversion import TAUP_VERSION
 from .http_server import TauPServer
