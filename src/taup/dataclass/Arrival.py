@@ -36,6 +36,7 @@ class Arrival:
     pathlength: float|None = None
     path: list[PathSegment] = field(default_factory=list)
     raytype: RayType|None = None
+    ellipticitycorrection: float|None =None
 
     @classmethod
     def from_json(cls, jsonObj):
@@ -63,6 +64,8 @@ class Arrival:
             arr.sourceloc = LatLonDepth.from_json(jsonObj['sourceloc'])
         if 'receiverloc' in jsonObj:
             arr.receiverloc = LatLonDepth.from_json(jsonObj['receiverloc'])
+        if 'ellipticitycorrection' in jsonObj:
+            arr.ellipticitycorrection = jsonObj['ellipticitycorrection']
         if 'amp' in jsonObj:
             arr.amp = Amplitude.from_json(jsonObj['amp'])
         if 'scatter' in jsonObj:
