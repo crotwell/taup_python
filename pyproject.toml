@@ -23,9 +23,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/crotwell/taup-python"
-Repository = "https://github.com/crotwell/taup-python"
-Issues = "https://github.com/crotwell/taup-python/issues"
+Homepage = "https://github.com/crotwell/taup_python"
+Repository = "https://github.com/crotwell/taup_python"
+Issues = "https://github.com/crotwell/taup_python/issues"
 
 
 [tool.pytest.ini_options]
