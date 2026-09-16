@@ -26,8 +26,16 @@ process to get the results. Many queries can be sent to the server,
 saving significant spin up/shutdown time.
 """
 class TauPServer:
-    def __init__(self, taup_path=None, verbose=VERBOSE):
+    port: int
+    method: str = DEFAULT_METHOD
+    taup_path: str|None = None
+    models: list = []
+    verbose: bool =VERBOSE
+    timeout: int = DEFAULT_TIMEOUT
+
+    def __init__(self, taup_path=None, models=[], verbose=VERBOSE):
         self.method=DEFAULT_METHOD
+        self.models = models
         self.verbose = verbose
         self.timeout = DEFAULT_TIMEOUT
         self.port = f"{random.randrange(40000, 60000)}"
@@ -52,7 +60,10 @@ class TauPServer:
         self._stop_event = None
 
     def __enter__(self):
-        self._cmd = [str(self.taup_path), "web", "-p", self.port]
+        self._cmd = [str(self.taup_path), "web", "-p", self.port, "--expire", "0"]
+        if self.models is not None and len(self.models) > 0:
+            self._cmd.append("--models")
+            self._cmd.extend(self.models)
         self._taup = subprocess.Popen(self._cmd,
                           stdout=subprocess.PIPE,
                           stderr=subprocess.STDOUT, close_fds=True)
@@ -276,5 +287,3 @@ class TauPServer:
     def preview_request(self, taup_url, params, method=None):
             print(f"{method} Query: {taup_url}", file=sys.stderr)
             print(f"Params: {json.dumps(params)}\n", file=sys.stderr)
-
-    
