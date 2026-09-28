@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 from .Arrival import Arrival
 from .Scatter import Scatter
@@ -15,7 +15,7 @@ class TimeResult:
     arrivals: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'TimeResult':
         res = TimeResult(
             jsonObj['model'],
             jsonObj['sourcedepthlist'],
@@ -29,3 +29,10 @@ class TimeResult:
         for arr in jsonObj['arrivals']:
             res.arrivals.append(Arrival.from_json(arr))
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

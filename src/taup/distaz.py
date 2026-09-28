@@ -31,13 +31,13 @@ class DistazQuery:
     self._staxmltext=None
     self._velocitymodeltext=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> DistazResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return DistazResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -400,7 +400,7 @@ class DistazQuery:
     """
     Sets the geodetic parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
@@ -1105,4 +1105,3 @@ class DistazQuery:
     if self._velocitymodeltext is not None:
       params["velocitymodeltext"] = self._velocitymodeltext
     return params
-

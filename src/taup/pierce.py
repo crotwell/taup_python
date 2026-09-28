@@ -59,13 +59,13 @@ class PierceQuery:
     self._under=None
     self._velocitymodeltext=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> TimeResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return TimeResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -107,7 +107,7 @@ class PierceQuery:
     """
     Sets the allindex parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     all arrivals at sampling of model
 
@@ -128,7 +128,7 @@ class PierceQuery:
     """
     Sets the amp parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     show amplitude factor for each phase
 
@@ -404,7 +404,7 @@ class PierceQuery:
     """
     Sets the ellipticity parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     Apply ellipticity correction to time, as implemented by ellipticipy
 
@@ -662,7 +662,7 @@ class PierceQuery:
     """
     Sets the geodetic parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
@@ -1013,7 +1013,7 @@ class PierceQuery:
     """
     Sets the nodiscon parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only prints pierce points for the depths added with --pierce
 
@@ -1035,7 +1035,7 @@ class PierceQuery:
     """
     Sets the nodiscon parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only prints pierce points for the depths added with --pierce
 
@@ -1075,7 +1075,7 @@ class PierceQuery:
     """
     Sets the onlyfirst parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only output the first arrival for each phase, no triplications
 
@@ -1097,7 +1097,7 @@ class PierceQuery:
     """
     Sets the onlyfirst parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only output the first arrival for each phase, no triplications
 
@@ -1563,7 +1563,7 @@ class PierceQuery:
     """
     Sets the rev parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only prints underside and bottom turn points, e.g. ^ and v
 
@@ -2026,7 +2026,7 @@ class PierceQuery:
     """
     Sets the turn parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only prints bottom turning points, e.g. v
 
@@ -2047,7 +2047,7 @@ class PierceQuery:
     """
     Sets the under parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only prints underside reflection points, e.g. ^
 
@@ -2186,4 +2186,3 @@ class PierceQuery:
     if self._velocitymodeltext is not None:
       params["velocitymodeltext"] = self._velocitymodeltext
     return params
-

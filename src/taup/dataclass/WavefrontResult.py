@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 from .Scatter import Scatter
 from .Isochron import Isochron
@@ -14,7 +14,7 @@ class WavefrontResult:
     isochrons: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'WavefrontResult':
         res = WavefrontResult(
             jsonObj['model'],
             jsonObj['sourcedepthlist'],
@@ -27,3 +27,10 @@ class WavefrontResult:
         for c in jsonObj['isochrons']:
             res.isochrons.append(Isochron.from_json(c))
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

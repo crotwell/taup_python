@@ -5,7 +5,7 @@ from .conftest import taupserver, jsonMatchDataclass
 class TestTauPBeachball:
 
     def testDataClass(self, taupserver):
-        
+
         params = taup.DistazQuery()
         # params that will stay the same can be reused
         params.geodist(["spherical", "geocentric", "geodetic"])
@@ -19,3 +19,5 @@ class TestTauPBeachball:
         jsonAns = params.calcJson(taupserver)
         ans = taup.dataclass.DistazResult.from_json(jsonAns)
         jsonMatchDataclass(jsonAns, ans)
+        # dataclass to dict
+        jsonMatchDataclass(ans.__dict__, ans)

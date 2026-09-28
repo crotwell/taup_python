@@ -17,3 +17,5 @@ class TestTauPCurve:
         jsonAns = params.calcJson(taupserver)
         ans = taup.dataclass.CurveResult.from_json(jsonAns)
         jsonMatchDataclass(jsonAns, ans)
+        # dataclass to dict
+        jsonMatchDataclass(ans.__dict__, ans)

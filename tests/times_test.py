@@ -28,4 +28,5 @@ class TestTauPTime:
         jsonAns = params.calcJson(taupserver)
         ans = taup.dataclass.TimeResult.from_json(jsonAns)
         jsonMatchDataclass(jsonAns, ans)
-
+        # dataclass to dict
+        jsonMatchDataclass(ans.__dict__, ans)

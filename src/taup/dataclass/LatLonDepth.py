@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
 
 @dataclass
@@ -9,7 +9,7 @@ class LatLonDepth:
     desc: str|None = None
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'LatLonDepth':
         lld = LatLonDepth(
             jsonObj['lat'],
             jsonObj['lon'],
@@ -17,3 +17,10 @@ class LatLonDepth:
         if 'desc' in jsonObj:
             lld.desc = jsonObj['desc']
         return lld
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

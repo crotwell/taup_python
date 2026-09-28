@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
 @dataclass
 class DistCalcType:
@@ -8,7 +8,7 @@ class DistCalcType:
     invflattening: float|None = None
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'DistCalcType':
         lld = DistCalcType(
             jsonObj['type'],
             jsonObj['radius']
@@ -18,3 +18,10 @@ class DistCalcType:
         if 'invflattening' in jsonObj:
             lld.invflattening = jsonObj['invflattening']
         return lld
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

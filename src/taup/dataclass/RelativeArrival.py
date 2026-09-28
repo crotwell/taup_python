@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
@@ -11,9 +11,16 @@ class RelativeArrival:
     arrival: Any  #Arrival
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'RelativeArrival':
         # this seems dumb, but circular references...
         from .Arrival import Arrival
         return RelativeArrival(
             jsonObj['difference'],
             Arrival.from_json(jsonObj['arrival']))
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

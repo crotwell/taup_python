@@ -15,7 +15,7 @@ class TestTauPPath:
             params.station( *sta )
         ans = params.calc(taupserver)
         assert len(ans.arrivals) > 0
-        assert getattr(ans.arrivals[0], 'path') is not None 
+        assert getattr(ans.arrivals[0], 'path') is not None
         assert len(ans.arrivals[0].mergePath()) != 0
 
     def testDataClass(self, taupserver):
@@ -30,3 +30,4 @@ class TestTauPPath:
         # path uses TimeResult
         ans = taup.dataclass.TimeResult.from_json(jsonAns)
         jsonMatchDataclass(jsonAns, ans)
+        jsonMatchDataclass(ans.__dict__, ans)

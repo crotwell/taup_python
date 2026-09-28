@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from typing import TYPE_CHECKING
 
 from .Arrival import Arrival
@@ -16,7 +16,7 @@ class Beachball:
     radiationPattern: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'Beachball':
         res = Beachball(
             jsonObj['beachballtype'],
             jsonObj['hemisphere'],
@@ -29,3 +29,10 @@ class Beachball:
         for rp in jsonObj['radiationPattern']:
             res.radiationPattern.append(rp) # fix this to a dataclass?
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

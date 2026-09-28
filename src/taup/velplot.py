@@ -19,13 +19,13 @@ class VelplotQuery:
     self._yaxis=None
     self._yminmax=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> VelPlotResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return VelPlotResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -99,7 +99,7 @@ class VelplotQuery:
     """
     Sets the legend parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     create a legend
 
@@ -422,4 +422,3 @@ class VelplotQuery:
     if self._yminmax is not None:
       params["yminmax"] = self._yminmax
     return params
-

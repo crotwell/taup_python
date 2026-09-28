@@ -58,13 +58,13 @@ class TimeQuery:
     self._takeoffrange=[]
     self._velocitymodeltext=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> TimeResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return TimeResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -114,7 +114,7 @@ class TimeQuery:
     """
     Sets the allindex parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     all arrivals at sampling of model
 
@@ -135,7 +135,7 @@ class TimeQuery:
     """
     Sets the amp parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     show amplitude factor for each phase
 
@@ -371,7 +371,7 @@ class TimeQuery:
     """
     Sets the derivative parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     include derivative calculations
 
@@ -432,7 +432,7 @@ class TimeQuery:
     """
     Sets the ellipticity parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     Apply ellipticity correction to time, as implemented by ellipticipy
 
@@ -690,7 +690,7 @@ class TimeQuery:
     """
     Sets the geodetic parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
@@ -1060,7 +1060,7 @@ class TimeQuery:
     """
     Sets the onlyfirst parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only output the first arrival for each phase, no triplications
 
@@ -1082,7 +1082,7 @@ class TimeQuery:
     """
     Sets the onlyfirst parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only output the first arrival for each phase, no triplications
 
@@ -1103,7 +1103,7 @@ class TimeQuery:
     """
     Sets the onlyrayp parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only output the ray parameter
 
@@ -1125,7 +1125,7 @@ class TimeQuery:
     """
     Sets the onlyrayp parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only output the ray parameter
 
@@ -1146,7 +1146,7 @@ class TimeQuery:
     """
     Sets the onlytime parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only output travel time
 
@@ -1168,7 +1168,7 @@ class TimeQuery:
     """
     Sets the onlytime parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only output travel time
 
@@ -2192,4 +2192,3 @@ class TimeQuery:
     if self._velocitymodeltext is not None:
       params["velocitymodeltext"] = self._velocitymodeltext
     return params
-

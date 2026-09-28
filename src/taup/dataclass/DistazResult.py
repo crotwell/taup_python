@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 from .Daz import Daz
 from .DistCalcType import DistCalcType
@@ -13,7 +13,7 @@ class DistazResult:
     distances: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'DistazResult':
         res = DistazResult()
         if "model" in jsonObj:
             res.model = jsonObj['model']
@@ -26,3 +26,10 @@ class DistazResult:
         for d in jsonObj['disttypes']:
             res.disttypes.append(DistCalcType.from_json(d))
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

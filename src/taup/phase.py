@@ -15,13 +15,13 @@ class PhaseQuery:
     self._sourcedepth=[]
     self._velocitymodeltext=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> PhaseResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return PhaseResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -503,4 +503,3 @@ class PhaseQuery:
     if self._velocitymodeltext is not None:
       params["velocitymodeltext"] = self._velocitymodeltext
     return params
-

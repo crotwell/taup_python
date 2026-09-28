@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from typing import TYPE_CHECKING
 
 
@@ -12,7 +12,7 @@ class VelocityLayerParams:
     qs: float|None=None
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'VelocityLayerParams':
         res = VelocityLayerParams(
             jsonObj['depth'],
             jsonObj['vp'],
@@ -25,6 +25,13 @@ class VelocityLayerParams:
             res.qs = jsonObj['qs']
         return res
 
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)
+
 
 @dataclass
 class VelocityLayer:
@@ -34,9 +41,16 @@ class VelocityLayer:
 
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'VelocityLayer':
         res = VelocityLayer(
             jsonObj['num'],
             VelocityLayerParams.from_json(jsonObj['top']),
             VelocityLayerParams.from_json(jsonObj['bot']))
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

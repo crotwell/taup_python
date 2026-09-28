@@ -14,3 +14,5 @@ class TestTauPFind:
         jsonAns = params.calcJson(taupserver)
         ans = taup.dataclass.FindResult.from_json(jsonAns)
         jsonMatchDataclass(jsonAns, ans)
+        # dataclass to dict
+        jsonMatchDataclass(ans.__dict__, ans)

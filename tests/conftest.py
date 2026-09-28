@@ -22,4 +22,3 @@ def jsonMatchDataclass(jsonObj, dcObj):
     for jk, jv in jsonObj.items():
         if isinstance(jv, dict) and dataclasses.is_dataclass(getattr(dcObj, jk)):
             jsonMatchDataclass(jv, getattr(dcObj, jk))
-

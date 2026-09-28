@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from .PhaseRay import PhaseRay
 from .PhaseSegment import PhaseSegment
 
@@ -16,7 +16,7 @@ class PhaseDescription:
     segments: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'PhaseDescription':
         res = PhaseDescription(
             jsonObj['name'],
             jsonObj['puristname'],
@@ -31,3 +31,10 @@ class PhaseDescription:
             for seg in jsonObj['segments']:
                 res.segments.append(PhaseSegment.from_json(seg))
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

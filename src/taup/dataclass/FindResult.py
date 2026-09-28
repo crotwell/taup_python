@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from typing import TYPE_CHECKING
 from .Arrival import Arrival
 
@@ -14,7 +14,7 @@ class FindResult:
     arrivals: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'FindResult':
         res = FindResult(
             jsonObj['model'],
             jsonObj['maxactions'],
@@ -28,3 +28,10 @@ class FindResult:
             for arr in jsonObj['arrivals']:
                 res.arrivals.append(Arrival.from_json(arr))
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

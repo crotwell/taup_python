@@ -35,13 +35,13 @@ class FindQuery:
     self._time=[]
     self._velocitymodeltext=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> FindResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return FindResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -91,7 +91,7 @@ class FindQuery:
     """
     Sets the amp parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     show amplitude factor for each phase
 
@@ -271,7 +271,7 @@ class FindQuery:
     """
     Sets the ellipticity parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     Apply ellipticity correction to time, as implemented by ellipticipy
 
@@ -493,7 +493,7 @@ class FindQuery:
     """
     Sets the onlynameddiscon parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only interact with named discontinuities like moho, cmb, iocb
 
@@ -638,7 +638,7 @@ class FindQuery:
     """
     Sets the pwaveonly parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only P wave legs, no S
 
@@ -818,7 +818,7 @@ class FindQuery:
     """
     Sets the showrayparam parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     show min and max ray parameter for each phase name
 
@@ -1001,7 +1001,7 @@ class FindQuery:
     """
     Sets the swaveonly parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only S wave legs, no P
 
@@ -1127,4 +1127,3 @@ class FindQuery:
     if self._velocitymodeltext is not None:
       params["velocitymodeltext"] = self._velocitymodeltext
     return params
-

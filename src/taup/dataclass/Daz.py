@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
 from .LatLonDepth import LatLonDepth
 from .DistCalcType import DistCalcType
@@ -14,7 +14,7 @@ class Daz:
     disttype: DistCalcType|None = None
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'Daz':
         daz = Daz(jsonObj['deg'],
                       jsonObj['az'],jsonObj['baz'],
                       [jsonObj['source']['lat'], jsonObj['source']['lon']],
@@ -28,3 +28,10 @@ class Daz:
         if "disttype" in jsonObj:
             daz.disttype = DistCalcType.from_json(jsonObj['disttype'])
         return daz
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

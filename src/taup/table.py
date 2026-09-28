@@ -16,7 +16,7 @@ class TableQuery:
     self._scatter=[]
     self._velocitymodeltext=None
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -74,7 +74,7 @@ class TableQuery:
     """
     Sets the derivative parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     include derivative calculations
 
@@ -95,7 +95,7 @@ class TableQuery:
     """
     Sets the generic parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     outputs as Text
 
@@ -117,7 +117,7 @@ class TableQuery:
     """
     Sets the generic parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     outputs as Text
 
@@ -499,4 +499,3 @@ class TableQuery:
     if self._velocitymodeltext is not None:
       params["velocitymodeltext"] = self._velocitymodeltext
     return params
-

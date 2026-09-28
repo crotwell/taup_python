@@ -12,13 +12,13 @@ class DisconQuery:
     self._slowness=None
     self._velocitymodeltext=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> DisconResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return DisconResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -142,7 +142,7 @@ class DisconQuery:
     """
     Sets the slowness parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     output the slowness for each discontinuity also
 
@@ -187,4 +187,3 @@ class DisconQuery:
     if self._velocitymodeltext is not None:
       params["velocitymodeltext"] = self._velocitymodeltext
     return params
-

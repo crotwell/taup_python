@@ -10,3 +10,5 @@ class TestTauPDiscon:
         jsonAns = params.calcJson(taupserver)
         ans = taup.dataclass.DisconResult.from_json(jsonAns)
         jsonMatchDataclass(jsonAns, ans)
+        # dataclass to dict
+        jsonMatchDataclass(ans.__dict__, ans)

@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
 from .Source import Source
 
@@ -17,7 +17,7 @@ class Amplitude:
     source: Source
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'Amplitude':
         return Amplitude(
             jsonObj['factorpsv'],
             jsonObj['factorsh'],
@@ -31,3 +31,10 @@ class Amplitude:
             jsonObj['refltransh'],
             Source.from_json(jsonObj['source'])
             )
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

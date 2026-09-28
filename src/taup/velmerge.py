@@ -15,13 +15,13 @@ class VelmergeQuery:
     self._velocitymodelmergetext=None
     self._velocitymodeltext=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> VelocityModel:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return VelocityModel.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -105,7 +105,7 @@ class VelmergeQuery:
     """
     Sets the smoothbot parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     smooth merge at bottom
 
@@ -126,7 +126,7 @@ class VelmergeQuery:
     """
     Sets the smoothtop parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     smooth merge at top
 
@@ -196,4 +196,3 @@ class VelmergeQuery:
     if self._velocitymodeltext is not None:
       params["velocitymodeltext"] = self._velocitymodeltext
     return params
-

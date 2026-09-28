@@ -36,13 +36,13 @@ class RefltransQuery:
     self._x=None
     self._y=[]
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> ReflTransResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return ReflTransResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -100,7 +100,7 @@ class RefltransQuery:
     """
     Sets the abs parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     absolute value of amplitude factor
 
@@ -121,7 +121,7 @@ class RefltransQuery:
     """
     Sets the angles parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     all angle coefficients, like TpAngle
 
@@ -180,7 +180,7 @@ class RefltransQuery:
     """
     Sets the down parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     incident is downgoing
 
@@ -201,7 +201,7 @@ class RefltransQuery:
     """
     Sets the energyflux parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     all energy flux coefficients, like TppEnergy
 
@@ -222,7 +222,7 @@ class RefltransQuery:
     """
     Sets the fsrf parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     all free surface receiver functions, like FreeRecFuncPz
 
@@ -262,7 +262,7 @@ class RefltransQuery:
     """
     Sets the legend parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     create a legend
 
@@ -382,7 +382,7 @@ class RefltransQuery:
     """
     Sets the phase parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     all displacement phase coefficients, like TppPhase
 
@@ -403,7 +403,7 @@ class RefltransQuery:
     """
     Sets the pwave parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     incident P wave
 
@@ -564,7 +564,7 @@ class RefltransQuery:
     """
     Sets the shwave parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     incident SH wave
 
@@ -709,7 +709,7 @@ class RefltransQuery:
     """
     Sets the swave parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     incident S wave
 
@@ -730,7 +730,7 @@ class RefltransQuery:
     """
     Sets the up parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     incident is upgoing, reverses the sense of the boundary
 
@@ -918,4 +918,3 @@ class RefltransQuery:
     if len(self._y) > 0:
       params["y"] = self._y
     return params
-

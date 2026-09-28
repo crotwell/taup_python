@@ -28,13 +28,13 @@ class WavefrontQuery:
     self._xaxis=None
     self._yaxis=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> WavefrontResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return WavefrontResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -150,7 +150,7 @@ class WavefrontQuery:
     """
     Sets the legend parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     create a legend
 
@@ -270,7 +270,7 @@ class WavefrontQuery:
     """
     Sets the negdist parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     outputs negative distance as well so wavefronts are in both halves.
 
@@ -291,7 +291,7 @@ class WavefrontQuery:
     """
     Sets the onlynameddiscon parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only draw circles on the plot for named discontinuities like moho, cmb, iocb but not 410
 
@@ -681,7 +681,7 @@ class WavefrontQuery:
     """
     Sets the timefiles parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     outputs each time into a separate file within the gmt script.
 
@@ -819,4 +819,3 @@ class WavefrontQuery:
     if self._yaxis is not None:
       params["yaxis"] = self._yaxis
     return params
-

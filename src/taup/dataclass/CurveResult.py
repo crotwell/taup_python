@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 from .Scatter import Scatter
 from .Curve import Curve
@@ -13,7 +13,7 @@ class CurveResult:
     curves: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'CurveResult':
         res = CurveResult(
             jsonObj['model'],
             jsonObj['sourcedepthlist'],
@@ -25,3 +25,10 @@ class CurveResult:
         for c in jsonObj['curves']:
             res.curves.append(Curve.from_json(c))
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

@@ -7,7 +7,7 @@ class VersionQuery:
     self.toolname= "version"
 
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -48,4 +48,3 @@ class VersionQuery:
       "format": "json",
     }
     return params
-

@@ -16,7 +16,7 @@ class TestTauPPierce:
             params.station( *sta )
         ans = params.calc(taupserver)
         assert len(ans.arrivals) > 0
-        assert getattr(ans.arrivals[0], 'pierce') is not None 
+        assert getattr(ans.arrivals[0], 'pierce') is not None
 
     def testDataClass(self, taupserver):
 
@@ -31,4 +31,5 @@ class TestTauPPierce:
         # pierce uses TimeResult
         ans = taup.dataclass.TimeResult.from_json(jsonAns)
         jsonMatchDataclass(jsonAns, ans)
-
+        # dataclass to dict
+        jsonMatchDataclass(ans.__dict__, ans)

@@ -63,13 +63,13 @@ class BeachballQuery:
     self._takeoffrange=[]
     self._velocitymodeltext=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> BeachballResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return BeachballResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -127,7 +127,7 @@ class BeachballQuery:
     """
     Sets the allindex parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     all arrivals at sampling of model
 
@@ -148,7 +148,7 @@ class BeachballQuery:
     """
     Sets the arrows parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     Arrows to show direction for svg.
 
@@ -530,7 +530,7 @@ class BeachballQuery:
     """
     Sets the ellipticity parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     Apply ellipticity correction to time, as implemented by ellipticipy
 
@@ -788,7 +788,7 @@ class BeachballQuery:
     """
     Sets the geodetic parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
@@ -1118,7 +1118,7 @@ class BeachballQuery:
     """
     Sets the legend parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     create a legend
 
@@ -1419,7 +1419,7 @@ class BeachballQuery:
     """
     Sets the phasecircles parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     Draw circles for takeoff range for phases.
 
@@ -2289,4 +2289,3 @@ class BeachballQuery:
     if self._velocitymodeltext is not None:
       params["velocitymodeltext"] = self._velocitymodeltext
     return params
-

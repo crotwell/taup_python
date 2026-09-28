@@ -36,13 +36,13 @@ class CurveQuery:
     self._ylog=None
     self._yminmax=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> CurveResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return CurveResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -158,7 +158,7 @@ class CurveQuery:
     """
     Sets the legend parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     create a legend
 
@@ -780,7 +780,7 @@ class CurveQuery:
     """
     Sets the xabs parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     X axis is absolute value
 
@@ -842,7 +842,7 @@ class CurveQuery:
     """
     Sets the xlog parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     X axis is log
 
@@ -882,7 +882,7 @@ class CurveQuery:
     """
     Sets the yabs parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     Y axis is absolute value
 
@@ -944,7 +944,7 @@ class CurveQuery:
     """
     Sets the ylog parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     Y axis is log
 
@@ -1037,4 +1037,3 @@ class CurveQuery:
     if self._yminmax is not None:
       params["yminmax"] = self._yminmax
     return params
-

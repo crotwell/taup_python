@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 from .CurveSegment import CurveSegment
 
@@ -11,7 +11,7 @@ class Curve:
     segments: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'Curve':
         res = Curve(
             jsonObj['label'],
             jsonObj['description'],
@@ -21,3 +21,10 @@ class Curve:
         for s in jsonObj['segments']:
             res.segments.append(CurveSegment.from_json(s))
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

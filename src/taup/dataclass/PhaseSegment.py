@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 from .PhaseBranch import PhaseBranch
 
@@ -9,7 +9,7 @@ class PhaseSegment:
     branchseq: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'PhaseSegment':
         res = PhaseSegment(
             jsonObj['maxrayparam'],
             jsonObj['minrayparam']
@@ -17,3 +17,10 @@ class PhaseSegment:
         for bs in jsonObj['branchseq']:
             res.branchseq.append(PhaseBranch.from_json(bs))
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

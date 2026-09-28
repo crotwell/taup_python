@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 @dataclass
 class PhaseBranch:
@@ -11,7 +11,7 @@ class PhaseBranch:
     depths: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'PhaseBranch':
         res = PhaseBranch(
             jsonObj['name'],
             jsonObj['updown'],
@@ -22,3 +22,10 @@ class PhaseBranch:
         res.branches = jsonObj['branches']
         res.depths = jsonObj['depths']
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

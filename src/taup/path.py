@@ -62,13 +62,13 @@ class PathQuery:
     self._xaxis=None
     self._yaxis=None
 
-  def calc(self, taupServer):
+  def calc(self, taupServer) -> TimeResult:
     """
     Sends all params to the server, returns the result parsed from JSON into dataclasses.
     """
     return TimeResult.from_json(self.calcJson(taupServer))
 
-  def asCommandLine(self, taupServer):
+  def asCommandLine(self, taupServer) -> str:
     """
     Sends all params to the server, returns the equivalent command line.
     """
@@ -126,7 +126,7 @@ class PathQuery:
     """
     Sets the allindex parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     all arrivals at sampling of model
 
@@ -441,7 +441,7 @@ class PathQuery:
     """
     Sets the ellipticity parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     Apply ellipticity correction to time, as implemented by ellipticipy
 
@@ -699,7 +699,7 @@ class PathQuery:
     """
     Sets the geodetic parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     use geodetic latitude for distance calculations, which implies an ellipticity. Default is spherical. Note this only affects calculation of distance from lat/lon pairs, all travel time calculations are done in a purely spherical model.
 
@@ -990,7 +990,7 @@ class PathQuery:
     """
     Sets the label parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     label with phase name
 
@@ -1011,7 +1011,7 @@ class PathQuery:
     """
     Sets the legend parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     create a legend
 
@@ -1150,7 +1150,7 @@ class PathQuery:
     """
     Sets the onlynameddiscon parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     only draw circles on the plot for named discontinuities like moho, cmb, iocb
 
@@ -2018,7 +2018,7 @@ class PathQuery:
     """
     Sets the withlatlon parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     include lat,lon for path points in output.
 
@@ -2039,7 +2039,7 @@ class PathQuery:
     """
     Sets the withtime parameter, of type Boolean
 
-    Without arguments sets the value to True. 
+    Without arguments sets the value to True.
 
     include time for each path point, no effect for SVG.
 
@@ -2207,4 +2207,3 @@ class PathQuery:
     if self._yaxis is not None:
       params["yaxis"] = self._yaxis
     return params
-

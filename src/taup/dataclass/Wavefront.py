@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 from .WavefrontPathSegment import WavefrontPathSegment
 
@@ -12,7 +12,7 @@ class Wavefront:
     segments: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'Wavefront':
         res = Wavefront(
             jsonObj['time'],
             jsonObj['phase'],
@@ -23,3 +23,10 @@ class Wavefront:
         for s in jsonObj['segments']:
             res.segments.append(WavefrontPathSegment.from_json(s))
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
 @dataclass
 class NamedDiscon:
@@ -7,7 +7,7 @@ class NamedDiscon:
     preferredname: str=""
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'NamedDiscon':
         res = NamedDiscon(
             jsonObj['name'],
             jsonObj['depth'])
@@ -16,3 +16,10 @@ class NamedDiscon:
         else:
             res.preferredname = res.name
         return res
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)

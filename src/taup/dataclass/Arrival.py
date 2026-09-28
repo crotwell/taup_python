@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from typing import TYPE_CHECKING
 
 from .PathSegment import PathSegment
@@ -39,7 +39,7 @@ class Arrival:
     ellipticitycorrection: float|None =None
 
     @classmethod
-    def from_json(cls, jsonObj):
+    def from_json(cls, jsonObj) -> 'Arrival' :
         arr = Arrival(
             jsonObj['sourcedepth'],
             jsonObj['receiverdepth'],
@@ -82,6 +82,14 @@ class Arrival:
             for p in jsonObj['path']:
                 arr.path.append(PathSegment.from_json(p))
         return arr
+
+    @property
+    def __dict__(self):
+        """
+        as a python dictionary
+        """
+        return asdict(self)
+
 
     @property
     def azimuth(self):
