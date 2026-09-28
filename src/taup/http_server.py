@@ -1,5 +1,4 @@
-
-from threading  import Thread, Event
+from threading import Thread, Event
 from pathlib import Path
 import json
 import shutil
@@ -13,36 +12,38 @@ import traceback
 from .taupversion import TAUP_VERSION
 from . import __version__
 
-VERBOSE=False
+VERBOSE = False
 
-POST="POST"
-GET="GET"
-DEFAULT_METHOD=POST
-DEFAULT_TIMEOUT=10
+POST = "POST"
+GET = "GET"
+DEFAULT_METHOD = POST
+DEFAULT_TIMEOUT = 10
 
 """
 This starts the 'taup web' process within the script, avoiding a two step
 process to get the results. Many queries can be sent to the server,
 saving significant spin up/shutdown time.
 """
+
+
 class TauPServer:
     port: int
     method: str = DEFAULT_METHOD
-    taup_path: str|None = None
+    taup_path: str | None = None
     models: list = []
-    verbose: bool =VERBOSE
+    verbose: bool = VERBOSE
     timeout: int = DEFAULT_TIMEOUT
 
     def __init__(self, taup_path=None, models=[], verbose=VERBOSE):
-        self.method=DEFAULT_METHOD
+        self.method = DEFAULT_METHOD
         self.models = models
         self.verbose = verbose
         self.timeout = DEFAULT_TIMEOUT
         self.port = f"{random.randrange(40000, 60000)}"
         if taup_path is None:
-            self.taup_path=shutil.which("taup")
+            self.taup_path = shutil.which("taup")
         else:
-            self.taup_path=taup_path
+            self.taup_path = taup_path
         if self.taup_path is None:
             raise Exception(f"""\
                             Cannot find executable for taup, not on PATH?
@@ -53,7 +54,9 @@ class TauPServer:
                             """)
         self.taup_path = Path(self.taup_path).expanduser().resolve()
         if not self.taup_path.exists():
-            raise Exception(f"{self.taup_path} doesn't exist, TauP Toolkit not on installed?")
+            raise Exception(
+                f"{self.taup_path} doesn't exist, TauP Toolkit not on installed?"
+            )
         if self.verbose:
             print(f"TauP: {self.taup_path}", file=sys.stderr)
         self._taup = None
@@ -64,10 +67,11 @@ class TauPServer:
         if self.models is not None and len(self.models) > 0:
             self._cmd.append("--models")
             self._cmd.extend(self.models)
-        self._taup = subprocess.Popen(self._cmd,
-                          stdout=subprocess.PIPE,
-                          stderr=subprocess.STDOUT, close_fds=True)
-        if self.verbose: print(f"starting... {' '.join(self._cmd)}", file=sys.stderr)
+        self._taup = subprocess.Popen(
+            self._cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, close_fds=True
+        )
+        if self.verbose:
+            print(f"starting... {' '.join(self._cmd)}", file=sys.stderr)
         time.sleep(1)
         # read a line, makes sure service has had time to start
         # we should see a line with the url like
@@ -86,7 +90,7 @@ class TauPServer:
             if startupOk:
                 break
         if not startupOk:
-            raise Exception("Unable to startup taup web:"+("\n".join(startLines)))
+            raise Exception("Unable to startup taup web:" + ("\n".join(startLines)))
 
         # thread just to pull taup stdout and print it to our stderr output
         def copyStdOut(out, stop_event):
@@ -96,11 +100,14 @@ class TauPServer:
                     if self.verbose and len(line) > 0:
                         print(f"TauP: {line}", file=sys.stderr)
             except Exception as err:
-                print('exception, quitting copy to stderr', file=sys.stderr)
+                print("exception, quitting copy to stderr", file=sys.stderr)
                 traceback.print_exception(err, file=sys.stderr)
                 return
-        self._stop_event=Event()
-        self._stdout_thread = Thread(target=copyStdOut, daemon=True, args=(self._taup.stdout, self._stop_event))
+
+        self._stop_event = Event()
+        self._stdout_thread = Thread(
+            target=copyStdOut, daemon=True, args=(self._taup.stdout, self._stop_event)
+        )
         self._stdout_thread.start()
         self.checkVersion()
         return self
@@ -116,12 +123,12 @@ class TauPServer:
                 self._taup.wait(3)
             except:
                 self._taup.kill()
-            self._taup=None
-            if self.verbose: print("TauP shutdown...", file=sys.stderr)
+            self._taup = None
+            if self.verbose:
+                print("TauP shutdown...", file=sys.stderr)
         if self._stop_event is not None:
             self._stop_event.set()
             self._stop_event = None
-
 
     def checkVersion(self):
         """
@@ -133,19 +140,19 @@ class TauPServer:
         params = {}
         params["format"] = "json"
         serverVersion = self.retrieveJson(params, "version", GET)
-        serverVersion = serverVersion['version']
-        sVerMajor, sVerMinor, sVerMicro = serverVersion.split('.', maxsplit=2)
+        serverVersion = serverVersion["version"]
+        sVerMajor, sVerMinor, sVerMicro = serverVersion.split(".", maxsplit=2)
         sVerSnap = None
-        if '-' in sVerMicro:
-            sVerMicro, _dash, sVerSnap = sVerMicro.partition('-')
+        if "-" in sVerMicro:
+            sVerMicro, _dash, sVerSnap = sVerMicro.partition("-")
 
         myVerSnap = None
-        myVerMajor, myVerMinor, myVerMicro = TAUP_VERSION.split('.', maxsplit=2)
-        if '-' in myVerMicro:
-            myVerMicro, _dash, myVerSnap = myVerMicro.partition('-')
+        myVerMajor, myVerMinor, myVerMicro = TAUP_VERSION.split(".", maxsplit=2)
+        if "-" in myVerMicro:
+            myVerMicro, _dash, myVerSnap = myVerMicro.partition("-")
 
         serverIsOk = False
-        message="Not OK"
+        message = "Not OK"
         if sVerMajor != myVerMajor:
             message = f"Major version mismatch! {sVerMajor} != {myVerMajor}"
         elif sVerMinor != myVerMinor:
@@ -186,8 +193,8 @@ class TauPServer:
             raise Exception("TauP is None???")
         if hasattr(params, "create_params"):
             params = params.create_params()
-        taup_url = f'http://localhost:{self.port}/{tool}'
-        params['format'] = format
+        taup_url = f"http://localhost:{self.port}/{tool}"
+        params["format"] = format
         try:
             r = self.do_request(taup_url, params)
         except requests.ConnectionError:
@@ -200,14 +207,17 @@ class TauPServer:
             raise Exception("TauP is None???")
         if hasattr(params, "create_params"):
             params = params.create_params()
-        taup_url = f'http://localhost:{self.port}/{tool}'
+        taup_url = f"http://localhost:{self.port}/{tool}"
         try:
             r = self.do_request(taup_url, params, method=method)
         except requests.ConnectionError:
             print("Connection error to taup, retrying...")
             r = self.do_request(taup_url, params, method=method)
 
-        if 'content-type' in r.headers and r.headers['content-type']=='application/json':
+        if (
+            "content-type" in r.headers
+            and r.headers["content-type"] == "application/json"
+        ):
             jsonResult = r.json()
             return jsonResult
         else:
@@ -236,7 +246,6 @@ class TauPServer:
     def queryLocsat(self, params, tool="time"):
         return self.retrieveTextual(params, tool=tool, format="locsat")
 
-
     def do_request(self, taup_url, params, method=None):
         if method is None:
             method = self.method
@@ -245,17 +254,17 @@ class TauPServer:
             print(f"Params: {json.dumps(params)}\n", file=sys.stderr)
         headers = {}
         if "format" in params:
-            if params["format"]=="json":
+            if params["format"] == "json":
                 headers["Accept"] = "application/json"
             elif params["format"] in ["text", "gmt", "nd", "tvel", "locsat"]:
                 headers["Accept"] = "text/plain"
-            elif params["format"]=="svg":
+            elif params["format"] == "svg":
                 headers["Accept"] = "image/svg+xml"
-            elif params["format"]=="csv":
+            elif params["format"] == "csv":
                 headers["Accept"] = "text/csv"
-            elif params["format"]=="html":
+            elif params["format"] == "html":
                 headers["Accept"] = "text/html"
-            elif params["format"]=="sac" or params["format"]=="ms3":
+            elif params["format"] == "sac" or params["format"] == "ms3":
                 headers["Accept"] = "application/octet-stream"
         if method == GET:
             r = requests.get(taup_url, params=params, timeout=self.timeout)
@@ -269,7 +278,7 @@ class TauPServer:
     def asCommandLine(self, params, tool="time", method=None):
         if method is None:
             method = self.method
-        cmdLineUrl = f'http://localhost:{self.port}/cmdline/{tool}'
+        cmdLineUrl = f"http://localhost:{self.port}/cmdline/{tool}"
 
         if self.verbose:
             print(f"{method} Query: {cmdLineUrl}", file=sys.stderr)
@@ -283,7 +292,6 @@ class TauPServer:
         r.raise_for_status()
         return r.text
 
-
     def preview_request(self, taup_url, params, method=None):
-            print(f"{method} Query: {taup_url}", file=sys.stderr)
-            print(f"Params: {json.dumps(params)}\n", file=sys.stderr)
+        print(f"{method} Query: {taup_url}", file=sys.stderr)
+        print(f"Params: {json.dumps(params)}\n", file=sys.stderr)
