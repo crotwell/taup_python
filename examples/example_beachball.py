@@ -4,7 +4,7 @@ import taup
 import json
 
 eventLatLon = [35, -50]
-staLatLons = [ [34, -80], [35, -81]]
+staLatLons = [[34, -80], [35, -81]]
 
 with taup.TauPServer() as taupserver:
 
@@ -13,16 +13,16 @@ with taup.TauPServer() as taupserver:
     # Refltrans, Table, Velmerge, Velplot, Version, Wavefront
     params = taup.BeachballQuery()
     # params that will stay the same can be reused
-    params.phase(["S","pS"])
-    params.model('ak135')
+    params.phase(["S", "pS"])
+    params.model("ak135")
     params.strikediprake(35, 45, -75)
-    params.hemi('lower')
+    params.hemi("lower")
     params.numpoints(50)
 
-    params.event( *eventLatLon ) # splat to expand list into function args
+    params.event(*eventLatLon)  # splat to expand list into function args
     params.sourcedepth([100])
     for sta in staLatLons:
-        params.andStation( *sta )
+        params.andStation(*sta)
 
     # calculate results, parsed as JSON and returned as dataclass objects
     bbResult = params.calc(taupserver)
@@ -38,7 +38,9 @@ with taup.TauPServer() as taupserver:
         print("    Takeoff, Azimuth, Phase, PSv, Sh")
         print("----------------------------------------------")
         for a in bb.arrivals:
-            print(f"    {a.takeoff:8.2f} {a.azimuth:8.2f}   {a.phase}   {a.amp.factorpsv:.1e} {a.amp.factorsh:.1e}")
+            print(
+                f"    {a.takeoff:8.2f} {a.azimuth:8.2f}   {a.phase}   {a.amp.factorpsv:.1e} {a.amp.factorsh:.1e}"
+            )
         print()
         print(f"Radiation Pattern: ({params.get_hemi()})")
         print("   Takeoff  Azimuth      P      Sv      Sh")

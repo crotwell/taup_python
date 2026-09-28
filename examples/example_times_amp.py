@@ -2,14 +2,14 @@
 
 import taup
 
-staLatLons = [ [34, -80], [35, -81]]
+staLatLons = [[34, -80], [35, -81]]
 
 with taup.TauPServer() as taupserver:
     params = taup.TimeQuery()
     # params that will stay the same can be reused
-    params.phase(["SKS","SKKS"])
-    params.model('ak135fcont')
-    params.geodist('geodetic')
+    params.phase(["SKS", "SKKS"])
+    params.model("ak135fcont")
+    params.geodist("geodetic")
     params.amp()
     params.strikediprake(35, 75, 90)
     params.mw(6)
@@ -18,7 +18,7 @@ with taup.TauPServer() as taupserver:
 
     for sta in staLatLons:
         # params that will vary with each iteration
-        params.station( *sta )
+        params.station(*sta)
 
         # calculate results, parsed as JSON and returned as dataclass objects
         timeResult = params.calc(taupserver)
@@ -27,11 +27,15 @@ with taup.TauPServer() as taupserver:
         else:
             print("Phase Depth    Dist    Time     Amp      Desc")
         for a in timeResult.arrivals:
-            #print(a)
-            print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.amp.factorpsv:.1e}  {a.desc}")
+            # print(a)
+            print(
+                f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.amp.factorpsv:.1e}  {a.desc}"
+            )
             if len(a.pierce) != 0:
                 print("Pierce:")
                 for p in a.pierce:
                     print(f"  {p}")
             if a.relative:
-                print(f"    Relative: {a.phase} - {a.relative.arrival.phase} = {a.relative.difference} s")
+                print(
+                    f"    Relative: {a.phase} - {a.relative.arrival.phase} = {a.relative.difference} s"
+                )

@@ -2,8 +2,8 @@
 
 import taup
 
-eventLatLons = [ [35, -50], [-29, 45]]
-staLatLons = [ [34, -80], [35, -81]]
+eventLatLons = [[35, -50], [-29, 45]]
+staLatLons = [[34, -80], [35, -81]]
 
 with taup.TauPServer() as taupserver:
 
@@ -12,13 +12,13 @@ with taup.TauPServer() as taupserver:
     # Refltrans, Table, Velmerge, Velplot, Version, Wavefront
     params = taup.TimeQuery()
     params.phase(["P", "S"])
-    params.model('ak135')
+    params.model("ak135")
     params.geodetic(True)
 
-    params.event( *eventLatLons[0] )
+    params.event(*eventLatLons[0])
     params.sourcedepth([100])
     for sta in staLatLons:
-        params.andStation( *sta )
+        params.andStation(*sta)
 
     # get result as text, or other format depending on the tool, like:
     # calcGmt, calcSvg, calcJson, calcCsv...

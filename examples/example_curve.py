@@ -4,17 +4,15 @@ import taup
 
 with taup.TauPServer() as taupserver:
 
-
     # query params correspond to the tools, may be any one of:
     # Time, Pierce, Path, Curve, Discon, Distaz, Find, Phase,
     # Refltrans, Table, Velmerge, Velplot, Version, Wavefront
     params = taup.CurveQuery()
     # params that will stay the same can be reused
-    params.phase(["S","PedoS"])
-    params.model('ak135')
+    params.phase(["S", "PedoS"])
+    params.model("ak135")
     params.scatter(500, 2)
     params.rel("P")
-
 
     # calculate results, parsed as JSON and returned as dataclass objects
     curveResult = params.calc(taupserver)

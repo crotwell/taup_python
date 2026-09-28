@@ -12,8 +12,12 @@ with taup.TauPServer() as taupserver:
     else:
         print("Phase  SourceDepth   MinDist   MaxDist")
         for a in phaseResult.descriptions:
-            print(f"{a.name}      {a.sourcedepth}     {a.minexists.dist}   {a.maxexists.dist}")
+            print(
+                f"{a.name}      {a.sourcedepth}     {a.minexists.dist}   {a.maxexists.dist}"
+            )
             for seg in a.segments:
                 for bs in seg.branchseq:
-                    print(f"    {bs.name} {bs.updown} depth {bs.depths[0]} to {bs.depths[1]} then {bs.then}")
+                    print(
+                        f"    {bs.name} {bs.updown} depth {bs.depths[0]} to {bs.depths[1]} then {bs.then}"
+                    )
                 print()

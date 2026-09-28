@@ -11,14 +11,13 @@ with taup.TauPServer() as taupserver:
     # params that will stay the same can be reused
     params.geodist(["spherical", "geocentric", "geodetic"])
 
-
-    eventLatLons = [ [35, -50], [-29, 45]]
-    staLatLons = [ [34, -80], [35, -81]]
+    eventLatLons = [[35, -50], [-29, 45]]
+    staLatLons = [[34, -80], [35, -81]]
 
     for sta in staLatLons:
-        params.station( *sta )
+        params.station(*sta)
         for evt in eventLatLons:
-            params.event( *evt )
+            params.event(*evt)
             # calculate results, parsed as JSON and returned as dataclass objects
             distazResult = params.calc(taupserver)
             for distcalc in distazResult.disttypes:
@@ -28,4 +27,6 @@ with taup.TauPServer() as taupserver:
                     print(f"      flattening= 1/{distcalc.invflattening}")
             for d in distazResult.distances:
                 km = f"Km: {d.km}" if d.km is not None else ""
-                print(f"{d.disttype.type} from {sta} to {evt}: Dist: {d.deg} Az: {d.az} Baz: {d.baz} {km}")
+                print(
+                    f"{d.disttype.type} from {sta} to {evt}: Dist: {d.deg} Az: {d.az} Baz: {d.baz} {km}"
+                )

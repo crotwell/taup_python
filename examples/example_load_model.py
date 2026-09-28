@@ -27,7 +27,9 @@ with taup.TauPServer() as taupserver:
         print(e)
         raise e
     except:
-        print(f"Could't find {modelfilename}, downloading iasp91 and saving as mymodel.json")
+        print(
+            f"Could't find {modelfilename}, downloading iasp91 and saving as mymodel.json"
+        )
         print("Edit mymodel.json and then rerun...")
         velmodParams = taup.VelmergeQuery()
         velmodParams.model("iasp91")

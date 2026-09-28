@@ -3,7 +3,7 @@ import taup
 with taup.TauPServer(verbose=True) as taupserver:
     timeParams = taup.TimeQuery()
     timeParams.phase(["P", "S"])
-    timeParams.mod('ak135')
+    timeParams.mod("ak135")
     timeParams.degree(35)
     timeResult = timeParams.calc(taupserver)
     print("Phase  Depth   Dist   Time")

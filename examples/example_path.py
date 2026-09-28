@@ -2,8 +2,10 @@
 
 import taup
 
-eventLatLons = [ [-35, -50], ]
-staLatLons = [  [35, -81]]
+eventLatLons = [
+    [-35, -50],
+]
+staLatLons = [[35, -81]]
 
 with taup.TauPServer() as taupserver:
 
@@ -12,25 +14,27 @@ with taup.TauPServer() as taupserver:
     params = taup.PathQuery()
     # params that will stay the same
     params.phase(["P", "SKS"])
-    params.model('ak135')
+    params.model("ak135")
     params.geodetic(True)
 
-    params.event( *eventLatLons[0] )
+    params.event(*eventLatLons[0])
     params.sourcedepth([100])
     for sta in staLatLons:
-        params.station( *sta )
+        params.station(*sta)
 
         # get result as text, or other format depending on the tool, like:
         # gmt, svg, json, csv...
-        #textResult = params.calcSvg(taupserver)
-        #print(textResult)
+        # textResult = params.calcSvg(taupserver)
+        # print(textResult)
         # or
-        #textResult = params.calcGmt(taupserver)
-        #print(textResult)
+        # textResult = params.calcGmt(taupserver)
+        # print(textResult)
         # or
         pathResult = params.calc(taupserver)
         for a in pathResult.arrivals:
-            print(f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc if a.desc is not None else ''}")
+            print(
+                f"{a.phase}   {a.sourcedepth} {a.distdeg} {a.time}  {a.desc if a.desc is not None else ''}"
+            )
             if a.pathlength is not None:
                 print(f"  Path length: {a.pathlength} km")
             else:
@@ -38,4 +42,6 @@ with taup.TauPServer() as taupserver:
             for pathseg in a.path:
                 firstPoint = pathseg.segment[0]
                 lastPoint = pathseg.segment[-1]
-                print(f"    {pathseg.name} as {pathseg.wavetype} from {firstPoint.depth} km at {firstPoint.distdeg} deg to {lastPoint.depth} km at {lastPoint.distdeg} deg takes {lastPoint.time-firstPoint.time} sec")
+                print(
+                    f"    {pathseg.name} as {pathseg.wavetype} from {firstPoint.depth} km at {firstPoint.distdeg} deg to {lastPoint.depth} km at {lastPoint.distdeg} deg takes {lastPoint.time-firstPoint.time} sec"
+                )

@@ -2,8 +2,8 @@
 
 import taup
 
-eventLatLons = [ [35, -50], [-29, 45]]
-staLatLons = [ [34, -80], [35, -81]]
+eventLatLons = [[35, -50], [-29, 45]]
+staLatLons = [[34, -80], [35, -81]]
 
 with taup.TauPServer() as taupserver:
 
@@ -12,8 +12,8 @@ with taup.TauPServer() as taupserver:
     # Refltrans, Table, Velmerge, Velplot, Version, Wavefront
     params = taup.WavefrontQuery()
     # params that will stay the same can be reused
-    params.phase(["S","PedoS"])
-    params.model('ak135')
+    params.phase(["S", "PedoS"])
+    params.model("ak135")
     params.scatter(500, 2)
 
     # calculate results, parsed as JSON and returned as dataclass objects
