@@ -1,5 +1,6 @@
 from dataclasses import dataclass, asdict
 
+
 @dataclass
 class DisconLayer:
     Vp: float
@@ -9,10 +10,14 @@ class DisconLayer:
     slowness_s: float
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'DisconLayer':
-        return DisconLayer(jsonObj["vp"], jsonObj["vs"],
-                            jsonObj["density"],
-                            jsonObj["slowness_p"], jsonObj["slowness_s"])
+    def from_json(cls, jsonObj) -> "DisconLayer":
+        return DisconLayer(
+            jsonObj["vp"],
+            jsonObj["vs"],
+            jsonObj["density"],
+            jsonObj["slowness_p"],
+            jsonObj["slowness_s"],
+        )
 
     @property
     def __dict__(self):
@@ -20,6 +25,7 @@ class DisconLayer:
         as a python dictionary
         """
         return asdict(self)
+
 
 @dataclass
 class Discontinuity:
@@ -30,7 +36,7 @@ class Discontinuity:
     below: DisconLayer | None
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'Discontinuity':
+    def from_json(cls, jsonObj) -> "Discontinuity":
         above = None
         if "above" in jsonObj:
             l = jsonObj["above"]
@@ -44,7 +50,7 @@ class Discontinuity:
             jsonObj["name"] if "name" in jsonObj else None,
             jsonObj["preferredname"] if "preferredname" in jsonObj else None,
             above,
-            below
+            below,
         )
 
     @property
@@ -54,13 +60,14 @@ class Discontinuity:
         """
         return asdict(self)
 
+
 @dataclass
 class ModelDiscon:
     modelname: str
     discontinuities: list[Discontinuity]
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'ModelDiscon':
+    def from_json(cls, jsonObj) -> "ModelDiscon":
         disconResult = []
         for d in jsonObj["discontinuities"]:
             disconResult.append(Discontinuity.from_json(d))
@@ -73,17 +80,17 @@ class ModelDiscon:
         """
         return asdict(self)
 
+
 @dataclass
 class DisconResult:
     models: list[ModelDiscon]
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'DisconResult':
+    def from_json(cls, jsonObj) -> "DisconResult":
         modelResults = []
         for mr in jsonObj["models"]:
             modelResults.append(ModelDiscon.from_json(mr))
-        res = DisconResult(
-            modelResults)
+        res = DisconResult(modelResults)
         return res
 
     @property

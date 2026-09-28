@@ -9,26 +9,26 @@ class PhaseDescription:
     puristname: str
     sourcedepth: float
     receiverdepth: float
-    fail: str|None = None
-    minexists: PhaseRay|None = None
-    maxexists: PhaseRay|None = None
+    fail: str | None = None
+    minexists: PhaseRay | None = None
+    maxexists: PhaseRay | None = None
     shadow: list = field(default_factory=list)
     segments: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'PhaseDescription':
+    def from_json(cls, jsonObj) -> "PhaseDescription":
         res = PhaseDescription(
-            jsonObj['name'],
-            jsonObj['puristname'],
-            jsonObj['sourcedepth'],
-            jsonObj['receiverdepth']
-            )
-        if 'fail' in jsonObj:
-            res.fail = jsonObj['fail']
+            jsonObj["name"],
+            jsonObj["puristname"],
+            jsonObj["sourcedepth"],
+            jsonObj["receiverdepth"],
+        )
+        if "fail" in jsonObj:
+            res.fail = jsonObj["fail"]
         else:
-            res.minexists = PhaseRay.from_json(jsonObj['minexists'])
-            res.maxexists = PhaseRay.from_json(jsonObj['maxexists'])
-            for seg in jsonObj['segments']:
+            res.minexists = PhaseRay.from_json(jsonObj["minexists"])
+            res.maxexists = PhaseRay.from_json(jsonObj["maxexists"])
+            for seg in jsonObj["segments"]:
                 res.segments.append(PhaseSegment.from_json(seg))
         return res
 

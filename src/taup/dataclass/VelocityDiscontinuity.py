@@ -9,11 +9,8 @@ class VelocityParams:
     density: float
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'VelocityParams':
-        res = VelocityParams(
-            jsonObj['vp'],
-            jsonObj['vs'],
-            jsonObj['density'])
+    def from_json(cls, jsonObj) -> "VelocityParams":
+        res = VelocityParams(jsonObj["vp"], jsonObj["vs"], jsonObj["density"])
         return res
 
     @property
@@ -30,10 +27,11 @@ class VelocityDiscontinuity:
     transmitted: VelocityParams
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'VelocityDiscontinuity':
+    def from_json(cls, jsonObj) -> "VelocityDiscontinuity":
         res = VelocityDiscontinuity(
-            VelocityParams.from_json(jsonObj['incident']),
-            VelocityParams.from_json(jsonObj['transmitted']))
+            VelocityParams.from_json(jsonObj["incident"]),
+            VelocityParams.from_json(jsonObj["transmitted"]),
+        )
         return res
 
     @property

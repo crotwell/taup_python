@@ -8,15 +8,16 @@ if TYPE_CHECKING:
 @dataclass
 class RelativeArrival:
     difference: float
-    arrival: Any  #Arrival
+    arrival: Any  # Arrival
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'RelativeArrival':
+    def from_json(cls, jsonObj) -> "RelativeArrival":
         # this seems dumb, but circular references...
         from .Arrival import Arrival
+
         return RelativeArrival(
-            jsonObj['difference'],
-            Arrival.from_json(jsonObj['arrival']))
+            jsonObj["difference"], Arrival.from_json(jsonObj["arrival"])
+        )
 
     @property
     def __dict__(self):

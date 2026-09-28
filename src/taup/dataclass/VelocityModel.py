@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 from .VelocityLayer import VelocityLayer, VelocityLayerParams
 from .NamedDiscon import NamedDiscon
 
+
 @dataclass
 class VelocityModel:
     modelname: str
@@ -15,17 +16,18 @@ class VelocityModel:
     layers: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'VelocityModel':
+    def from_json(cls, jsonObj) -> "VelocityModel":
         res = VelocityModel(
-            jsonObj['modelname'],
-            jsonObj['modelradius'],
-            jsonObj['minradius'],
-            jsonObj['maxradius'],
-            jsonObj['spherical'])
+            jsonObj["modelname"],
+            jsonObj["modelradius"],
+            jsonObj["minradius"],
+            jsonObj["maxradius"],
+            jsonObj["spherical"],
+        )
 
-        for arr in jsonObj['layers']:
+        for arr in jsonObj["layers"]:
             res.layers.append(VelocityLayer.from_json(arr))
-        for arr in jsonObj['nameddisons']:
+        for arr in jsonObj["nameddisons"]:
             res.nameddisons.append(NamedDiscon.from_json(arr))
         return res
 

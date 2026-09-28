@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING
 
 from .SphericalCoord import SphericalCoord
 
+
 @dataclass
 class NPTAxis:
     n: SphericalCoord
@@ -10,11 +11,12 @@ class NPTAxis:
     t: SphericalCoord
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'NPTAxis':
+    def from_json(cls, jsonObj) -> "NPTAxis":
         res = NPTAxis(
-                SphericalCoord.from_json(jsonObj['n']),
-                SphericalCoord.from_json(jsonObj['p']),
-                SphericalCoord.from_json(jsonObj['t']))
+            SphericalCoord.from_json(jsonObj["n"]),
+            SphericalCoord.from_json(jsonObj["p"]),
+            SphericalCoord.from_json(jsonObj["t"]),
+        )
         return res
 
     @property

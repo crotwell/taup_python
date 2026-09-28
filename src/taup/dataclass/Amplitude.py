@@ -2,6 +2,7 @@ from dataclasses import dataclass, asdict
 
 from .Source import Source
 
+
 @dataclass
 class Amplitude:
     factorpsv: float
@@ -17,20 +18,20 @@ class Amplitude:
     source: Source
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'Amplitude':
+    def from_json(cls, jsonObj) -> "Amplitude":
         return Amplitude(
-            jsonObj['factorpsv'],
-            jsonObj['factorsh'],
-            jsonObj['geospread'],
-            jsonObj['attenuation'],
-            jsonObj['freeFactor'],
-            jsonObj['radiationPattern'],
-            jsonObj['radiationTerm'],
-            jsonObj['mgtokg'],
-            jsonObj['refltranpsv'],
-            jsonObj['refltransh'],
-            Source.from_json(jsonObj['source'])
-            )
+            jsonObj["factorpsv"],
+            jsonObj["factorsh"],
+            jsonObj["geospread"],
+            jsonObj["attenuation"],
+            jsonObj["freeFactor"],
+            jsonObj["radiationPattern"],
+            jsonObj["radiationTerm"],
+            jsonObj["mgtokg"],
+            jsonObj["refltranpsv"],
+            jsonObj["refltransh"],
+            Source.from_json(jsonObj["source"]),
+        )
 
     @property
     def __dict__(self):

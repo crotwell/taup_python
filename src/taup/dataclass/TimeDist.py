@@ -10,7 +10,7 @@ class TimeDist:
     lon: float | None = None
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'TimeDist':
+    def from_json(cls, jsonObj) -> "TimeDist":
         return TimeDist(*jsonObj)
 
     def __str__(self):

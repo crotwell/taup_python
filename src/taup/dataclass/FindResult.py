@@ -2,6 +2,7 @@ from dataclasses import dataclass, field, asdict
 from typing import TYPE_CHECKING
 from .Arrival import Arrival
 
+
 @dataclass
 class FindResult:
     model: str
@@ -14,18 +15,18 @@ class FindResult:
     arrivals: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'FindResult':
+    def from_json(cls, jsonObj) -> "FindResult":
         res = FindResult(
-            jsonObj['model'],
-            jsonObj['maxactions'],
-            jsonObj['exclude'],
-            jsonObj['foundphases'],
-            jsonObj['sourcedepthlist'],
-            jsonObj['receiverdepthlist'],
-            jsonObj['phases'],
-            )
-        if 'arrivals' in jsonObj:
-            for arr in jsonObj['arrivals']:
+            jsonObj["model"],
+            jsonObj["maxactions"],
+            jsonObj["exclude"],
+            jsonObj["foundphases"],
+            jsonObj["sourcedepthlist"],
+            jsonObj["receiverdepthlist"],
+            jsonObj["phases"],
+        )
+        if "arrivals" in jsonObj:
+            for arr in jsonObj["arrivals"]:
                 res.arrivals.append(Arrival.from_json(arr))
         return res
 

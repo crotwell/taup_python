@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field, asdict
 
+
 @dataclass
 class PhaseRay:
     dist: float
@@ -8,13 +9,13 @@ class PhaseRay:
     time: float
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'PhaseRay':
+    def from_json(cls, jsonObj) -> "PhaseRay":
         res = PhaseRay(
-            jsonObj['dist'],
-            jsonObj['modulodist'],
-            jsonObj['rayparameter'],
-            jsonObj['time']
-            )
+            jsonObj["dist"],
+            jsonObj["modulodist"],
+            jsonObj["rayparameter"],
+            jsonObj["time"],
+        )
         return res
 
     @property

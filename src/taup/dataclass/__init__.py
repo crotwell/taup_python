@@ -1,4 +1,3 @@
-
 from .dcjson import DataClassJsonEncoder
 from .Amplitude import Amplitude
 from .Arrival import Arrival

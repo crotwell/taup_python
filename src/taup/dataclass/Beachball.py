@@ -5,6 +5,7 @@ from .Arrival import Arrival
 from .NPTAxis import NPTAxis
 from .Fault import Fault
 
+
 @dataclass
 class Beachball:
 
@@ -16,18 +17,18 @@ class Beachball:
     radiationPattern: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'Beachball':
+    def from_json(cls, jsonObj) -> "Beachball":
         res = Beachball(
-            jsonObj['beachballtype'],
-            jsonObj['hemisphere'],
-            Fault.from_json(jsonObj['fault']),
-            NPTAxis.from_json(jsonObj['nptAxis'])
-            )
-        for arr in jsonObj['arrivals']:
+            jsonObj["beachballtype"],
+            jsonObj["hemisphere"],
+            Fault.from_json(jsonObj["fault"]),
+            NPTAxis.from_json(jsonObj["nptAxis"]),
+        )
+        for arr in jsonObj["arrivals"]:
             res.arrivals.append(Arrival.from_json(arr))
 
-        for rp in jsonObj['radiationPattern']:
-            res.radiationPattern.append(rp) # fix this to a dataclass?
+        for rp in jsonObj["radiationPattern"]:
+            res.radiationPattern.append(rp)  # fix this to a dataclass?
         return res
 
     @property

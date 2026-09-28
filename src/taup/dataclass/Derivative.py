@@ -1,6 +1,7 @@
 from dataclasses import dataclass, asdict
 from .DerivativeSR import DerivativeSR
 
+
 @dataclass
 class Derivative:
     source: DerivativeSR
@@ -8,12 +9,12 @@ class Derivative:
     dpddeg: float
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'Derivative':
+    def from_json(cls, jsonObj) -> "Derivative":
         return Derivative(
-            DerivativeSR.from_json(jsonObj['source']),
-            DerivativeSR.from_json(jsonObj['receiver']),
-            jsonObj['dpddeg']
-            )
+            DerivativeSR.from_json(jsonObj["source"]),
+            DerivativeSR.from_json(jsonObj["receiver"]),
+            jsonObj["dpddeg"],
+        )
 
     @property
     def __dict__(self):

@@ -3,6 +3,7 @@ from dataclasses import dataclass, field, asdict
 from .Scatter import Scatter
 from .Curve import Curve
 
+
 @dataclass
 class CurveResult:
     model: str
@@ -13,16 +14,16 @@ class CurveResult:
     curves: list = field(default_factory=list)
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'CurveResult':
+    def from_json(cls, jsonObj) -> "CurveResult":
         res = CurveResult(
-            jsonObj['model'],
-            jsonObj['sourcedepthlist'],
-            jsonObj['receiverdepthlist'],
-            jsonObj['phases']
-            )
-        if 'scatter' in jsonObj:
-            res.scatter = Scatter.from_json(jsonObj['scatter'])
-        for c in jsonObj['curves']:
+            jsonObj["model"],
+            jsonObj["sourcedepthlist"],
+            jsonObj["receiverdepthlist"],
+            jsonObj["phases"],
+        )
+        if "scatter" in jsonObj:
+            res.scatter = Scatter.from_json(jsonObj["scatter"])
+        for c in jsonObj["curves"]:
             res.curves.append(Curve.from_json(c))
         return res
 

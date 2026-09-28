@@ -6,16 +6,13 @@ class LatLonDepth:
     lat: float
     lon: float
     depth: float
-    desc: str|None = None
+    desc: str | None = None
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'LatLonDepth':
-        lld = LatLonDepth(
-            jsonObj['lat'],
-            jsonObj['lon'],
-            jsonObj['depth'])
-        if 'desc' in jsonObj:
-            lld.desc = jsonObj['desc']
+    def from_json(cls, jsonObj) -> "LatLonDepth":
+        lld = LatLonDepth(jsonObj["lat"], jsonObj["lon"], jsonObj["depth"])
+        if "desc" in jsonObj:
+            lld.desc = jsonObj["desc"]
         return lld
 
     @property

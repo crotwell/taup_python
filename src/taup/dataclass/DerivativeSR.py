@@ -1,5 +1,6 @@
 from dataclasses import dataclass, asdict
 
+
 @dataclass
 class DerivativeSR:
     velocity: float
@@ -7,12 +8,10 @@ class DerivativeSR:
     radius: float
 
     @classmethod
-    def from_json(cls, jsonObj) -> 'DerivativeSR':
+    def from_json(cls, jsonObj) -> "DerivativeSR":
         return DerivativeSR(
-            jsonObj['velocity'],
-            jsonObj['radialslowness'],
-            jsonObj['radius']
-            )
+            jsonObj["velocity"], jsonObj["radialslowness"], jsonObj["radius"]
+        )
 
     @property
     def __dict__(self):
