@@ -3,8 +3,7 @@ import pytest
 import taup
 import dataclasses
 
-
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="session")
 def taupserver():
     TAUP_PATH="~/Code/seis/TauP/build/install/TauP/bin/taup"
     with taup.TauPServer(TAUP_PATH, verbose=True) as taup_server:
