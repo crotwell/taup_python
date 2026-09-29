@@ -2,7 +2,6 @@
 requires = ["uv_build>=0.12.20,<0.13"]
 build-backend = "uv_build"
 
-
 [project]
 name = "taup"
 version = "3.2.2a"
@@ -11,7 +10,7 @@ authors = [
 ]
 description = "The TauP Toolkit, via Python"
 readme = "README.md"
-keywords = ["seismology", "traveltime"]
+keywords = ["seismology", "traveltime", "taup"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
@@ -32,8 +31,3 @@ Issues = "https://github.com/crotwell/taup_python/issues"
 addopts = [
     "--import-mode=importlib",
 ]
-
-[tool.hatch.envs.test]
-  dependencies = [
-    "pytest"
-  ]

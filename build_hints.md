@@ -9,14 +9,15 @@ Hints on publish:
 https://packaging.python.org/en/latest/tutorials/packaging-projects/
 
 ```
-conda activate taupy
-python3 -m pip install --upgrade hatch
 # make sure no extra files as anything in dir that is not gitignore will be
 # in distribution
 git status
 
-hatch clean && hatch build
-pytest
+uv version 3.2.2
+uv build
+uv run pytest
+
+# sphinx docs
 # update release/version in docs/source/conf.py
 
 # to rebuild requirements.txt
@@ -26,7 +27,7 @@ rm requirements.txt && pip-compile
 cd docs/source ; pip install -r requirements.txt; cd ../..
 cd docs ; make html && open build/html/index.html ; cd ..
 git status
-hatch publish -u __token__ --auth <token>
+uv publish --token <token>
 ```
 
 # Zenodo

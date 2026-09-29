@@ -6,11 +6,17 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import tomllib
+with open("../../pyproject.toml", "rb") as intoml:
+    pyproj = tomllib.load(intoml)
+    print(f"pyproj: {pyproj['project']['version']}")
+    print(f"pyproj release: {pyproj['project']['version'][:3]}")
+
 project = 'taup'
 copyright = '2026, Philip Crotwell'
 author = 'Philip Crotwell'
-release = '3.2'
-version = '3.2.0'
+release = pyproj['project']['version'][:3]
+version = pyproj['project']['version']
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
